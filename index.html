@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cabinet DATEXIA — L'Excellence à Votre Compte</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
+  />
+
+  <!-- Tabler Icons webfont -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/@tabler/icons-webfont@latest/dist/tabler-icons.min.css"
+  />
+
+  <style>
+    :root {
+      --ink: #0a0c14;
+      --paper: #f5f1eb;
+      --cream: #faf8f4;
+      --accent: #c8622a;
+      --accent2: #2a4c8a;
+      --gold: #c9a84c;
+      --muted: #7a7670;
+      --border: rgba(10, 12, 20, 0.1);
+      --nav-h: 72px;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;font-size:16px;}
+    body{
+      font-family:'DM Sans',sans-serif;
+      background:var(--cream);
+      color:var(--ink);
+      overflow-x:hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar{width:4px;}
+    ::-webkit-scrollbar-track{background:var(--paper);}
+    ::-webkit-scrollbar-thumb{background:var(--accent);}
+
+    /* ── NAV ── */
+    nav{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      height:var(--nav-h);
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 5vw;
+      background:rgba(245,241,235,0.92);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--border);
+      transition:box-shadow .3s;
+    }
+    nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.08);}
+    .logo{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.6rem;font-weight:600;letter-spacing:.04em;
+      color:var(--ink);text-decoration:none;
+      display:flex;align-items:center;gap:.6rem;
+    }
+    .logo span{color:var(--accent);}
+    .logo-icon{
+      width:32px;height:32px;border:2px solid var(--accent);
+      border-radius:6px;display:flex;align-items:center;justify-content:center;
+      font-size:.9rem;color:var(--accent);font-weight:700;
+    }
+    .nav-links{display:flex;gap:2.5rem;align-items:center;list-style:none;}
+    .nav-links a{
+      font-size:.82rem;font-weight:400;letter-spacing:.06em;text-transform:uppercase;
+      color:var(--muted);text-decoration:none;transition:color .2s;
+    }
+    .nav-links a:hover{color:var(--ink);}
+    .nav-cta{
+      background:var(--accent);color:#fff !important;
+      padding:.5rem 1.2rem;border-radius:100px;
+      font-size:.78rem !important;letter-spacing:.08em;
+      transition:background .2s !important;
+    }
+    .nav-cta:hover{background:#a84d1e !important;color:#fff !important;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+    .hamburger span{width:22px;height:2px;background:var(--ink);display:block;transition:.3s;}
+
+    /* ── HERO ── */
+    #hero{
+      min-height:100vh;
+      display:grid;grid-template-columns:1fr 1fr;
+      align-items:center;
+      padding:calc(var(--nav-h) + 4rem) 5vw 4rem;
+      gap:4rem;
+      position:relative;overflow:hidden;
+    }
+    .hero-bg{
+      position:absolute;inset:0;
+      background:
+        radial-gradient(ellipse 60% 80% at 70% 50%, rgba(200,98,42,.07) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 60% at 20% 80%, rgba(42,76,138,.06) 0%, transparent 60%);
+    }
+    .hero-bg::after{
+      content:'';position:absolute;inset:0;
+      background-image:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(10,12,20,.03) 39px,rgba(10,12,20,.03) 40px);
+    }
+    .hero-left{position:relative;z-index:1;}
+    .hero-tag{
+      display:inline-flex;align-items:center;gap:.5rem;
+      background:rgba(34,197,94,.1);   /* green bg */
+      border:1px solid rgba(34,197,94,.2); /* green border */
+      color:#16a34a; /* success green */
+      font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;font-weight:500;
+      padding:.35rem .9rem;border-radius:100px;margin-bottom:1.5rem;
+    }
+    .hero-tag::before{
+      content:'';
+      width:6px;height:6px;border-radius:50%;
+      background:#16a34a; /* green dot */
+      display:block;
+    }
+    h1.hero-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.8rem,5vw,4.2rem);
+      font-weight:300;line-height:1.12;letter-spacing:-.01em;
+      color:var(--ink);margin-bottom:1rem;
+    }
+    h1.hero-title em{font-style:italic;color:var(--accent);}
+    .hero-sub{
+      font-size:.95rem;color:var(--muted);line-height:1.7;
+      margin-bottom:2rem;max-width:420px;
+    }
+    .hero-specialties{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:2.5rem;}
+    .specialty-chip{
+      font-size:.75rem;padding:.3rem .8rem;border-radius:6px;
+      border:1px solid var(--border);color:var(--muted);
+      background:white;letter-spacing:.02em;
+    }
+    .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;}
+    .btn-primary{
+      background:var(--ink);color:#fff;
+      padding:.8rem 2rem;border-radius:100px;
+      font-size:.85rem;letter-spacing:.05em;font-weight:500;
+      text-decoration:none;transition:.2s;display:inline-flex;align-items:center;gap:.5rem;
+    }
+    .btn-primary:hover{background:var(--accent);}
+    .btn-outline{
+      background:transparent;color:var(--ink);
+      padding:.8rem 2rem;border-radius:100px;border:1.5px solid var(--ink);
+      font-size:.85rem;letter-spacing:.05em;font-weight:500;
+      text-decoration:none;transition:.2s;display:inline-flex;align-items:center;gap:.5rem;
+    }
+    .btn-outline:hover{border-color:var(--accent);color:var(--accent);}
+
+    /* Hero visual card */
+    .hero-right{position:relative;z-index:1;display:flex;flex-direction:column;gap:1.5rem;}
+    .hero-card{
+      background:white;border-radius:20px;
+      border:1px solid var(--border);
+      overflow:hidden;
+      box-shadow:0 20px 60px rgba(0,0,0,.06);
+    }
+    .hero-card-img{
+      width:100%;height:220px;object-fit:cover;
+      background:linear-gradient(135deg,#1a2744 0%,#2a4c8a 50%,#c8622a 100%);
+      display:flex;align-items:center;justify-content:center;
+      font-family:'Cormorant Garamond',serif;font-size:3rem;color:rgba(255,255,255,.3);
+      position:relative;overflow:hidden;
+    }
+    .hero-card-img::after{
+      content:'';position:absolute;inset:0;
+      background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-card-img .img-label{
+      position:relative;z-index:1;
+      text-align:center;color:white;
+    }
+    .hero-card-img .img-label .big{font-size:2.5rem;font-weight:300;display:block;opacity:.9;}
+    .hero-card-img .img-label .small{font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;opacity:.6;font-family:'DM Sans',sans-serif;}
+    .hero-card-body{padding:1.5rem;}
+    .hero-card-title{font-size:1rem;font-weight:500;margin-bottom:.4rem;}
+    .hero-card-text{font-size:.82rem;color:var(--muted);line-height:1.6;}
+
+    .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;}
+    .stat-box{
+      background:white;border-radius:14px;border:1px solid var(--border);
+      padding:1.2rem;text-align:center;
+    }
+    .stat-num{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2rem;font-weight:600;color:var(--accent);display:block;
+    }
+    .stat-label{font-size:.7rem;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;margin-top:.2rem;}
+
+    /* ── SECTION COMMON ── */
+    section{padding:6rem 5vw;}
+    .section-tag{
+      font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+      color:var(--accent);font-weight:500;margin-bottom:.8rem;display:block;
+    }
+    .section-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2rem,3.5vw,2.8rem);font-weight:300;
+      line-height:1.2;margin-bottom:1rem;
+    }
+    .section-title em{font-style:italic;color:var(--accent);}
+    .section-intro{font-size:.95rem;color:var(--muted);line-height:1.7;max-width:600px;}
+    .section-header{margin-bottom:3.5rem;}
+
+    /* ── PROFILES (Votre Profil) ── */
+    #profiles{background:white;}
+    .profiles-grid{
+      display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;
+      border:1.5px solid var(--border);border-radius:20px;overflow:hidden;
+    }
+    .profile-card{
+      padding:2.5rem 2rem;position:relative;
+      transition:.3s;cursor:pointer;background:white;
+    }
+    .profile-card::after{
+      content:'';position:absolute;bottom:0;left:2rem;right:2rem;
+      height:2px;background:var(--accent);transform:scaleX(0);transition:.3s;
+      transform-origin:left;
+    }
+    .profile-card:hover::after{transform:scaleX(1);}
+    .profile-card:hover{background:var(--cream);}
+    .profile-icon{
+      width:52px;height:52px;border-radius:14px;
+      margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center;
+      font-size:1.5rem;
+    }
+    .profile-card h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.3rem;font-weight:400;margin-bottom:.6rem;
+    }
+    .profile-card p{font-size:.82rem;color:var(--muted);line-height:1.65;}
+    .profile-link{
+      display:inline-flex;align-items:center;gap:.4rem;
+      margin-top:1.2rem;font-size:.78rem;color:var(--accent);
+      text-decoration:none;letter-spacing:.04em;font-weight:500;
+      transition:gap .2s;
+    }
+    .profile-link:hover{gap:.7rem;}
+    .profile-link::after{content:'→';}
+
+    /* ── SERVICES ── */
+    #services{background:var(--cream);}
+    .services-grid{
+      display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+      margin-bottom:1.5rem;
+    }
+    .services-grid-2{
+      display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;max-width:66.66%;
+    }
+    .service-card{
+      background:white;border-radius:20px;
+      border:1px solid var(--border);padding:2.5rem 2rem;
+      transition:.3s;position:relative;overflow:hidden;
+    }
+    .service-card::before{
+      content:'';position:absolute;top:0;left:0;right:0;height:3px;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      transform:scaleX(0);transform-origin:left;transition:.4s;
+    }
+    .service-card:hover::before{transform:scaleX(1);}
+    .service-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.07);transform:translateY(-3px);}
+    .service-icon{
+      width:48px;height:48px;border-radius:12px;
+      background:var(--cream);display:flex;align-items:center;justify-content:center;
+      font-size:1.4rem;margin-bottom:1.5rem;
+    }
+    .service-card h3{font-size:1.1rem;font-weight:500;margin-bottom:.6rem;}
+    .service-card p{font-size:.82rem;color:var(--muted);line-height:1.65;margin-bottom:1.2rem;}
+    .service-card a{
+      font-size:.78rem;color:var(--accent);text-decoration:none;
+      font-weight:500;letter-spacing:.03em;display:inline-flex;align-items:center;gap:.3rem;
+    }
+    .service-card a:hover{gap:.6rem;}
+
+    /* ── WHY US ── */
+    #why{
+      background:var(--ink);color:white;
+      display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;
+    }
+    #why .section-title{color:white;}
+    #why .section-tag{color:var(--gold);}
+    #why .section-intro{color:rgba(255,255,255,.6);}
+    .why-visual{
+      border-radius:20px;overflow:hidden;position:relative;
+      height:480px;
+      background:linear-gradient(135deg,#1a2340 0%,#2a4c8a 60%,rgba(200,98,42,.4) 100%);
+      display:flex;align-items:center;justify-content:center;
+    }
+    .why-visual-inner{
+      text-align:center;color:rgba(255,255,255,.15);
+      font-family:'Cormorant Garamond',serif;font-size:8rem;font-weight:300;
+    }
+    .why-visual .overlay-badge{
+      position:absolute;bottom:2rem;left:2rem;right:2rem;
+      background:rgba(255,255,255,.08);backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:14px;padding:1.2rem 1.5rem;color:white;
+    }
+    .why-visual .overlay-badge .badge-title{font-size:.9rem;font-weight:500;margin-bottom:.3rem;}
+    .why-visual .overlay-badge .badge-text{font-size:.78rem;opacity:.6;line-height:1.5;}
+    .why-features{display:flex;flex-direction:column;gap:2rem;}
+    .why-item{display:flex;gap:1.2rem;align-items:flex-start;}
+    .why-item-num{
+      font-family:'Cormorant Garamond',serif;
+      font-size:2.5rem;font-weight:300;color:var(--gold);
+      line-height:1;min-width:40px;
+    }
+    .why-item-text h4{font-size:.95rem;font-weight:500;color:white;margin-bottom:.4rem;}
+    .why-item-text p{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.65;}
+
+    /* ── APP ── */
+    #app{
+      background:var(--paper);
+      display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;
+    }
+    .app-phones{
+      display:flex;gap:1.5rem;justify-content:center;align-items:flex-end;
+    }
+    .phone{
+      border-radius:28px;overflow:hidden;border:2px solid var(--border);
+      box-shadow:0 30px 80px rgba(0,0,0,.12);
+      background:linear-gradient(160deg,#2a4c8a,#1a2340);
+      display:flex;flex-direction:column;
+    }
+    .phone-tall{width:150px;height:300px;}
+    .phone-short{width:130px;height:240px;margin-bottom:1.5rem;}
+    .phone-screen{
+      flex:1;display:flex;flex-direction:column;
+      align-items:center;justify-content:center;gap:.5rem;
+      padding:1rem;color:rgba(255,255,255,.5);
+    }
+    .phone-screen .phone-logo{
+      font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:white;font-weight:600;
+    }
+    .phone-screen .phone-line{
+      width:60%;height:1px;background:rgba(255,255,255,.15);
+    }
+    .phone-screen .phone-text{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;}
+    .phone-bar{height:24px;background:rgba(0,0,0,.2);display:flex;align-items:center;justify-content:center;}
+    .phone-bar::after{content:'';width:40px;height:4px;border-radius:2px;background:rgba(255,255,255,.3);}
+    .app-stores{display:flex;gap:.8rem;margin-top:1.5rem;flex-wrap:wrap;}
+    .store-btn{
+      display:inline-flex;align-items:center;gap:.7rem;
+      background:var(--ink);color:white;border-radius:12px;
+      padding:.7rem 1.2rem;text-decoration:none;transition:.2s;
+    }
+    .store-btn:hover{background:var(--accent);}
+    .store-btn svg{width:20px;height:20px;fill:white;}
+    .store-btn-text{display:flex;flex-direction:column;}
+    .store-btn-text small{font-size:.62rem;opacity:.6;text-transform:uppercase;letter-spacing:.06em;}
+    .store-btn-text span{font-size:.85rem;font-weight:500;}
+
+    /* ── TEAM ── */
+    #team{background:white;}
+    .team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+    .team-card{border-radius:16px;overflow:hidden;border:1px solid var(--border);transition:.3s;}
+    .team-card:hover{box-shadow:0 16px 48px rgba(0,0,0,.07);transform:translateY(-4px);}
+    .team-photo{
+      width:100%;height:220px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:4rem;
+      position:relative;overflow:hidden;
+    }
+    .team-photo .initials{
+      font-family:'Cormorant Garamond',serif;
+      font-size:3rem;font-weight:300;color:rgba(255,255,255,.9);
+      position:relative;z-index:1;
+    }
+    .team-info{padding:1.5rem;}
+    .team-role{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:.3rem;}
+    .team-name{font-size:1.1rem;font-weight:500;margin-bottom:.5rem;}
+    .team-bio{font-size:.8rem;color:var(--muted);line-height:1.6;}
+    .team-socials{display:flex;gap:.5rem;margin-top:1rem;}
+    .team-social{
+      width:30px;height:30px;border-radius:8px;
+      background:var(--cream);display:flex;align-items:center;justify-content:center;
+      text-decoration:none;color:var(--muted);font-size:.75rem;transition:.2s;
+    }
+    .team-social:hover{background:var(--accent);color:white;}
+
+    .team-grid-2{display:grid;grid-template-columns:repeat(5,1fr);gap:1.5rem;margin-top:2rem;}
+    .team-card-sm .team-photo{height:160px;}
+
+    /* ── STATS BAR ── */
+    #stats{
+      background:linear-gradient(90deg,var(--accent),#a84d1e);
+      padding:4rem 5vw;
+    }
+    .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;}
+    .stat-item{text-align:center;color:white;}
+    .stat-item .big{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2.5rem,5vw,4rem);font-weight:300;display:block;
+    }
+    .stat-item .label{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;opacity:.75;margin-top:.3rem;display:block;}
+
+    /* ── JOIN ── */
+    #join{
+      background:var(--cream);
+      display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;
+    }
+    .join-visual{
+      border-radius:20px;height:380px;overflow:hidden;
+      background:linear-gradient(140deg,#e8e0d0,#d4c5b0);
+      display:flex;align-items:center;justify-content:center;
+      position:relative;
+    }
+    .join-visual .jv-inner{text-align:center;}
+    .join-visual .jv-big{
+      font-family:'Cormorant Garamond',serif;
+      font-size:5rem;font-weight:300;color:rgba(10,12,20,.12);
+    }
+    .join-visual .jv-badge{
+      position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
+      background:white;border-radius:12px;padding:1rem 1.5rem;
+      box-shadow:0 8px 30px rgba(0,0,0,.1);text-align:center;
+      white-space:nowrap;
+    }
+    .join-visual .jv-badge strong{font-size:1.1rem;display:block;margin-bottom:.2rem;}
+    .join-visual .jv-badge span{font-size:.75rem;color:var(--muted);}
+    .join-text h2{margin-bottom:1rem;}
+    .join-text p{font-size:.9rem;color:var(--muted);line-height:1.7;margin-bottom:2rem;}
+
+    /* ── FOOTER ── */
+    footer{
+      background:var(--ink);color:rgba(255,255,255,.7);
+      padding:5rem 5vw 2rem;
+    }
+    .footer-grid{
+      display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;
+      gap:3rem;padding-bottom:4rem;
+      border-bottom:1px solid rgba(255,255,255,.1);
+    }
+    .footer-brand .footer-logo{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.5rem;font-weight:600;color:white;
+      display:block;margin-bottom:1rem;text-decoration:none;
+    }
+    .footer-brand p{font-size:.82rem;line-height:1.7;margin-bottom:1.5rem;}
+    .footer-socials{display:flex;gap:.6rem;}
+    .footer-social{
+      width:34px;height:34px;border-radius:8px;
+      border:1px solid rgba(255,255,255,.15);
+      display:flex;align-items:center;justify-content:center;
+      text-decoration:none;color:rgba(255,255,255,.5);
+      font-size:.8rem;transition:.2s;
+    }
+    .footer-social:hover{background:var(--accent);border-color:var(--accent);color:white;}
+    .footer-col h5{
+      font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;
+      color:white;font-weight:500;margin-bottom:1.2rem;
+    }
+    .footer-col ul{list-style:none;}
+    .footer-col li{margin-bottom:.7rem;}
+    .footer-col a{
+      color:rgba(255,255,255,.5);text-decoration:none;font-size:.82rem;
+      transition:.2s;display:block;
+    }
+    .footer-col a:hover{color:white;}
+    .footer-bottom{
+      padding-top:2rem;display:flex;justify-content:space-between;align-items:center;
+      font-size:.75rem;color:rgba(255,255,255,.3);
+    }
+    .footer-bottom a{color:rgba(255,255,255,.3);text-decoration:none;}
+    .footer-bottom a:hover{color:rgba(255,255,255,.6);}
+
+    /* ── MOBILE NAV ── */
+    .mobile-menu{
+      display:none;position:fixed;inset:0;background:var(--cream);z-index:999;
+      flex-direction:column;justify-content:center;align-items:center;gap:2rem;
+    }
+    .mobile-menu.open{display:flex;}
+    .mobile-menu a{
+      font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;
+      color:var(--ink);text-decoration:none;
+    }
+    .mobile-menu a:hover{color:var(--accent);}
+
+    /* ── REVEAL ANIMATIONS ── */
+    .reveal{opacity:0;transform:translateY(24px);transition:.7s ease;}
+    .reveal.visible{opacity:1;transform:none;}
+    .reveal-left{opacity:0;transform:translateX(-30px);transition:.7s ease;}
+    .reveal-left.visible{opacity:1;transform:none;}
+    .reveal-right{opacity:0;transform:translateX(30px);transition:.7s ease;}
+    .reveal-right.visible{opacity:1;transform:none;}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:1024px){
+      .profiles-grid{grid-template-columns:repeat(2,1fr);}
+      .footer-grid{grid-template-columns:1fr 1fr;gap:2rem;}
+    }
+    @media(max-width:768px){
+      nav .nav-links{display:none;}
+      .hamburger{display:flex;}
+      #hero{grid-template-columns:1fr;padding-top:calc(var(--nav-h)+2rem);}
+      .hero-right{display:none;}
+      #why,#app,#join{grid-template-columns:1fr;}
+      .why-visual,.app-phones{display:none;}
+      .services-grid{grid-template-columns:1fr;}
+      .services-grid-2{grid-template-columns:1fr;max-width:100%;}
+      .team-grid{grid-template-columns:1fr 1fr;}
+      .team-grid-2{grid-template-columns:1fr 1fr;}
+      .stats-row{grid-template-columns:1fr;}
+      .footer-grid{grid-template-columns:1fr;}
+      .profiles-grid{grid-template-columns:1fr;}
+      .hero-stats{grid-template-columns:1fr 1fr;}
+    }
+
+    /* ── GRADIENT COLORS FOR TEAM ── */
+    .grad-a{background:linear-gradient(140deg,#2a4c8a,#1a2340);}
+    .grad-b{background:linear-gradient(140deg,#8a4a2a,#4a1a0a);}
+    .grad-c{background:linear-gradient(140deg,#2a6a4c,#0a3020);}
+    .grad-d{background:linear-gradient(140deg,#6a2a8a,#2a0a4a);}
+    .grad-e{background:linear-gradient(140deg,#8a6a2a,#4a3a0a);}
+
+    /* profile colors */
+    .icon-assoc{background:#fff3ed;font-size:1.5rem;}
+    .icon-ess{background:#eef3ff;font-size:1.5rem;}
+    .icon-fond{background:#f5f0ff;font-size:1.5rem;}
+    .icon-entr{background:#edfff5;font-size:1.5rem;}
+
+    /* generic icon tweak */
+    .ti { display:inline-flex; align-items:center; justify-content:center; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="logo">
+    <div class="logo-icon">D</div>
+    DATA<span>EXIA</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#profiles">Votre Profil</a></li>
+    <li><a href="#services">Nos Services</a></li>
+    <li><a href="#why">Notre Approche</a></li>
+    <li><a href="#team">L'Équipe</a></li>
+    <li><a href="#join">Le Cabinet</a></li>
+    <li><a href="https://customer.mycompanyfiles.fr/auth/login" class="nav-cta">Connexion</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#profiles" onclick="closeMobile()">Votre Profil</a>
+  <a href="#services" onclick="closeMobile()">Nos Services</a>
+  <a href="#why" onclick="closeMobile()">Notre Approche</a>
+  <a href="#team" onclick="closeMobile()">L'Équipe</a>
+  <a href="#join" onclick="closeMobile()">Le Cabinet</a>
+  <a href="https://customer.mycompanyfiles.fr/auth/login" style="color:var(--accent)">Connexion →</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-left reveal-left">
+    <span class="hero-tag">Expert-Comptable &amp; Commissaire aux Comptes</span>
+    <h1 class="hero-title">
+      L'Excellence<br>
+      à votre <em>Compte</em>
+    </h1>
+    <p class="hero-sub">Un Cabinet d'Expertise-Comptable et d'Audit à taille humaine, profondément engagé auprès du secteur associatif et de l'économie sociale et solidaire — sur tout le territoire national.</p>
+    <div class="hero-specialties">
+      <span class="specialty-chip">Associations Loi 1901</span>
+      <span class="specialty-chip">Associations Cultuelles 1905</span>
+      <span class="specialty-chip">Économie Sociale &amp; Solidaire</span>
+      <span class="specialty-chip">Fondations &amp; Fonds de dotation</span>
+    </div>
+    <div class="hero-actions">
+      <a href="#services" class="btn-primary">Découvrir nos services →</a>
+      <a href="#team" class="btn-outline">Rencontrer l'équipe</a>
+    </div>
+  </div>
+  <div class="hero-right reveal-right">
+    <div class="hero-card">
+      <div class="hero-card-img">
+        <div class="img-label">
+          <span class="big">§</span>
+          <span class="small">Expertise Comptable &amp; Audit</span>
+        </div>
+      </div>
+      <div class="hero-card-body">
+        <div class="hero-card-title">Votre partenaire financier de confiance</div>
+        <div class="hero-card-text">Un accompagnement sur mesure pour chaque structure, avec une expertise reconnue par l'Ordre des Experts-Comptables.</div>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-box">
+        <span class="stat-num">+200</span>
+        <div class="stat-label">Clients</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">+1000</span>
+        <div class="stat-label">Réponses/mois</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num">+50</span>
+        <div class="stat-label">Départements</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROFILES -->
+<section id="profiles">
+  <div class="section-header reveal">
+    <span class="section-tag">Votre Profil</span>
+    <h2 class="section-title">Nous accompagnons <em>votre structure</em></h2>
+    <p class="section-intro">Quelle que soit votre forme juridique, nous avons l'expertise et la passion pour vous accompagner vers vos objectifs.</p>
+  </div>
+  <div class="profiles-grid reveal">
+    <div class="profile-card">
+      <div class="profile-icon icon-assoc">
+        <i class="ti ti-home-stats"></i>
+      </div>
+      <h3>Associations</h3>
+      <p>Associations Loi 1901 et associations cultuelles 1905 — un expert spécialisé et une équipe qualifiée à vos côtés.</p>
+      <a href="#" class="profile-link">En savoir plus</a>
+    </div>
+    <div class="profile-card">
+      <div class="profile-icon icon-ess">
+        <i class="ti ti-leaf"></i>
+      </div>
+      <h3>Acteurs de l'ESS</h3>
+      <p>Vous servez une cause, nous servons la vôtre. Notre expertise au service de votre activité et de votre utilité sociale.</p>
+      <a href="#" class="profile-link">En savoir plus</a>
+    </div>
+    <div class="profile-card">
+      <div class="profile-icon icon-fond">
+        <i class="ti ti-building-bank"></i>
+      </div>
+      <h3>Fondations &amp; Fonds de Dotation</h3>
+      <p>Un accompagnement spécialisé pour les fondations d'entreprise et les fonds de dotation de toutes tailles.</p>
+      <a href="#" class="profile-link">En savoir plus</a>
+    </div>
+    <div class="profile-card">
+      <div class="profile-icon icon-entr">
+        <i class="ti ti-rocket"></i>
+      </div>
+      <h3>Entrepreneurs</h3>
+      <p>Entreprendre est votre passion ? Votre réussite est la nôtre. Vous avez un projet ? Parlons-en !</p>
+      <a href="#" class="profile-link">En savoir plus</a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header reveal">
+    <span class="section-tag">Nos Services</span>
+    <h2 class="section-title">Cinq piliers pour <em>votre réussite</em></h2>
+    <p class="section-intro">Du bilan comptable à la formation de vos équipes, nous couvrons l'intégralité de vos besoins avec une vision long terme.</p>
+  </div>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <div class="service-icon">
+        <i class="ti ti-chart-pie"></i>
+      </div>
+      <h3>Expertise Comptable</h3>
+      <p>Ayant une spécialisation reconnue par l'Ordre des Experts-Comptables auprès des Associations, nous vous accompagnons dans tous vos besoins.</p>
+      <a href="#">Notre accompagnement →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <i class="ti ti-circle-check"></i>
+      </div>
+      <h3>Audit</h3>
+      <p>Que vous soyez dans l'obligation de nommer un Commissaire aux comptes, ou que vous souhaitiez un audit de vos procédures, nous certifions vos comptes.</p>
+      <a href="#">En savoir plus →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <i class="ti ti-bulb"></i>
+      </div>
+      <h3>Conseil</h3>
+      <p>Un Conseil qui compte est la voie du succès. Discutons ensemble — le premier conseil est offert ! Nous optimisons et pérennisons votre gestion.</p>
+      <a href="#">Je prends RDV →</a>
+    </div>
+  </div>
+  <div class="services-grid-2 reveal">
+    <div class="service-card">
+      <div class="service-icon">
+        <i class="ti ti-users"></i>
+      </div>
+      <h3>Social</h3>
+      <p>Une équipe qualifiée en droit social vous accompagne pour la réalisation des bulletins, déclarations, et vous conseille sur vos besoins RH.</p>
+      <a href="#">Nos solutions →</a>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">
+        <i class="ti ti-school"></i>
+      </div>
+      <h3>Formation</h3>
+      <p>Des bases de la comptabilité à la digitalisation de vos process, une équipe pédagogue et qualifiée forme vos collaborateurs.</p>
+      <a href="#">Nos formations →</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY / HOW WE WORK -->
+<section id="why">
+  <div class="reveal-left">
+    <span class="section-tag">Notre Approche</span>
+    <h2 class="section-title">La bonne volonté c'est bien.<br><em>L'Expertise c'est mieux.</em></h2>
+    <p class="section-intro" style="color:rgba(255,255,255,.55)">Confiez la gestion de votre association à un Expert. Nous nous positionnons à vos côtés en tant que véritable partenaire, pas seulement comme prestataire.</p>
+    <div class="why-features" style="margin-top:3rem;">
+      <div class="why-item">
+        <div class="why-item-num">01</div>
+        <div class="why-item-text">
+          <h4>Digital &amp; à vos côtés</h4>
+          <p>Parce que votre temps compte, nous vous proposons un fonctionnement digital afin d'éliminer les tâches chronophages à faible valeur ajoutée.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-item-num">02</div>
+        <div class="why-item-text">
+          <h4>Sécuriser, Conseiller, Optimiser</h4>
+          <p>Au-delà de respecter les exigences légales, nous vous conseillons en vue d'optimiser et pérenniser la gestion de votre association.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="why-item-num">03</div>
+        <div class="why-item-text">
+          <h4>Vous accompagner Plus Loin</h4>
+          <p>L'esprit de Service est au cœur de nos valeurs. Parce que nous souhaitons voir votre structure se développer, nous restons à vos côtés.</p>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:2.5rem;">
+      <a href="mailto:samuel.pete@datexia.fr" class="btn-outline" style="border-color:rgba(255,255,255,.3);color:white;">Demander un devis →</a>
+    </div>
+  </div>
+  <div class="reveal-right">
+    <div class="why-visual">
+      <div class="why-visual-inner">§</div>
+      <div class="overlay-badge">
+        <div class="badge-title">Cabinet DATEXIA — Fondé en 2019</div>
+        <div class="badge-text">Présents sur tout le territoire national et Outre-mer. Une équipe soudée avec des valeurs fortes.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-row">
+    <div class="stat-item reveal">
+      <span class="big">+200</span>
+      <span class="label">Clients nous font confiance</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="big">+1 000</span>
+      <span class="label">Réponses par mois à vos questions</span>
+    </div>
+    <div class="stat-item reveal">
+      <span class="big">+50</span>
+      <span class="label">Départements couverts par nos services</span>
+    </div>
+  </div>
+</section>
+
+<!-- APP -->
+<section id="app">
+  <div class="app-phones reveal-left">
+    <div class="phone phone-short">
+      <div class="phone-screen">
+        <div class="phone-logo">DATEXIA</div>
+        <div class="phone-line"></div>
+        <div class="phone-text">Dashboard</div>
+      </div>
+      <div class="phone-bar"></div>
+    </div>
+    <div class="phone phone-tall">
+      <div class="phone-screen">
+        <div class="phone-logo">DATEXIA</div>
+        <div class="phone-line"></div>
+        <div class="phone-text">Mon Espace</div>
+      </div>
+      <div class="phone-bar"></div>
+    </div>
+  </div>
+  <div class="reveal-right">
+    <span class="section-tag">Application Mobile</span>
+    <h2 class="section-title">Découvrez notre <em>appli Mobile</em> !</h2>
+    <p class="section-intro">Nous accompagnons des structures associatives et entrepreneuriales sur tout le territoire national et Outre-mer. Pour cela, nous avons développé des outils digitaux afin de faciliter nos échanges.</p>
+    <div class="app-stores">
+      <a href="https://apps.apple.com/fr/app/cabinet-datexia/id1498051241" class="store-btn">
+        <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <div class="store-btn-text"><small>Télécharger sur</small><span>App Store</span></div>
+      </a>
+      <a href="https://play.google.com/store/apps/details?id=com.activity.datexia" class="store-btn">
+        <svg viewBox="0 0 24 24"><path d="M3.18 23.76c.3.17.65.19.97.06l12.44-7.17-2.79-2.79L3.18 23.76zm-1.13-20.4c-.06.2-.05.42.05.63l10.56 6.12L9.9 13.42.12 1.73c-.06.55-.07 1.1-.07 1.63zM21.27 10.3L18.72 8.9l-3.08 1.77 3.08 3.08 2.56-1.47c.73-.43.73-1.56-.01-1.98zM4.14.24L16.59 7.4 13.8 10.19 1.37.63c.3-.43.83-.6 1.36-.55.45.05.91.08 1.41.16z"/></svg>
+        <div class="store-btn-text"><small>Disponible sur</small><span>Google Play</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-header reveal">
+    <span class="section-tag">Notre Équipe</span>
+    <h2 class="section-title">Des <em>experts passionnés</em> à votre service</h2>
+    <p class="section-intro">Expert-comptable, Chefs de Mission, Collaborateurs — toute notre équipe travaille ensemble dans une même vision : VOUS ACCOMPAGNER.</p>
+  </div>
+
+  <div class="team-grid reveal">
+    <div class="team-card">
+      <div class="team-photo grad-a">
+        <div class="initials">SP</div>
+      </div>
+      <div class="team-info">
+        <div class="team-role">Expert-Comptable &amp; Commissaire aux Comptes</div>
+        <div class="team-name">Samuel PETE</div>
+        <div class="team-bio">Expert-comptable avec +10 ans d'expérience au service des associations, Samuel a démarré le Cabinet DATEXIA en 2019.</div>
+        <div class="team-socials">
+          <a href="mailto:samuel.pete@datexia.fr" class="team-social" title="Email">
+            <i class="ti ti-mail"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/samuel-pete-34046b168/" class="team-social" title="LinkedIn">
+            <i class="ti ti-brand-linkedin"></i>
+          </a>
+          <a href="https://www.facebook.com/samuel.nicolas.85" class="team-social" title="Facebook">
+            <i class="ti ti-brand-facebook"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo grad-b">
+        <div class="initials">EN</div>
+      </div>
+      <div class="team-info">
+        <div class="team-role">Directrice du Pôle Social</div>
+        <div class="team-name">Emeline NAKARS</div>
+        <div class="team-bio">Forte d'une grande expérience en cabinet d'Expertise comptable, Emeline a renforcé notre service Social en 2021.</div>
+        <div class="team-socials">
+          <a href="mailto:emeline.nakars@datexia.fr" class="team-social" title="Email">
+            <i class="ti ti-mail"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-photo grad-c">
+        <div class="initials">FM</div>
+      </div>
+      <div class="team-info">
+        <div class="team-role">Chef de Mission</div>
+        <div class="team-name">Franckies MARIMOUTOU</div>
+        <div class="team-bio">Ayant rejoint DATEXIA dès ses débuts, Franckies est responsable de dossiers et notre spécialiste digital !</div>
+        <div class="team-socials">
+          <a href="mailto:franckies.marimoutou@datexia.fr" class="team-social" title="Email">
+            <i class="ti ti-mail"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/franckies-marimoutou/" class="team-social" title="LinkedIn">
+            <i class="ti ti-brand-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="team-grid-2 reveal">
+    <div class="team-card team-card-sm">
+      <div class="team-photo grad-d">
+        <div class="initials">NC</div>
+      </div>
+      <div class="team-info">
+        <div class="team-role">Assistante Comptable</div>
+        <div class="team-name">Nathalie CONRAZIER</div>
+        <div class="team-bio">Accueillante et proactive, Nathalie a rejoint DATEXIA en 2020.</div>
+        <div class="team-socials">
+          <a href="mailto:nathalie.conrazier@datexia.fr" class="team-social">
+            <i class="ti ti-mail"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="team-card team-card-sm">
+      <div class="team-photo grad-e">
+        <div class="initials">JM</div>
+      </div>
+      <div class="team-info">
+        <div class="team-role">Gestionnaire de Paies</div>
+        <div class="team-name">Jean-Félix MAHOBAH</div>
+        <div class="team-bio">Grande maîtrise des questions sociales, accompagne de nombreuses entités.</div>
+        <div class="team-socials">
+          <a href="mailto:jean-felix.mahobah@datexia.fr" class="team-social">
+            <i class="ti ti-mail"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="team-card team-card-sm">
+      <div class="team-photo grad-a" style="background:linear-gradient(140deg,#4a2a6a,#1a0a2a);">
+        <div class="initials">HC</div>
+      </div>
+      <div class="team-info">
+        <div class="team-role">Gestionnaire de Paies</div>
+        <div class="team-name">Hélène CARISTAN</div>
+        <div class="team-bio">Aux côtés des associations pour la réalisation de leurs bulletins de paie.</div>
+        <div class="team-socials">
+          <a href="mailto:helene.caristan@datexia.fr" class="team-social">
+            <i class="ti ti-mail"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/hélène-caristan-lentin-a96062127/" class="team-social">
+            <i class="ti ti-brand-linkedin"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="team-card team-card-sm">
+      <div class="team-photo" style="background:linear-gradient(140deg,#2a6a3a,#0a2a14);">
+        <div class="initials">PG</div>
+      </div>
+      <div class="team-info">
+        <div class="team-role">Secrétaire Comptable</div>
+        <div class="team-name">Pauline GENOT</div>
+        <div class="team-bio">Un pilier de l'équipe au quotidien.</div>
+        <div class="team-socials">
+          <a href="mailto:pauline@datexia.fr" class="team-social">
+            <i class="ti ti-mail"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="team-card team-card-sm">
+      <div class="team-photo" style="background:linear-gradient(140deg,#6a4a2a,#2a1a0a);">
+        <div class="initials">MD</div>
+      </div>
+      <div class="team-info">
+        <div class="team-role">Assistant Comptable</div>
+        <div class="team-name">Maxime DUMONT</div>
+        <div class="team-bio">Un collaborateur engagé au service des clients.</div>
+        <div class="team-socials">
+          <a href="mailto:maxime@datexia.fr" class="team-social">
+            <i class="ti ti-mail"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section id="join">
+  <div class="join-visual reveal-left">
+    <div class="jv-inner">
+      <div class="jv-big">
+        <i class="ti ti-refresh"></i>
+      </div>
+    </div>
+    <div class="jv-badge">
+      <strong>Rejoignez-nous</strong>
+      <span>Nous recrutons de nouveaux collaborateurs</span>
+    </div>
+  </div>
+  <div class="join-text reveal-right">
+    <span class="section-tag">Le Cabinet</span>
+    <h2 class="section-title">Notre <em>Équipe</em></h2>
+    <p>Vous souhaitez rejoindre une équipe soudée et aux valeurs fortes ? Nous recrutons de nouveaux collaborateurs ! Intégrez un cabinet en pleine croissance, engagé et humain.</p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+      <a href="#" class="btn-primary">Rejoignez-nous →</a>
+      <a href="#" class="btn-outline">Nos valeurs</a>
+    </div>
+    <div style="margin-top:3rem;padding-top:2rem;border-top:1px solid var(--border);">
+      <h4 style="font-size:.9rem;margin-bottom:1rem;">Actualités du secteur</h4>
+      <p style="font-size:.82rem;color:var(--muted);line-height:1.7;">Pour suivre l'actualité du secteur associatif et des spécificités cultuelles, abonnez-vous à notre blog et suivez-nous sur les réseaux sociaux !</p>
+      <a href="#" class="btn-outline" style="margin-top:1rem;display:inline-flex;">Je découvre →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="footer-logo">DATEXIA</a>
+      <p>Un Cabinet d'Expertise-Comptable et d'Audit à taille humaine, profondément engagé auprès du secteur associatif et de l'économie sociale et solidaire.</p>
+      <div class="footer-socials">
+        <a href="https://www.linkedin.com/in/samuel-pete-34046b168/" class="footer-social">
+          <i class="ti ti-brand-linkedin"></i>
+        </a>
+        <a href="https://twitter.com/PETESamuel5" class="footer-social">
+          <i class="ti ti-brand-x"></i>
+        </a>
+        <a href="https://www.facebook.com/samuel.nicolas.85" class="footer-social">
+          <i class="ti ti-brand-facebook"></i>
+        </a>
+        <a href="https://vimeo.com/637461539/2b61f6faef" class="footer-social">
+          <i class="ti ti-player-play"></i>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Votre Profil</h5>
+      <ul>
+        <li><a href="#">Associations</a></li>
+        <li><a href="#">Acteurs de l'ESS</a></li>
+        <li><a href="#">Fondations &amp; Fonds de Dotations</a></li>
+        <li><a href="#">Entrepreneurs</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Nos Services</h5>
+      <ul>
+        <li><a href="#">Expertise Comptable</a></li>
+        <li><a href="#">Audit</a></li>
+        <li><a href="#">Conseil</a></li>
+        <li><a href="#">Social</a></li>
+        <li><a href="#">Formation</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Ressources</h5>
+      <ul>
+        <li><a href="#">Actualités</a></li>
+        <li><a href="#">Outils</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Le Cabinet</h5>
+      <ul>
+        <li><a href="#">L'Équipe</a></li>
+        <li><a href="#">Nos Valeurs</a></li>
+        <li><a href="#">Rejoignez-Nous</a></li>
+        <li><a href="#">Nous Contacter</a></li>
+      </ul>
+    </div>
+  </div>
+<div class="footer-bottom">
+  <span>© <span id="year"></span> Cabinet DATEXIA — L'Excellence à Votre Compte</span>
+  <span>Tous droits réservés</span>
+</div>
+</footer>
+
+<script>
+// Copywrite
+document.getElementById("year").textContent = new Date().getFullYear();
+
+// Nav scroll effect
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  navbar.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// Hamburger
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+});
+function closeMobile() { mobileMenu.classList.remove('open'); }
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      const children = e.target.querySelectorAll('.profile-card, .service-card, .team-card, .stat-box, .why-item, .stat-item');
+      children.forEach((c, i) => {
+        c.style.transitionDelay = `${i * 0.08}s`;
+      });
+    }
+  });
+}, { threshold: 0.12 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
