@@ -28,7 +28,7 @@
       --gold: #c9a84c;
       --muted: #7a7670;
       --border: rgba(10, 12, 20, 0.1);
-      --nav-h: 72px;
+      --nav-h: 64px;
     }
     *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;font-size:16px;}
@@ -45,22 +45,53 @@
     ::-webkit-scrollbar-thumb{background:var(--accent);}
 
     /* ── NAV ── */
-    nav{
-      position:fixed;top:0;left:0;right:0;z-index:1000;
-      height:var(--nav-h);
-      display:flex;align-items:center;justify-content:space-between;
-      padding:0 5vw;
-      background:rgba(245,241,235,0.92);
-      backdrop-filter:blur(16px);
-      border-bottom:1px solid var(--border);
-      transition:box-shadow .3s;
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 5vw;
+      background: rgba(10, 12, 20, 0.96); /* dark nav */
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      transition: box-shadow .3s;
     }
+
+    .nav-links a {
+      font-size: .82rem;
+      font-weight: 400;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: color: #ffffff;
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #fff !important;
+    }
+
     nav.scrolled{box-shadow:0 4px 40px rgba(0,0,0,.08);}
-    .logo{
-      font-family:'Cormorant Garamond',serif;
-      font-size:1.6rem;font-weight:600;letter-spacing:.04em;
-      color:var(--ink);text-decoration:none;
-      display:flex;align-items:center;gap:.6rem;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+
+    .logo img {
+      max-height: 40px;          /* smaller than var(--nav-h) = 72px */
+      width: auto;
+      display: block;
     }
     .logo span{color:var(--accent);}
     .logo-icon{
@@ -82,7 +113,16 @@
     }
     .nav-cta:hover{background:#a84d1e !important;color:#fff !important;}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
-    .hamburger span{width:22px;height:2px;background:var(--ink);display:block;transition:.3s;}
+    .hamburger span {
+      width: 22px;
+      height: 2px;
+      background: #ffffff;              /* white lines on dark nav */
+      display: block;
+      transition: .3s;
+    }
+    .hamburger:hover span {
+      background: #ffffff;
+    }
 
     /* ── HERO ── */
     #hero{
@@ -525,6 +565,14 @@
 
     /* generic icon tweak */
     .ti { display:inline-flex; align-items:center; justify-content:center; }
+
+    /* Overrides */
+    nav .nav-links a {
+      color:#ffffff !important;
+    }
+    nav .nav-links a:hover {
+      color:var(--accent) !important;
+    }
   </style>
 </head>
 <body>
@@ -532,8 +580,7 @@
 <!-- NAV -->
 <nav id="navbar">
   <a href="#" class="logo">
-    <div class="logo-icon">D</div>
-    DATA<span>EXIA</span>
+    <img src="https://raw.githubusercontent.com/static-web-archives/sam/main/images/logo.png" alt="Datexia logo">
   </a>
   <ul class="nav-links">
     <li><a href="#profiles">Votre Profil</a></li>
