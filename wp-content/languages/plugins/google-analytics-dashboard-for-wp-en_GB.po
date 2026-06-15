@@ -1,0 +1,104 @@
+# Translation of Plugins - ExactMetrics &#8211; Google Analytics Dashboard for WordPress (Website Stats Plugin) - Stable (latest release) in English (UK)
+# This file is distributed under the same license as the Plugins - ExactMetrics &#8211; Google Analytics Dashboard for WordPress (Website Stats Plugin) - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-07-08 13:45:04+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: en_GB\n"
+"Project-Id-Version: Plugins - ExactMetrics &#8211; Google Analytics Dashboard for WordPress (Website Stats Plugin) - Stable (latest release)\n"
+
+#. Author of the plugin
+#: gadwp.php includes/admin/admin.php:55 includes/admin/admin.php:66
+#: includes/admin/eea-compliance.php:208 includes/admin/wp-site-health.php:35
+#: includes/emails/class-emails.php:255
+#: lite/includes/admin/dashboard-widget.php:99
+#: lite/includes/admin/wp-site-health.php:231
+#: lite/includes/admin/wp-site-health.php:283
+#: lite/includes/admin/wp-site-health.php:310
+#: lite/includes/admin/wp-site-health.php:348
+#: lite/includes/admin/wp-site-health.php:375
+#: lite/includes/admin/wp-site-health.php:405
+#: lite/includes/admin/wp-site-health.php:449
+msgid "ExactMetrics"
+msgstr "ExactMetrics"
+
+#: includes/admin/tracking.php:245
+msgid "Once Weekly"
+msgstr "Once Weekly"
+
+#. Plugin URI of the plugin
+#: gadwp.php
+msgid "https://exactmetrics.com"
+msgstr "https://exactmetrics.com"
+
+#. Plugin Name of the plugin
+#: gadwp.php
+msgid "Google Analytics Dashboard for WP (GADWP)"
+msgstr "Google Analytics Dashboard for WP (GADWP)"
+
+#: includes/admin/class-exactmetrics-am-deactivation-survey.php:354
+msgid "Other"
+msgstr "Other"
+
+#: includes/admin/site-notes/Controller.php:520
+msgid "Date"
+msgstr "Date"
+
+#: includes/admin/admin.php:66 includes/admin/admin.php:378
+msgid "Settings"
+msgstr "Settings"
+
+#: includes/gutenberg/site-insights/templates/scorecard/class-scorecard-pageviews.php:36
+#: lite/includes/emails/summaries.php:785
+#: lite/includes/emails/templates/body-summaries-test-plain.php:32
+#: lite/includes/emails/templates/body-summaries-test.php:34
+#: assets/gutenberg/js/editor.js:8827
+msgid "Bounce Rate"
+msgstr "Bounce Rate"
+
+#. Description of the plugin
+#: gadwp.php
+msgid "Displays Google Analytics Reports and Real-Time Statistics in your Dashboard. Automatically inserts the tracking code in every page of your website."
+msgstr "Displays Google Analytics Reports and Real-Time Statistics in your Dashboard. Automatically inserts the tracking code in every page of your website."
+
+#: includes/admin/admin.php:32
+msgid "NEW"
+msgstr "NEW"
+
+#: lite/includes/admin/metaboxes.php:80 lite/includes/admin/metaboxes.php:120
+#: lite/includes/emails/templates/body-summaries-plain.php:62
+#: lite/includes/emails/templates/body-summaries-test-plain.php:30
+#: lite/includes/emails/templates/body-summaries-test-plain.php:98
+#: lite/includes/emails/templates/body-summaries-test.php:32
+#: lite/includes/emails/templates/body-summaries-test.php:149
+#: lite/includes/emails/templates/body-summaries.php:120
+#: assets/gutenberg/js/editor.js:8831
+msgid "Page Views"
+msgstr "Page Views"
+
+#: includes/gutenberg/site-insights/templates/graph/class-graph-sessions.php:36
+#: includes/gutenberg/site-insights/templates/scorecard/class-scorecard-age.php:60
+#: includes/gutenberg/site-insights/templates/scorecard/class-scorecard-gender.php:60
+#: includes/gutenberg/site-insights/templates/scorecard/class-scorecard-sessions.php:27
+#: includes/gutenberg/site-insights/templates/scorecard/class-scorecard-top10countries.php:56
+#: lite/includes/emails/templates/body-summaries-test-plain.php:28
+#: lite/includes/emails/templates/body-summaries-test.php:30
+msgid "Sessions"
+msgstr "Sessions"
+
+#: lite/includes/emails/templates/body-summaries-test-plain.php:29
+#: lite/includes/emails/templates/body-summaries-test.php:31
+msgid "Users"
+msgstr "Users"
+
+#: includes/gutenberg/headline-tool/headline-tool.php:980
+msgid "video"
+msgstr "video"
+
+#: lite/includes/admin/metaboxes.php:50 assets/gutenberg/js/editor.js:8826
+msgid "Yesterday"
+msgstr "Yesterday"
