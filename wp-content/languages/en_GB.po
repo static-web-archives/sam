@@ -2123,7 +2123,7 @@ msgstr "Allow search engines to index this site."
 #: wp-includes/js/dist/edit-site.js:6814 wp-includes/js/dist/edit-site.js:9284
 #: wp-includes/js/dist/edit-site.js:10647
 #: wp-includes/js/dist/edit-site.js:26673 wp-includes/js/dist/editor.js:33994
-#: wp-admin/index.php:57
+#: wp-admin:57
 msgid "Navigation"
 msgstr "Navigation"
 
@@ -2160,7 +2160,7 @@ msgstr "Change"
 #: wp-admin/includes/class-custom-background.php:99
 #: wp-admin/includes/class-custom-image-header.php:108
 #: wp-admin/includes/class-wp-screen.php:856 wp-admin/includes/ms.php:1149
-#: wp-admin/index.php:44 wp-admin/link-manager.php:57 wp-admin/media-new.php:49
+#: wp-admin:44 wp-admin/link-manager.php:57 wp-admin/media-new.php:49
 #: wp-admin/my-sites.php:44 wp-admin/nav-menus.php:724
 #: wp-admin/nav-menus.php:765 wp-admin/options-discussion.php:24
 #: wp-admin/options-general.php:53 wp-admin/options-media.php:34
@@ -2172,7 +2172,7 @@ msgstr "Change"
 #: wp-admin/theme-install.php:123 wp-admin/themes.php:143
 #: wp-admin/update-core.php:996 wp-admin/upload.php:178 wp-admin/upload.php:368
 #: wp-admin/user-edit.php:71 wp-admin/user-new.php:293 wp-admin/users.php:34
-#: wp-admin/widgets-form.php:43 wp-admin/network/index.php:34
+#: wp-admin/widgets-form.php:43 wp-admin/network:34
 #: wp-admin/network/settings.php:49 wp-admin/network/site-new.php:23
 #: wp-admin/network/sites.php:29 wp-admin/network/themes.php:312
 #: wp-admin/network/upgrade.php:22 wp-admin/network/user-new.php:20
@@ -2527,7 +2527,7 @@ msgstr "<strong>Error:</strong> User registration is currently not allowed."
 #: wp-includes/js/dist/edit-site.js:22174
 #: wp-includes/js/dist/edit-site.js:36210
 #: wp-admin/includes/class-wp-screen.php:1209 wp-admin/includes/theme.php:351
-#: wp-admin/includes/theme.php:387 wp-admin/index.php:70
+#: wp-admin/includes/theme.php:387 wp-admin:70
 msgid "Layout"
 msgstr "Layout"
 
@@ -2801,7 +2801,7 @@ msgstr "Recent Comments"
 #: wp-includes/revision.php:33 wp-includes/js/dist/block-editor.js:72411
 #: wp-includes/js/dist/edit-widgets.js:1443 wp-includes/js/dist/editor.js:12854
 #: wp-includes/js/dist/editor.js:33359 wp-includes/js/dist/editor.js:33414
-#: wp-admin/includes/dashboard.php:598 wp-admin/index.php:104
+#: wp-admin/includes/dashboard.php:598 wp-admin:104
 msgid "Content"
 msgstr "Content"
 
@@ -13276,7 +13276,7 @@ msgstr "All Categories"
 #: wp-includes/widgets/class-wp-widget-text.php:562
 #: wp-includes/js/wp-pointer.js:20 wp-admin/async-upload.php:121
 #: wp-admin/includes/dashboard.php:1763 wp-admin/includes/file.php:348
-#: wp-admin/index.php:187
+#: wp-admin:187
 msgid "Dismiss"
 msgstr "Dismiss"
 
@@ -13456,10 +13456,10 @@ msgstr "There are no options for this widget."
 #. translators: Network menu item.
 #: wp-includes/admin-bar.php:433 wp-includes/admin-bar.php:600
 #: wp-includes/admin-bar.php:720 wp-includes/deprecated.php:2822
-#: wp-includes/deprecated.php:2824 wp-admin/index.php:33 wp-admin/menu.php:29
+#: wp-includes/deprecated.php:2824 wp-admin:33 wp-admin/menu.php:29
 #: wp-admin/my-sites.php:142 wp-admin/user/menu.php:15
 #: wp-admin/includes/class-wp-ms-sites-list-table.php:748
-#: wp-admin/network/index.php:21 wp-admin/network/menu.php:16
+#: wp-admin/network:21 wp-admin/network/menu.php:16
 #: wp-admin/network/site-info.php:146 wp-admin/network/site-settings.php:95
 #: wp-admin/network/site-themes.php:181 wp-admin/network/site-users.php:226
 msgid "Dashboard"

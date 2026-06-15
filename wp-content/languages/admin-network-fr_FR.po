@@ -831,59 +831,59 @@ msgstr "Mettre à jour le réseau"
 msgid "Updates"
 msgstr "Mises à jour"
 
-#: wp-admin/network/index.php:56
+#: wp-admin/network:56
 msgid "<a href=\"https://developer.wordpress.org/advanced-administration/multisite/admin/\">Documentation on the Network Admin</a>"
 msgstr "<a href=\"https://developer.wordpress.org/advanced-administration/multisite/admin/\">Documentation sur l’administration d’un réseau multisite (en anglais)</a>"
 
-#: wp-admin/network/index.php:49
+#: wp-admin/network:49
 msgid "Quick Tasks"
 msgstr "Tâches rapides"
 
-#: wp-admin/network/index.php:44
+#: wp-admin/network:44
 msgid "To search for a site, <strong>enter the path or domain</strong>."
 msgstr "Pour rechercher un site, <strong>saisissez son chemin ou son domaine</strong>."
 
-#: wp-admin/network/index.php:43
+#: wp-admin/network:43
 msgid "To search for a user, <strong>enter an email address or username</strong>. Use a wildcard to search for a partial username, such as user&#42;."
 msgstr "Pour rechercher un compte, <strong>saisissez une adresse e-mail ou un identifiant</strong>. Utilisez le signe étoile (*) pour lancer une recherche sur un identifiant partiel, par exemple compt&#42;."
 
-#: wp-admin/network/index.php:42
+#: wp-admin/network:42
 msgid "To search for a user or site, use the search boxes."
 msgstr "Pour rechercher un compte ou un site, utilisez les champs de recherche."
 
-#: wp-admin/network/index.php:41
+#: wp-admin/network:41
 msgid "To add a new site, <strong>click Create a New Site</strong>."
 msgstr "Pour ajouter un nouveau site, <strong>cliquer sur Créer un nouveau site</strong>."
 
-#: wp-admin/network/index.php:40
+#: wp-admin/network:40
 msgid "To add a new user, <strong>click Create a New User</strong>."
 msgstr "Pour ajouter un nouveau compte, cliquez sur <strong>Créer un nouveau compte</strong>."
 
-#: wp-admin/network/index.php:39
+#: wp-admin/network:39
 msgid "The Right Now widget on this screen provides current user and site counts on your network."
 msgstr "Le widget « Aujourd’hui » de cet écran vous donne le nombre actuel de comptes et de sites sur votre réseau."
 
-#: wp-admin/network/index.php:29
+#: wp-admin/network:29
 msgid "Modify global network settings"
 msgstr "Modifier les réglages globaux du réseau"
 
-#: wp-admin/network/index.php:28
+#: wp-admin/network:28
 msgid "Update your network"
 msgstr "Mettre à jour votre réseau"
 
-#: wp-admin/network/index.php:27
+#: wp-admin/network:27
 msgid "Install and activate themes or plugins"
 msgstr "Installer et activer des thèmes ou des extensions"
 
-#: wp-admin/network/index.php:26
+#: wp-admin/network:26
 msgid "Add and manage sites or users"
 msgstr "Ajouter et gérer des sites ou des comptes"
 
-#: wp-admin/network/index.php:25
+#: wp-admin/network:25
 msgid "From here you can:"
 msgstr "D’ici, vous pouvez :"
 
-#: wp-admin/network/index.php:24
+#: wp-admin/network:24
 msgid "Welcome to your Network Admin. This area of the Administration Screens is used for managing all aspects of your Multisite Network."
 msgstr "Bienvenue dans l’administration de votre réseau ! Cette partie des écrans d’administration sert à gérer tous les aspects de votre réseau multisite."
 

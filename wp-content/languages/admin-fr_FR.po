@@ -4588,77 +4588,77 @@ msgstr "Bienvenue"
 msgid "WordPress &rsaquo; Installation"
 msgstr "WordPress &raquo; Installation"
 
-#: wp-admin/index.php:187
+#: wp-admin:187
 msgid "Dismiss the welcome panel"
 msgstr "Ignorer le panneau de bienvenue"
 
 #. translators: %s: Human-readable time interval.
-#: wp-admin/index.php:159
+#: wp-admin:159
 msgid "The admin email verification page will reappear after %s."
 msgstr "La page de vérification de l’e-mail d’administration réapparaîtra après %s."
 
-#: wp-admin/index.php:132
+#: wp-admin:132
 msgid "<a href=\"https://wordpress.org/documentation/article/dashboard-screen/\">Documentation on Dashboard</a>"
 msgstr "<a href=\"https://fr.wordpress.org/support/article/dashboard-screen/\">Documentation sur le Tableau de bord</a>"
 
 #. translators: %s: WordPress Planet URL.
-#: wp-admin/index.php:97
+#: wp-admin:97
 msgid "<strong>WordPress Events and News</strong> &mdash; Upcoming events near you as well as the latest news from the official WordPress project and the <a href=\"%s\">WordPress Planet</a>."
 msgstr "<strong>Évènements et actualités WordPress</strong> – évènements à venir près de chez vous et dernières actualités officielles du projet WordPress ainsi que de <a href=\"%s\">l’écosystème WordPress</a>."
 
-#: wp-admin/index.php:92
+#: wp-admin:92
 msgid "<strong>Quick Draft</strong> &mdash; Allows you to create a new post and save it as a draft. Also displays links to the 3 most recent draft posts you've started."
 msgstr "<strong>Brouillon rapide</strong> — Vous permet de créer une nouvelle publication et de l’enregistrer en tant que brouillon. Affiche également des liens vers les 3 derniers brouillons que vous avez créés."
 
-#: wp-admin/index.php:89
+#: wp-admin:89
 msgid "<strong>Activity</strong> &mdash; Shows the upcoming scheduled posts, recently published posts, and the most recent comments on your posts and allows you to moderate them."
 msgstr "<strong>Activité</strong> – Affiche les publications planifiées, celles qui ont été publiées récemment, et les commentaires récents, que vous pouvez valider ou non."
 
-#: wp-admin/index.php:86
+#: wp-admin:86
 msgid "<strong>At a Glance</strong> &mdash; Displays a summary of the content on your site and identifies which theme and version of WordPress you are using."
 msgstr "<strong>D’un coup d’œil</strong> - Affiche un résumé du contenu de votre site, et indique le thème et la version de WordPress que vous utilisez."
 
-#: wp-admin/index.php:82
+#: wp-admin:82
 msgid "<strong>Site Health Status</strong> &mdash; Informs you of any potential issues that should be addressed to improve the performance or security of your website."
 msgstr "<strong>Santé du site</strong> &mdash; Vous informe de tout problème potentiel qui devrait être résolu pour améliorer les performances ou la sécurité de votre site."
 
-#: wp-admin/index.php:78
+#: wp-admin:78
 msgid "<strong>Welcome</strong> &mdash; Shows links for some of the most common tasks when setting up a new site."
 msgstr "<strong>Bienvenue</strong> &mdash; Affiche des liens pour certaines des tâches les plus courantes lors de la configuration d’un nouveau site."
 
-#: wp-admin/index.php:75
+#: wp-admin:75
 msgid "The boxes on your Dashboard screen are:"
 msgstr "Les sections de l’écran du tableau de bord sont :"
 
-#: wp-admin/index.php:65
+#: wp-admin:65
 msgid "<strong>Box Controls</strong> &mdash; Click the title bar of the box to expand or collapse it. Some boxes added by plugins may have configurable content, and will show a &#8220;Configure&#8221; link in the title bar if you hover over it."
 msgstr "<strong>Contrôles des sections</strong> – Cliquez sur la barre de titre d’une section pour l’ouvrir ou la fermer. Certaines sections ajoutées par des extensions peuvent avoir un contenu configurable, et afficheront donc un lien « Configurer » dans la barre de titre lors du survol de la souris."
 
-#: wp-admin/index.php:64
+#: wp-admin:64
 msgid "<strong>Drag and Drop</strong> &mdash; To rearrange the boxes, drag and drop by clicking on the title bar of the selected box and releasing when you see a gray dotted-line rectangle appear in the location you want to place the box."
 msgstr "<strong>Glisser/déposer</strong> - Pour réarranger les sections, glissez/déposez-les en cliquant sur la barre de titre de la section sélectionnée, et relâchez-la lorsque vous apercevez un rectangle avec une bordure grise à l’emplacement où vous souhaitez placer la section."
 
-#: wp-admin/index.php:63
+#: wp-admin:63
 msgid "<strong>Screen Options</strong> &mdash; Use the Screen Options tab to choose which Dashboard boxes to show."
 msgstr "<strong>Options de l’écran</strong> &mdash; Utilisez l’onglet Options de l’écran pour choisir les sections à afficher dans le Tableau de bord."
 
-#: wp-admin/index.php:62
+#: wp-admin:62
 msgid "You can use the following controls to arrange your Dashboard screen to suit your workflow. This is true on most other administration screens as well."
 msgstr "Vous pouvez utiliser les contrôles suivants pour organiser l’écran du tableau de bord afin qu’il s’adapte à votre manière de l’utiliser. La plupart des écrans de la console d’administration peuvent également être organisés de cette manière."
 
-#: wp-admin/index.php:52
+#: wp-admin:52
 msgid "Links in the Toolbar at the top of the screen connect your dashboard and the front end of your site, and provide access to your profile and helpful WordPress information."
 msgstr "Les liens contenus dans la barre d’outils placée en haut de l’écran relient votre tableau de bord à la partie publique de votre site, et fournissent un accès rapide à votre profil et de précieuses informations sur WordPress."
 
-#: wp-admin/index.php:51
+#: wp-admin:51
 msgid "The left-hand navigation menu provides links to all of the WordPress administration screens, with submenu items displayed on hover. You can minimize this menu to a narrow icon strip by clicking on the Collapse Menu arrow at the bottom."
 msgstr "La navigation située à gauche de l’écran fournit tous les liens pour accéder à la console d’administration de WordPress, avec les sous-menus qui s’affichent au survol. Vous pouvez réduire ce menu à ses seules icônes en cliquant sur la flèche de repliement située en bas du menu."
 
-#: wp-admin/index.php:37
+#: wp-admin:37
 msgid "The Dashboard is the first place you will come to every time you log into your site. It is where you will find all your WordPress tools. If you need help, just click the &#8220;Help&#8221; tab above the screen title."
 msgstr "Le Tableau de bord est le premier endroit sur lequel vous arrivez à chaque fois que vous vous connectez à votre site. C’est là que vous trouverez tous vos outils WordPress. Si vous avez besoin d’aide, cliquez simplement sur l’onglet « Aide » au dessus du titre de l’écran."
 
-#: wp-admin/index.php:36
+#: wp-admin:36
 msgid "Welcome to your WordPress Dashboard!"
 msgstr "Bienvenue sur votre Tableau de bord WordPress !"
 
@@ -6377,7 +6377,7 @@ msgstr "Page"
 msgid "No items."
 msgstr "Aucune entrée."
 
-#: wp-admin/includes/ms.php:1173 wp-admin/network/index.php:57
+#: wp-admin/includes/ms.php:1173 wp-admin/network:57
 #: wp-admin/network/site-new.php:33 wp-admin/network/sites.php:45
 #: wp-admin/network/user-new.php:30 wp-admin/network/users.php:243
 msgid "<a href=\"https://wordpress.org/support/forum/multisite/\">Support forums</a>"
@@ -7003,7 +7003,7 @@ msgid "Save as Pending"
 msgstr "Mettre en attente"
 
 #: wp-admin/includes/menu.php:380 wp-admin/my-sites.php:17
-#: wp-admin/network/index.php:17 wp-admin/network/settings.php:17
+#: wp-admin/network:17 wp-admin/network/settings.php:17
 #: wp-admin/network/site-info.php:32 wp-admin/network/site-settings.php:32
 #: wp-admin/network/site-themes.php:57 wp-admin/network/site-users.php:50
 #: wp-admin/network/sites.php:14 wp-admin/network/sites.php:151
@@ -8235,7 +8235,7 @@ msgid "https://planet.wordpress.org/feed/"
 msgstr "https://fluxplanet.wpfr.net/wp-planet"
 
 #. translators: Link to the Planet website of the locale.
-#: wp-admin/includes/dashboard.php:1570 wp-admin/index.php:98
+#: wp-admin/includes/dashboard.php:1570 wp-admin:98
 msgid "https://planet.wordpress.org/"
 msgstr "https://fr.wordpress.org/news/"
 
@@ -14097,7 +14097,7 @@ msgstr "La mise à jour de l’extension a échoué."
 #: wp-admin/includes/class-wp-debug-data.php:1347
 #: wp-admin/includes/class-wp-plugins-list-table.php:1172
 #: wp-admin/includes/update.php:250 wp-admin/includes/update.php:290
-#: wp-admin/index.php:113
+#: wp-admin:113
 #: wp-admin/includes/class-wp-ms-themes-list-table.php:736
 msgid "Version %s"
 msgstr "Version %s"
@@ -15909,7 +15909,7 @@ msgstr "Ce commentaire est dans la corbeille. Veuillez l’en sortir avant de le
 #: wp-admin/erase-personal-data.php:66 wp-admin/export-personal-data.php:66
 #: wp-admin/export.php:60 wp-admin/import.php:33
 #: wp-admin/includes/class-custom-background.php:111
-#: wp-admin/includes/class-custom-image-header.php:146 wp-admin/index.php:133
+#: wp-admin/includes/class-custom-image-header.php:146 wp-admin:133
 #: wp-admin/link-manager.php:80 wp-admin/media-new.php:62
 #: wp-admin/my-sites.php:53 wp-admin/nav-menus.php:774
 #: wp-admin/options-discussion.php:33 wp-admin/options-general.php:61
@@ -15938,7 +15938,7 @@ msgstr "<a href=\"https://fr.wordpress.org/support/article/comments-screen/\">Do
 #: wp-admin/export.php:58 wp-admin/import.php:31
 #: wp-admin/includes/class-custom-background.php:109
 #: wp-admin/includes/class-custom-image-header.php:144
-#: wp-admin/includes/ms.php:1171 wp-admin/index.php:131
+#: wp-admin/includes/ms.php:1171 wp-admin:131
 #: wp-admin/link-manager.php:78 wp-admin/media-new.php:60
 #: wp-admin/my-sites.php:51 wp-admin/nav-menus.php:772
 #: wp-admin/options-discussion.php:31 wp-admin/options-general.php:59
@@ -15952,7 +15952,7 @@ msgstr "<a href=\"https://fr.wordpress.org/support/article/comments-screen/\">Do
 #: wp-admin/upload.php:198 wp-admin/upload.php:400 wp-admin/user-edit.php:77
 #: wp-admin/user-new.php:314 wp-admin/users.php:81 wp-admin/widgets-form.php:70
 #: wp-admin/network.php:67 wp-admin/network.php:80
-#: wp-admin/network/index.php:55 wp-admin/network/settings.php:63
+#: wp-admin/network:55 wp-admin/network/settings.php:63
 #: wp-admin/network/site-new.php:31 wp-admin/network/sites.php:43
 #: wp-admin/network/themes.php:337 wp-admin/network/upgrade.php:31
 #: wp-admin/network/user-new.php:28 wp-admin/network/users.php:241
@@ -16384,7 +16384,7 @@ msgstr "https://fr.wordpress.org/2025/03/28/guide-des-changements-techniques-de-
 #. translators: %s: WordPress version number.
 #. translators: %s: WordPress version.
 #: wp-admin/about.php:21 wp-admin/includes/update.php:321
-#: wp-admin/index.php:119 wp-admin/install.php:250 wp-admin/update-core.php:94
+#: wp-admin:119 wp-admin/install.php:250 wp-admin/update-core.php:94
 #: wp-admin/upgrade.php:100
 msgid "https://wordpress.org/documentation/wordpress-version/version-%s/"
 msgstr "https://wordpress.org/support/wordpress-version/version-%s/"

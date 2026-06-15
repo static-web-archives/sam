@@ -831,59 +831,59 @@ msgstr "Upgrade Network"
 msgid "Updates"
 msgstr "Updates"
 
-#: wp-admin/network/index.php:56
+#: wp-admin/network:56
 msgid "<a href=\"https://developer.wordpress.org/advanced-administration/multisite/admin/\">Documentation on the Network Admin</a>"
 msgstr "<a href=\"https://developer.wordpress.org/advanced-administration/multisite/admin/\">Documentation on the Network Admin</a>"
 
-#: wp-admin/network/index.php:49
+#: wp-admin/network:49
 msgid "Quick Tasks"
 msgstr "Quick Tasks"
 
-#: wp-admin/network/index.php:44
+#: wp-admin/network:44
 msgid "To search for a site, <strong>enter the path or domain</strong>."
 msgstr "To search for a site, <strong>enter the path or domain</strong>."
 
-#: wp-admin/network/index.php:43
+#: wp-admin/network:43
 msgid "To search for a user, <strong>enter an email address or username</strong>. Use a wildcard to search for a partial username, such as user&#42;."
 msgstr "To search for a user, <strong>enter an email address or username</strong>. Use a wildcard to search for a partial username, such as user&#42;."
 
-#: wp-admin/network/index.php:42
+#: wp-admin/network:42
 msgid "To search for a user or site, use the search boxes."
 msgstr "To search for a user or site, use the search boxes."
 
-#: wp-admin/network/index.php:41
+#: wp-admin/network:41
 msgid "To add a new site, <strong>click Create a New Site</strong>."
 msgstr "To add a new site, <strong>click Create a New Site</strong>."
 
-#: wp-admin/network/index.php:40
+#: wp-admin/network:40
 msgid "To add a new user, <strong>click Create a New User</strong>."
 msgstr "To add a new user, <strong>click Create a New User</strong>."
 
-#: wp-admin/network/index.php:39
+#: wp-admin/network:39
 msgid "The Right Now widget on this screen provides current user and site counts on your network."
 msgstr "The Right Now widget on this screen provides current user and site counts on your network."
 
-#: wp-admin/network/index.php:29
+#: wp-admin/network:29
 msgid "Modify global network settings"
 msgstr "Modify global network settings"
 
-#: wp-admin/network/index.php:28
+#: wp-admin/network:28
 msgid "Update your network"
 msgstr "Update your network"
 
-#: wp-admin/network/index.php:27
+#: wp-admin/network:27
 msgid "Install and activate themes or plugins"
 msgstr "Install and activate themes or plugins"
 
-#: wp-admin/network/index.php:26
+#: wp-admin/network:26
 msgid "Add and manage sites or users"
 msgstr "Add and manage sites or users"
 
-#: wp-admin/network/index.php:25
+#: wp-admin/network:25
 msgid "From here you can:"
 msgstr "From here you can:"
 
-#: wp-admin/network/index.php:24
+#: wp-admin/network:24
 msgid "Welcome to your Network Admin. This area of the Administration Screens is used for managing all aspects of your Multisite Network."
 msgstr "Welcome to your Network Admin. This area of the Administration Screens is used for managing all aspects of your Multisite Network."
 

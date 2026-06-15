@@ -370,7 +370,7 @@ Password Protected
 `$form_id: 'protect'`
 
 Profile Builder
-`$source: 'profile-builder/index.php'`
+`$source: 'profile-builder'`
 `$form_id: 'login', 'lost_password' or 'register'`
 
 Simple Membership
