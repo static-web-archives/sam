@@ -94,7 +94,7 @@
 			}
 
 			if ( 'rtl' === document.documentElement.getAttribute( 'dir' ) ) {
-				newTab = ( newTab === previousSibling ) ? nextSibling : previousSibling;
+				newTab = ( newTab === previousSibling ) 
 			}
 
 			if ( newTab ) {

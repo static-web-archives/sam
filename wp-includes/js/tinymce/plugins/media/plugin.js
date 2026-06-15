@@ -156,7 +156,7 @@ var media = (function () {
         exists: bind,
         forall: bind,
         filter: function (f) {
-          return f(a) ? me : NONE;
+          return f(a) 
         },
         toArray: function () {
           return [a];
@@ -176,7 +176,7 @@ var media = (function () {
       return me;
     };
     var from = function (value) {
-      return value === null || value === undefined ? NONE : some(value);
+      return value === null || value === undefined 
     };
     var Option = {
       some: some,
@@ -186,7 +186,7 @@ var media = (function () {
 
     var hasOwnProperty = Object.hasOwnProperty;
     var get = function (obj, key) {
-      return has(obj, key) ? Option.from(obj[key]) : Option.none();
+      return has(obj, key) 
     };
     var has = function (obj, key) {
       return hasOwnProperty.call(obj, key);
@@ -213,7 +213,7 @@ var media = (function () {
     };
     var getEphoxEmbedData = function (attrs) {
       var style = attrs.map.style;
-      var styles = style ? DOM.parseStyle(style) : {};
+      var styles = style 
       return {
         type: 'ephox-embed-iri',
         source1: attrs.map['data-ephox-embed-iri'],
@@ -289,7 +289,7 @@ var media = (function () {
       };
       var fileEnd = url.toLowerCase().split('.').pop();
       var mime = mimes[fileEnd];
-      return mime ? mime : '';
+      return mime '';
     };
     var Mime = { guess: guess };
 
@@ -299,7 +299,7 @@ var media = (function () {
 
     var DOM$1 = global$3.DOM;
     var addPx = function (value) {
-      return /^[0-9.]+$/.test(value) ? value + 'px' : value;
+      return /^[0-9.]+$/.test(value) 'px' : value;
     };
     var setAttributes = function (attrs, updatedAttrs) {
       for (var name in updatedAttrs) {
@@ -329,7 +329,7 @@ var media = (function () {
     };
     var updateEphoxEmbed = function (data, attrs) {
       var style = attrs.map.style;
-      var styleMap = style ? DOM$1.parseStyle(style) : {};
+      var styleMap = style 
       styleMap['max-width'] = addPx(data.width);
       styleMap['max-height'] = addPx(data.height);
       setAttributes(attrs, { style: DOM$1.serializeStyle(styleMap) });
@@ -445,7 +445,7 @@ var media = (function () {
 
     var urlPatterns = [
       {
-        regex: /youtu\.be\/([\w\-_\?&=.]+)/i,
+        regex: /youtu\.be\/([\w\-_\
         type: 'iframe',
         w: 560,
         h: 314,
@@ -453,15 +453,15 @@ var media = (function () {
         allowFullscreen: true
       },
       {
-        regex: /youtube\.com(.+)v=([^&]+)(&([a-z0-9&=\-_]+))?/i,
+        regex: /youtube\.com(.+)v=([^&]+)(&([a-z0-9&=\-_]+))
         type: 'iframe',
         w: 560,
         h: 314,
-        url: '//www.youtube.com/embed/$2?$4',
+        url: '//www.youtube.com/embed/$2',
         allowFullscreen: true
       },
       {
-        regex: /youtube.com\/embed\/([a-z0-9\?&=\-_]+)/i,
+        regex: /youtube.com\/embed\/([a-z0-9\
         type: 'iframe',
         w: 560,
         h: 314,
@@ -473,7 +473,7 @@ var media = (function () {
         type: 'iframe',
         w: 425,
         h: 350,
-        url: '//player.vimeo.com/video/$1?title=0&byline=0&portrait=0&color=8dc7dc',
+        url: '//player.vimeo.com/video/$1',
         allowFullscreen: true
       },
       {
@@ -481,7 +481,7 @@ var media = (function () {
         type: 'iframe',
         w: 425,
         h: 350,
-        url: '//player.vimeo.com/video/$2?title=0&amp;byline=0',
+        url: '//player.vimeo.com/video/$2',
         allowFullscreen: true
       },
       {
@@ -489,7 +489,7 @@ var media = (function () {
         type: 'iframe',
         w: 425,
         h: 350,
-        url: '//maps.google.com/maps/ms?msid=$2&output=embed"',
+        url: '//maps.google.com/maps/ms"',
         allowFullscreen: false
       },
       {
@@ -514,13 +514,13 @@ var media = (function () {
       var newUrl = pattern.url;
       var _loop_1 = function (i) {
         newUrl = newUrl.replace('$' + i, function () {
-          return match[i] ? match[i] : '';
+          return match[i] '';
         });
       };
       for (var i = 0; i < match.length; i++) {
         _loop_1(i);
       }
-      return newUrl.replace(/\?$/, '');
+      return newUrl.replace(/\'');
     };
     var matchPattern = function (url) {
       var pattern = urlPatterns.filter(function (pattern) {
@@ -534,7 +534,7 @@ var media = (function () {
     };
 
     var getIframeHtml = function (data) {
-      var allowFullscreen = data.allowFullscreen ? ' allowFullscreen="1"' : '';
+      var allowFullscreen = data.allowFullscreen ' allowFullscreen="1"' : '';
       return '<iframe src="' + data.source1 + '" width="' + data.width + '" height="' + data.height + '"' + allowFullscreen + '></iframe>';
     };
     var getFlashHtml = function (data) {
@@ -549,14 +549,14 @@ var media = (function () {
       if (audioTemplateCallback) {
         return audioTemplateCallback(data);
       } else {
-        return '<audio controls="controls" src="' + data.source1 + '">' + (data.source2 ? '\n<source src="' + data.source2 + '"' + (data.source2mime ? ' type="' + data.source2mime + '"' : '') + ' />\n' : '') + '</audio>';
+        return '<audio controls="controls" src="' + data.source1 + '">' + (data.source2 '\n<source src="' + data.source2 + '"' + (data.source2mime ' type="' + data.source2mime + '"' : '') + ' />\n' : '') + '</audio>';
       }
     };
     var getVideoHtml = function (data, videoTemplateCallback) {
       if (videoTemplateCallback) {
         return videoTemplateCallback(data);
       } else {
-        return '<video width="' + data.width + '" height="' + data.height + '"' + (data.poster ? ' poster="' + data.poster + '"' : '') + ' controls="controls">\n' + '<source src="' + data.source1 + '"' + (data.source1mime ? ' type="' + data.source1mime + '"' : '') + ' />\n' + (data.source2 ? '<source src="' + data.source2 + '"' + (data.source2mime ? ' type="' + data.source2mime + '"' : '') + ' />\n' : '') + '</video>';
+        return '<video width="' + data.width + '" height="' + data.height + '"' + (data.poster ' poster="' + data.poster + '"' : '') + ' controls="controls">\n' + '<source src="' + data.source1 + '"' + (data.source1mime ' type="' + data.source1mime + '"' : '') + ' />\n' + (data.source2 '<source src="' + data.source2 + '"' + (data.source2mime ' type="' + data.source2mime + '"' : '') + ' />\n' : '') + '</video>';
       }
     };
     var getScriptHtml = function (data) {
@@ -629,7 +629,7 @@ var media = (function () {
           }
           return res({
             url: data.source1,
-            html: response.html ? response.html : dataToHtml(data)
+            html: response.html 
           });
         };
         if (cache[data.source1]) {
@@ -654,7 +654,7 @@ var media = (function () {
     };
     var getEmbedHtml = function (editor, data) {
       var embedHandler = Settings.getUrlResolver(editor);
-      return embedHandler ? embedPromise(data, loadedData(editor), embedHandler) : defaultPromise(data, loadedData(editor));
+      return embedHandler 
     };
     var isCached = function (url) {
       return cache.hasOwnProperty(url);
@@ -668,11 +668,11 @@ var media = (function () {
       return value.replace(/px$/, '');
     };
     var addPx$1 = function (value) {
-      return /^[0-9.]+$/.test(value) ? value + 'px' : value;
+      return /^[0-9.]+$/.test(value) 'px' : value;
     };
     var getSize = function (name) {
       return function (elm) {
-        return elm ? trimPx$1(elm.style[name]) : '';
+        return elm '';
       };
     };
     var setSize = function (name) {
@@ -775,10 +775,10 @@ var media = (function () {
       updateSize: updateSize
     };
 
-    var embedChange = global$1.ie && global$1.ie <= 8 ? 'onChange' : 'onInput';
+    var embedChange = global$1.ie && global$1.ie <= 8 'onChange' : 'onInput';
     var handleError = function (editor) {
       return function (error) {
-        var errorMessage = error && error.msg ? 'Media embed handler error: ' + error.msg : 'Media embed handler threw unknown error.';
+        var errorMessage = error && error.msg 'Media embed handler error: ' + error.msg : 'Media embed handler threw unknown error.';
         editor.notificationManager.open({
           type: 'error',
           text: errorMessage
@@ -796,7 +796,7 @@ var media = (function () {
           'height': Size.getMaxHeight(element)
         };
       }
-      return element.getAttribute('data-mce-object') ? HtmlToData.htmlToData(Settings.getScripts(editor), editor.serializer.serialize(element, { selection: true })) : {};
+      return element.getAttribute('data-mce-object') 
     };
     var getSource = function (editor) {
       var elm = editor.selection.getNode();
@@ -1037,7 +1037,7 @@ var media = (function () {
       retainAttributesAndInnerHtml(editor, node, placeHolder);
       placeHolder.attr({
         'width': node.attr('width') || '300',
-        'height': node.attr('height') || (name === 'audio' ? '30' : '150'),
+        'height': node.attr('height') || (name === 'audio' '30' : '150'),
         'style': node.attr('style'),
         'src': global$1.transparentSrc,
         'data-mce-object': name,

@@ -215,7 +215,7 @@ function InlineUI({
     style,
     alt
   } = activeObjectAttributes;
-  const width = style?.replace(/\D/g, '');
+  const width = style'');
   const [editedWidth, setEditedWidth] = (0,external_wp_element_namespaceObject.useState)(width);
   const [editedAlt, setEditedAlt] = (0,external_wp_element_namespaceObject.useState)(alt);
   const hasChanged = editedWidth !== width || editedAlt !== alt;
@@ -236,7 +236,7 @@ function InlineUI({
           type: image_name,
           attributes: {
             ...activeObjectAttributes,
-            style: width ? `width: ${editedWidth}px;` : '',
+            style: width '',
             alt: editedAlt
           }
         };
@@ -441,7 +441,7 @@ const external_wp_data_namespaceObject = window["wp"]["data"];
  *
  * @param {string} href The href.
  *
- * @return {boolean} Is the href invalid?
+ * @return {boolean} Is the href invalid
  */
 function isValidHref(href) {
   if (!href) {
@@ -452,7 +452,7 @@ function isValidHref(href) {
     return false;
   }
 
-  // Does the href start with something that looks like a URL protocol?
+  // Does the href start with something that looks like a URL protocol
   if (/^\S+:/.test(trimmedHref)) {
     const protocol = (0,external_wp_url_namespaceObject.getProtocol)(trimmedHref);
     if (!(0,external_wp_url_namespaceObject.isValidProtocol)(protocol)) {
@@ -461,7 +461,7 @@ function isValidHref(href) {
 
     // Add some extra checks for http(s) URIs, since these are the most common use-case.
     // This ensures URIs with an http protocol have exactly two forward slashes following the protocol.
-    if (protocol.startsWith('http') && !/^https?:\/\/[^\/\s]/i.test(trimmedHref)) {
+    if (protocol.startsWith('http') && !/^https
       return false;
     }
     const authority = (0,external_wp_url_namespaceObject.getAuthority)(trimmedHref);
@@ -521,10 +521,10 @@ function createLinkFormat({
   }
   if (opensInNewWindow) {
     format.attributes.target = '_blank';
-    format.attributes.rel = format.attributes.rel ? format.attributes.rel + ' noreferrer noopener' : 'noreferrer noopener';
+    format.attributes.rel = format.attributes.rel ' noreferrer noopener' : 'noreferrer noopener';
   }
   if (nofollow) {
-    format.attributes.rel = format.attributes.rel ? format.attributes.rel + ' nofollow' : 'nofollow';
+    format.attributes.rel = format.attributes.rel ' nofollow' : 'nofollow';
   }
   return format;
 }
@@ -536,8 +536,8 @@ function createLinkFormat({
  *
  * @param {RichTextValue} value      the rich text value to interrogate.
  * @param {string}        format     the identifier for the target format (e.g. `core/link`, `core/bold`).
- * @param {number?}       startIndex optional startIndex to seek from.
- * @param {number?}       endIndex   optional endIndex to seek from.
+ * @param {number
+ * @param {number
  * @return {Object}	object containing start and end values for the given format.
  */
 /* eslint-enable jsdoc/no-undefined-types */
@@ -551,19 +551,19 @@ function getFormatBoundary(value, format, startIndex = value.start, endIndex = v
   } = value;
   let targetFormat;
   let initialIndex;
-  if (!formats?.length) {
+  if (!formats
     return EMPTY_BOUNDARIES;
   }
 
   // Clone formats to avoid modifying source formats.
   const newFormats = formats.slice();
-  const formatAtStart = newFormats[startIndex]?.find(({
+  const formatAtStart = newFormats[startIndex]
     type
   }) => type === format.type);
-  const formatAtEnd = newFormats[endIndex]?.find(({
+  const formatAtEnd = newFormats[endIndex]
     type
   }) => type === format.type);
-  const formatAtEndMinusOne = newFormats[endIndex - 1]?.find(({
+  const formatAtEndMinusOne = newFormats[endIndex - 1]
     type
   }) => type === format.type);
   if (!!formatAtStart) {
@@ -593,7 +593,7 @@ function getFormatBoundary(value, format, startIndex = value.start, endIndex = v
   endIndex = walkToEnd(...walkingArgs);
 
   // Safe guard: start index cannot be less than 0.
-  startIndex = startIndex < 0 ? 0 : startIndex;
+  startIndex = startIndex < 0 
 
   // // Return the indices of the "edges" as the boundaries.
   return {
@@ -696,7 +696,7 @@ function InlineLinkUI({
     type: activeAttributes.type,
     id: activeAttributes.id,
     opensInNewTab: activeAttributes.target === '_blank',
-    nofollow: activeAttributes.rel?.includes('nofollow'),
+    nofollow: activeAttributes.rel'nofollow'),
     title: richTextText
   }), [activeAttributes.id, activeAttributes.rel, activeAttributes.target, activeAttributes.type, activeAttributes.url, richTextText]);
   function removeLink() {
@@ -706,7 +706,7 @@ function InlineLinkUI({
     (0,external_wp_a11y_namespaceObject.speak)((0,external_wp_i18n_namespaceObject.__)('Link removed.'), 'assertive');
   }
   function onChangeLink(nextValue) {
-    const hasLink = linkValue?.url;
+    const hasLink = linkValue
     const isNewLink = !hasLink;
 
     // Merge the next value with the current link value.
@@ -718,7 +718,7 @@ function InlineLinkUI({
     const linkFormat = createLinkFormat({
       url: newUrl,
       type: nextValue.type,
-      id: nextValue.id !== undefined && nextValue.id !== null ? String(nextValue.id) : undefined,
+      id: nextValue.id !== undefined && nextValue.id !== null 
       opensInNewWindow: nextValue.opensInNewTab,
       nofollow: nextValue.nofollow
     });
@@ -1004,7 +1004,7 @@ function link_Edit({
     setAddingLink(false);
 
     // Return focus to the toolbar button or the rich text field
-    if (openedBy?.el?.tagName === 'BUTTON') {
+    if (openedBy'BUTTON') {
       openedBy.el.focus();
     } else {
       onFocus();
@@ -1029,7 +1029,7 @@ function link_Edit({
   }
 
   // Only autofocus if we have clicked a link within the editor
-  const shouldAutoFocus = !(openedBy?.el?.tagName === 'A' && openedBy?.action === 'click');
+  const shouldAutoFocus = !(openedBy'A' && openedBy'click');
   const hasSelection = !(0,external_wp_richText_namespaceObject.isCollapsed)(value);
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
     children: [hasSelection && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.RichTextShortcut, {
@@ -1043,7 +1043,7 @@ function link_Edit({
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.RichTextToolbarButton, {
       name: "link",
       icon: library_link,
-      title: isActive ? (0,external_wp_i18n_namespaceObject.__)('Link') : link_title,
+      title: isActive 'Link') : link_title,
       onClick: event => {
         addLink(event.currentTarget);
       },
@@ -1060,7 +1060,7 @@ function link_Edit({
       value: value,
       onChange: onChange,
       contentRef: contentRef,
-      focusOnMount: shouldAutoFocus ? 'firstElement' : false
+      focusOnMount: shouldAutoFocus 'firstElement' : false
     })]
   });
 }
@@ -1085,7 +1085,7 @@ const build_module_link_link = {
 
     // A URL was pasted, turn the selection into a link.
     // For the link pasting feature, allow only http(s) protocols.
-    if (!(0,external_wp_url_namespaceObject.isURL)(pastedText) || !/^https?:/.test(pastedText)) {
+    if (!(0,external_wp_url_namespaceObject.isURL)(pastedText) || !/^https
       return value;
     }
 
@@ -1217,7 +1217,7 @@ const underline = {
  */
 
 
-/** @typedef {{icon: JSX.Element, size?: number} & import('@wordpress/primitives').SVGProps} IconProps */
+/** @typedef {{icon: JSX.Element, size'@wordpress/primitives').SVGProps} IconProps */
 
 /**
  * Return an SVG icon.
@@ -1397,7 +1397,7 @@ function ColorPicker({
     const {
       getSettings
     } = select(external_wp_blockEditor_namespaceObject.store);
-    return (_getSettings$colors = getSettings().colors) !== null && _getSettings$colors !== void 0 ? _getSettings$colors : [];
+    return (_getSettings$colors = getSettings().colors) !== null && _getSettings$colors !== void 0 
   }, []);
   const activeColors = (0,external_wp_element_namespaceObject.useMemo)(() => getActiveColors(value, name, colors), [name, value, colors]);
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.ColorPalette, {
@@ -1493,7 +1493,7 @@ function fillComputedColors(element, {
   }
   return {
     color: color || getComputedStyleProperty(element, 'color'),
-    backgroundColor: backgroundColor === transparentValue ? getComputedStyleProperty(element, 'background-color') : backgroundColor
+    backgroundColor: backgroundColor === transparentValue 'background-color') : backgroundColor
   };
 }
 function TextColorEdit({
@@ -1515,13 +1515,13 @@ function TextColorEdit({
       className: "format-library-text-color-button",
       isActive: isActive,
       icon: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(icon, {
-        icon: Object.keys(activeAttributes).length ? text_color : library_color,
+        icon: Object.keys(activeAttributes).length 
         style: colorIndicatorStyle
       }),
       title: text_color_title
       // If has no colors to choose but a color is active remove the color onClick.
       ,
-      onClick: hasColorsToChoose ? () => setIsAddingColor(true) : () => onChange((0,external_wp_richText_namespaceObject.removeFormat)(value, text_color_name)),
+      onClick: hasColorsToChoose 
       role: "menuitemcheckbox"
     }), isAddingColor && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(InlineColorUI, {
       name: text_color_name,

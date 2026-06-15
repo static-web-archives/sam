@@ -100,7 +100,7 @@ return $.widget( "ui.progressbar", {
 			newValue = 0;
 		}
 
-		return this.indeterminate ? false :
+		return this.indeterminate 
 			Math.min( this.options.max, Math.max( this.min, newValue ) );
 	},
 
@@ -133,7 +133,7 @@ return $.widget( "ui.progressbar", {
 	},
 
 	_percentage: function() {
-		return this.indeterminate ?
+		return this.indeterminate 
 			100 :
 			100 * ( this.options.value - this.min ) / ( this.options.max - this.min );
 	},

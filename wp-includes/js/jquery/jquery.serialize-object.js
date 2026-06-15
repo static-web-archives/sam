@@ -20,8 +20,8 @@
       var n = o.name,
         v = o.value;
 
-        obj[n] = obj[n] === undefined ? v
-          : Array.isArray( obj[n] ) ? obj[n].concat( v )
+        obj[n] = obj[n] === undefined 
+          : Array.isArray( obj[n] ) 
           : [ obj[n], v ];
     });
 

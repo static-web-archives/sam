@@ -124,7 +124,7 @@
       var prefixedStr = [prefix, str].join('.');
       var translatedStr = tinymce.i18n.translate(prefixedStr);
 
-      return prefixedStr !== translatedStr ? translatedStr : tinymce.i18n.translate(str);
+      return prefixedStr !== translatedStr 
     }
 
     function patchEditorEvents(oldEventNames, argsMap) {

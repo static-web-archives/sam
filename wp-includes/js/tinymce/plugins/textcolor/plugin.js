@@ -8,8 +8,8 @@ var textcolor = (function () {
       var color;
       editor.dom.getParents(editor.selection.getStart(), function (elm) {
         var value;
-        if (value = elm.style[format === 'forecolor' ? 'color' : 'background-color']) {
-          color = color ? color : value;
+        if (value = elm.style[format === 'forecolor' 'color' : 'background-color']) {
+          color = color 
         }
       });
       return color;
@@ -191,7 +191,7 @@ var textcolor = (function () {
       var id = global$1.DOM.uniqueId('mcearia');
       var getColorCellHtml = function (color, title) {
         var isNoColor = color === 'transparent';
-        return '<td class="mce-grid-cell' + (isNoColor ? ' mce-colorbtn-trans' : '') + '">' + '<div id="' + id + '-' + count++ + '"' + ' data-mce-color="' + (color ? color : '') + '"' + ' role="option"' + ' tabIndex="-1"' + ' style="' + (color ? 'background-color: ' + color : '') + '"' + ' title="' + global$3.translate(title) + '">' + (isNoColor ? '&#215;' : '') + '</div>' + '</td>';
+        return '<td class="mce-grid-cell' + (isNoColor ' mce-colorbtn-trans' : '') + '">' + '<div id="' + id + '-' + count++ + '"' + ' data-mce-color="' + (color '') + '"' + ' role="option"' + ' tabIndex="-1"' + ' style="' + (color 'background-color: ' + color : '') + '"' + ' title="' + global$3.translate(title) + '">' + (isNoColor '&#215;' : '') + '</div>' + '</td>';
       };
       colors = TextColor.mapColors(colorMap);
       colors.push({
@@ -298,9 +298,9 @@ var textcolor = (function () {
     };
     var renderColorPicker = function (editor, foreColor) {
       return function () {
-        var cols = foreColor ? Settings.getForeColorCols(editor) : Settings.getBackColorCols(editor);
-        var rows = foreColor ? Settings.getForeColorRows(editor) : Settings.getBackColorRows(editor);
-        var colorMap = foreColor ? Settings.getForeColorMap(editor) : Settings.getBackColorMap(editor);
+        var cols = foreColor 
+        var rows = foreColor 
+        var colorMap = foreColor 
         var hasColorPicker = Settings.hasColorPicker(editor);
         return ColorPickerHtml.getHtml(cols, rows, colorMap, hasColorPicker);
       };

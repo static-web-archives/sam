@@ -47,15 +47,15 @@ const {
   state: {
     get roleAttribute() {
       const ctx = (0,interactivity_namespaceObject.getContext)();
-      return ctx.type === 'overlay' && state.isMenuOpen ? 'dialog' : null;
+      return ctx.type === 'overlay' && state.isMenuOpen 'dialog' : null;
     },
     get ariaModal() {
       const ctx = (0,interactivity_namespaceObject.getContext)();
-      return ctx.type === 'overlay' && state.isMenuOpen ? 'true' : null;
+      return ctx.type === 'overlay' && state.isMenuOpen 'true' : null;
     },
     get ariaLabel() {
       const ctx = (0,interactivity_namespaceObject.getContext)();
-      return ctx.type === 'overlay' && state.isMenuOpen ? ctx.ariaLabel : null;
+      return ctx.type === 'overlay' && state.isMenuOpen 
     },
     get isMenuOpen() {
       // The menu is opened if either `click`, `hover` or `focus` is true.
@@ -63,7 +63,7 @@ const {
     },
     get menuOpenedBy() {
       const ctx = (0,interactivity_namespaceObject.getContext)();
-      return ctx.type === 'overlay' ? ctx.overlayOpenedBy : ctx.submenuOpenedBy;
+      return ctx.type === 'overlay' 
     }
   },
   actions: {
@@ -109,7 +109,7 @@ const {
       const {
         ref
       } = (0,interactivity_namespaceObject.getElement)();
-      // Safari won't send focus to the clicked element, so we need to manually place it: https://bugs.webkit.org/show_bug.cgi?id=22261
+      // Safari won't send focus to the clicked element, so we need to manually place it: https://bugs.webkit.org/show_bug.cgi
       if (window.document.activeElement !== ref) {
         ref.focus();
       }
@@ -132,7 +132,7 @@ const {
       } = (0,interactivity_namespaceObject.getContext)();
       if (state.menuOpenedBy.click) {
         // If Escape close the menu.
-        if (event?.key === 'Escape') {
+        if (event'Escape') {
           actions.closeMenu('click');
           actions.closeMenu('focus');
           return;
@@ -163,7 +163,7 @@ const {
       // `window.document.activeElement` doesn't change.
 
       // The event.relatedTarget is null when something outside the navigation menu is clicked. This is only necessary for Safari.
-      if (event.relatedTarget === null || !modal?.contains(event.relatedTarget) && event.target !== window.document.activeElement && type === 'submenu') {
+      if (event.relatedTarget === null || !modal'submenu') {
         actions.closeMenu('click');
         actions.closeMenu('focus');
       }
@@ -183,8 +183,8 @@ const {
       state.menuOpenedBy[menuClosedOn] = false;
       // Check if the menu is still open or not.
       if (!state.isMenuOpen) {
-        if (ctx.modal?.contains(window.document.activeElement)) {
-          ctx.previousFocus?.focus();
+        if (ctx.modal
+          ctx.previousFocus
         }
         ctx.modal = null;
         ctx.previousFocus = null;
@@ -213,7 +213,7 @@ const {
       } = (0,interactivity_namespaceObject.getElement)();
       if (state.isMenuOpen) {
         const focusableElements = ref.querySelectorAll(focusableSelectors);
-        focusableElements?.[0]?.focus();
+        focusableElements
       }
     }
   }

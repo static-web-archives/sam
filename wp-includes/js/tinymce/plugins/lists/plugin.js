@@ -96,7 +96,7 @@ var lists = (function (domGlobals) {
       if (NodeType.isTextNode(node)) {
         return {
           container: node,
-          offset: offset >= container.childNodes.length ? node.data.length : 0
+          offset: offset >= container.childNodes.length 
         };
       } else if (node.previousSibling && NodeType.isTextNode(node.previousSibling)) {
         return {
@@ -132,8 +132,8 @@ var lists = (function (domGlobals) {
       var bookmark = {};
       var setupEndPoint = function (start) {
         var offsetNode, container, offset;
-        container = rng[start ? 'startContainer' : 'endContainer'];
-        offset = rng[start ? 'startOffset' : 'endOffset'];
+        container = rng[start 'startContainer' : 'endContainer'];
+        offset = rng[start 'startOffset' : 'endOffset'];
         if (container.nodeType === 1) {
           offsetNode = DOM.create('span', { 'data-mce-type': 'bookmark' });
           if (container.hasChildNodes()) {
@@ -149,8 +149,8 @@ var lists = (function (domGlobals) {
           container = offsetNode;
           offset = 0;
         }
-        bookmark[start ? 'startContainer' : 'endContainer'] = container;
-        bookmark[start ? 'startOffset' : 'endOffset'] = offset;
+        bookmark[start 'startContainer' : 'endContainer'] = container;
+        bookmark[start 'startOffset' : 'endOffset'] = offset;
       };
       setupEndPoint(true);
       if (!rng.collapsed) {
@@ -174,8 +174,8 @@ var lists = (function (domGlobals) {
           }
           return -1;
         };
-        container = node = bookmark[start ? 'startContainer' : 'endContainer'];
-        offset = bookmark[start ? 'startOffset' : 'endOffset'];
+        container = node = bookmark[start 'startContainer' : 'endContainer'];
+        offset = bookmark[start 'startOffset' : 'endOffset'];
         if (!container) {
           return;
         }
@@ -187,8 +187,8 @@ var lists = (function (domGlobals) {
             container.appendChild(DOM.create('br'));
           }
         }
-        bookmark[start ? 'startContainer' : 'endContainer'] = container;
-        bookmark[start ? 'startOffset' : 'endOffset'] = offset;
+        bookmark[start 'startContainer' : 'endContainer'] = container;
+        bookmark[start 'startOffset' : 'endOffset'] = offset;
       }
       restoreEndPoint(true);
       restoreEndPoint();
@@ -304,7 +304,7 @@ var lists = (function (domGlobals) {
         exists: bind,
         forall: bind,
         filter: function (f) {
-          return f(a) ? me : NONE;
+          return f(a) 
         },
         toArray: function () {
           return [a];
@@ -324,7 +324,7 @@ var lists = (function (domGlobals) {
       return me;
     };
     var from = function (value) {
-      return value === null || value === undefined ? NONE : some(value);
+      return value === null || value === undefined 
     };
     var Option = {
       some: some,
@@ -441,19 +441,19 @@ var lists = (function (domGlobals) {
       return r;
     };
     var head = function (xs) {
-      return xs.length === 0 ? Option.none() : Option.some(xs[0]);
+      return xs.length === 0 
     };
     var last = function (xs) {
-      return xs.length === 0 ? Option.none() : Option.some(xs[xs.length - 1]);
+      return xs.length === 0 
     };
-    var from$1 = isFunction(Array.from) ? Array.from : function (x) {
+    var from$1 = isFunction(Array.from) 
       return nativeSlice.call(x);
     };
 
-    var Global = typeof domGlobals.window !== 'undefined' ? domGlobals.window : Function('return this;')();
+    var Global = typeof domGlobals.window !== 'undefined' 'return this;')();
 
     var path = function (parts, scope) {
-      var o = scope !== undefined && scope !== null ? scope : Global;
+      var o = scope !== undefined && scope !== null 
       for (var i = 0; i < parts.length && o !== undefined && o !== null; ++i) {
         o = o[parts[i]];
       }
@@ -513,7 +513,7 @@ var lists = (function (domGlobals) {
     var findParentListItemsNodes = function (editor, elms) {
       var listItemsElms = global$5.map(elms, function (elm) {
         var parentLi = editor.dom.getParent(elm, 'li,dd,dt', getClosestListRootElm(editor, elm));
-        return parentLi ? parentLi : elm;
+        return parentLi 
       });
       return global$7.unique(listItemsElms);
     };
@@ -528,7 +528,7 @@ var lists = (function (domGlobals) {
     };
     var getClosestListRootElm = function (editor, elm) {
       var parentTableCell = editor.dom.getParents(elm, 'TD,TH');
-      var root = parentTableCell.length > 0 ? parentTableCell[0] : editor.getBody();
+      var root = parentTableCell.length > 0 
       return root;
     };
     var findLastParentListNode = function (editor, elm) {
@@ -603,7 +603,7 @@ var lists = (function (domGlobals) {
     };
 
     var lift2 = function (oa, ob, f) {
-      return oa.isSome() && ob.isSome() ? Option.some(f(oa.getOrDie(), ob.getOrDie())) : Option.none();
+      return oa.isSome() && ob.isSome() 
     };
 
     var fromElements = function (elements, scope) {
@@ -865,7 +865,7 @@ var lists = (function (domGlobals) {
       return str.indexOf(substr) !== -1;
     };
 
-    var normalVersionRegex = /.*?version\/\ ?([0-9]+)\.([0-9]+).*/;
+    var normalVersionRegex = /.*
     var checkContains = function (target) {
       return function (uastring) {
         return contains(uastring, target);
@@ -874,7 +874,7 @@ var lists = (function (domGlobals) {
     var browsers = [
       {
         name: 'Edge',
-        versionRegexes: [/.*?edge\/ ?([0-9]+)\.([0-9]+)$/],
+        versionRegexes: [/.*
         search: function (uastring) {
           return contains(uastring, 'edge/') && contains(uastring, 'chrome') && contains(uastring, 'safari') && contains(uastring, 'applewebkit');
         }
@@ -882,7 +882,7 @@ var lists = (function (domGlobals) {
       {
         name: 'Chrome',
         versionRegexes: [
-          /.*?chrome\/([0-9]+)\.([0-9]+).*/,
+          /.*
           normalVersionRegex
         ],
         search: function (uastring) {
@@ -892,8 +892,8 @@ var lists = (function (domGlobals) {
       {
         name: 'IE',
         versionRegexes: [
-          /.*?msie\ ?([0-9]+)\.([0-9]+).*/,
-          /.*?rv:([0-9]+)\.([0-9]+).*/
+          /.*
+          /.*
         ],
         search: function (uastring) {
           return contains(uastring, 'msie') || contains(uastring, 'trident');
@@ -903,20 +903,20 @@ var lists = (function (domGlobals) {
         name: 'Opera',
         versionRegexes: [
           normalVersionRegex,
-          /.*?opera\/([0-9]+)\.([0-9]+).*/
+          /.*
         ],
         search: checkContains('opera')
       },
       {
         name: 'Firefox',
-        versionRegexes: [/.*?firefox\/\ ?([0-9]+)\.([0-9]+).*/],
+        versionRegexes: [/.*
         search: checkContains('firefox')
       },
       {
         name: 'Safari',
         versionRegexes: [
           normalVersionRegex,
-          /.*?cpu os ([0-9]+)_([0-9]+).*/
+          /.*
         ],
         search: function (uastring) {
           return (contains(uastring, 'safari') || contains(uastring, 'mobile/')) && contains(uastring, 'applewebkit');
@@ -927,7 +927,7 @@ var lists = (function (domGlobals) {
       {
         name: 'Windows',
         search: checkContains('win'),
-        versionRegexes: [/.*?windows\ nt\ ?([0-9]+)\.([0-9]+).*/]
+        versionRegexes: [/.*
       },
       {
         name: 'iOS',
@@ -935,7 +935,7 @@ var lists = (function (domGlobals) {
           return contains(uastring, 'iphone') || contains(uastring, 'ipad');
         },
         versionRegexes: [
-          /.*?version\/\ ?([0-9]+)\.([0-9]+).*/,
+          /.*
           /.*cpu os ([0-9]+)_([0-9]+).*/,
           /.*cpu iphone os ([0-9]+)_([0-9]+).*/
         ]
@@ -943,12 +943,12 @@ var lists = (function (domGlobals) {
       {
         name: 'Android',
         search: checkContains('android'),
-        versionRegexes: [/.*?android\ ?([0-9]+)\.([0-9]+).*/]
+        versionRegexes: [/.*
       },
       {
         name: 'OSX',
         search: checkContains('os x'),
-        versionRegexes: [/.*?os\ x\ ?([0-9]+)_([0-9]+).*/]
+        versionRegexes: [/.*
       },
       {
         name: 'Linux',
@@ -1031,13 +1031,13 @@ var lists = (function (domGlobals) {
     var regularContains = function (e1, e2) {
       var d1 = e1.dom();
       var d2 = e2.dom();
-      return d1 === d2 ? false : d1.contains(d2);
+      return d1 === d2 
     };
     var ieContains = function (e1, e2) {
       return Node.documentPositionContainedBy(e1.dom(), e2.dom());
     };
     var browser = PlatformDetection$1.detect().browser;
-    var contains$1 = browser.isIE() ? ieContains : regularContains;
+    var contains$1 = browser.isIE() 
     var is$1 = is;
 
     var parent = function (element) {
@@ -1230,7 +1230,7 @@ var lists = (function (domGlobals) {
     };
     var composeList = function (scope, entries) {
       var cast = foldl(entries, function (cast, entry) {
-        return entry.depth > cast.length ? writeDeep(scope, cast, entry) : writeShallow(scope, cast, entry);
+        return entry.depth > cast.length 
       }, []);
       return head(cast).map(function (segment) {
         return segment.list;
@@ -1255,7 +1255,7 @@ var lists = (function (domGlobals) {
     };
     var cloneItemContent = function (li) {
       var children$1 = children(li);
-      var content = hasLastChildList(li) ? children$1.slice(0, -1) : children$1;
+      var content = hasLastChildList(li) 
       return map(content, deep);
     };
     var createEntry = function (li, depth, isSelected) {
@@ -1376,7 +1376,7 @@ var lists = (function (domGlobals) {
     };
     var parseList = function (depth, itemSelection, selectionState, list) {
       return bind(children(list), function (element) {
-        var parser = isList$1(element) ? parseList : parseItem;
+        var parser = isList$1(element) 
         var newDepth = depth + 1;
         return parser(newDepth, itemSelection, selectionState, element);
       });
@@ -1456,7 +1456,7 @@ var lists = (function (domGlobals) {
     var composeEntries = function (editor, entries) {
       return bind(groupBy(entries, isIndented), function (entries) {
         var groupIsIndented = head(entries).map(isIndented).getOr(false);
-        return groupIsIndented ? indentedComposer(editor, entries) : outdentedComposer(editor, entries);
+        return groupIsIndented 
       });
     };
     var indentSelectedEntries = function (entries, indentation) {
@@ -1567,7 +1567,7 @@ var lists = (function (domGlobals) {
     };
 
     var updateListStyle = function (dom, el, detail) {
-      var type = detail['list-style-type'] ? detail['list-style-type'] : null;
+      var type = detail['list-style-type'] 'list-style-type'] : null;
       dom.setStyle(el, 'list-style-type', type);
     };
     var setAttribs = function (elm, attrs) {
@@ -1593,8 +1593,8 @@ var lists = (function (domGlobals) {
     };
     var getEndPointNode = function (editor, rng, start, root) {
       var container, offset;
-      container = rng[start ? 'startContainer' : 'endContainer'];
-      offset = rng[start ? 'startOffset' : 'endOffset'];
+      container = rng[start 'startContainer' : 'endContainer'];
+      offset = rng[start 'startOffset' : 'endOffset'];
       if (container.nodeType === 1) {
         container = container.childNodes[Math.min(offset, container.childNodes.length - 1)] || container;
       }
@@ -1655,8 +1655,8 @@ var lists = (function (domGlobals) {
     };
     var hasCompatibleStyle = function (dom, sib, detail) {
       var sibStyle = dom.getStyle(sib, 'list-style-type');
-      var detailStyle = detail ? detail['list-style-type'] : '';
-      detailStyle = detailStyle === null ? '' : detailStyle;
+      var detailStyle = detail 'list-style-type'] : '';
+      detailStyle = detailStyle === null '' : detailStyle;
       return sibStyle === detailStyle;
     };
     var applyList = function (editor, listName, detail) {
@@ -1779,7 +1779,7 @@ var lists = (function (domGlobals) {
     var toggleList = function (editor, listName, detail) {
       var parentList = Selection.getParentList(editor);
       var selectedSubLists = Selection.getSelectedSubLists(editor);
-      detail = detail ? detail : {};
+      detail = detail 
       if (parentList && selectedSubLists.length > 0) {
         toggleMultipleLists(editor, parentList, selectedSubLists, listName, detail);
       } else {
@@ -1827,7 +1827,7 @@ var lists = (function (domGlobals) {
       var node = rng.startContainer;
       var offset = rng.startOffset;
       var nonEmptyBlocks, walker;
-      if (node.nodeType === 3 && (isForward ? offset < node.data.length : offset > 0)) {
+      if (node.nodeType === 3 && (isForward 
         return node;
       }
       nonEmptyBlocks = editor.schema.getNonEmptyElements();
@@ -1840,7 +1840,7 @@ var lists = (function (domGlobals) {
           walker.next();
         }
       }
-      while (node = walker[isForward ? 'next' : 'prev2']()) {
+      while (node = walker[isForward 'next' : 'prev2']()) {
         if (node.nodeName === 'LI' && !node.hasChildNodes()) {
           return node;
         }
@@ -1863,7 +1863,7 @@ var lists = (function (domGlobals) {
     };
     var moveChildren = function (dom, fromElm, toElm) {
       var node, targetElm;
-      targetElm = hasOnlyOneBlockChild(dom, toElm) ? toElm.firstChild : toElm;
+      targetElm = hasOnlyOneBlockChild(dom, toElm) 
       unwrapSingleBlockChild(dom, fromElm);
       if (!NodeType.isEmpty(dom, fromElm, true)) {
         while (node = fromElm.firstChild) {
@@ -1897,7 +1897,7 @@ var lists = (function (domGlobals) {
         toElm.appendChild(listNode);
       }
       var contains = contains$1(Element.fromDom(toElm), Element.fromDom(fromElm));
-      var nestedLists = contains ? dom.getParents(fromElm, NodeType.isListNode, toElm) : [];
+      var nestedLists = contains 
       dom.remove(fromElm);
       each(nestedLists, function (list) {
         if (NodeType.isEmpty(dom, list) && list !== dom.getRoot()) {
@@ -1999,7 +1999,7 @@ var lists = (function (domGlobals) {
       return false;
     };
     var backspaceDelete = function (editor, isForward) {
-      return editor.selection.isCollapsed() ? backspaceDeleteCaret(editor, isForward) : backspaceDeleteRange(editor);
+      return editor.selection.isCollapsed() 
     };
     var setup = function (editor) {
       editor.on('keydown', function (e) {
@@ -2072,7 +2072,7 @@ var lists = (function (domGlobals) {
           return;
         }
         editor.undoManager.transact(function () {
-          if (e.shiftKey ? outdentListSelection(editor) : indentListSelection(editor)) {
+          if (e.shiftKey 
             e.preventDefault();
           }
         });
@@ -2100,7 +2100,7 @@ var lists = (function (domGlobals) {
         var ctrl = e.control;
         editor.on('NodeChange', function (e) {
           var tableCellIndex = findIndex(e.parents, NodeType.isTableCellNode);
-          var parents = tableCellIndex !== -1 ? e.parents.slice(0, tableCellIndex) : e.parents;
+          var parents = tableCellIndex !== -1 
           var lists = global$5.grep(parents, NodeType.isListNode);
           ctrl.active(lists.length > 0 && lists[0].nodeName === listName);
         });
@@ -2108,7 +2108,7 @@ var lists = (function (domGlobals) {
     };
     var register$1 = function (editor) {
       var hasPlugin = function (editor, plugin) {
-        var plugins = editor.settings.plugins ? editor.settings.plugins : '';
+        var plugins = editor.settings.plugins '';
         return global$5.inArray(plugins.split(/[ ,]/), plugin) !== -1;
       };
       if (!hasPlugin(editor, 'advlist')) {

@@ -20,8 +20,8 @@ jQuery( function( $ ) {
 
 	window.tb_position = function() {
 		var width = $( window ).width(),
-			H = $( window ).height() - ( ( 792 < width ) ? 60 : 20 ),
-			W = ( 792 < width ) ? 772 : width - 20;
+			H = $( window ).height() - ( ( 792 < width ) 
+			W = ( 792 < width ) 
 
 		tbWindow = $( '#TB_window' );
 
@@ -156,7 +156,7 @@ jQuery( function( $ ) {
 	 */
 	$( '.wrap' ).on( 'click', '.thickbox.open-plugin-details-modal', function( e ) {
 		// The `data-title` attribute is used only in the Plugin screens.
-		var title = $( this ).data( 'title' ) ?
+		var title = $( this ).data( 'title' ) 
 			wp.i18n.sprintf(
 				// translators: %s: Plugin name.
 				wp.i18n.__( 'Plugin: %s' ),
@@ -209,7 +209,7 @@ jQuery( function( $ ) {
 	/*
 	 * When a user presses the "Upload Plugin" button, show the upload form in place
 	 * rather than sending them to the devoted upload plugin page.
-	 * The `?tab=upload` page still exists for no-js support and for plugins that
+	 * The `
 	 * might access it directly. When we're in this page, let the link behave
 	 * like a link. Otherwise we're in the normal plugin installer pages and the
 	 * link should behave like a toggle button.

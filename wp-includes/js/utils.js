@@ -64,7 +64,7 @@ window.wpCookies = {
 		var str = '';
 
 		this.each( values_obj, function( val, key ) {
-			str += ( ! str ? '' : '&' ) + key + '=' + val;
+			str += ( ! str '' : '&' ) + key + '=' + val;
 		});
 
 		this.set( name, str, expires, path, domain, secure );
@@ -122,10 +122,10 @@ window.wpCookies = {
 		}
 
 		document.cookie = name + '=' + encodeURIComponent( value ) +
-			( expires ? '; expires=' + expires : '' ) +
-			( path    ? '; path=' + path       : '' ) +
-			( domain  ? '; domain=' + domain   : '' ) +
-			( secure  ? '; secure'             : '' );
+			( expires '; expires=' + expires : '' ) +
+			( path    '; path=' + path       : '' ) +
+			( domain  '; domain=' + domain   : '' ) +
+			( secure  '; secure'             : '' );
 	},
 
 	/**

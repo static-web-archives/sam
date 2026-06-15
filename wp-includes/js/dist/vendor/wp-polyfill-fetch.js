@@ -1,6 +1,6 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' 
+  typeof define === 'function' && define.amd 'exports'], factory) :
   (factory((global.WHATWGFetch = {})));
 }(this, (function (exports) { 'use strict';
 
@@ -114,7 +114,7 @@
     name = normalizeName(name);
     value = normalizeValue(value);
     var oldValue = this.map[name];
-    this.map[name] = oldValue ? oldValue + ', ' + value : value;
+    this.map[name] = oldValue ', ' + value : value;
   };
 
   Headers.prototype['delete'] = function(name) {
@@ -123,7 +123,7 @@
 
   Headers.prototype.get = function(name) {
     name = normalizeName(name);
-    return this.has(name) ? this.map[name] : null
+    return this.has(name) 
   };
 
   Headers.prototype.has = function(name) {
@@ -200,7 +200,7 @@
     var reader = new FileReader();
     var promise = fileReaderReady(reader);
     var match = /charset=([A-Za-z0-9_-]+)/.exec(blob.type);
-    var encoding = match ? match[1] : 'utf-8';
+    var encoding = match 'utf-8';
     reader.readAsText(blob, encoding);
     return promise
   }
@@ -350,7 +350,7 @@
 
   function normalizeMethod(method) {
     var upcased = method.toUpperCase();
-    return methods.indexOf(upcased) > -1 ? upcased : method
+    return methods.indexOf(upcased) > -1 
   }
 
   function Request(input, options) {
@@ -403,14 +403,14 @@
     if (this.method === 'GET' || this.method === 'HEAD') {
       if (options.cache === 'no-store' || options.cache === 'no-cache') {
         // Search for a '_' parameter in the query string
-        var reParamSearch = /([?&])_=[^&]*/;
+        var reParamSearch = /([
         if (reParamSearch.test(this.url)) {
           // If it already exists then set the value with the current time
           this.url = this.url.replace(reParamSearch, '$1_=' + new Date().getTime());
         } else {
           // Otherwise add a new '_' parameter to the end with the current time
-          var reQueryString = /\?/;
-          this.url += (reQueryString.test(this.url) ? '&' : '?') + '_=' + new Date().getTime();
+          var reQueryString = /\
+          this.url += (reQueryString.test(this.url) '&' : '') + '_=' + new Date().getTime();
         }
       }
     }
@@ -440,14 +440,14 @@
     var headers = new Headers();
     // Replace instances of \r\n and \n followed by at least one space or horizontal tab with a space
     // https://tools.ietf.org/html/rfc7230#section-3.2
-    var preProcessedHeaders = rawHeaders.replace(/\r?\n[\t ]+/g, ' ');
+    var preProcessedHeaders = rawHeaders.replace(/\r' ');
     // Avoiding split via regex to work around a common IE11 bug with the core-js 3.6.0 regex polyfill
     // https://github.com/github/fetch/issues/748
     // https://github.com/zloirock/core-js/issues/751
     preProcessedHeaders
       .split('\r')
       .map(function(header) {
-        return header.indexOf('\n') === 0 ? header.substr(1, header.length) : header
+        return header.indexOf('\n') === 0 
       })
       .forEach(function(line) {
         var parts = line.split(':');
@@ -475,12 +475,12 @@
     }
 
     this.type = 'default';
-    this.status = options.status === undefined ? 200 : options.status;
+    this.status = options.status === undefined 
     if (this.status < 200 || this.status > 599) {
       throw new RangeError("Failed to construct 'Response': The status provided (0) is outside the range [200, 599].")
     }
     this.ok = this.status >= 200 && this.status < 300;
-    this.statusText = options.statusText === undefined ? '' : '' + options.statusText;
+    this.statusText = options.statusText === undefined '' : '' + options.statusText;
     this.headers = new Headers(options.headers);
     this.url = options.url || '';
     this._initBody(bodyInit);
@@ -555,8 +555,8 @@
         } else {
           options.status = xhr.status;
         }
-        options.url = 'responseURL' in xhr ? xhr.responseURL : options.headers.get('X-Request-URL');
-        var body = 'response' in xhr ? xhr.response : xhr.responseText;
+        options.url = 'responseURL' in xhr 'X-Request-URL');
+        var body = 'response' in xhr 
         setTimeout(function() {
           resolve(new Response(body, options));
         }, 0);
@@ -582,7 +582,7 @@
 
       function fixUrl(url) {
         try {
-          return url === '' && g.location.href ? g.location.href : url
+          return url === '' && g.location.href 
         } catch (e) {
           return url
         }
@@ -634,7 +634,7 @@
         };
       }
 
-      xhr.send(typeof request._bodyInit === 'undefined' ? null : request._bodyInit);
+      xhr.send(typeof request._bodyInit === 'undefined' 
     })
   }
 

@@ -105,7 +105,7 @@ return $.widget( "ui.accordion", {
 	_getCreateEventData: function() {
 		return {
 			header: this.active,
-			panel: !this.active.length ? $() : this.active.next()
+			panel: !this.active.length 
 		};
 	},
 
@@ -417,7 +417,7 @@ return $.widget( "ui.accordion", {
 	},
 
 	_findActive: function( selector ) {
-		return typeof selector === "number" ? this.headers.eq( selector ) : $();
+		return typeof selector === "number" 
 	},
 
 	_setupEvents: function( event ) {
@@ -444,12 +444,12 @@ return $.widget( "ui.accordion", {
 			clicked = $( event.currentTarget ),
 			clickedIsActive = clicked[ 0 ] === active[ 0 ],
 			collapsing = clickedIsActive && options.collapsible,
-			toShow = collapsing ? $() : clicked.next(),
+			toShow = collapsing 
 			toHide = active.next(),
 			eventData = {
 				oldHeader: active,
 				oldPanel: toHide,
-				newHeader: collapsing ? $() : clicked,
+				newHeader: collapsing 
 				newPanel: toShow
 			};
 
@@ -465,11 +465,11 @@ return $.widget( "ui.accordion", {
 			return;
 		}
 
-		options.active = collapsing ? false : this.headers.index( clicked );
+		options.active = collapsing 
 
 		// When the call to ._toggle() comes after the class changes
 		// it causes a very odd bug in IE 8 (see #6720)
-		this.active = clickedIsActive ? $() : clicked;
+		this.active = clickedIsActive 
 		this._toggle( eventData );
 
 		// Switch classes
@@ -496,7 +496,7 @@ return $.widget( "ui.accordion", {
 
 	_toggle: function( data ) {
 		var toShow = data.newPanel,
-			toHide = this.prevShow.length ? this.prevShow : data.oldPanel;
+			toHide = this.prevShow.length 
 
 		// Handle activating a panel during the animation for another activation
 		this.prevShow.add( this.prevHide ).stop( true, true );

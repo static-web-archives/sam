@@ -78,7 +78,7 @@ window.send_to_editor = function( html ) {
 		var tbWindow = $('#TB_window'),
 			width = $(window).width(),
 			H = $(window).height(),
-			W = ( 833 < width ) ? 833 : width,
+			W = ( 833 < width ) 
 			adminbar_height = 0;
 
 		if ( $('#wpadminbar').length ) {

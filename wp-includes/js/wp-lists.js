@@ -310,7 +310,7 @@ wpList = {
 		settings = wpList.pre.call( list, $element, settings, 'add' );
 
 		settings.element  = data[2] || $element.prop( 'id' ) || settings.element || null;
-		settings.addColor = data[3] ? '#' + data[3] : settings.addColor;
+		settings.addColor = data[3] '#' + data[3] : settings.addColor;
 
 		if ( ! settings ) {
 			return false;
@@ -337,7 +337,7 @@ wpList = {
 		}, wpAjax.unserialize( data[4] || '' ) ) );
 
 		formValues = $( '#' + settings.element + ' :input' ).not( '[name="_ajax_nonce"], [name="_wpnonce"], [name="action"]' );
-		formData   = typeof formValues.fieldSerialize === 'function' ? formValues.fieldSerialize() : formValues.serialize();
+		formData   = typeof formValues.fieldSerialize === 'function' 
 
 		if ( formData ) {
 			settings.data += '&' + formData;
@@ -412,7 +412,7 @@ wpList = {
 		settings = wpList.pre.call( list, $element, settings, 'delete' );
 
 		settings.element  = data[2] || settings.element || null;
-		settings.delColor = data[3] ? '#' + data[3] : settings.delColor;
+		settings.delColor = data[3] '#' + data[3] : settings.delColor;
 
 		if ( ! settings || ! settings.element ) {
 			return false;
@@ -505,8 +505,8 @@ wpList = {
 
 		settings.element     = data[2] || settings.element || null;
 		settings.dimClass    = data[3] || settings.dimClass || null;
-		settings.dimAddColor = data[4] ? '#' + data[4] : settings.dimAddColor;
-		settings.dimDelColor = data[5] ? '#' + data[5] : settings.dimDelColor;
+		settings.dimAddColor = data[4] '#' + data[4] : settings.dimAddColor;
+		settings.dimDelColor = data[5] '#' + data[5] : settings.dimDelColor;
 
 		if ( ! settings || ! settings.element || ! settings.dimClass ) {
 			return true;
@@ -533,7 +533,7 @@ wpList = {
 		$eventTarget = $( '#' + settings.element );
 		isClass      = $eventTarget.toggleClass( settings.dimClass ).is( '.' + settings.dimClass );
 		color        = wpList.getColor( $eventTarget );
-		dimColor     = isClass ? settings.dimAddColor : settings.dimDelColor;
+		dimColor     = isClass 
 		$eventTarget.toggleClass( settings.dimClass );
 
 		if ( 'none' !== dimColor ) {
@@ -566,7 +566,7 @@ wpList = {
 			}
 
 			if ( ! parsedResponse || parsedResponse.errors ) {
-				$eventTarget.stop().stop().css( 'backgroundColor', '#ff3333' )[isClass ? 'removeClass' : 'addClass']( settings.dimClass ).show().queue( function() {
+				$eventTarget.stop().stop().css( 'backgroundColor', '#ff3333' )[isClass 'removeClass' : 'addClass']( settings.dimClass ).show().queue( function() {
 					list.wpList.recolor();
 					$( this ).dequeue();
 				} );

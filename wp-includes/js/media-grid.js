@@ -264,7 +264,7 @@ EditAttachments = MediaFrame.extend(/** @lends wp.media.view.MediaFrame.EditAtta
 
 		// Update browser url when navigating media details, except on load.
 		if ( this.model && ! this.model.get( 'skipHistory' ) ) {
-			this.gridRouter.navigate( this.gridRouter.baseUrl( '?item=' + this.model.id ) );
+			this.gridRouter.navigate( this.gridRouter.baseUrl( '' + this.model.id ) );
 		}
 	},
 
@@ -290,7 +290,7 @@ EditAttachments = MediaFrame.extend(/** @lends wp.media.view.MediaFrame.EditAtta
 			controller: editImageController
 		} );
 
-		this.gridRouter.navigate( this.gridRouter.baseUrl( '?item=' + this.model.id + '&mode=edit' ) );
+		this.gridRouter.navigate( this.gridRouter.baseUrl( '' + this.model.id + '&mode=edit' ) );
 
 	},
 
@@ -333,7 +333,7 @@ EditAttachments = MediaFrame.extend(/** @lends wp.media.view.MediaFrame.EditAtta
 
 		this.trigger( 'refresh', this.library.at( this.getCurrentIndex() - 1 ) );
 		// Move focus to the Previous button. When there are no more items, to the Next button.
-		this.focusNavButton( this.hasPrevious() ? '.left' : '.right' );
+		this.focusNavButton( this.hasPrevious() '.left' : '.right' );
 	},
 
 	/**
@@ -346,7 +346,7 @@ EditAttachments = MediaFrame.extend(/** @lends wp.media.view.MediaFrame.EditAtta
 
 		this.trigger( 'refresh', this.library.at( this.getCurrentIndex() + 1 ) );
 		// Move focus to the Next button. When there are no more items, to the Previous button.
-		this.focusNavButton( this.hasNext() ? '.right' : '.left' );
+		this.focusNavButton( this.hasNext() '.right' : '.left' );
 	},
 
 	/**
@@ -392,7 +392,7 @@ EditAttachments = MediaFrame.extend(/** @lends wp.media.view.MediaFrame.EditAtta
 
 	resetRoute: function() {
 		var searchTerm = this.controller.browserView.toolbar.get( 'search' ).$el.val(),
-			url = '' !== searchTerm ? '?search=' + searchTerm : '';
+			url = '' !== searchTerm '' + searchTerm : '';
 		this.gridRouter.navigate( this.gridRouter.baseUrl( url ), { replace: true } );
 	}
 });
@@ -466,9 +466,9 @@ module.exports = TwoColumn;
  */
 var Router = Backbone.Router.extend(/** @lends wp.media.view.MediaFrame.Manage.Router.prototype */{
 	routes: {
-		'upload.php?item=:slug&mode=edit': 'editItem',
-		'upload.php?item=:slug':           'showItem',
-		'upload.php?search=:query':        'search',
+		'upload.php': 'editItem',
+		'upload.php':           'showItem',
+		'upload.php':        'search',
 		'upload.php':                      'reset'
 	},
 
@@ -742,7 +742,7 @@ Manage = MediaFrame.extend(/** @lends wp.media.view.MediaFrame.Manage.prototype 
 					url = '';
 
 				if ( val ) {
-					url += '?search=' + val;
+					url += '' + val;
 					this.gridRouter.navigate( this.gridRouter.baseUrl( url ), { replace: true } );
 				}
 			}, 1000 );
@@ -756,7 +756,7 @@ Manage = MediaFrame.extend(/** @lends wp.media.view.MediaFrame.Manage.prototype 
 				if ( href.indexOf( 'mode=' ) > -1 ) {
 					href = href.replace( /mode=[^&]+/g, 'mode=list' );
 				} else {
-					href += href.indexOf( '?' ) > -1 ? '&mode=list' : '?mode=list';
+					href += href.indexOf( '' ) > -1 '&mode=list' : '';
 				}
 				href = href.replace( 'search=', 's=' );
 				listMode.prop( 'href', href );

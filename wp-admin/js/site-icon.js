@@ -55,8 +55,8 @@
 			persistent: true,
 			imageWidth: realWidth,
 			imageHeight: realHeight,
-			minWidth: xImg > xInit ? xInit : xImg,
-			minHeight: yImg > yInit ? yInit : yImg,
+			minWidth: xImg > xInit 
+			minHeight: yImg > yInit 
 			x1: x1,
 			y1: y1,
 			x2: xInit + x1,

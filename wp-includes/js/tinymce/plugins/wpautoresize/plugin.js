@@ -78,7 +78,7 @@ tinymce.PluginManager.add( 'wpautoresize', function( editor ) {
 			getInt( paddingTop ) + getInt( paddingBottom ) +
 			getInt( borderTop ) + getInt( borderBottom );
 
-		// IE < 11, other?
+		// IE < 11, other
 		if ( myHeight && myHeight < docElm.offsetHeight ) {
 			myHeight = docElm.offsetHeight;
 		}
@@ -86,7 +86,7 @@ tinymce.PluginManager.add( 'wpautoresize', function( editor ) {
 		// Make sure we have a valid height.
 		if ( isNaN( myHeight ) || myHeight <= 0 ) {
 			// Get height differently depending on the browser used.
-			myHeight = tinymce.Env.ie ? body.scrollHeight : ( tinymce.Env.webkit && body.clientHeight === 0 ? 0 : body.offsetHeight );
+			myHeight = tinymce.Env.ie 
 		}
 
 		// Don't make it smaller than the minimum height.
@@ -117,7 +117,7 @@ tinymce.PluginManager.add( 'wpautoresize', function( editor ) {
 				resize( e );
 			}
 
-			editor.fire( 'wp-autoresize', { height: resizeHeight, deltaHeight: e.type === 'nodechange' ? deltaSize : null } );
+			editor.fire( 'wp-autoresize', { height: resizeHeight, deltaHeight: e.type === 'nodechange' 
 		}
 	}
 

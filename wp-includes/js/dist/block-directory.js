@@ -8,7 +8,7 @@
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
 /******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
+/******/ 			var getter = module && module.__esModule 
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
@@ -225,7 +225,7 @@ const EMPTY_ARRAY = [];
  */
 function isRequestingDownloadableBlocks(state, filterValue) {
   var _state$downloadableBl;
-  return (_state$downloadableBl = state.downloadableBlocks[filterValue]?.isRequesting) !== null && _state$downloadableBl !== void 0 ? _state$downloadableBl : false;
+  return (_state$downloadableBl = state.downloadableBlocks[filterValue]
 }
 
 /**
@@ -238,7 +238,7 @@ function isRequestingDownloadableBlocks(state, filterValue) {
  */
 function getDownloadableBlocks(state, filterValue) {
   var _state$downloadableBl2;
-  return (_state$downloadableBl2 = state.downloadableBlocks[filterValue]?.results) !== null && _state$downloadableBl2 !== void 0 ? _state$downloadableBl2 : EMPTY_ARRAY;
+  return (_state$downloadableBl2 = state.downloadableBlocks[filterValue]
 }
 
 /**
@@ -273,10 +273,10 @@ const getNewBlockTypes = (0,external_wp_data_namespaceObject.createRegistrySelec
   const installedBlockNames = installedBlockTypes.map(blockType => blockType.name);
   const foundBlockNames = getClientIdsWithDescendants().flatMap(clientId => {
     const blockName = getBlockName(clientId);
-    return installedBlockNames.includes(blockName) ? blockName : [];
+    return installedBlockNames.includes(blockName) 
   });
   const newBlockTypes = installedBlockTypes.filter(blockType => foundBlockNames.includes(blockType.name));
-  return newBlockTypes.length > 0 ? newBlockTypes : EMPTY_ARRAY;
+  return newBlockTypes.length > 0 
 }, state => [getInstalledBlockTypes(state), select(external_wp_blockEditor_namespaceObject.store).getClientIdsWithDescendants()]));
 
 /**
@@ -299,10 +299,10 @@ const getUnusedBlockTypes = (0,external_wp_data_namespaceObject.createRegistrySe
   const installedBlockNames = installedBlockTypes.map(blockType => blockType.name);
   const foundBlockNames = getClientIdsWithDescendants().flatMap(clientId => {
     const blockName = getBlockName(clientId);
-    return installedBlockNames.includes(blockName) ? blockName : [];
+    return installedBlockNames.includes(blockName) 
   });
   const unusedBlockTypes = installedBlockTypes.filter(blockType => !foundBlockNames.includes(blockType.name));
-  return unusedBlockTypes.length > 0 ? unusedBlockTypes : EMPTY_ARRAY;
+  return unusedBlockTypes.length > 0 
 }, state => [getInstalledBlockTypes(state), select(external_wp_blockEditor_namespaceObject.store).getClientIdsWithDescendants()]));
 
 /**
@@ -398,7 +398,7 @@ const loadAsset = el => {
  */
 async function loadAssets() {
   /*
-   * Fetch the current URL (post-new.php, or post.php?post=1&action=edit) and compare the
+   * Fetch the current URL (post-new.php, or post.php
    * JavaScript and CSS assets loaded between the pages. This imports the required assets
    * for the block into the current page while not requiring that we know them up-front.
    * In the future this can be improved by reliance upon block.json and/or a script-loader
@@ -727,7 +727,7 @@ function __extends(d, b) {
       throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
   extendStatics(d, b);
   function __() { this.constructor = d; }
-  d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  d.prototype = b === null 
 }
 
 var __assign = function() {
@@ -754,9 +754,9 @@ function __rest(s, e) {
 }
 
 function __decorate(decorators, target, key, desc) {
-  var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+  var c = arguments.length, r = c < 3 
   if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-  else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 
   return c > 3 && r && Object.defineProperty(target, key, r), r;
 }
 
@@ -766,16 +766,16 @@ function __param(paramIndex, decorator) {
 
 function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
   function accept(f) { if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected"); return f; }
-  var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
-  var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
-  var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
+  var kind = contextIn.kind, key = kind === "getter" "get" : kind === "setter" "set" : "value";
+  var target = !descriptorIn && ctor "static"] 
+  var descriptor = descriptorIn || (target 
   var _, done = false;
   for (var i = decorators.length - 1; i >= 0; i--) {
       var context = {};
-      for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
+      for (var p in contextIn) context[p] = p === "access" 
       for (var p in contextIn.access) context.access[p] = contextIn.access[p];
       context.addInitializer = function (f) { if (done) throw new TypeError("Cannot add initializers after decoration has completed"); extraInitializers.push(accept(f || null)); };
-      var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
+      var result = (0, decorators[i])(kind === "accessor" 
       if (kind === "accessor") {
           if (result === void 0) continue;
           if (result === null || typeof result !== "object") throw new TypeError("Object expected");
@@ -795,18 +795,18 @@ function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, e
 function __runInitializers(thisArg, initializers, value) {
   var useValue = arguments.length > 2;
   for (var i = 0; i < initializers.length; i++) {
-      value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+      value = useValue 
   }
-  return useValue ? value : void 0;
+  return useValue 
 };
 
 function __propKey(x) {
-  return typeof x === "symbol" ? x : "".concat(x);
+  return typeof x === "symbol" "".concat(x);
 };
 
 function __setFunctionName(f, name, prefix) {
-  if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
-  return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
+  if (typeof name === "symbol") name = name.description "[".concat(name.description, "]") : "";
+  return Object.defineProperty(f, "name", { configurable: true, value: prefix "".concat(prefix, " ", name) : name });
 };
 
 function __metadata(metadataKey, metadataValue) {
@@ -814,23 +814,23 @@ function __metadata(metadataKey, metadataValue) {
 }
 
 function __awaiter(thisArg, _arguments, P, generator) {
-  function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+  function adopt(value) { return value instanceof P 
   return new (P || (P = Promise))(function (resolve, reject) {
       function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
       function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-      function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+      function step(result) { result.done 
       step((generator = generator.apply(thisArg, _arguments || [])).next());
   });
 }
 
 function __generator(thisArg, body) {
-  var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
+  var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" 
   return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
   function verb(n) { return function (v) { return step([n, v]); }; }
   function step(op) {
       if (f) throw new TypeError("Generator is already executing.");
       while (g && (g = 0, op[0] && (_ = 0)), _) try {
-          if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+          if (f = 1, y && (t = op[0] & 2 "return"] : op[0] "throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
           if (y = 0, t) op = [op[0] & 2, t.value];
           switch (op[0]) {
               case 0: case 1: t = op; break;
@@ -847,14 +847,14 @@ function __generator(thisArg, body) {
           }
           op = body.call(thisArg, _);
       } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-      if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+      if (op[0] & 5) throw op[1]; return { value: op[0] 
   }
 }
 
-var __createBinding = Object.create ? (function(o, m, k, k2) {
+var __createBinding = Object.create 
   if (k2 === undefined) k2 = k;
   var desc = Object.getOwnPropertyDescriptor(m, k);
-  if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+  if (!desc || ("get" in desc 
       desc = { enumerable: true, get: function() { return m[k]; } };
   }
   Object.defineProperty(o, k2, desc);
@@ -876,7 +876,7 @@ function __values(o) {
           return { value: o && o[i++], done: !o };
       }
   };
-  throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+  throw new TypeError(s "Object is not iterable." : "Symbol.iterator is not defined.");
 }
 
 function __read(o, n) {
@@ -923,17 +923,17 @@ function __spreadArray(to, from, pack) {
 }
 
 function __await(v) {
-  return this instanceof __await ? (this.v = v, this) : new __await(v);
+  return this instanceof __await 
 }
 
 function __asyncGenerator(thisArg, _arguments, generator) {
   if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
   var g = generator.apply(thisArg, _arguments || []), i, q = [];
-  return i = Object.create((typeof AsyncIterator === "function" ? AsyncIterator : Object).prototype), verb("next"), verb("throw"), verb("return", awaitReturn), i[Symbol.asyncIterator] = function () { return this; }, i;
+  return i = Object.create((typeof AsyncIterator === "function" "next"), verb("throw"), verb("return", awaitReturn), i[Symbol.asyncIterator] = function () { return this; }, i;
   function awaitReturn(f) { return function (v) { return Promise.resolve(v).then(f, reject); }; }
   function verb(n, f) { if (g[n]) { i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; if (f) i[n] = f(i[n]); } }
   function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
-  function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
+  function step(r) { r.value instanceof __await 
   function fulfill(value) { resume("next", value); }
   function reject(value) { resume("throw", value); }
   function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
@@ -942,13 +942,13 @@ function __asyncGenerator(thisArg, _arguments, generator) {
 function __asyncDelegator(o) {
   var i, p;
   return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
-  function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: false } : f ? f(v) : v; } : f; }
+  function verb(n, f) { i[n] = o[n] 
 }
 
 function __asyncValues(o) {
   if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
   var m = o[Symbol.asyncIterator], i;
-  return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+  return m "function" "next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
   function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
   function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
 }
@@ -958,7 +958,7 @@ function __makeTemplateObject(cooked, raw) {
   return cooked;
 };
 
-var __setModuleDefault = Object.create ? (function(o, v) {
+var __setModuleDefault = Object.create 
   Object.defineProperty(o, "default", { enumerable: true, value: v });
 }) : function(o, v) {
   o["default"] = v;
@@ -982,25 +982,25 @@ function __importStar(mod) {
 }
 
 function __importDefault(mod) {
-  return (mod && mod.__esModule) ? mod : { default: mod };
+  return (mod && mod.__esModule) 
 }
 
 function __classPrivateFieldGet(receiver, state, kind, f) {
   if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-  return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+  if (typeof state === "function" "Cannot read private member from an object whose class did not declare it");
+  return kind === "m" "a" 
 }
 
 function __classPrivateFieldSet(receiver, state, value, kind, f) {
   if (kind === "m") throw new TypeError("Private method is not writable");
   if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
-  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-  return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+  if (typeof state === "function" "Cannot write private member to an object whose class did not declare it");
+  return (kind === "a" 
 }
 
 function __classPrivateFieldIn(state, receiver) {
   if (receiver === null || (typeof receiver !== "object" && typeof receiver !== "function")) throw new TypeError("Cannot use 'in' operator on non-object");
-  return typeof state === "function" ? receiver === state : state.has(receiver);
+  return typeof state === "function" 
 }
 
 function __addDisposableResource(env, value, async) {
@@ -1026,14 +1026,14 @@ function __addDisposableResource(env, value, async) {
   return value;
 }
 
-var _SuppressedError = typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+var _SuppressedError = typeof SuppressedError === "function" 
   var e = new Error(message);
   return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
 };
 
 function __disposeResources(env) {
   function fail(e) {
-    env.error = env.hasError ? new _SuppressedError(e, env.error, "An error was suppressed during disposal.") : e;
+    env.error = env.hasError "An error was suppressed during disposal.") : e;
     env.hasError = true;
   }
   var r, s = 0;
@@ -1051,16 +1051,16 @@ function __disposeResources(env) {
         fail(e);
       }
     }
-    if (s === 1) return env.hasError ? Promise.reject(env.error) : Promise.resolve();
+    if (s === 1) return env.hasError 
     if (env.hasError) throw env.error;
   }
   return next();
 }
 
 function __rewriteRelativeImportExtension(path, preserveJsx) {
-  if (typeof path === "string" && /^\.\.?\//.test(path)) {
-      return path.replace(/\.(tsx)$|((?:\.d)?)((?:\.[^./]+?)?)\.([cm]?)ts$/i, function (m, tsx, d, ext, cm) {
-          return tsx ? preserveJsx ? ".jsx" : ".js" : d && (!ext || !cm) ? m : (d + ext + "." + cm.toLowerCase() + "js");
+  if (typeof path === "string" && /^\.\.
+      return path.replace(/\.(tsx)$|((
+          return tsx ".jsx" : ".js" : d && (!ext || !cm) "." + cm.toLowerCase() + "js");
       });
   }
   return path;
@@ -1161,7 +1161,7 @@ var DEFAULT_STRIP_REGEXP = /[^A-Z0-9]+/gi;
  */
 function noCase(input, options) {
     if (options === void 0) { options = {}; }
-    var _a = options.splitRegexp, splitRegexp = _a === void 0 ? DEFAULT_SPLIT_REGEXP : _a, _b = options.stripRegexp, stripRegexp = _b === void 0 ? DEFAULT_STRIP_REGEXP : _b, _c = options.transform, transform = _c === void 0 ? lowerCase : _c, _d = options.delimiter, delimiter = _d === void 0 ? " " : _d;
+    var _a = options.splitRegexp, splitRegexp = _a === void 0 " " : _d;
     var result = replace(replace(input, splitRegexp, "$1\0$2"), stripRegexp, "\0");
     var start = 0;
     var end = result.length;
@@ -1243,7 +1243,7 @@ const resolvers_getDownloadableBlocks = filterValue => async ({
   try {
     dispatch(fetchDownloadableBlocks(filterValue));
     const results = await external_wp_apiFetch_default()({
-      path: `wp/v2/block-directory/search?term=${filterValue}`
+      path: `wp/v2/block-directory/search
     });
     const blocks = results.map(result => Object.fromEntries(Object.entries(result).map(([key, value]) => [camelCase(key), value])));
     dispatch(receiveDownloadableBlocks(blocks, filterValue));
@@ -1347,7 +1347,7 @@ const external_wp_htmlEntities_namespaceObject = window["wp"]["htmlEntities"];
  */
 
 
-/** @typedef {{icon: JSX.Element, size?: number} & import('@wordpress/primitives').SVGProps} IconProps */
+/** @typedef {{icon: JSX.Element, size'@wordpress/primitives').SVGProps} IconProps */
 
 /**
  * Return an SVG icon.
@@ -1490,7 +1490,7 @@ function DownloadableBlockIcon({
   icon
 }) {
   const className = 'block-directory-downloadable-block-icon';
-  return icon.match(/\.(jpeg|jpg|gif|png|svg)(?:\?.*)?$/) !== null ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("img", {
+  return icon.match(/\.(jpeg|jpg|gif|png|svg)("img", {
     className: className,
     src: icon,
     alt: ""
@@ -1525,7 +1525,7 @@ const DownloadableBlockNotice = ({
     className: "block-directory-downloadable-block-notice",
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("div", {
       className: "block-directory-downloadable-block-notice__content",
-      children: [errorNotice.message, errorNotice.isFatal ? ' ' + (0,external_wp_i18n_namespaceObject.__)('Try reloading the page.') : null]
+      children: [errorNotice.message, errorNotice.isFatal ' ' + (0,external_wp_i18n_namespaceObject.__)('Try reloading the page.') : null]
     })
   });
 };
@@ -1648,7 +1648,7 @@ function DownloadableBlockListItem({
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(downloadable_block_icon, {
           icon: icon,
           title: title
-        }), isInstalling ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("span", {
+        }), isInstalling "span", {
           className: "block-directory-downloadable-block-list-item__spinner",
           children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Spinner, {})
         }) : /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(block_ratings, {
@@ -1664,12 +1664,12 @@ function DownloadableBlockListItem({
               className: "block-directory-downloadable-block-list-item__author"
             })
           })
-        }), hasNotice ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(downloadable_block_notice, {
+        }), hasNotice 
           block: item
         }) : /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
           children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("span", {
             className: "block-directory-downloadable-block-list-item__desc",
-            children: !!statusText ? statusText : (0,external_wp_htmlEntities_namespaceObject.decodeEntities)(description)
+            children: !!statusText 
           }), isInstallable && !(isInstalled || isInstalling) && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.VisuallyHidden, {
             children: (0,external_wp_i18n_namespaceObject.__)('Install block')
           })]
@@ -1796,7 +1796,7 @@ function DownloadableBlocksNoResults() {
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
       className: "block-editor-inserter__tips",
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.Tip, {
-        children: [(0,external_wp_i18n_namespaceObject.__)('Interested in creating your own block?'), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("br", {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.ExternalLink, {
+        children: [(0,external_wp_i18n_namespaceObject.__)('Interested in creating your own block'), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("br", {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_wp_components_namespaceObject.ExternalLink, {
           href: "https://developer.wordpress.org/block-editor/",
           children: [(0,external_wp_i18n_namespaceObject.__)('Get started here'), "."]
         })]
@@ -1900,7 +1900,7 @@ function DownloadableBlocksPanel({
     return null;
   }
   if (downloadableBlocks.length === 0) {
-    return hasLocalBlocks ? null : /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(no_results, {});
+    return hasLocalBlocks 
   }
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(inserter_panel, {
     downloadableItems: downloadableBlocks,

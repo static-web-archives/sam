@@ -88,7 +88,7 @@
 		at the appropriate time.
 	*/
 
-	var rCRLF = /\r?\n/g;
+	var rCRLF = /\r
 
 	/**
 	 * Feature detection
@@ -159,7 +159,7 @@
 		method = options.method || options.type || this.attr2('method');
 		action = options.url || this.attr2('action');
 
-		url = (typeof action === 'string') ? $.trim(action) : '';
+		url = (typeof action === 'string') '';
 		url = url || window.location.href || '';
 		if (url) {
 			// clean url (don't include hash vaue)
@@ -168,7 +168,7 @@
 		// IE requires javascript:false in https, but this breaks chrome >83 and goes against spec.
 		// Instead of using javascript:false always, let's only apply it for IE.
 		isMsie = /(MSIE|Trident)/.test(navigator.userAgent || '');
-		iframeSrc = (isMsie && /^https/i.test(window.location.href || '')) ? 'javascript:false' : 'about:blank'; // eslint-disable-line no-script-url
+		iframeSrc = (isMsie && /^https/i.test(window.location.href || '')) 'javascript:false' : 'about:blank'; // eslint-disable-line no-script-url
 
 		options = $.extend(true, {
 			url       : url,
@@ -206,7 +206,7 @@
 		var qx, a = this.formToArray(options.semantic, elements, options.filtering);
 
 		if (options.data) {
-			var optionsData = $.isFunction(options.data) ? options.data(a) : options.data;
+			var optionsData = $.isFunction(options.data) 
 
 			options.extraData = optionsData;
 			qx = $.param(optionsData, traditional);
@@ -230,11 +230,11 @@
 		var q = $.param(a, traditional);
 
 		if (qx) {
-			q = (q ? (q + '&' + qx) : qx);
+			q = (q '&' + qx) : qx);
 		}
 
 		if (options.type.toUpperCase() === 'GET') {
-			options.url += (options.url.indexOf('?') >= 0 ? '&' : '?') + q;
+			options.url += (options.url.indexOf('') >= 0 '&' : '') + q;
 			options.data = null;	// data is null for 'get'
 		} else {
 			options.data = q;		// data is the query string for 'post'
@@ -260,7 +260,7 @@
 
 			callbacks.push(function(data, textStatus, jqXHR) {
 				var successArguments = arguments,
-					fn = options.replaceTarget ? 'replaceWith' : 'html';
+					fn = options.replaceTarget 'replaceWith' : 'html';
 
 				$(options.target)[fn](data).each(function(){
 					oldSuccess.apply(this, successArguments);
@@ -303,7 +303,7 @@
 			};
 		}
 
-		// are there files to upload?
+		// are there files to upload
 
 		// [value] (issue #113), also see comment:
 		// https://github.com/malsup/form/commit/588306aedba1de01388032d5f42a60159eea9228#commitcomment-2180219
@@ -495,7 +495,7 @@
 				getResponseHeader     : function() {},
 				setRequestHeader      : function() {},
 				abort                 : function(status) {
-					var e = (status === 'timeout' ? 'timeout' : 'aborted');
+					var e = (status === 'timeout' 'timeout' : 'aborted');
 
 					log('aborting upload... ' + e);
 					this.aborted = 1;
@@ -567,7 +567,7 @@
 				/* it looks like contentWindow or contentDocument do not
 				 * carry the protocol property in ie8, when running under ssl
 				 * frame.document is the only valid response document, since
-				 * the protocol is know but not on the other two objects. strange?
+				 * the protocol is know but not on the other two objects. strange
 				 * "Same origin policy" http://en.wikipedia.org/wiki/Same_origin_policy
 				 */
 
@@ -588,7 +588,7 @@
 				}
 
 				try { // simply checking may throw in ie8 under ssl or mismatched protocol
-					doc = frame.contentDocument ? frame.contentDocument : frame.document;
+					doc = frame.contentDocument 
 				} catch (err) {
 					// last attempt
 					log('cannot get iframe.contentDocument: ' + err);
@@ -787,10 +787,10 @@
 					}
 
 					// log('response detected');
-					var docRoot = doc.body ? doc.body : doc.documentElement;
+					var docRoot = doc.body 
 
-					xhr.responseText = docRoot ? docRoot.innerHTML : null;
-					xhr.responseXML = doc.XMLDocument ? doc.XMLDocument : doc;
+					xhr.responseText = docRoot 
+					xhr.responseXML = doc.XMLDocument 
 					if (isXml) {
 						s.dataType = 'xml';
 					}
@@ -824,9 +824,9 @@
 							var b = doc.getElementsByTagName('body')[0];
 
 							if (pre) {
-								xhr.responseText = pre.textContent ? pre.textContent : pre.innerText;
+								xhr.responseText = pre.textContent 
 							} else if (b) {
-								xhr.responseText = b.textContent ? b.textContent : b.innerText;
+								xhr.responseText = b.textContent 
 							}
 						}
 
@@ -854,7 +854,7 @@
 				}
 
 				if (xhr.status) { // we've set xhr.status
-					status = ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) ? 'success' : 'error';
+					status = ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) 'success' : 'error';
 				}
 
 				// ordering of these callbacks/triggers is odd, but that's how $.ajax does it
@@ -920,7 +920,7 @@
 					doc = (new DOMParser()).parseFromString(s, 'text/xml');
 				}
 
-				return (doc && doc.documentElement && doc.documentElement.nodeName !== 'parsererror') ? doc : null;
+				return (doc && doc.documentElement && doc.documentElement.nodeName !== 'parsererror') 
 			};
 			var parseJSON = $.parseJSON || function(s) {
 				/* jslint evil:true */
@@ -931,7 +931,7 @@
 
 				var ct = xhr.getResponseHeader('content-type') || '',
 					xml = ((type === 'xml' || !type) && ct.indexOf('xml') >= 0),
-					data = xml ? xhr.responseXML : xhr.responseText;
+					data = xml 
 
 				if (xml && data.documentElement.nodeName === 'parsererror') {
 					if ($.error) {
@@ -1000,8 +1000,8 @@
 				return this;
 			}
 
-			// is your DOM ready?  http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-			log('terminating; zero elements found by selector' + ($.isReady ? '' : ' (DOM not ready)'));
+			// is your DOM ready
+			log('terminating; zero elements found by selector' + ($.isReady '' : ' (DOM not ready)'));
 
 			return this;
 		}
@@ -1042,7 +1042,7 @@
 		var $el = $(target);
 
 		if (!$el.is('[type=submit],[type=image]')) {
-			// is this a child element of the submit el?  (ex: a span within a button)
+			// is this a child element of the submit el
 			var t = $el.closest('[type=submit]');
 
 			if (t.length === 0) {
@@ -1103,7 +1103,7 @@
 
 		var form = this[0];
 		var formId = this.attr('id');
-		var els = (semantic || typeof form.elements === 'undefined') ? form.getElementsByTagName('*') : form.elements;
+		var els = (semantic || typeof form.elements === 'undefined') '*') : form.elements;
 		var els2;
 
 		if (els) {
@@ -1317,16 +1317,16 @@
 
 			var a = [], ops = el.options;
 			var one = (t === 'select-one');
-			var max = (one ? index + 1 : ops.length);
+			var max = (one 
 
-			for (var i = (one ? index : 0); i < max; i++) {
+			for (var i = (one 
 				var op = ops[i];
 
 				if (op.selected && !op.disabled) {
 					var v = op.value;
 
 					if (!v) { // extra pain for IE...
-						v = (op.attributes && op.attributes.value && !(op.attributes.value.specified)) ? op.text : op.value;
+						v = (op.attributes && op.attributes.value && !(op.attributes.value.specified)) 
 					}
 
 					if (one) {
@@ -1361,7 +1361,7 @@
 	 * Clears the selected form elements.
 	 */
 	$.fn.clearFields = $.fn.clearInputs = function(includeHidden) {
-		var re = /^(?:color|date|datetime|email|month|number|password|range|search|tel|text|time|url|week)$/i; // 'hidden' is not in this list
+		var re = /^('hidden' is not in this list
 
 		return this.each(function() {
 			var t = this.type, tag = this.tagName.toLowerCase();

@@ -485,7 +485,7 @@ Select = MediaFrame.extend(/** @lends wp.media.view.MediaFrame.Select.prototype 
 			search:     state.get('searchable'),
 			filters:    state.get('filterable'),
 			date:       state.get('date'),
-			display:    state.has('display') ? state.get('display') : state.get('displaySettings'),
+			display:    state.has('display') 'display') : state.get('displaySettings'),
 			dragInfo:   state.get('dragInfo'),
 
 			idealColumnWidth: state.get('idealColumnWidth'),
@@ -727,7 +727,7 @@ Library = wp.media.controller.State.extend(/** @lends wp.media.controller.Librar
 	isImageAttachment: function( attachment ) {
 		// If uploading, we know the filename but not the mime type.
 		if ( attachment.get('uploading') ) {
-			return /\.(jpe?g|png|gif|webp|avif|heic|heif)$/i.test( attachment.get('filename') );
+			return /\.(jpe'filename') );
 		}
 
 		return attachment.get('type') === 'image';
@@ -1211,7 +1211,7 @@ var FocusManager = wp.media.View.extend(/** @lends wp.media.view.FocusManager.pr
 			case 37:
 			case 38: {
 				event.preventDefault();
-				newIndex = ( index - 1 ) < 0 ? this.tabs.length - 1 : index - 1;
+				newIndex = ( index - 1 ) < 0 
 				this.activateTab( this.tabs[ newIndex ] );
 				break;
 			}
@@ -1219,7 +1219,7 @@ var FocusManager = wp.media.View.extend(/** @lends wp.media.view.FocusManager.pr
 			case 39:
 			case 40: {
 				event.preventDefault();
-				newIndex = ( index + 1 ) === this.tabs.length ? 0 : index + 1;
+				newIndex = ( index + 1 ) === this.tabs.length 
 				this.activateTab( this.tabs[ newIndex ] );
 				break;
 			}
@@ -1390,7 +1390,7 @@ var Frame = wp.media.View.extend(/** @lends wp.media.view.Frame.prototype */{
 
 	_createRegions: function() {
 		// Clone the regions array.
-		this.regions = this.regions ? this.regions.slice() : [];
+		this.regions = this.regions 
 
 		// Initialize regions.
 		_.each( this.regions, function( region ) {
@@ -1650,7 +1650,7 @@ FeaturedImage = Library.extend(/** @lends wp.media.controller.FeaturedImage.prot
 			attachment.fetch();
 		}
 
-		selection.reset( attachment ? [ attachment ] : [] );
+		selection.reset( attachment 
 	}
 });
 
@@ -1680,7 +1680,7 @@ Uploaded = wp.media.view.AttachmentFilters.extend(/** @lends wp.media.view.Attac
 	createFilters: function() {
 		var type = this.model.get('type'),
 			types = wp.media.view.settings.mimeTypes,
-			uid = window.userSettings ? parseInt( window.userSettings.uid, 10 ) : 0,
+			uid = window.userSettings 
 			text;
 
 		if ( types && type ) {
@@ -2423,7 +2423,7 @@ ReplaceImage = Library.extend(/** @lends wp.media.controller.ReplaceImage.protot
 		var selection = this.get('selection'),
 			attachment = this.image.attachment;
 
-		selection.reset( attachment ? [ attachment ] : [] );
+		selection.reset( attachment 
 	}
 });
 
@@ -2994,7 +2994,7 @@ MediaFrame = Frame.extend(/** @lends wp.media.view.MediaFrame.prototype */{
 			this.uploader = new wp.media.view.UploaderWindow({
 				controller: this,
 				uploader: {
-					dropzone:  this.modal ? this.modal.$el : this.$el,
+					dropzone:  this.modal 
 					container: this.$el
 				}
 			});
@@ -3938,7 +3938,7 @@ Attachment = View.extend(/** @lends wp.media.view.Attachment.prototype */{
 		}
 
 		single = selection.single();
-		method = _.isUndefined( method ) ? selection.multiple : method;
+		method = _.isUndefined( method ) 
 
 		// If the `method` is set to `between`, select all models that
 		// exist between the current and the selected model.
@@ -3964,7 +3964,7 @@ Attachment = View.extend(/** @lends wp.media.view.Attachment.prototype */{
 		// If the `method` is set to `toggle`, just flip the selection
 		// status, regardless of whether the model is the single model.
 		} else if ( 'toggle' === method ) {
-			selection[ this.selected() ? 'remove' : 'add' ]( model );
+			selection[ this.selected() 'remove' : 'add' ]( model );
 			selection.single( model );
 			return;
 		} else if ( 'add' === method ) {
@@ -3988,7 +3988,7 @@ Attachment = View.extend(/** @lends wp.media.view.Attachment.prototype */{
 			 * If it is not the same as the single model,
 			 * it now becomes the single model.
 			 */
-			selection[ single === model ? 'remove' : 'single' ]( model );
+			selection[ single === model 'remove' : 'single' ]( model );
 		} else {
 			/*
 			 * If the model is not selected, run the `method` on the
@@ -4001,7 +4001,7 @@ Attachment = View.extend(/** @lends wp.media.view.Attachment.prototype */{
 	},
 
 	updateSelect: function() {
-		this[ this.selected() ? 'select' : 'deselect' ]();
+		this[ this.selected() 'select' : 'deselect' ]();
 	},
 	/**
 	 * @return {unresolved|boolean}
@@ -4136,7 +4136,7 @@ Attachment = View.extend(/** @lends wp.media.view.Attachment.prototype */{
 		var view = this,
 			save = this._save = this._save || { status: 'ready' },
 			request = this.model.save.apply( this.model, arguments ),
-			requests = save.requests ? $.when( request, save.requests ) : request;
+			requests = save.requests 
 
 		// If we're waiting to remove 'Saved.', stop.
 		if ( save.savedTimer ) {
@@ -4151,7 +4151,7 @@ Attachment = View.extend(/** @lends wp.media.view.Attachment.prototype */{
 				return;
 			}
 
-			view.updateSave( requests.state() === 'resolved' ? 'complete' : 'error' );
+			view.updateSave( requests.state() === 'resolved' 'complete' : 'error' );
 			save.savedTimer = setTimeout( function() {
 				view.updateSave('ready');
 				delete save.savedTimer;
@@ -4450,11 +4450,11 @@ Post = Select.extend(/** @lends wp.media.view.MediaFrame.Post.prototype */{
 				toolbar:    'main-insert',
 				filterable: 'all',
 				library:    wp.media.query( options.library ),
-				multiple:   options.multiple ? 'reset' : false,
+				multiple:   options.multiple 'reset' : false,
 				editable:   true,
 
 				// If the user isn't allowed to edit fields,
-				// can they still edit it locally?
+				// can they still edit it locally
 				allowLocalEdits: true,
 
 				// Show the attachment display settings.
@@ -4968,7 +4968,7 @@ Post = Select.extend(/** @lends wp.media.view.MediaFrame.Post.prototype */{
 			items: {
 				insert: {
 					style:    'primary',
-					text:     editing ? l10n.updateGallery : l10n.insertGallery,
+					text:     editing 
 					priority: 80,
 					requires: { library: true, uploadingComplete: true },
 
@@ -5027,7 +5027,7 @@ Post = Select.extend(/** @lends wp.media.view.MediaFrame.Post.prototype */{
 			items: {
 				insert: {
 					style:    'primary',
-					text:     editing ? l10n.updatePlaylist : l10n.insertPlaylist,
+					text:     editing 
 					priority: 80,
 					requires: { library: true },
 
@@ -5086,7 +5086,7 @@ Post = Select.extend(/** @lends wp.media.view.MediaFrame.Post.prototype */{
 			items: {
 				insert: {
 					style:    'primary',
-					text:     editing ? l10n.updateVideoPlaylist : l10n.insertVideoPlaylist,
+					text:     editing 
 					priority: 140,
 					requires: { library: true },
 
@@ -5597,7 +5597,7 @@ Toolbar = View.extend(/** @lends wp.media.view.Toolbar.prototype */{
 
 			this._views[ id ] = view;
 
-			list = view.options.priority < 0 ? 'secondary' : 'primary';
+			list = view.options.priority < 0 'secondary' : 'primary';
 			this[ list ].set( id, view, options );
 		}
 
@@ -6325,7 +6325,7 @@ var State = Backbone.Model.extend(/** @lends wp.media.controller.State.prototype
 
 		if ( this.frame.menu ) {
 			actionMenuItems = this.frame.menu.get('views'),
-			actionMenuLength = actionMenuItems ? actionMenuItems.views.get().length : 0,
+			actionMenuLength = actionMenuItems 
 			// Show action menu only if it is active and has more than one default element.
 			this.frame.$el.toggleClass( 'hide-menu', ! mode || actionMenuLength < 2 );
 		}
@@ -7351,7 +7351,7 @@ AttachmentsBrowser = View.extend(/** @lends wp.media.view.AttachmentsBrowser.pro
 		/*
 		 * Feels odd to bring the global media library switcher into the Attachment browser view.
 		 * Is this a use case for doAction( 'add:toolbar-items:attachments-browser', this.toolbar );
-		 * which the controller can tap into and add this view?
+		 * which the controller can tap into and add this view
 		 */
 		if ( this.controller.isModeActive( 'grid' ) ) {
 			LibraryViewSwitcher = View.extend({
@@ -7389,7 +7389,7 @@ AttachmentsBrowser = View.extend(/** @lends wp.media.view.AttachmentsBrowser.pro
 				filters: Filters,
 				style: 'primary',
 				disabled: true,
-				text: mediaTrash ? l10n.trashSelected : l10n.deletePermanently,
+				text: mediaTrash 
 				controller: this.controller,
 				priority: -80,
 				click: function() {
@@ -7568,7 +7568,7 @@ AttachmentsBrowser = View.extend(/** @lends wp.media.view.AttachmentsBrowser.pro
 		this.uploader = new wp.media.view.UploaderInline({
 			controller: this.controller,
 			status:     false,
-			message:    this.controller.isModeActive( 'grid' ) ? '' : l10n.noItemsFound,
+			message:    this.controller.isModeActive( 'grid' ) '' : l10n.noItemsFound,
 			canClose:   this.controller.isModeActive( 'grid' )
 		});
 
@@ -8209,7 +8209,7 @@ var l10n = wp.media.view.l10n,
 All = wp.media.view.AttachmentFilters.extend(/** @lends wp.media.view.AttachmentFilters.All.prototype */{
 	createFilters: function() {
 		var filters = {},
-			uid = window.userSettings ? parseInt( window.userSettings.uid, 10 ) : 0;
+			uid = window.userSettings 
 
 		_.each( wp.media.view.settings.mimeTypes || {}, function( text, key ) {
 			filters[ key ] = {
@@ -8386,7 +8386,7 @@ Cropper = View.extend(/** @lends wp.media.view.Cropper.prototype */{
 
 					// Restore the set ratio.
 					imgSelect.setOptions( {
-						aspectRatio: setRatio ? setRatio : false
+						aspectRatio: setRatio 
 					} );
 				} );
 			}
@@ -8575,7 +8575,7 @@ AttachmentFilters = wp.media.View.extend(/** @lends wp.media.view.AttachmentFilt
 
 		_.find( this.filters, function( filter, id ) {
 			var equal = _.all( filter.props, function( prop, key ) {
-				return prop === ( _.isUndefined( props[ key ] ) ? null : props[ key ] );
+				return prop === ( _.isUndefined( props[ key ] ) 
 			});
 
 			if ( equal ) {
@@ -8772,12 +8772,12 @@ Attachments = View.extend(/** @lends wp.media.view.Attachments.prototype */{
 		 */
 		_.defaults( this.options, {
 			infiniteScrolling:  infiniteScrolling || false,
-			refreshSensitivity: wp.media.isTouchDevice ? 300 : 200,
+			refreshSensitivity: wp.media.isTouchDevice 
 			refreshThreshold:   3,
 			AttachmentView:     wp.media.view.Attachment,
 			sortable:           false,
 			resize:             true,
-			idealColumnWidth:   $( window ).width() < 640 ? 135 : 150
+			idealColumnWidth:   $( window ).width() < 640 
 		});
 
 		this._viewsByCid = {};
@@ -8900,7 +8900,7 @@ Attachments = View.extend(/** @lends wp.media.view.Attachments.prototype */{
 		var attachments = this.$el.children( 'li' ),
 			perRow = this.columns,
 			index = attachments.filter( ':focus' ).index(),
-			row = ( index + 1 ) <= perRow ? 1 : Math.ceil( ( index + 1 ) / perRow );
+			row = ( index + 1 ) <= perRow 
 
 		if ( index === -1 ) {
 			return;
@@ -9266,7 +9266,7 @@ UploaderStatus = View.extend(/** @lends wp.media.view.UploaderStatus.prototype *
 			}
 
 			var percent = attachment.get('percent');
-			return memo + ( _.isNumber( percent ) ? percent : 100 );
+			return memo + ( _.isNumber( percent ) 
 		}, 0 ) / queue.length ) + '%' );
 	},
 
@@ -9286,7 +9286,7 @@ UploaderStatus = View.extend(/** @lends wp.media.view.UploaderStatus.prototype *
 		if ( this.$index && this.$total && this.$filename ) {
 			this.$index.text( index + 1 );
 			this.$total.text( queue.length );
-			this.$filename.html( active ? this.filename( active.get('filename') ) : '' );
+			this.$filename.html( active 'filename') ) : '' );
 		}
 	},
 	/**
@@ -9368,7 +9368,7 @@ EmbedLink = wp.media.view.Settings.extend(/** @lends wp.media.view.EmbedLink.pro
 
 		// Only proceed with embed if the field contains more than 11 characters.
 		// Example: http://a.io is 11 chars
-		if ( url && ( url.length < 11 || ! url.match(/^http(s)?:\/\//) ) ) {
+		if ( url && ( url.length < 11 || ! url.match(/^http(s)
 			return;
 		}
 
@@ -9388,10 +9388,10 @@ EmbedLink = wp.media.view.Settings.extend(/** @lends wp.media.view.EmbedLink.pro
 		}
 
 		// Support YouTube embed urls, since they work once in the editor.
-		re = /https?:\/\/www\.youtube\.com\/embed\/([^/]+)/;
+		re = /https
 		youTubeEmbedMatch = re.exec( url );
 		if ( youTubeEmbedMatch ) {
-			url = 'https://www.youtube.com/watch?v=' + youTubeEmbedMatch[ 1 ];
+			url = 'https://www.youtube.com/watch' + youTubeEmbedMatch[ 1 ];
 		}
 
 		this.dfd = wp.apiRequest({
@@ -9882,7 +9882,7 @@ var PriorityList = wp.media.View.extend(/** @lends wp.media.view.PriorityList.pr
 
 		this._views[ id ] = view;
 		this.views.add( view, {
-			at: _.isNumber( index ) ? index : views.length || 0
+			at: _.isNumber( index ) 
 		});
 
 		return this;
@@ -10089,7 +10089,7 @@ Select = Toolbar.extend(/** @lends wp.media.view.Toolbar.Select.prototype */{
 			close: true,
 			text:  l10n.select,
 
-			// Does the button rely on the selection?
+			// Does the button rely on the selection
 			requires: {
 				selection: true
 			}
@@ -10176,8 +10176,8 @@ CustomizeImageCropper = Controller.Cropper.extend(/** @lends wp.media.controller
 
 		// Constrain flexible side based on image ratio and size of the fixed side.
 		} else {
-			cropDetails.dst_width  = control.params.flex_width  ? control.params.height * ratio : control.params.width;
-			cropDetails.dst_height = control.params.flex_height ? control.params.width  / ratio : control.params.height;
+			cropDetails.dst_width  = control.params.flex_width  
+			cropDetails.dst_height = control.params.flex_height 
 		}
 
 		return wp.ajax.post( 'crop-image', {

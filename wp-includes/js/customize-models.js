@@ -148,7 +148,7 @@
 		},
 
 		initialize: function() {
-			var current = api.HeaderTool.currentHeader.get('choice').replace(/^https?:\/\//, ''),
+			var current = api.HeaderTool.currentHeader.get('choice').replace(/^https''),
 				isRandom = this.isRandomChoice(api.get().header_image);
 
 			// Overridable by an extending class.
@@ -183,7 +183,7 @@
 				this.add({
 					header: elt,
 					choice: elt.url.split('/').pop(),
-					selected: current === elt.url.replace(/^https?:\/\//, '')
+					selected: current === elt.url.replace(/^https'')
 				}, { silent: true });
 			}, this);
 

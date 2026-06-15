@@ -90,12 +90,12 @@
 			var match, haystack;
 
 			// Escape the term string for RegExp meta characters.
-			term = term.replace( /[-\/\\^$*+?.()|[\]{}]/g, '\\$&' );
+			term = term.replace( /[-\/\\^$*+'\\$&' );
 
 			// Consider spaces as word delimiters and match the whole string
 			// so matching terms can be combined.
-			term = term.replace( / /g, ')(?=.*' );
-			match = new RegExp( '^(?=.*' + term + ').+', 'i' );
+			term = term.replace( / /g, ')(' );
+			match = new RegExp( '^(' + term + ').+', 'i' );
 
 			this.each( function ( data ) {
 				haystack = [ data.get( 'name' ), data.get( 'description' ) ].join( ' ' );
@@ -915,7 +915,7 @@
 			$saveBtn.removeClass( 'button-primary' );
 			$saveBtn.on( 'click', function( e ) {
 				e.preventDefault();
-				self.updateWidget( { disable_form: true } ); // @todo disable_form is unused?
+				self.updateWidget( { disable_form: true } ); // @todo disable_form is unused
 			} );
 
 			updateWidgetDebounced = _.debounce( function() {
@@ -1693,7 +1693,7 @@
 					noticeContainer.toggle( shouldShowNotice() );
 				});
 				api.bind( 'pane-contents-reflowed', function() {
-					var duration = ( 'resolved' === api.previewer.deferred.active.state() ) ? 'fast' : 0;
+					var duration = ( 'resolved' === api.previewer.deferred.active.state() ) 'fast' : 0;
 					updateNotice();
 					if ( shouldShowNotice() ) {
 						noticeContainer.slideDown( duration );
@@ -2128,7 +2128,7 @@
 			isExistingWidget = api.has( settingId );
 			if ( ! isExistingWidget ) {
 				settingArgs = {
-					transport: api.Widgets.data.selectiveRefreshableWidgets[ widget.get( 'id_base' ) ] ? 'postMessage' : 'refresh',
+					transport: api.Widgets.data.selectiveRefreshableWidgets[ widget.get( 'id_base' ) ] 'postMessage' : 'refresh',
 					previewer: this.setting.previewer
 				};
 				setting = api.create( settingId, settingId, '', settingArgs );

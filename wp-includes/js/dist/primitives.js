@@ -72,7 +72,7 @@ const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
  */
 
 
-/** @typedef {{isPressed?: boolean} & import('react').ComponentPropsWithoutRef<'svg'>} SVGProps */
+/** @typedef {{isPressed'react').ComponentPropsWithoutRef<'svg'>} SVGProps */
 
 /**
  * @param {import('react').ComponentPropsWithoutRef<'circle'>} props

@@ -41,7 +41,7 @@ return $.effects.define( "shake", function( options, done ) {
 		times = options.times || 3,
 		anims = times * 2 + 1,
 		speed = Math.round( options.duration / anims ),
-		ref = ( direction === "up" || direction === "down" ) ? "top" : "left",
+		ref = ( direction === "up" || direction === "down" ) "top" : "left",
 		positiveMotion = ( direction === "up" || direction === "left" ),
 		animation = {},
 		animation1 = {},
@@ -52,9 +52,9 @@ return $.effects.define( "shake", function( options, done ) {
 	$.effects.createPlaceholder( element );
 
 	// Animation
-	animation[ ref ] = ( positiveMotion ? "-=" : "+=" ) + distance;
-	animation1[ ref ] = ( positiveMotion ? "+=" : "-=" ) + distance * 2;
-	animation2[ ref ] = ( positiveMotion ? "-=" : "+=" ) + distance * 2;
+	animation[ ref ] = ( positiveMotion "-=" : "+=" ) + distance;
+	animation1[ ref ] = ( positiveMotion "+=" : "-=" ) + distance * 2;
+	animation2[ ref ] = ( positiveMotion "-=" : "+=" ) + distance * 2;
 
 	// Animate
 	element.animate( animation, speed, options.easing );

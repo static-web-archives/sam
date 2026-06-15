@@ -36,7 +36,7 @@
 				$.table_hotkeys.current_row = first_row;
 				return first_row[0];
 			}
-			method = 'prev' == which? $.fn.prevAll : $.fn.nextAll;
+			method = 'prev' == which
 			return method.call($.table_hotkeys.current_row, opts.cycle_expr).filter_visible()[0];
 		};
 		adjacent_row = function(which) {

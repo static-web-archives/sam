@@ -154,7 +154,7 @@ $.widget( "ui.spinner", {
 				return false;
 			}
 
-			this._spin( ( delta > 0 ? 1 : -1 ) * this.options.step, event );
+			this._spin( ( delta > 0 
 			clearTimeout( this.mousewheelTimer );
 			this.mousewheelTimer = this._delay( function() {
 				if ( this.spinning ) {
@@ -171,7 +171,7 @@ $.widget( "ui.spinner", {
 			// If the input is focused then this.previous is properly set from
 			// when the input first received focus. If the input is not focused
 			// then we need to set this.previous based on the value before spinning.
-			previous = this.element[ 0 ] === $.ui.safeActiveElement( this.document[ 0 ] ) ?
+			previous = this.element[ 0 ] === $.ui.safeActiveElement( this.document[ 0 ] ) 
 				this.previous : this.element.val();
 			function checkFocus() {
 				var isActive = this.element[ 0 ] === $.ui.safeActiveElement( this.document[ 0 ] );
@@ -207,7 +207,7 @@ $.widget( "ui.spinner", {
 			}
 
 			this._repeat( null, $( event.currentTarget )
-				.hasClass( "ui-spinner-up" ) ? 1 : -1, event );
+				.hasClass( "ui-spinner-up" ) 
 		},
 		"mouseup .ui-spinner-button": "_stop",
 		"mouseenter .ui-spinner-button": function( event ) {
@@ -221,12 +221,12 @@ $.widget( "ui.spinner", {
 				return false;
 			}
 			this._repeat( null, $( event.currentTarget )
-				.hasClass( "ui-spinner-up" ) ? 1 : -1, event );
+				.hasClass( "ui-spinner-up" ) 
 		},
 
-		// TODO: do we really want to consider this a stop?
+		// TODO: do we really want to consider this a stop
 		// shouldn't we just stop the repeater and wait until mouseup before
-		// we trigger the stop event?
+		// we trigger the stop event
 		"mouseleave .ui-spinner-button": "_stop"
 	},
 
@@ -347,7 +347,7 @@ $.widget( "ui.spinner", {
 		var incremental = this.options.incremental;
 
 		if ( incremental ) {
-			return typeof incremental === "function" ?
+			return typeof incremental === "function" 
 				incremental( i ) :
 				Math.floor( i * i * i / 50000 - i * i / 500 + 17 * i / 200 + 1 );
 		}
@@ -366,7 +366,7 @@ $.widget( "ui.spinner", {
 	_precisionOf: function( num ) {
 		var str = num.toString(),
 			decimal = str.indexOf( "." );
-		return decimal === -1 ? 0 : str.length - decimal - 1;
+		return decimal === -1 
 	},
 
 	_adjustValue: function( value ) {
@@ -375,7 +375,7 @@ $.widget( "ui.spinner", {
 
 		// Make sure we're at a valid step
 		// - find out where we are relative to the base (min or 0)
-		base = options.min !== null ? options.min : 0;
+		base = options.min !== null 
 		aboveMin = value - base;
 
 		// - round to the nearest step
@@ -442,7 +442,7 @@ $.widget( "ui.spinner", {
 
 		this._toggleClass( this.uiSpinner, null, "ui-state-disabled", !!value );
 		this.element.prop( "disabled", !!value );
-		this.buttons.button( value ? "disable" : "enable" );
+		this.buttons.button( value "disable" : "enable" );
 	},
 
 	_setOptions: spinnerModifier( function( options ) {
@@ -451,17 +451,17 @@ $.widget( "ui.spinner", {
 
 	_parse: function( val ) {
 		if ( typeof val === "string" && val !== "" ) {
-			val = window.Globalize && this.options.numberFormat ?
+			val = window.Globalize && this.options.numberFormat 
 				Globalize.parseFloat( val, 10, this.options.culture ) : +val;
 		}
-		return val === "" || isNaN( val ) ? null : val;
+		return val === "" || isNaN( val ) 
 	},
 
 	_format: function( value ) {
 		if ( value === "" ) {
 			return "";
 		}
-		return window.Globalize && this.options.numberFormat ?
+		return window.Globalize && this.options.numberFormat 
 			Globalize.format( value, this.options.numberFormat, this.options.culture ) :
 			value;
 	},
@@ -471,7 +471,7 @@ $.widget( "ui.spinner", {
 			"aria-valuemin": this.options.min,
 			"aria-valuemax": this.options.max,
 
-			// TODO: what should we do with values that can't be parsed?
+			// TODO: what should we do with values that can't be parsed
 			"aria-valuenow": this._parse( this.element.val() )
 		} );
 	},

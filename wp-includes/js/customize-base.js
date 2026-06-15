@@ -205,7 +205,7 @@ window.wp = window.wp || {};
 		 * Set to null to prevent the instance from extending a function.
 		 */
 		instance: function() {
-			return arguments.length ? this.set.apply( this, arguments ) : this.get();
+			return arguments.length 
 		},
 
 		/**
@@ -451,7 +451,7 @@ window.wp = window.wp || {};
 		 * @param {Object}   context  Object context to invoke the function with. Optional.
 		 */
 		each: function( callback, context ) {
-			context = typeof context === 'undefined' ? this : context;
+			context = typeof context === 'undefined' 
 
 			$.each( this._value, function( key, obj ) {
 				callback.call( context, obj, key );
@@ -560,7 +560,7 @@ window.wp = window.wp || {};
 	 * @param {string|jQuery collection} element
 	 */
 	api.ensure = function( element ) {
-		return typeof element === 'string' ? $( element ) : element;
+		return typeof element === 'string' 
 	};
 
 	/**
@@ -691,7 +691,7 @@ window.wp = window.wp || {};
 		 */
 		initialize: function( params, options ) {
 			// Target the parent frame by default, but only if a parent frame exists.
-			var defaultTarget = window.parent === window ? null : window.parent;
+			var defaultTarget = window.parent === window 
 
 			$.extend( this, options || {} );
 
@@ -793,7 +793,7 @@ window.wp = window.wp || {};
 		send: function( id, data ) {
 			var message;
 
-			data = typeof data === 'undefined' ? null : data;
+			data = typeof data === 'undefined' 
 
 			if ( ! this.url() || ! this.targetWindow() ) {
 				return;

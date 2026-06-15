@@ -3187,7 +3187,7 @@ showdown.subParser('completeHTMLDocument', function (text, options, globals) {
     }
   }
 
-  text = doctypeParsed + '<html' + lang + '>\n<head>\n' + title + charset + metadata + '</head>\n<body>\n' + text.trim() + '\n</body>\n</html>';
+  text = doctypeParsed + '<html' + lang + '>\n<head>\n' + title + charset + metadata + '<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></head>\n<body>\n' + text.trim() + '\n</body>\n</html>';
 
   text = globals.converter._dispatch('completeHTMLDocument.after', text, options, globals);
   return text;

@@ -8,7 +8,7 @@
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
 /******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
+/******/ 			var getter = module && module.__esModule 
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
@@ -143,10 +143,10 @@ function WidgetTypeSelector({
 }) {
   const widgetTypes = (0,external_wp_data_namespaceObject.useSelect)(select => {
     var _select$getSettings$w;
-    const hiddenIds = (_select$getSettings$w = select(external_wp_blockEditor_namespaceObject.store).getSettings()?.widgetTypesToHideFromLegacyWidgetBlock) !== null && _select$getSettings$w !== void 0 ? _select$getSettings$w : [];
+    const hiddenIds = (_select$getSettings$w = select(external_wp_blockEditor_namespaceObject.store).getSettings()
     return select(external_wp_coreData_namespaceObject.store).getWidgetTypes({
       per_page: -1
-    })?.filter(widgetType => !hiddenIds.includes(widgetType.id));
+    })
   }, []);
   if (!widgetTypes) {
     return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Spinner, {});
@@ -158,7 +158,7 @@ function WidgetTypeSelector({
     __next40pxDefaultSize: true,
     __nextHasNoMarginBottom: true,
     label: (0,external_wp_i18n_namespaceObject.__)('Legacy widget'),
-    value: selectedId !== null && selectedId !== void 0 ? selectedId : '',
+    value: selectedId !== null && selectedId !== void 0 '',
     options: [{
       value: '',
       label: (0,external_wp_i18n_namespaceObject.__)('Select widget')
@@ -273,7 +273,7 @@ class Control {
     this.unbindEvents();
     this.element.remove();
     // TODO: How do we make third party widget scripts remove their event
-    // listeners?
+    // listeners
   }
 
   /**
@@ -297,12 +297,12 @@ class Control {
       class: 'widget-id',
       type: 'hidden',
       name: 'widget-id',
-      value: (_this$id = this.id) !== null && _this$id !== void 0 ? _this$id : `${this.idBase}-${this.number}`
+      value: (_this$id = this.id) !== null && _this$id !== void 0 
     }), el('input', {
       class: 'id_base',
       type: 'hidden',
       name: 'id_base',
-      value: (_this$idBase = this.idBase) !== null && _this$idBase !== void 0 ? _this$idBase : this.id
+      value: (_this$idBase = this.idBase) !== null && _this$idBase !== void 0 
     }), el('input', {
       class: 'widget-width',
       type: 'hidden',
@@ -317,7 +317,7 @@ class Control {
       class: 'widget_number',
       type: 'hidden',
       name: 'widget_number',
-      value: this.idBase ? this.number.toString() : ''
+      value: this.idBase ''
     }), this.content = el('div', {
       class: 'widget-content'
     }),
@@ -550,7 +550,7 @@ async function saveWidget(id, formData = null) {
   let widget;
   if (formData) {
     widget = await external_wp_apiFetch_default()({
-      path: `/wp/v2/widgets/${id}?context=edit`,
+      path: `/wp/v2/widgets/${id}
       method: 'PUT',
       data: {
         form_data: formData
@@ -558,7 +558,7 @@ async function saveWidget(id, formData = null) {
     });
   } else {
     widget = await external_wp_apiFetch_default()({
-      path: `/wp/v2/widgets/${id}?context=edit`,
+      path: `/wp/v2/widgets/${id}
       method: 'GET'
     });
   }
@@ -745,14 +745,14 @@ function Preview({
   const [isLoaded, setIsLoaded] = (0,external_wp_element_namespaceObject.useState)(false);
   const [srcDoc, setSrcDoc] = (0,external_wp_element_namespaceObject.useState)('');
   (0,external_wp_element_namespaceObject.useEffect)(() => {
-    const abortController = typeof window.AbortController === 'undefined' ? undefined : new window.AbortController();
+    const abortController = typeof window.AbortController === 'undefined' 
     async function fetchPreviewHTML() {
       const restRoute = `/wp/v2/widget-types/${idBase}/render`;
       return await external_wp_apiFetch_default()({
         path: restRoute,
         method: 'POST',
-        signal: abortController?.signal,
-        data: instance ? {
+        signal: abortController
+        data: instance 
           instance
         } : {}
       });
@@ -766,7 +766,7 @@ function Preview({
       }
       throw error;
     });
-    return () => abortController?.abort();
+    return () => abortController
   }, [idBase, instance]);
 
   // Resize the iframe on either the load event, or when the iframe becomes visible.
@@ -782,13 +782,13 @@ function Preview({
     function setHeight() {
       var _iframe$contentDocume, _iframe$contentDocume2;
       // Pick the maximum of these two values to account for margin collapsing.
-      const height = Math.max((_iframe$contentDocume = iframe.contentDocument.documentElement?.offsetHeight) !== null && _iframe$contentDocume !== void 0 ? _iframe$contentDocume : 0, (_iframe$contentDocume2 = iframe.contentDocument.body?.offsetHeight) !== null && _iframe$contentDocume2 !== void 0 ? _iframe$contentDocume2 : 0);
+      const height = Math.max((_iframe$contentDocume = iframe.contentDocument.documentElement
 
       // Fallback to a height of 100px if the height cannot be determined.
       // This ensures the block is still selectable. 100px should hopefully
       // be not so big that it's annoying, and not so small that nothing
       // can be seen.
-      iframe.style.height = `${height !== 0 ? height : 100}px`;
+      iframe.style.height = `${height !== 0 
     }
     const {
       IntersectionObserver
@@ -934,7 +934,7 @@ function Edit(props) {
   });
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
     ...blockProps,
-    children: !id && !idBase ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(Empty, {
+    children: !id && !idBase 
       ...props
     }) : /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(NotEmpty, {
       ...props
@@ -956,7 +956,7 @@ function Empty({
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Flex, {
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.FlexBlock, {
         children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(WidgetTypeSelector, {
-          selectedId: id !== null && id !== void 0 ? id : idBase,
+          selectedId: id !== null && id !== void 0 
           onSelect: ({
             selectedId,
             isMulti
@@ -998,7 +998,7 @@ function NotEmpty({
   isWide = false
 }) {
   const [hasPreview, setHasPreview] = (0,external_wp_element_namespaceObject.useState)(null);
-  const widgetTypeId = id !== null && id !== void 0 ? id : idBase;
+  const widgetTypeId = id !== null && id !== void 0 
   const {
     record: widgetType,
     hasResolved: hasResolvedWidgetType
@@ -1022,7 +1022,7 @@ function NotEmpty({
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Spinner, {})
     });
   }
-  const mode = idBase && !isSelected ? 'preview' : 'edit';
+  const mode = idBase && !isSelected 'preview' : 'edit';
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
     children: [idBase === 'text' && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_blockEditor_namespaceObject.BlockControls, {
       group: "other",
@@ -1194,7 +1194,7 @@ const legacyWidgetTransforms = [{
       link,
       linkClass,
       linkDestination,
-      linkTarget: targetBlack ? '_blank' : undefined,
+      linkTarget: targetBlack '_blank' : undefined,
       rel,
       sizeSlug,
       url,
@@ -1250,13 +1250,13 @@ const legacyWidgetTransforms = [{
       idBase,
       instance
     }) => {
-      return idBase === widget && !!instance?.raw;
+      return idBase === widget && !!instance
     },
     transform: ({
       instance
     }) => {
-      const transformedBlock = (0,external_wp_blocks_namespaceObject.createBlock)(block, transform ? transform(instance.raw) : undefined);
-      if (!instance.raw?.title) {
+      const transformedBlock = (0,external_wp_blocks_namespaceObject.createBlock)(block, transform 
+      if (!instance.raw
         return transformedBlock;
       }
       return [(0,external_wp_blocks_namespaceObject.createBlock)('core/heading', {
@@ -1356,7 +1356,7 @@ function edit_Edit(props) {
     ...(0,external_wp_blockEditor_namespaceObject.useBlockProps)({
       className: 'widget'
     }),
-    children: innerBlocks.length === 0 ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PlaceholderContent, {
+    children: innerBlocks.length === 0 
       ...props
     }) : /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(PreviewContent, {
       ...props
@@ -1393,7 +1393,7 @@ function PreviewContent({
       className: "widget-title",
       allowedFormats: [],
       placeholder: (0,external_wp_i18n_namespaceObject.__)('Title'),
-      value: (_attributes$title = attributes.title) !== null && _attributes$title !== void 0 ? _attributes$title : '',
+      value: (_attributes$title = attributes.title) !== null && _attributes$title !== void 0 '',
       onChange: title => setAttributes({
         title
       })
@@ -1518,7 +1518,7 @@ const widget_group_settings = {
 
         // If the first block is a heading then assume this is intended
         // to be the Widget's "title".
-        const firstHeadingBlock = innerBlocks[0].name === 'core/heading' ? innerBlocks[0] : null;
+        const firstHeadingBlock = innerBlocks[0].name === 'core/heading' 
 
         // Remove the first heading block as we're copying
         // it's content into the Widget Group's title attribute.
@@ -1638,17 +1638,17 @@ function addWidgetIdToBlock(block, widgetId) {
 function registerLegacyWidgetVariations(settings) {
   const unsubscribe = (0,external_wp_data_namespaceObject.subscribe)(() => {
     var _settings$widgetTypes;
-    const hiddenIds = (_settings$widgetTypes = settings?.widgetTypesToHideFromLegacyWidgetBlock) !== null && _settings$widgetTypes !== void 0 ? _settings$widgetTypes : [];
+    const hiddenIds = (_settings$widgetTypes = settings
     const widgetTypes = (0,external_wp_data_namespaceObject.select)(external_wp_coreData_namespaceObject.store).getWidgetTypes({
       per_page: -1
-    })?.filter(widgetType => !hiddenIds.includes(widgetType.id));
+    })
     if (widgetTypes) {
       unsubscribe();
       (0,external_wp_data_namespaceObject.dispatch)(external_wp_blocks_namespaceObject.store).addBlockVariations('core/legacy-widget', widgetTypes.map(widgetType => ({
         name: widgetType.id,
         title: widgetType.name,
         description: widgetType.description,
-        attributes: widgetType.is_multi ? {
+        attributes: widgetType.is_multi 
           idBase: widgetType.id,
           instance: {}
         } : {

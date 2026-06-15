@@ -424,23 +424,23 @@ msgstr "Soir"
 
 #: patterns/text-faqs.php:83
 msgctxt "Question in the FAQs pattern."
-msgid "Are signed copies available?"
-msgstr "Est-ce que des versions dédicacées sont disponibles ?"
+msgid "Are signed copies available"
+msgstr "Est-ce que des versions dédicacées sont disponibles "
 
 #: patterns/text-faqs.php:67
 msgctxt "Question in the FAQs pattern."
-msgid "When will The Stories Book be released?"
-msgstr "Quand est-ce que le livre « Histoires » sortira ?"
+msgid "When will The Stories Book be released"
+msgstr "Quand est-ce que le livre « Histoires » sortira "
 
 #: patterns/text-faqs.php:47
 msgctxt "Question in the FAQs pattern."
-msgid "How much does The Stories Book cost?"
-msgstr "Combien le livre « Histoires » coûtera-t-il ?"
+msgid "How much does The Stories Book cost"
+msgstr "Combien le livre « Histoires » coûtera-t-il "
 
 #: patterns/text-faqs.php:31
 msgctxt "Question in the FAQs pattern."
-msgid "What is The Stories Book about?"
-msgstr "De quoi parle le livre « Histoires » ?"
+msgid "What is The Stories Book about"
+msgstr "De quoi parle le livre « Histoires » "
 
 #: patterns/text-faqs.php:21
 msgctxt "Heading of the FAQs pattern."
@@ -1743,8 +1743,8 @@ msgid "Search"
 msgstr "Recherche"
 
 #: patterns/cta-heading-search.php:18
-msgid "What are you looking for?"
-msgstr "Que recherchez-vous ?"
+msgid "What are you looking for"
+msgstr "Que recherchez-vous "
 
 #: patterns/cta-heading-search.php
 msgctxt "Pattern description"
@@ -1947,8 +1947,8 @@ msgstr "Appel à l’action avec localisations"
 #: patterns/cta-book-links.php:57
 #: patterns/hero-overlapped-book-cover-with-links.php:100
 msgctxt "Pattern placeholder text with link."
-msgid "Outside Europe? View <a href=\"#\" rel=\"nofollow\">international editions</a>."
-msgstr "Hors d’Europe ? Voir les <a href=\"#\" rel=\"nofollow\">versions internationales</a>."
+msgid "Outside Europe"#\" rel=\"nofollow\">international editions</a>."
+msgstr "Hors d’Europe "#\" rel=\"nofollow\">versions internationales</a>."
 
 #: patterns/cta-book-links.php:51
 msgctxt "Example brand name."
@@ -2106,8 +2106,8 @@ msgstr "Contact, infos et localisation"
 
 #: patterns/contact-centered-social-link.php:21
 msgctxt "Heading of the Contact social link pattern"
-msgid "Got questions? <br><a href=\"#\" rel=\"nofollow\">Feel free to reach out.</a>"
-msgstr "Vous avez des questions ? <br><a href=\"#\" rel=\"nofollow\">N’hésitez pas à nous contacter.</a>"
+msgid "Got questions"#\" rel=\"nofollow\">Feel free to reach out.</a>"
+msgstr "Vous avez des questions "#\" rel=\"nofollow\">N’hésitez pas à nous contacter.</a>"
 
 #: patterns/contact-centered-social-link.php
 msgctxt "Pattern description"

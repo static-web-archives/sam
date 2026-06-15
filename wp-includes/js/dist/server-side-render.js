@@ -112,7 +112,7 @@ module.exports = function equal(a, b) {
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
 /******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
+/******/ 			var getter = module && module.__esModule 
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
@@ -188,7 +188,7 @@ const EMPTY_OBJECT = {};
 function rendererPath(block, attributes = null, urlQueryArgs = {}) {
   return (0,external_wp_url_namespaceObject.addQueryArgs)(`/wp/v2/block-renderer/${block}`, {
     context: 'edit',
-    ...(null !== attributes ? {
+    ...(null !== attributes 
       attributes
     } : {}),
     ...urlQueryArgs
@@ -212,7 +212,7 @@ function removeBlockSupportAttributes(attributes) {
     spacing,
     typography,
     ...restStyles
-  } = attributes?.style || EMPTY_OBJECT;
+  } = attributes
   return {
     ...restAttributes,
     style: restStyles
@@ -257,7 +257,7 @@ function DefaultLoadingResponsePlaceholder({
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Spinner, {})
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
       style: {
-        opacity: showLoader ? '0.3' : 1
+        opacity: showLoader '0.3' : 1
       },
       children: children
     })]
@@ -300,10 +300,10 @@ function ServerSideRender(props) {
     // If httpMethod is 'POST', send the attributes in the request body instead of the URL.
     // This allows sending a larger attributes object than in a GET request, where the attributes are in the URL.
     const isPostRequest = 'POST' === httpMethod;
-    const urlAttributes = isPostRequest ? null : (_sanitizedAttributes = sanitizedAttributes) !== null && _sanitizedAttributes !== void 0 ? _sanitizedAttributes : null;
+    const urlAttributes = isPostRequest 
     const path = rendererPath(block, urlAttributes, urlQueryArgs);
-    const data = isPostRequest ? {
-      attributes: (_sanitizedAttributes2 = sanitizedAttributes) !== null && _sanitizedAttributes2 !== void 0 ? _sanitizedAttributes2 : null
+    const data = isPostRequest 
+      attributes: (_sanitizedAttributes2 = sanitizedAttributes) !== null && _sanitizedAttributes2 !== void 0 
     } : null;
 
     // Store the latest fetch request so that when we process it, we can
@@ -311,7 +311,7 @@ function ServerSideRender(props) {
     const fetchRequest = fetchRequestRef.current = external_wp_apiFetch_default()({
       path,
       data,
-      method: isPostRequest ? 'POST' : 'GET'
+      method: isPostRequest 'POST' : 'GET'
     }).then(fetchResponse => {
       if (isMountedRef.current && fetchRequest === fetchRequestRef.current && fetchResponse) {
         setResponse(fetchResponse.rendered);
@@ -354,7 +354,7 @@ function ServerSideRender(props) {
   });
   const hasResponse = !!response;
   const hasEmptyResponse = response === '';
-  const hasError = response?.error;
+  const hasError = response
   if (isLoading) {
     return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(LoadingResponsePlaceholder, {
       ...props,

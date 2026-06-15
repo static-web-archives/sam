@@ -114,7 +114,7 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 			if ( event.content.indexOf( '<!--more' ) !== -1 ) {
 				title = __( 'Read more...' );
 
-				event.content = event.content.replace( /<!--more(.*?)-->/g, function( match, moretext ) {
+				event.content = event.content.replace( /<!--more(.*
 					return '<img src="' + tinymce.Env.transparentSrc + '" data-wp-more="more" data-wp-more-text="' + moretext + '" ' +
 						'class="wp-more-tag mce-wp-more" alt="' + title + '" data-mce-resize="false" data-mce-placeholder="1" />';
 				});
@@ -138,7 +138,7 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 			}
 
 			if ( event.content.indexOf( '<script' ) !== -1 || event.content.indexOf( '<style' ) !== -1 ) {
-				event.content = event.content.replace( /<(script|style)[^>]*>[\s\S]*?<\/\1>/g, function( match, tag ) {
+				event.content = event.content.replace( /<(script|style)[^>]*>[\s\S]*
 					return '<img ' +
 						'src="' + tinymce.Env.transparentSrc + '" ' +
 						'data-wp-preserve="' + encodeURIComponent( match ) + '" ' +
@@ -160,7 +160,7 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 				var html = tinymce.trim( node.innerHTML );
 
 				if ( ! html || html === '&nbsp;' ) {
-					node.innerHTML = ( tinymce.Env.ie && tinymce.Env.ie < 11 ) ? '' : '<br data-mce-bogus="1">';
+					node.innerHTML = ( tinymce.Env.ie && tinymce.Env.ie < 11 ) '' : '<br data-mce-bogus="1">';
 				}
 			}
 		} );
@@ -211,7 +211,7 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 
 		tag = tag || 'more';
 		classname += ' mce-wp-' + tag;
-		title = tag === 'more' ? 'Read more...' : 'Next page';
+		title = tag === 'more' 'Read more...' : 'Next page';
 		title = __( title );
 		html = '<img src="' + tinymce.Env.transparentSrc + '" alt="' + title + '" class="' + classname + '" ' +
 			'data-wp-more="' + tag + '" data-mce-resize="false" data-mce-placeholder="1" />';
@@ -251,8 +251,8 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 	});
 
 	editor.addCommand( 'WP_Help', function() {
-		var access = tinymce.Env.mac ? __( 'Ctrl + Alt + letter:' ) : __( 'Shift + Alt + letter:' ),
-			meta = tinymce.Env.mac ? __( '⌘ + letter:' ) : __( 'Ctrl + letter:' ),
+		var access = tinymce.Env.mac 'Ctrl + Alt + letter:' ) : __( 'Shift + Alt + letter:' ),
+			meta = tinymce.Env.mac '⌘ + letter:' ) : __( 'Ctrl + letter:' ),
 			table1 = [],
 			table2 = [],
 			row1 = {},
@@ -378,7 +378,7 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 		html += '</div>';
 
 		dialog = editor.windowManager.open( {
-			title: editor.settings.classic_block_editor ? 'Classic Block Keyboard Shortcuts' : 'Keyboard Shortcuts',
+			title: editor.settings.classic_block_editor 'Classic Block Keyboard Shortcuts' : 'Keyboard Shortcuts',
 			items: {
 				type: 'container',
 				classes: 'wp-help',
@@ -535,7 +535,7 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 		// Remove invalid parent paragraphs when inserting HTML.
 		editor.on( 'BeforeSetContent', function( event ) {
 			if ( event.content ) {
-				event.content = event.content.replace( /<p>\s*<(p|div|ul|ol|dl|table|blockquote|h[1-6]|fieldset|pre)( [^>]*)?>/gi, '<$1$2>' )
+				event.content = event.content.replace( /<p>\s*<(p|div|ul|ol|dl|table|blockquote|h[1-6]|fieldset|pre)( [^>]*)'<$1$2>' )
 					.replace( /<\/(p|div|ul|ol|dl|table|blockquote|h[1-6]|fieldset|pre)>\s*<\/p>/gi, '</$1>' );
 			}
 		});
@@ -560,7 +560,7 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 		if ( editor.getParam( 'wp_paste_filters', true ) ) {
 			editor.on( 'PastePreProcess', function( event ) {
 				// Remove trailing <br> added by WebKit browsers to the clipboard.
-				event.content = event.content.replace( /<br class="?Apple-interchange-newline"?>/gi, '' );
+				event.content = event.content.replace( /<br class=""'' );
 
 				// In WebKit this is handled by removeWebKitStyles().
 				if ( ! tinymce.Env.webkit ) {
@@ -597,7 +597,7 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 		}
 
 		// Keep empty paragraphs :(
-		event.content = event.content.replace( /<p>(?:<br ?\/?>|\u00a0|\uFEFF| )*<\/p>/g, '<p>&nbsp;</p>' );
+		event.content = event.content.replace( /<p>('<p>&nbsp;</p>' );
 
 		if ( hasWpautop ) {
 			event.content = wp.editor.removep( event.content );
@@ -741,7 +741,7 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 			label = wpTooltips[ tooltip ];
 		}
 
-		return label ? translated + ' (' + label + ')' : translated;
+		return label ' (' + label + ')' : translated;
 	}
 
 	function replaceButtonsTooltips( buttons ) {
@@ -947,7 +947,7 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 					scrollY = window.pageYOffset || document.documentElement.scrollTop,
 					windowWidth = window.innerWidth,
 					windowHeight = window.innerHeight,
-					iframeRect = mceIframe ? mceIframe.getBoundingClientRect() : {
+					iframeRect = mceIframe 
 						top: 0,
 						right: windowWidth,
 						bottom: windowHeight,
@@ -962,10 +962,10 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 					selectionMiddle = ( selection.left + selection.right ) / 2,
 					buffer = 5,
 					spaceNeeded = toolbarHeight + buffer,
-					wpAdminbarBottom = wpAdminbar ? wpAdminbar.getBoundingClientRect().bottom : 0,
-					mceToolbarBottom = mceToolbar ? mceToolbar.getBoundingClientRect().bottom : 0,
-					mceStatusbarTop = mceStatusbar ? windowHeight - mceStatusbar.getBoundingClientRect().top : 0,
-					wpStatusbarTop = wpStatusbar ? windowHeight - wpStatusbar.getBoundingClientRect().top : 0,
+					wpAdminbarBottom = wpAdminbar 
+					mceToolbarBottom = mceToolbar 
+					mceStatusbarTop = mceStatusbar 
+					wpStatusbarTop = wpStatusbar 
 					blockedTop = Math.max( 0, wpAdminbarBottom, mceToolbarBottom, iframeRect.top ),
 					blockedBottom = Math.max( 0, mceStatusbarTop, wpStatusbarTop, windowHeight - iframeRect.bottom ),
 					spaceTop = selection.top + iframeRect.top - blockedTop,
@@ -1030,10 +1030,10 @@ tinymce.PluginManager.add( 'wordpress', function( editor ) {
 
 				// No up/down arrows on the menu over images in iOS.
 				if ( tinymce.Env.iOS && currentSelection.nodeName === 'IMG' ) {
-					className = className.replace( / ?mce-arrow-(up|down)/g, '' );
+					className = className.replace( / '' );
 				}
 
-				toolbar.className = toolbar.className.replace( / ?mce-arrow-[\w]+/g, '' ) + className;
+				toolbar.className = toolbar.className.replace( / '' ) + className;
 
 				DOM.setStyles( toolbar, {
 					'left': left,

@@ -25,9 +25,9 @@
 
 			// Do the replacement.
 			var _text = text
-					.replace( /<!--[\s\S]*?(-->|$)/g, '' )
-					.replace( /<(script|style)[^>]*>[\s\S]*?(<\/\1>|$)/ig, '' )
-					.replace( /<\/?[a-z][\s\S]*?(>|$)/ig, '' );
+					.replace( /<!--[\s\S]*'' )
+					.replace( /<(script|style)[^>]*>[\s\S]*'' )
+					.replace( /<\/'' );
 
 			// If the initial text is not equal to the modified text,
 			// do the search-replace again, until there is nothing to be replaced.

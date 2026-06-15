@@ -43,7 +43,7 @@
 
 		var iframes = document.querySelectorAll( 'iframe[data-secret="' + data.secret + '"]' ),
 			blockquotes = document.querySelectorAll( 'blockquote[data-secret="' + data.secret + '"]' ),
-			allowedProtocols = new RegExp( '^https?:$', 'i' ),
+			allowedProtocols = new RegExp( '^https', 'i' ),
 			i, source, height, sourceURL, targetURL;
 
 		for ( i = 0; i < blockquotes.length; i++ ) {
@@ -97,7 +97,7 @@
 			if ( ! secret ) {
 				/* Add secret to iframe */
 				secret = Math.random().toString( 36 ).substring( 2, 12 );
-				source.src += '#?secret=' + secret;
+				source.src += '#' + secret;
 				source.setAttribute( 'data-secret', secret );
 			}
 

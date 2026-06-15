@@ -56,7 +56,7 @@ this.ratioY=0;
 this.attached=false;
 $A(document.getElementsByTagName("script")).each(function(s){
 if(s.src.match(/cropper\.js/)){
-var _a=s.src.replace(/cropper\.js(.*)?/,"");
+var _a=s.src.replace(/cropper\.js(.*)"");
 var _b=document.createElement("link");
 _b.rel="stylesheet";
 _b.type="text/css";
@@ -213,8 +213,8 @@ this.drawArea();
 },cloneCoords:function(_1c){
 return {x1:_1c.x1,y1:_1c.y1,x2:_1c.x2,y2:_1c.y2};
 },setAreaCoords:function(_1d,_1e,_1f,_20,_21){
-var _22=typeof _1e!="undefined"?_1e:false;
-var _23=typeof _1f!="undefined"?_1f:false;
+var _22=typeof _1e!="undefined"
+var _23=typeof _1f!="undefined"
 if(_1e){
 var _24=_1d.x2-_1d.x1;
 var _25=_1d.y2-_1d.y1;

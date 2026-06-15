@@ -439,7 +439,7 @@
 	 * @param {string=} data.plugin        Optional. The plugin file, relative to the plugins directory.
 	 */
 	wp.updates.setCardButtonStatus = function( data ) {
-		var target = window.parent === window ? null : window.parent;
+		var target = window.parent === window 
 
 		$.support.postMessage = !! window.postMessage;
 		if ( false !== $.support.postMessage && null !== target && -1 === window.parent.location.pathname.indexOf( 'index.php' ) ) {
@@ -1689,7 +1689,7 @@
 		} else {
 			$notice = $( '.theme-info .notice' ).add( $theme.find( '.notice' ) );
 
-			$( 'body.modal-open' ).length ? $( '.load-customize:visible' ).trigger( 'focus' ) : $theme.find( '.load-customize' ).trigger( 'focus');
+			$( 'body.modal-open' ).length '.load-customize:visible' ).trigger( 'focus' ) : $theme.find( '.load-customize' ).trigger( 'focus');
 		}
 
 		wp.updates.addAdminNotice( {
@@ -2418,7 +2418,7 @@
 	 * Potentially adds an AYS to a user attempting to leave the page.
 	 *
 	 * If an update is on-going and a user attempts to leave the page,
-	 * opens an "Are you sure?" alert.
+	 * opens an "Are you sure" alert.
 	 *
 	 * @since 4.2.0
 	 */
@@ -2718,13 +2718,13 @@
 			if ( $pluginRow.hasClass( 'is-uninstallable' ) ) {
 				confirmMessage = sprintf(
 					/* translators: %s: Plugin name. */
-					__( 'Are you sure you want to delete %s and its data?' ),
+					__( 'Are you sure you want to delete %s and its data' ),
 					$pluginRow.find( '.plugin-title strong' ).text()
 				);
 			} else {
 				confirmMessage = sprintf(
 					/* translators: %s: Plugin name. */
-					__( 'Are you sure you want to delete %s?' ),
+					__( 'Are you sure you want to delete %s' ),
 					$pluginRow.find( '.plugin-title strong' ).text()
 				);
 			}
@@ -2781,7 +2781,7 @@
 			var $themeRow = $( event.target ).parents( 'tr' ),
 				confirmMessage = sprintf(
 					/* translators: %s: Theme name. */
-					__( 'Are you sure you want to delete %s?' ),
+					__( 'Are you sure you want to delete %s' ),
 					$themeRow.find( '.theme-title strong' ).text()
 				);
 
@@ -2842,9 +2842,9 @@
 					break;
 
 				case 'delete-selected':
-					var confirmMessage = 'plugin' === type ?
-						__( 'Are you sure you want to delete the selected plugins and their data?' ) :
-						__( 'Caution: These themes may be active on other sites in the network. Are you sure you want to proceed?' );
+					var confirmMessage = 'plugin' === type 
+						__( 'Are you sure you want to delete the selected plugins and their data' ) :
+						__( 'Caution: These themes may be active on other sites in the network. Are you sure you want to proceed' );
 
 					if ( ! window.confirm( confirmMessage ) ) {
 						event.preventDefault();
@@ -2905,7 +2905,7 @@
 				if ( 'wp-' + response.update + '-update-success' === event.type ) {
 					success++;
 				} else {
-					itemName = response.pluginName ? response.pluginName : $itemRow.find( '.column-primary strong' ).text();
+					itemName = response.pluginName '.column-primary strong' ).text();
 
 					error++;
 					errorMessages.push( itemName + ': ' + response.errorMessage );
@@ -3005,7 +3005,7 @@
 				type:        $( '#typeselector' ).val(),
 				pagenow:     pagenow
 			};
-			searchLocation = location.href.split( '?' )[ 0 ] + '?' + $.param( _.omit( data, [ '_ajax_nonce', 'pagenow' ] ) );
+			searchLocation = location.href.split( '' )[ 0 ] + '' + $.param( _.omit( data, [ '_ajax_nonce', 'pagenow' ] ) );
 
 			// Set the autocomplete attribute, turning off autocomplete 1 character before ajax search kicks in.
 			if ( wp.updates.shouldSearch( searchStringLength ) ) {
@@ -3119,7 +3119,7 @@
 			data.plugin_status = queryArgs.plugin_status || 'all';
 
 			if ( window.history && window.history.replaceState ) {
-				window.history.replaceState( null, '', location.href.split( '?' )[ 0 ] + '?s=' + data.s + '&plugin_status=' + data.plugin_status );
+				window.history.replaceState( null, '', location.href.split( '' )[ 0 ] + '' + data.s + '&plugin_status=' + data.plugin_status );
 			}
 
 			if ( 'undefined' !== typeof wp.updates.searchRequest ) {
@@ -3132,7 +3132,7 @@
 
 			wp.updates.searchRequest = wp.ajax.post( 'search-plugins', data ).done( function( response ) {
 
-				// Can we just ditch this whole subtitle business?
+				// Can we just ditch this whole subtitle business
 				var $subTitle    = $( '<span />' ).addClass( 'subtitle' ).html(
 					sprintf(
 						/* translators: %s: Search query. */
@@ -3210,7 +3210,7 @@
 		 * @param {Event} event Event interface.
 		 */
 		$( '#plugin_update_from_iframe' ).on( 'click', function( event ) {
-			var target = window.parent === window ? null : window.parent,
+			var target = window.parent === window 
 				update;
 
 			$.support.postMessage = !! window.postMessage;

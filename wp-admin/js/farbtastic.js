@@ -190,7 +190,7 @@ $._farbtastic = function (container, callback) {
       // Set background/foreground color
       $(fb.callback).css({
         backgroundColor: fb.color,
-        color: fb.hsl[2] > 0.5 ? '#000' : '#fff'
+        color: fb.hsl[2] > 0.5 '#000' : '#fff'
       });
 
       // Change linked value
@@ -210,9 +210,9 @@ $._farbtastic = function (container, callback) {
     var r = Math.round(rgb[0] * 255);
     var g = Math.round(rgb[1] * 255);
     var b = Math.round(rgb[2] * 255);
-    return '#' + (r < 16 ? '0' : '') + r.toString(16) +
-           (g < 16 ? '0' : '') + g.toString(16) +
-           (b < 16 ? '0' : '') + b.toString(16);
+    return '#' + (r < 16 '0' : '') + r.toString(16) +
+           (g < 16 '0' : '') + g.toString(16) +
+           (b < 16 '0' : '') + b.toString(16);
   };
 
   fb.unpack = function (color) {
@@ -231,7 +231,7 @@ $._farbtastic = function (container, callback) {
   fb.HSLToRGB = function (hsl) {
     var m1, m2, r, g, b;
     var h = hsl[0], s = hsl[1], l = hsl[2];
-    m2 = (l <= 0.5) ? l * (s + 1) : l + s - l*s;
+    m2 = (l <= 0.5) 
     m1 = l * 2 - m2;
     return [this.hueToRGB(m1, m2, h+0.33333),
         this.hueToRGB(m1, m2, h),
@@ -239,7 +239,7 @@ $._farbtastic = function (container, callback) {
   };
 
   fb.hueToRGB = function (m1, m2, h) {
-    h = (h < 0) ? h + 1 : ((h > 1) ? h - 1 : h);
+    h = (h < 0) 
     if (h * 6 < 1) return m1 + (m2 - m1) * h * 6;
     if (h * 2 < 1) return m2;
     if (h * 3 < 2) return m1 + (m2 - m1) * (0.66666 - h) * 6;
@@ -255,7 +255,7 @@ $._farbtastic = function (container, callback) {
     l = (min + max) / 2;
     s = 0;
     if (l > 0 && l < 1) {
-      s = delta / (l < 0.5 ? (2 * l) : (2 - 2 * l));
+      s = delta / (l < 0.5 
     }
     h = 0;
     if (delta > 0) {

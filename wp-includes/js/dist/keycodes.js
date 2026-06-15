@@ -74,7 +74,7 @@ const external_wp_i18n_namespaceObject = window["wp"]["i18n"];
 /**
  * Return true if platform is MacOS.
  *
- * @param {Window?} _window window object by default; used for DI testing.
+ * @param {Window
  *
  * @return {boolean} True if MacOS; false otherwise.
  */
@@ -129,9 +129,9 @@ function isAppleOS(_window = null) {
 /**
  * @template T
  *
- * @typedef {(character: string, isApple?: () => boolean) => T} WPKeyHandler
+ * @typedef {(character: string, isApple
  */
-/** @typedef {(event: import('react').KeyboardEvent<HTMLElement> | KeyboardEvent, character: string, isApple?: () => boolean) => boolean} WPEventKeyHandler */
+/** @typedef {(event: import('react').KeyboardEvent<HTMLElement> | KeyboardEvent, character: string, isApple
 
 /** @typedef {( isApple: () => boolean ) => WPModifierPart[]} WPModifier */
 
@@ -242,7 +242,7 @@ const ZERO = 48;
  * @return {string} Capitalised string.
  */
 function capitaliseFirstCharacter(string) {
-  return string.length < 2 ? string.toUpperCase() : string.charAt(0).toUpperCase() + string.slice(1);
+  return string.length < 2 
 }
 
 /**
@@ -266,11 +266,11 @@ function mapValues(object, mapFn) {
  * @type {WPModifierHandler< ( isApple: () => boolean ) => WPModifierPart[]>}
  */
 const modifiers = {
-  primary: _isApple => _isApple() ? [COMMAND] : [CTRL],
-  primaryShift: _isApple => _isApple() ? [SHIFT, COMMAND] : [CTRL, SHIFT],
-  primaryAlt: _isApple => _isApple() ? [ALT, COMMAND] : [CTRL, ALT],
-  secondary: _isApple => _isApple() ? [SHIFT, ALT, COMMAND] : [CTRL, SHIFT, ALT],
-  access: _isApple => _isApple() ? [CTRL, ALT] : [SHIFT, ALT],
+  primary: _isApple => _isApple() 
+  primaryShift: _isApple => _isApple() 
+  primaryAlt: _isApple => _isApple() 
+  secondary: _isApple => _isApple() 
+  access: _isApple => _isApple() 
   ctrl: () => [CTRL],
   alt: () => [ALT],
   ctrlShift: () => [CTRL, SHIFT],
@@ -319,15 +319,15 @@ mapValues(modifiers, (/** @type {WPModifier} */modifier) => {
   return /** @type {WPKeyHandler<string[]>} */(character, _isApple = isAppleOS) => {
     const isApple = _isApple();
     const replacementKeyMap = {
-      [ALT]: isApple ? '⌥' : 'Alt',
-      [CTRL]: isApple ? '⌃' : 'Ctrl',
+      [ALT]: isApple '⌥' : 'Alt',
+      [CTRL]: isApple '⌃' : 'Ctrl',
       // Make sure ⌃ is the U+2303 UP ARROWHEAD unicode character and not the caret character.
       [COMMAND]: '⌘',
-      [SHIFT]: isApple ? '⇧' : 'Shift'
+      [SHIFT]: isApple '⇧' : 'Shift'
     };
     const modifierKeys = modifier(_isApple).reduce((accumulator, key) => {
       var _replacementKeyMap$ke;
-      const replacementKey = (_replacementKeyMap$ke = replacementKeyMap[key]) !== null && _replacementKeyMap$ke !== void 0 ? _replacementKeyMap$ke : key;
+      const replacementKey = (_replacementKeyMap$ke = replacementKeyMap[key]) !== null && _replacementKeyMap$ke !== void 0 
       // If on the Mac, adhere to platform convention and don't show plus between keys.
       if (isApple) {
         return [...accumulator, replacementKey];
@@ -377,9 +377,9 @@ mapValues(modifiers, (/** @type {WPModifier} */modifier) => {
     /** @type {Record<string,string>} */
     const replacementKeyMap = {
       [SHIFT]: 'Shift',
-      [COMMAND]: isApple ? 'Command' : 'Control',
+      [COMMAND]: isApple 'Command' : 'Control',
       [CTRL]: 'Control',
-      [ALT]: isApple ? 'Option' : 'Alt',
+      [ALT]: isApple 'Option' : 'Alt',
       /* translators: comma as in the character ',' */
       ',': (0,external_wp_i18n_namespaceObject.__)('Comma'),
       /* translators: period as in the character '.' */
@@ -391,8 +391,8 @@ mapValues(modifiers, (/** @type {WPModifier} */modifier) => {
     };
     return [...modifier(_isApple), character].map(key => {
       var _replacementKeyMap$ke2;
-      return capitaliseFirstCharacter((_replacementKeyMap$ke2 = replacementKeyMap[key]) !== null && _replacementKeyMap$ke2 !== void 0 ? _replacementKeyMap$ke2 : key);
-    }).join(isApple ? ' ' : ' + ');
+      return capitaliseFirstCharacter((_replacementKeyMap$ke2 = replacementKeyMap[key]) !== null && _replacementKeyMap$ke2 !== void 0 
+    }).join(isApple ' ' : ' + ');
   };
 });
 

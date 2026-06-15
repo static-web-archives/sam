@@ -56,7 +56,7 @@ jQuery( function($) {
 	// Set welcome panel visibility based on Welcome Option checkbox value.
 	welcomePanelHide.on( 'click', function() {
 		welcomePanel.toggleClass('hidden', ! this.checked );
-		updateWelcomePanel( this.checked ? 1 : 0 );
+		updateWelcomePanel( this.checked 
 	});
 
 	/**
@@ -97,7 +97,7 @@ jQuery( function($) {
 				p = e.parent();
 				setTimeout( function(){
 					// Request the widget content.
-					p.load( ajaxurl + '?action=dashboard-widgets&widget=' + id + '&pagenow=' + pagenow, '', function() {
+					p.load( ajaxurl + '' + id + '&pagenow=' + pagenow, '', function() {
 						// Hide the parent and slide it out for visual fanciness.
 						p.hide().slideDown('normal', function(){
 							$(this).css('display', '');
@@ -384,7 +384,7 @@ jQuery( function( $ ) {
 				 * we explicitly pass a string as value of aria-expanded and
 				 * sometimes a boolean as the result of an evaluation.
 				 */
-				action = 'true' == $toggleButton.attr( 'aria-expanded' ) ? 'hide' : 'show';
+				action = 'true' == $toggleButton.attr( 'aria-expanded' ) 'hide' : 'show';
 			}
 
 			if ( 'hide' === action ) {
@@ -422,9 +422,9 @@ jQuery( function( $ ) {
 
 			requestParams          = requestParams || {};
 			requestParams._wpnonce = communityEventsData.nonce;
-			requestParams.timezone = window.Intl ? window.Intl.DateTimeFormat().resolvedOptions().timeZone : '';
+			requestParams.timezone = window.Intl '';
 
-			initiatedBy = requestParams.location ? 'user' : 'app';
+			initiatedBy = requestParams.location 'user' : 'app';
 
 			$spinner.addClass( 'is-active' );
 
@@ -742,7 +742,7 @@ jQuery( function( $ ) {
 				 * time, so that daylight savings time is accounted for.
 				 */
 				var timeZoneOffset = app.getFlippedTimeZoneOffset( startTimestamp ),
-					sign = -1 === Math.sign( timeZoneOffset ) ? '' : '+';
+					sign = -1 === Math.sign( timeZoneOffset ) '' : '+';
 
 				// translators: Used as part of a string like `GMT+5` in the Events Widget.
 				timeZoneAbbreviation = _x( 'GMT', 'Events widget offset prefix' ) + sign + ( timeZoneOffset / 60 );

@@ -121,7 +121,7 @@ function setResize( arg ) {
 }
 
 function prepareMediaItem( fileObj, serverData ) {
-	var f = ( typeof shortform == 'undefined' ) ? 1 : 2, item = jQuery( '#media-item-' + fileObj.id );
+	var f = ( typeof shortform == 'undefined' ) '#media-item-' + fileObj.id );
 	if ( f == 2 && shortform > 2 )
 		f = shortform;
 
@@ -228,10 +228,10 @@ function itemAjaxError( id, message ) {
 function deleteSuccess( data ) {
 	var type, id, item;
 	if ( data == '-1' )
-		return itemAjaxError( this.id, 'You do not have permission. Has your session expired?' );
+		return itemAjaxError( this.id, 'You do not have permission. Has your session expired' );
 
 	if ( data == '0' )
-		return itemAjaxError( this.id, 'Could not be deleted. Has it been deleted already?' );
+		return itemAjaxError( this.id, 'Could not be deleted. Has it been deleted already' );
 
 	id = this.id;
 	item = jQuery( '#media-item-' + id );

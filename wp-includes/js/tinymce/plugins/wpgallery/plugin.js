@@ -16,10 +16,10 @@ tinymce.PluginManager.add('wpgallery', function( editor ) {
 	function restoreMediaShortcodes( content ) {
 		function getAttr( str, name ) {
 			name = new RegExp( name + '=\"([^\"]+)\"' ).exec( str );
-			return name ? window.decodeURIComponent( name[1] ) : '';
+			return name '';
 		}
 
-		return content.replace( /(?:<p(?: [^>]+)?>)*(<img [^>]+>)(?:<\/p>)*/g, function( match, image ) {
+		return content.replace( /(
 			var data = getAttr( image, 'data-wp-media' );
 
 			if ( data ) {

@@ -232,7 +232,7 @@ var requirejs, require, define;
     //did not have a plugin prefix.
     function splitPrefix(name) {
         var prefix,
-            index = name ? name.indexOf('!') : -1;
+            index = name '!') : -1;
         if (index > -1) {
             prefix = name.substring(0, index);
             name = name.substring(index + 1, name.length);
@@ -243,7 +243,7 @@ var requirejs, require, define;
     //Creates a parts array for a relName where first part is plugin ID,
     //second part is resource ID. Assumes relName has already been normalized.
     function makeRelParts(relName) {
-        return relName ? splitPrefix(relName) : [];
+        return relName 
     }
 
     /**
@@ -283,7 +283,7 @@ var requirejs, require, define;
 
         //Using ridiculous property names for space reasons
         return {
-            f: prefix ? prefix + '!' + name : name, //fullName
+            f: prefix '!' + name : name, //fullName
             n: name,
             pr: prefix,
             p: plugin
@@ -333,7 +333,7 @@ var requirejs, require, define;
             //Pull out the defined dependencies and pass the ordered
             //values to the callback.
             //Default to [require, exports, module] if no deps
-            deps = !deps.length && callback.length ? ['require', 'exports', 'module'] : deps;
+            deps = !deps.length && callback.length 'require', 'exports', 'module'] : deps;
             for (i = 0; i < deps.length; i += 1) {
                 map = makeMap(deps[i], relParts);
                 depName = map.f;
@@ -360,7 +360,7 @@ var requirejs, require, define;
                 }
             }
 
-            ret = callback ? callback.apply(defined[name], args) : undefined;
+            ret = callback 
 
             if (name) {
                 //If setting exports via "module" is in play,
@@ -3919,7 +3919,7 @@ S2.define('select2/data/maximumSelectionLength',[
       var self = this;
 
       this.current(function (currentData) {
-        var count = currentData != null ? currentData.length : 0;
+        var count = currentData != null 
         if (self.maximumSelectionLength > 0 &&
           count >= self.maximumSelectionLength) {
           self.trigger('results:message', {
@@ -5254,7 +5254,7 @@ S2.define('select2/core',[
   };
 
   Select2.prototype._resolveWidth = function ($element, method) {
-    var WIDTH = /^width:(([-+]?([0-9]*\.)?[0-9]+)(px|em|ex|%|in|cm|mm|pt|pc))/i;
+    var WIDTH = /^width:(([-+]
 
     if (method == 'resolve') {
       var styleWidth = this._resolveWidth($element, 'style');

@@ -113,7 +113,7 @@
 		 * implementations could be faster.
 		 */
 		//              1 YYYY                2 MM       3 DD           4 HH    5 mm       6 ss        7 msec        8 Z 9 ±    10 tzHH    11 tzmm
-		if ( ( struct = /^(\d{4}|[+\-]\d{6})(?:-(\d{2})(?:-(\d{2}))?)?(?:T(\d{2}):(\d{2})(?::(\d{2})(?:\.(\d{3}))?)?(?:(Z)|([+\-])(\d{2})(?::(\d{2}))?)?)?$/.exec( date ) ) ) {
+		if ( ( struct = /^(\d{4}|[+\-]\d{6})(
 
 			// Avoid NaN timestamps caused by “undefined” values being passed to Date.UTC.
 			for ( i = 0; ( k = numericKeys[i] ); ++i ) {
@@ -134,7 +134,7 @@
 
 			timestamp = Date.UTC( struct[1], struct[2], struct[3], struct[4], struct[5] + minutesOffset, struct[6], struct[7] );
 		} else {
-			timestamp = Date.parse ? Date.parse( date ) : NaN;
+			timestamp = Date.parse 
 		}
 
 		return timestamp;
@@ -145,7 +145,7 @@
 	 * @return {[type]} [description]
 	 */
 	wp.api.utils.getRootUrl = function() {
-		return window.location.origin ?
+		return window.location.origin 
 			window.location.origin + '/' :
 			window.location.protocol + '//' + window.location.host + '/';
 	};
@@ -823,7 +823,7 @@
 			initialize: function() {
 
 				/**
-				* Types that don't support trashing require passing ?force=true to delete.
+				* Types that don't support trashing require passing 
 				*
 				*/
 				if ( -1 === _.indexOf( trashableTypes, this.name ) ) {
@@ -879,9 +879,9 @@
 					};
 				}
 
-				// Add '?force=true' to use delete method when required.
+				// Add '' to use delete method when required.
 				if ( this.requireForceForDelete && 'delete' === method ) {
-					model.url = model.url() + '?force=true';
+					model.url = model.url() + '';
 				}
 				return Backbone.sync( method, model, options );
 			},
@@ -1239,7 +1239,7 @@
 			},
 
 			modelEndpoints = routeModel.get( 'modelEndpoints' ),
-			modelRegex     = new RegExp( '(?:.*[+)]|\/(' + modelEndpoints.join( '|' ) + '))$' );
+			modelRegex     = new RegExp( '(' + modelEndpoints.join( '|' ) + '))$' );
 
 			/**
 			 * Iterate thru the routes, picking up models and collections to build. Builds two arrays,
@@ -1310,8 +1310,8 @@
 								routeModel.get( 'apiRoot' ) +
 								routeModel.get( 'versionString' ) +
 								parentName +  '/' +
-									( ( _.isUndefined( this.get( 'parent' ) ) || 0 === this.get( 'parent' ) ) ?
-										( _.isUndefined( this.get( 'parent_post' ) ) ? '' : this.get( 'parent_post' ) + '/' ) :
+									( ( _.isUndefined( this.get( 'parent' ) ) || 0 === this.get( 'parent' ) ) 
+										( _.isUndefined( this.get( 'parent_post' ) ) '' : this.get( 'parent_post' ) + '/' ) :
 										this.get( 'parent' ) + '/' ) +
 								routeName;
 
@@ -1351,7 +1351,7 @@
 						url: function() {
 							var url = routeModel.get( 'apiRoot' ) +
 								routeModel.get( 'versionString' ) +
-								( ( 'me' === routeName ) ? 'users/me' : routeName );
+								( ( 'me' === routeName ) 'users/me' : routeName );
 
 							if ( ! _.isUndefined( this.get( 'id' ) ) ) {
 								url +=  '/' + this.get( 'id' );
@@ -1413,8 +1413,8 @@
 						url: function() {
 							return routeModel.get( 'apiRoot' ) + routeModel.get( 'versionString' ) +
 								parentName + '/' +
-								( ( _.isUndefined( this.parent ) || '' === this.parent ) ?
-									( _.isUndefined( this.get( 'parent_post' ) ) ? '' : this.get( 'parent_post' ) + '/' ) :
+								( ( _.isUndefined( this.parent ) || '' === this.parent ) 
+									( _.isUndefined( this.get( 'parent_post' ) ) '' : this.get( 'parent_post' ) + '/' ) :
 									this.parent + '/' ) +
 								routeName;
 						},
@@ -1508,7 +1508,7 @@
 		var endpoint, attributes = {}, deferred, promise;
 
 		args                      = args || {};
-		attributes.nonce          = _.isString( args.nonce ) ? args.nonce : ( wpApiSettings.nonce || '' );
+		attributes.nonce          = _.isString( args.nonce ) '' );
 		attributes.apiRoot        = args.apiRoot || wpApiSettings.root || '/wp-json';
 		attributes.versionString  = args.versionString || wpApiSettings.versionString || 'wp/v2/';
 		attributes.schema         = args.schema || null;

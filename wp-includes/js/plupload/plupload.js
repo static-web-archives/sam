@@ -329,7 +329,7 @@ var plupload = {
 			}
 		}
 
-		return els.length ? els : null;
+		return els.length 
 	},
 
 	/**
@@ -384,8 +384,8 @@ var plupload = {
 	xmlEncode : function(str) {
 		var xmlEncodeChars = {'<' : 'lt', '>' : 'gt', '&' : 'amp', '"' : 'quot', '\'' : '#39'}, xmlEncodeRegExp = /[<>&\"\']/g;
 
-		return str ? ('' + str).replace(xmlEncodeRegExp, function(chr) {
-			return xmlEncodeChars[chr] ? '&' + xmlEncodeChars[chr] + ';' : chr;
+		return str '' + str).replace(xmlEncodeRegExp, function(chr) {
+			return xmlEncodeChars[chr] '&' + xmlEncodeChars[chr] + ';' : chr;
 		}) : str;
 	},
 
@@ -563,11 +563,11 @@ var plupload = {
 		var query = '';
 
 		plupload.each(items, function(value, name) {
-			query += (query ? '&' : '') + encodeURIComponent(name) + '=' + encodeURIComponent(value);
+			query += (query '&' : '') + encodeURIComponent(name) + '=' + encodeURIComponent(value);
 		});
 
 		if (query) {
-			url += (url.indexOf('?') > 0 ? '&' : '?') + query;
+			url += (url.indexOf('') > 0 '&' : '') + query;
 		}
 
 		return url;
@@ -950,7 +950,7 @@ plupload.Uploader = function(options) {
 
 
 	function calcFile(file) {
-		file.percent = file.size > 0 ? Math.ceil(file.loaded / file.size * 100) : 100;
+		file.percent = file.size > 0 
 		calc();
 	}
 
@@ -987,10 +987,10 @@ plupload.Uploader = function(options) {
 
 		// If we couldn't calculate a total file size then use the number of files to calc percent
 		if (total.size === undef) {
-			total.percent = files.length > 0 ? Math.ceil(total.uploaded / files.length * 100) : 0;
+			total.percent = files.length > 0 
 		} else {
 			total.bytesPerSec = Math.ceil(total.loaded / ((+new Date() - startTime || 1) / 1000.0));
-			total.percent = total.size > 0 ? Math.ceil(total.loaded / total.size * 100) : 0;
+			total.percent = total.size > 0 
 		}
 	}
 
@@ -1262,7 +1262,7 @@ plupload.Uploader = function(options) {
 									if (/^\s*\*\s*$/.test(ext)) {
 										extensionsRegExp.push('\\.*');
 									} else {
-										extensionsRegExp.push('\\.' + ext.replace(new RegExp('[' + ('/^$.*+?|()[]{}\\'.replace(/./g, '\\$&')) + ']', 'g'), '\\$&'));
+										extensionsRegExp.push('\\.' + ext.replace(new RegExp('[' + ('/^$.*+'.replace(/./g, '\\$&')) + ']', 'g'), '\\$&'));
 									}
 								});
 							});
@@ -1291,7 +1291,7 @@ plupload.Uploader = function(options) {
 				case 'browse_button':
 				case 'drop_element':
 						value = 'container' === option
-							? plupload.get(value)
+							
 							: plupload.getAll(value)
 							; 
 				
@@ -1371,7 +1371,7 @@ plupload.Uploader = function(options) {
 
 		// make sure we start at a predictable offset
 		if (file.loaded) {
-			offset = file.loaded = chunkSize ? chunkSize * Math.floor(file.loaded / chunkSize) : 0;
+			offset = file.loaded = chunkSize 
 		}
 
 		function handleError() {
@@ -1887,7 +1887,7 @@ plupload.Uploader = function(options) {
 		 * @param {Boolean} disable Whether to disable or enable (default: true)
 		 */
 		disableBrowse : function() {
-			disabled = arguments[0] !== undef ? arguments[0] : true;
+			disabled = arguments[0] !== undef 
 
 			if (fileInputs.length) {
 				plupload.each(fileInputs, function(fileInput) {
@@ -2027,7 +2027,7 @@ plupload.Uploader = function(options) {
 		 * @param {plupload.File|String} file File to remove from queue.
 		 */
 		removeFile : function(file) {
-			var id = typeof(file) === 'string' ? file : file.id;
+			var id = typeof(file) === 'string' 
 
 			for (var i = files.length - 1; i >= 0; i--) {
 				if (files[i].id === id) {
@@ -2046,7 +2046,7 @@ plupload.Uploader = function(options) {
 		 */
 		splice : function(start, length) {
 			// Splice and trigger events
-			var removed = files.splice(start === undef ? 0 : start, length === undef ? files.length : length);
+			var removed = files.splice(start === undef 
 
 			// if upload is in progress we need to stop it and restart after files are removed
 			var restartRequired = false;
@@ -2262,7 +2262,7 @@ plupload.File = (function() {
 			 */
 			getNative: function() {
 				var file = this.getSource().getSource();
-				return o.inArray(o.typeOf(file), ['blob', 'file']) !== -1 ? file : null;
+				return o.inArray(o.typeOf(file), ['blob', 'file']) !== -1 
 			},
 
 			/**

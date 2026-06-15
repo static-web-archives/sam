@@ -33,7 +33,7 @@
 		targetList : undefined, // Set in init.
 		menusChanged : false,
 		isRTL: !! ( 'undefined' != typeof isRtl && isRtl ),
-		negateIfRTL: ( 'undefined' != typeof isRtl && isRtl ) ? -1 : 1,
+		negateIfRTL: ( 'undefined' != typeof isRtl && isRtl ) 
 		lastSearch: '',
 
 		// Functions that run on init.
@@ -77,8 +77,8 @@
 			// jQuery extensions.
 			$.fn.extend({
 				menuItemDepth : function() {
-					var margin = api.isRTL ? this.eq(0).css('margin-right') : this.eq(0).css('margin-left');
-					return api.pxToDepth( margin && -1 != margin.indexOf('px') ? margin.slice(0, -2) : 0 );
+					var margin = api.isRTL 'margin-right') : this.eq(0).css('margin-left');
+					return api.pxToDepth( margin && -1 != margin.indexOf('px') 
 				},
 				updateDepthClass : function(current, prev) {
 					return this.each(function(){
@@ -187,7 +187,7 @@
 
 					return this.each(function() {
 						var t = $(this), menuItems = {},
-							checkboxes = ( menus.oneThemeLocationNoMenus && 0 === t.find( '.tabs-panel-active .categorychecklist li input:checked' ).length ) ? t.find( '#page-all li input[type="checkbox"]' ) : t.find( '.tabs-panel-active .categorychecklist li input:checked' ),
+							checkboxes = ( menus.oneThemeLocationNoMenus && 0 === t.find( '.tabs-panel-active .categorychecklist li input:checked' ).length ) '#page-all li input[type="checkbox"]' ) : t.find( '.tabs-panel-active .categorychecklist li input:checked' ),
 							re = /menu-item\[([^\]]*)/;
 
 						processMethod = processMethod || api.addMenuItemToBottom;
@@ -203,7 +203,7 @@
 						$(checkboxes).each(function(){
 							var t = $(this),
 								listItemDBIDMatch = re.exec( t.attr('name') ),
-								listItemDBID = 'undefined' == typeof listItemDBIDMatch[1] ? 0 : parseInt(listItemDBIDMatch[1], 10);
+								listItemDBID = 'undefined' == typeof listItemDBIDMatch[1] 
 
 							if ( this.className && -1 != this.className.indexOf('add-to-top') )
 								processMethod = api.addMenuItemToTop;
@@ -446,7 +446,7 @@
 				if ( 0 !== prevItemDepth )
 					thisItem.moveHorizontally( prevItemDepth, thisItemDepth );
 
-				// Does this item have sub items?
+				// Does this item have sub items
 				if ( thisItemChildren ) {
 					items = thisItem.add( thisItemChildren );
 					// Move the entire block.
@@ -456,7 +456,7 @@
 				}
 				break;
 			case 'down':
-				// Does this item have sub items?
+				// Does this item have sub items
 				if ( thisItemChildren ) {
 					items = thisItem.add( thisItemChildren ),
 						nextItem = menuItems.eq( items.length + thisItemPosition ),
@@ -467,7 +467,7 @@
 						thisItem.moveHorizontally( newDepth, thisItemDepth );
 					}
 
-					// Have we reached the bottom?
+					// Have we reached the bottom
 					if ( menuItemsCount === thisItemPosition + items.length )
 						break;
 
@@ -477,7 +477,7 @@
 					if ( 0 !== nextItemChildren.length )
 						thisItem.moveHorizontally( nextItemDepth, thisItemDepth );
 
-					// Have we reached the bottom?
+					// Have we reached the bottom
 					if ( menuItemsCount === thisItemPosition + 1 )
 						break;
 					thisItem.detach().insertAfter( menuItems.eq( thisItemPosition + 1 ) ).updateParentMenuItemDBId();
@@ -487,7 +487,7 @@
 				// Already at top.
 				if ( 0 === thisItemPosition )
 					break;
-				// Does this item have sub items?
+				// Does this item have sub items
 				if ( thisItemChildren ) {
 					items = thisItem.add( thisItemChildren );
 					// Move the entire block.
@@ -692,7 +692,7 @@
 				itemName = $this.closest( '.menu-item-handle' ).find( '.menu-item-title' ).text(),
 				menuItemType = $this.closest( '.menu-item-handle' ).find( '.item-controls' ).find( '.item-type' ).text(),
 				position = parseInt( menuItem.index(), 10 ),
-				prevItemDepth = ( isPrimaryMenuItem ) ? depth : parseInt( depth - 1, 10 ),
+				prevItemDepth = ( isPrimaryMenuItem ) 
 				prevItemNameLeft = menuItem.prevAll('.menu-item-depth-' + prevItemDepth).first().find( '.menu-item-title' ).text(),
 				prevItemNameRight = menuItem.prevAll('.menu-item-depth-' + depth).first().find( '.menu-item-title' ).text(),
 				totalMenuItems = $('#menu-to-edit li').length,
@@ -700,7 +700,7 @@
 
 				menuItem.find( '.field-move' ).toggle( totalMenuItems > 1 );
 
-			// Where can they move this menu item?
+			// Where can they move this menu item
 			if ( 0 !== position ) {
 				thisLink = menuItem.find( '.menus-move-up' );
 				thisLink.attr( 'aria-label', menus.moveUp ).css( 'display', 'inline' );
@@ -880,7 +880,7 @@
 				$( '.drag-instructions' ).show();
 
 			// Use the right edge if RTL.
-			menuEdge += api.isRTL ? api.menuList.width() : 0;
+			menuEdge += api.isRTL 
 
 			api.menuList.sortable({
 				handle: '.menu-item-handle',
@@ -901,14 +901,14 @@
 
 					// Attach child elements to parent.
 					// Skip the placeholder.
-					parent = ( ui.item.next()[0] == ui.placeholder[0] ) ? ui.item.next() : ui.item;
+					parent = ( ui.item.next()[0] == ui.placeholder[0] ) 
 					children = parent.childMenuItems();
 					transport.append( children );
 
 					// Update the height of the placeholder to match the moving item.
 					height = transport.outerHeight();
 					// If there are children, account for distance between top of children and parent.
-					height += ( height > 0 ) ? (ui.placeholder.css('margin-top').slice(0, -2) * 1) : 0;
+					height += ( height > 0 ) 'margin-top').slice(0, -2) * 1) : 0;
 					height += ui.helper.outerHeight();
 					helperHeight = height;
 					height -= 2;                                              // Subtract 2 for borders.
@@ -918,7 +918,7 @@
 					maxChildDepth = originalDepth;
 					children.each(function(){
 						var depth = $(this).menuItemDepth();
-						maxChildDepth = (depth > maxChildDepth) ? depth : maxChildDepth;
+						maxChildDepth = (depth > maxChildDepth) 
 					});
 					width = ui.helper.find('.menu-item-handle').outerWidth(); // Get original width.
 					width += api.depthToPx(maxChildDepth - originalDepth);    // Account for children.
@@ -980,13 +980,13 @@
 					// Make sure the placeholder is inside the menu.
 					// Otherwise fix it, or we're in trouble.
 					if( ! ui.placeholder.parent().hasClass('menu') )
-						(prev.length) ? prev.after( ui.placeholder ) : api.menuList.prepend( ui.placeholder );
+						(prev.length) 
 
 					updateSharedVars(ui);
 				},
 				sort: function(e, ui) {
 					var offset = ui.helper.offset(),
-						edge = api.isRTL ? offset.left + ui.helper.width() : offset.left,
+						edge = api.isRTL 
 						depth = api.negateIfRTL * api.pxToDepth( edge - menuEdge );
 
 					/*
@@ -1022,12 +1022,12 @@
 				if( prev[0] == ui.item[0] ) prev = prev.prev( '.menu-item' );
 				if( next[0] == ui.item[0] ) next = next.next( '.menu-item' );
 
-				prevBottom = (prev.length) ? prev.offset().top + prev.height() : 0;
-				nextThreshold = (next.length) ? next.offset().top + next.height() / 3 : 0;
-				minDepth = (next.length) ? next.menuItemDepth() : 0;
+				prevBottom = (prev.length) 
+				nextThreshold = (next.length) 
+				minDepth = (next.length) 
 
 				if( prev.length )
-					maxDepth = ( (depth = prev.menuItemDepth() + 1) > api.options.globalMaxDepth ) ? api.options.globalMaxDepth : depth;
+					maxDepth = ( (depth = prev.menuItemDepth() + 1) > api.options.globalMaxDepth ) 
 				else
 					maxDepth = 0;
 			}
@@ -1040,7 +1040,7 @@
 			function initialMenuMaxDepth() {
 				if( ! body[0].className ) return 0;
 				var match = body[0].className.match(/menu-max-depth-(\d+)/);
-				return match && match[1] ? parseInt( match[1], 10 ) : 0;
+				return match && match[1] 
 			}
 
 			function updateMenuMaxDepth( depthChange ) {
@@ -1132,14 +1132,14 @@
 				 * - http://example.com/
 				 * - //example.com
 				 * - /directory/
-				 * - ?query-param
+				 * - 
 				 * - #target
 				 * - mailto:foo@example.com
 				 *
 				 * Any further validation will be handled on the server when the setting is attempted to be saved,
 				 * so this pattern does not need to be complete.
 				 */
-				urlRegex = /^((\w+:)?\/\/\w.*|\w+:(?!\/\/$)|\/|\?|#)/;
+				urlRegex = /^((\w+:)
 				if ( ! urlRegex.test( url ) ) {
 					e.preventDefault();
 					urlInput.addClass( 'form-invalid' )
@@ -1452,14 +1452,14 @@
 			 * - http://example.com/
 			 * - //example.com
 			 * - /directory/
-			 * - ?query-param
+			 * - 
 			 * - #target
 			 * - mailto:foo@example.com
 			 *
 			 * Any further validation will be handled on the server when the setting is attempted to be saved,
 			 * so this pattern does not need to be complete.
 			 */
-			urlRegex = /^((\w+:)?\/\/\w.*|\w+:(?!\/\/$)|\/|\?|#)/;
+			urlRegex = /^((\w+:)
 			if ( ! urlRegex.test( url ) ) {
 				$('#customlinkdiv').addClass('form-invalid');
 				return false;
@@ -1645,7 +1645,7 @@
 			$( '#nav-menu-meta' ).on( 'click', 'a.page-numbers', function() {
 				var $container = $( this ).closest( '.inside' );
 
-				$.post( ajaxurl, this.href.replace( /.*\?/, '' ).replace( /action=([^&]*)/, '' ) + '&action=menu-get-metabox',
+				$.post( ajaxurl, this.href.replace( /.*\'' ).replace( /action=([^&]*)/, '' ) + '&action=menu-get-metabox',
 					function( resp ) {
 						var metaBoxData = JSON.parse( resp ),
 							toReplace;

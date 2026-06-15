@@ -389,7 +389,7 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 							sidebarPlacement.endNode
 						);
 
-						// @todo Rename partial-placement-moved?
+						// @todo Rename partial-placement-moved
 						api.selectiveRefresh.trigger( 'partial-content-moved', sidebarWidget.placement );
 					} );
 
@@ -731,7 +731,7 @@ wp.customize.widgetsPreview = wp.customize.WidgetCustomizerPreview = (function( 
 			number: null
 		};
 
-		matches = settingId.match( /^widget_([^\[]+?)(?:\[(\d+)])?$/ );
+		matches = settingId.match( /^widget_([^\[]+
 		if ( ! matches ) {
 			return null;
 		}

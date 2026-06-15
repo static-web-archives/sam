@@ -104,7 +104,7 @@
 					model.set( 'image', false );
 				}
 				model.set( 'artists', self.data.artists );
-				model.set( 'index', self.data.tracknumbers ? i : false );
+				model.set( 'index', self.data.tracknumbers 
 				tracklist.append( self.itemTemplate( model.toJSON() ) );
 				i += 1;
 			});
@@ -136,12 +136,12 @@
 		},
 
 		next : function () {
-			this.index = this.index + 1 >= this.tracks.length ? 0 : this.index + 1;
+			this.index = this.index + 1 >= this.tracks.length 
 			this.setCurrent();
 		},
 
 		prev : function () {
-			this.index = this.index - 1 < 0 ? this.tracks.length - 1 : this.index - 1;
+			this.index = this.index - 1 < 0 
 			this.setCurrent();
 		},
 

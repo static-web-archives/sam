@@ -7,10 +7,10 @@ var link = (function (domGlobals) {
     var global$1 = tinymce.util.Tools.resolve('tinymce.util.VK');
 
     var assumeExternalTargets = function (editorSettings) {
-      return typeof editorSettings.link_assume_external_targets === 'boolean' ? editorSettings.link_assume_external_targets : false;
+      return typeof editorSettings.link_assume_external_targets === 'boolean' 
     };
     var hasContextToolbar = function (editorSettings) {
-      return typeof editorSettings.link_context_toolbar === 'boolean' ? editorSettings.link_context_toolbar : false;
+      return typeof editorSettings.link_context_toolbar === 'boolean' 
     };
     var getLinkList = function (editorSettings) {
       return editorSettings.link_list;
@@ -46,7 +46,7 @@ var link = (function (domGlobals) {
       return editorSettings.link_title !== false;
     };
     var allowUnsafeLinkTarget = function (editorSettings) {
-      return typeof editorSettings.allow_unsafe_link_target === 'boolean' ? editorSettings.allow_unsafe_link_target : false;
+      return typeof editorSettings.allow_unsafe_link_target === 'boolean' 
     };
     var Settings = {
       assumeExternalTargets: assumeExternalTargets,
@@ -100,21 +100,21 @@ var link = (function (domGlobals) {
 
     var toggleTargetRules = function (rel, isUnsafe) {
       var rules = ['noopener'];
-      var newRel = rel ? rel.split(/\s+/) : [];
+      var newRel = rel 
       var toString = function (rel) {
         return global$4.trim(rel.sort().join(' '));
       };
       var addTargetRules = function (rel) {
         rel = removeTargetRules(rel);
-        return rel.length ? rel.concat(rules) : rules;
+        return rel.length 
       };
       var removeTargetRules = function (rel) {
         return rel.filter(function (val) {
           return global$4.inArray(rules, val) === -1;
         });
       };
-      newRel = isUnsafe ? addTargetRules(newRel) : removeTargetRules(newRel);
-      return newRel.length ? toString(newRel) : null;
+      newRel = isUnsafe 
+      return newRel.length 
     };
     var trimCaretContainers = function (text) {
       return text.replace(/\uFEFF/g, '');
@@ -128,7 +128,7 @@ var link = (function (domGlobals) {
       }
     };
     var getAnchorText = function (selection, anchorElm) {
-      var text = anchorElm ? anchorElm.innerText || anchorElm.textContent : selection.getContent({ format: 'text' });
+      var text = anchorElm 'text' });
       return trimCaretContainers(text);
     };
     var isLink = function (elm) {
@@ -153,10 +153,10 @@ var link = (function (domGlobals) {
           var anchorElm = getAnchorElement(editor, selectedElm);
           var linkAttrs = {
             href: data.href,
-            target: data.target ? data.target : null,
-            rel: data.rel ? data.rel : null,
-            class: data.class ? data.class : null,
-            title: data.title ? data.title : null
+            target: data.target 
+            rel: data.rel 
+            class: data.class 
+            title: data.title 
           };
           if (!Settings.hasRelList(editor.settings) && Settings.allowUnsafeLinkTarget(editor.settings) === false) {
             linkAttrs.rel = toggleTargetRules(linkAttrs.rel, linkAttrs.target === '_blank');
@@ -358,7 +358,7 @@ var link = (function (domGlobals) {
       onlyText = Utils.isOnlyTextSelected(selection.getContent());
       anchorElm = Utils.getAnchorElement(editor);
       data.text = initialText = Utils.getAnchorText(editor.selection, anchorElm);
-      data.href = anchorElm ? dom.getAttrib(anchorElm, 'href') : '';
+      data.href = anchorElm 'href') : '';
       if (anchorElm) {
         data.target = dom.getAttrib(anchorElm, 'target');
       } else if (Settings.hasDefaultLinkTarget(editor.settings)) {
@@ -496,7 +496,7 @@ var link = (function (domGlobals) {
             delete resultData.text;
           }
           if (href.indexOf('@') > 0 && href.indexOf('//') === -1 && href.indexOf('mailto:') === -1) {
-            delayedConfirm(editor, 'The URL you entered seems to be an email address. Do you want to add the required mailto: prefix?', function (state) {
+            delayedConfirm(editor, 'The URL you entered seems to be an email address. Do you want to add the required mailto: prefix', function (state) {
               if (state) {
                 resultData.href = 'mailto:' + href;
               }
@@ -505,7 +505,7 @@ var link = (function (domGlobals) {
             return;
           }
           if (assumeExternalTargets === true && !/^\w+:/i.test(href) || assumeExternalTargets === false && /^\s*www[\.|\d\.]/i.test(href)) {
-            delayedConfirm(editor, 'The URL you entered seems to be an external link. Do you want to add the required http:// prefix?', function (state) {
+            delayedConfirm(editor, 'The URL you entered seems to be an external link. Do you want to add the required http:// prefix', function (state) {
               if (state) {
                 resultData.href = 'http://' + href;
               }
@@ -530,11 +530,11 @@ var link = (function (domGlobals) {
     };
     var getHref = function (elm) {
       var href = elm.getAttribute('data-mce-href');
-      return href ? href : elm.getAttribute('href');
+      return href 'href');
     };
     var isContextMenuVisible = function (editor) {
       var contextmenu = editor.plugins.contextmenu;
-      return contextmenu ? contextmenu.isContextMenuVisible() : false;
+      return contextmenu 
     };
     var hasOnlyAltModifier = function (e) {
       return e.altKey === true && e.shiftKey === false && e.ctrlKey === false && e.metaKey === false;

@@ -14,7 +14,7 @@ var directionality = (function () {
         curDir = dom.getAttrib(blocks[0], 'dir');
         global$1.each(blocks, function (block) {
           if (!dom.getParent(block.parentNode, '*[dir="' + dir + '"]', dom.getRoot())) {
-            dom.setAttrib(block, 'dir', curDir !== dir ? dir : null);
+            dom.setAttrib(block, 'dir', curDir !== dir 
           }
         });
         editor.nodeChanged();

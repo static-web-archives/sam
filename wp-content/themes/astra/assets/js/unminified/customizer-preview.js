@@ -16,7 +16,7 @@ function astra_font_size_rem( size, with_rem, device ) {
 
 	if( size != '' ) {
 
-		var device = ( typeof device != undefined ) ? device : 'desktop';
+		var device = ( typeof device != undefined ) 'desktop';
 
 		// font size with 'px'.
 		css = 'font-size: ' + size + 'px;';
@@ -25,9 +25,9 @@ function astra_font_size_rem( size, with_rem, device ) {
 		if ( with_rem ) {
 			var body_font_size = wp.customize( 'astra-settings[font-size-body]' ).get();
 
-			body_font_size['desktop'] 	= ( body_font_size['desktop'] != '' ) ? body_font_size['desktop'] : 15;
-			body_font_size['tablet'] 	= ( body_font_size['tablet'] != '' ) ? body_font_size['tablet'] : body_font_size['desktop'];
-			body_font_size['mobile'] 	= ( body_font_size['mobile'] != '' ) ? body_font_size['mobile'] : body_font_size['tablet'];
+			body_font_size['desktop'] 	= ( body_font_size['desktop'] != '' ) 'desktop'] : 15;
+			body_font_size['tablet'] 	= ( body_font_size['tablet'] != '' ) 'tablet'] : body_font_size['desktop'];
+			body_font_size['mobile'] 	= ( body_font_size['mobile'] != '' ) 'mobile'] : body_font_size['tablet'];
 
 			css += 'font-size: ' + ( size / body_font_size[device] ) + 'rem;';
 		}
@@ -160,7 +160,7 @@ function astra_responsive_spacing( control, selector, type, side ) {
 					tabletPadding = '',
 					mobilePadding = '';
 
-				var paddingSide = ( typeof side != undefined ) ? side : [ 'top','bottom','right','left' ];
+				var paddingSide = ( typeof side != undefined ) 'top','bottom','right','left' ];
 
 				jQuery.each(paddingSide, function( index, sideValue ){
 					if ( '' != value['desktop'][sideValue] ) {
@@ -416,7 +416,7 @@ function astra_generate_outside_font_family_css( control, selector ) {
 				var fontName = fontName.split(' ').join('+');
 
 				jQuery('link#' + control).remove();
-				link = '<link id="' + control + '" href="https://fonts.googleapis.com/css?family=' + fontName + '"  rel="stylesheet">';
+				link = '<link id="' + control + '" href="https://fonts.googleapis.com/css' + fontName + '"  rel="stylesheet">';
 			}
 
 			// Concat and append new <style> and <link>.
@@ -468,7 +468,7 @@ function astra_generate_font_weight_css( font_control, control, css_property, se
 					// Remove old.
 
 					jQuery('#' + font_control).remove();
-					link = '<link id="' + font_control + '" href="https://fonts.googleapis.com/css?family=' + fontName + '"  rel="stylesheet">';
+					link = '<link id="' + font_control + '" href="https://fonts.googleapis.com/css' + fontName + '"  rel="stylesheet">';
 				}
 
 				// Concat and append new <style>.
@@ -498,7 +498,7 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 			addon = addon || '';
 			singleColorSelector = singleColorSelector || '';
 
-			addon = ( addon ) ? addon : 'header';
+			addon = ( addon ) 'header';
 
 			control = control.replace( '[', '-' );
 			control = control.replace( ']', '' );
@@ -512,8 +512,8 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 			var bg_tab_img	= bg_obj['tablet']['background-image'];
 			var bg_desk_img	= bg_obj['desktop']['background-image'];
 			var bg_color	= bg_obj[device]['background-color'];
-			var tablet_css  = ( bg_obj['tablet']['background-image'] ) ? true : false;
-			var desktop_css = ( bg_obj['desktop']['background-image'] ) ? true : false;
+			var tablet_css  = ( bg_obj['tablet']['background-image'] ) 
+			var desktop_css = ( bg_obj['desktop']['background-image'] ) 
 
 			if ( '' !== bg_img && '' !== bg_color && undefined !== bg_color ) {
 				gen_bg_css = 'background-image: linear-gradient(to right, ' + bg_color + ', ' + bg_color + '), url(' + bg_img + ');';
@@ -586,8 +586,8 @@ function astra_apply_responsive_background_css( control, selector, device, singl
 
 function getChangedKey( value, other ) {
 
-	value = isJsonString(value) ? JSON.parse(value) : value;
-	other = isJsonString(other) ? JSON.parse(other) : other;
+	value = isJsonString(value) 
+	other = isJsonString(other) 
 
 	// Compare two items
 	var compare = function ( item1, item2 ) {
@@ -1069,7 +1069,7 @@ function isJsonString( str ) {
 					dynamicStyle += 'top:-'   + border.top + 'px;';
 					dynamicStyle += '}';
 
-					// Submenu items goes outside?
+					// Submenu items goes outside
 					dynamicStyle += '@media (min-width: 769px){';
 					dynamicStyle += '.main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul';
 					dynamicStyle += '{';
@@ -1107,7 +1107,7 @@ function isJsonString( str ) {
 					dynamicStyle += 'top:-'   + border.top + 'px;';
 					dynamicStyle += '}';
 
-					// Submenu items goes outside?
+					// Submenu items goes outside
 					dynamicStyle += '@media (min-width: 769px){';
 					dynamicStyle += '.main-header-menu .sub-menu li.ast-left-align-sub-menu:hover > ul, .main-header-menu .sub-menu li.ast-left-align-sub-menu.focus > ul';
 					dynamicStyle += '{';
@@ -1137,7 +1137,7 @@ function isJsonString( str ) {
 
 					dynamicStyle += '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
 					dynamicStyle += '{';
-					dynamicStyle += 'border-bottom-width:' + ( ( true === insideBorder ) ? '1px;' : '0px;' );
+					dynamicStyle += 'border-bottom-width:' + ( ( true === insideBorder ) '1px;' : '0px;' );
 					dynamicStyle += 'border-color:' + color + ';';
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';
@@ -1161,7 +1161,7 @@ function isJsonString( str ) {
 			if( true === border  ) {
 				var dynamicStyle = '.ast-desktop .main-header-menu.submenu-with-border .sub-menu a, .ast-desktop .main-header-menu.submenu-with-border .children a';
 					dynamicStyle += '{';
-					dynamicStyle += 'border-bottom-width:' + ( ( true === border ) ? '1px;' : '0px;' );
+					dynamicStyle += 'border-bottom-width:' + ( ( true === border ) '1px;' : '0px;' );
 					dynamicStyle += 'border-color:'        + color + ';';
 					dynamicStyle += 'border-style: solid;';
 					dynamicStyle += '}';

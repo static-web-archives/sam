@@ -520,7 +520,7 @@ module.exports.remove = removeAccents;
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
 /******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
+/******/ 			var getter = module && module.__esModule 
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
@@ -625,7 +625,7 @@ function isURL(url) {
 }
 
 ;// ./node_modules/@wordpress/url/build-module/is-email.js
-const EMAIL_REGEXP = /^(mailto:)?[a-z0-9._%+-]+@[a-z0-9][a-z0-9.-]*\.[a-z]{2,63}$/i;
+const EMAIL_REGEXP = /^(mailto:)
 
 /**
  * Determines whether the given string looks like an email.
@@ -644,7 +644,7 @@ function isEmail(email) {
 }
 
 ;// ./node_modules/@wordpress/url/build-module/is-phone-number.js
-const PHONE_REGEXP = /^(tel:)?(\+)?\d{6,15}$/;
+const PHONE_REGEXP = /^(tel:)
 
 /**
  * Determines whether the given string looks like a phone number.
@@ -721,7 +721,7 @@ function isValidProtocol(protocol) {
  * @return {string|void} The authority part of the URL.
  */
 function getAuthority(url) {
-  const matches = /^[^\/\s:]+:(?:\/\/)?\/?([^\/\s#?]+)[\/#?]{0,1}\S*$/.exec(url);
+  const matches = /^[^\/\s:]+:(
   if (matches) {
     return matches[1];
   }
@@ -745,7 +745,7 @@ function isValidAuthority(authority) {
   if (!authority) {
     return false;
   }
-  return /^[^\s#?]+$/.test(authority);
+  return /^[^\s#
 }
 
 ;// ./node_modules/@wordpress/url/build-module/get-path.js
@@ -756,14 +756,14 @@ function isValidAuthority(authority) {
  *
  * @example
  * ```js
- * const path1 = getPath( 'http://localhost:8080/this/is/a/test?query=true' ); // 'this/is/a/test'
+ * const path1 = getPath( 'http://localhost:8080/this/is/a/test' ); // 'this/is/a/test'
  * const path2 = getPath( 'https://wordpress.org/help/faq/' ); // 'help/faq'
  * ```
  *
  * @return {string|void} The path part of the URL.
  */
 function getPath(url) {
-  const matches = /^[^\/\s:]+:(?:\/\/)?[^\/\s#?]+[\/]([^\s#?]+)[#?]{0,1}\S*$/.exec(url);
+  const matches = /^[^\/\s:]+:(
   if (matches) {
     return matches[1];
   }
@@ -778,7 +778,7 @@ function getPath(url) {
  * @example
  * ```js
  * const isValid = isValidPath( 'test/path/' ); // true
- * const isNotValid = isValidPath( '/invalid?test/path/' ); // false
+ * const isNotValid = isValidPath( '/invalid' ); // false
  * ```
  *
  * @return {boolean} True if the argument contains a valid path
@@ -787,7 +787,7 @@ function isValidPath(path) {
   if (!path) {
     return false;
   }
-  return /^[^\s#?]+$/.test(path);
+  return /^[^\s#
 }
 
 ;// ./node_modules/@wordpress/url/build-module/get-query-string.js
@@ -799,7 +799,7 @@ function isValidPath(path) {
  *
  * @example
  * ```js
- * const queryString = getQueryString( 'http://localhost:8080/this/is/a/test?query=true#fragment' ); // 'query=true'
+ * const queryString = getQueryString( 'http://localhost:8080/this/is/a/test' ); // 'query=true'
  * ```
  *
  * @return {string|void} The query string part of the URL.
@@ -880,7 +880,7 @@ function buildQueryString(data) {
  * @example
  * ```js
  * const isValid = isValidQueryString( 'query=true&another=false' ); // true
- * const isNotValid = isValidQueryString( 'query=true?another=false' ); // false
+ * const isNotValid = isValidQueryString( 'query=true' ); // false
  * ```
  *
  * @return {boolean} True if the argument contains a valid query string.
@@ -889,7 +889,7 @@ function isValidQueryString(queryString) {
   if (!queryString) {
     return false;
   }
-  return /^[^\s#?\/]+$/.test(queryString);
+  return /^[^\s#
 }
 
 ;// ./node_modules/@wordpress/url/build-module/get-path-and-query-string.js
@@ -905,7 +905,7 @@ function isValidQueryString(queryString) {
  *
  * @example
  * ```js
- * const pathAndQueryString1 = getPathAndQueryString( 'http://localhost:8080/this/is/a/test?query=true' ); // '/this/is/a/test?query=true'
+ * const pathAndQueryString1 = getPathAndQueryString( 'http://localhost:8080/this/is/a/test' ); // '/this/is/a/test'
  * const pathAndQueryString2 = getPathAndQueryString( 'https://wordpress.org/help/faq/' ); // '/help/faq'
  * ```
  *
@@ -919,7 +919,7 @@ function getPathAndQueryString(url) {
     value += path;
   }
   if (queryString) {
-    value += `?${queryString}`;
+    value += `
   }
   return value;
 }
@@ -932,14 +932,14 @@ function getPathAndQueryString(url) {
  *
  * @example
  * ```js
- * const fragment1 = getFragment( 'http://localhost:8080/this/is/a/test?query=true#fragment' ); // '#fragment'
- * const fragment2 = getFragment( 'https://wordpress.org#another-fragment?query=true' ); // '#another-fragment'
+ * const fragment1 = getFragment( 'http://localhost:8080/this/is/a/test' ); // '#fragment'
+ * const fragment2 = getFragment( 'https://wordpress.org#another-fragment' ); // '#another-fragment'
  * ```
  *
  * @return {string|void} The fragment part of the URL.
  */
 function getFragment(url) {
-  const matches = /^\S+?(#[^\s\?]*)/.exec(url);
+  const matches = /^\S+
   if (matches) {
     return matches[1];
   }
@@ -963,7 +963,7 @@ function isValidFragment(fragment) {
   if (!fragment) {
     return false;
   }
-  return /^#[^\s#?\/]*$/.test(fragment);
+  return /^#[^\s#
 }
 
 ;// ./node_modules/@wordpress/url/build-module/safe-decode-uri-component.js
@@ -1014,17 +1014,17 @@ function setPath(object, path, value) {
       // the current length of the array.
       key = object.length.toString();
     }
-    key = ['__proto__', 'constructor', 'prototype'].includes(key) ? key.toUpperCase() : key;
+    key = ['__proto__', 'constructor', 'prototype'].includes(key) 
 
     // If the next key in the path is numeric (or empty string), it will be
     // created as an array. Otherwise, it will be created as an object.
     const isNextKeyArrayIndex = !isNaN(Number(path[i + 1]));
-    object[key] = i === lastIndex ?
+    object[key] = i === lastIndex 
     // If at end of path, assign the intended value.
     value :
     // Otherwise, advance to the next object in the path, creating
     // it if it does not yet exist.
-    object[key] || (isNextKeyArrayIndex ? [] : {});
+    object[key] || (isNextKeyArrayIndex 
     if (Array.isArray(object[key]) && !isNextKeyArrayIndex) {
       // If we current key is non-numeric, but the next value is an
       // array, coerce the value to an object.
@@ -1046,7 +1046,7 @@ function setPath(object, path, value) {
  *
  * @example
  * ```js
- * const foo = getQueryArgs( 'https://wordpress.org?foo=bar&bar=baz' );
+ * const foo = getQueryArgs( 'https://wordpress.org' );
  * // { "foo": "bar", "bar": "baz" }
  * ```
  *
@@ -1090,7 +1090,7 @@ function getQueryArgs(url) {
  *
  * @example
  * ```js
- * const newURL = addQueryArgs( 'https://google.com', { q: 'test' } ); // https://google.com/?q=test
+ * const newURL = addQueryArgs( 'https://google.com', { q: 'test' } ); // https://google.com/
  * ```
  *
  * @return {string} URL with arguments applied.
@@ -1104,7 +1104,7 @@ function addQueryArgs(url = '', args) {
   let baseUrl = url.replace(fragment, '');
 
   // Determine whether URL already had query arguments.
-  const queryStringIndex = url.indexOf('?');
+  const queryStringIndex = url.indexOf('');
   if (queryStringIndex !== -1) {
     // Merge into existing query arguments.
     args = Object.assign(getQueryArgs(url), args);
@@ -1112,7 +1112,7 @@ function addQueryArgs(url = '', args) {
     // Change working base URL to omit previous query arguments.
     baseUrl = baseUrl.substr(0, queryStringIndex);
   }
-  return baseUrl + '?' + buildQueryString(args) + fragment;
+  return baseUrl + '' + buildQueryString(args) + fragment;
 }
 
 ;// ./node_modules/@wordpress/url/build-module/get-query-arg.js
@@ -1137,7 +1137,7 @@ function addQueryArgs(url = '', args) {
  *
  * @example
  * ```js
- * const foo = getQueryArg( 'https://wordpress.org?foo=bar&bar=baz', 'foo' ); // bar
+ * const foo = getQueryArg( 'https://wordpress.org', 'foo' ); // bar
  * ```
  *
  * @return {QueryArgParsed|void} Query arg value.
@@ -1160,7 +1160,7 @@ function getQueryArg(url, arg) {
  *
  * @example
  * ```js
- * const hasBar = hasQueryArg( 'https://wordpress.org?foo=bar&bar=baz', 'bar' ); // true
+ * const hasBar = hasQueryArg( 'https://wordpress.org', 'bar' ); // true
  * ```
  *
  * @return {boolean} Whether or not the URL contains the query arg.
@@ -1184,7 +1184,7 @@ function hasQueryArg(url, arg) {
  *
  * @example
  * ```js
- * const newUrl = removeQueryArgs( 'https://wordpress.org?foo=bar&bar=baz&baz=foobar', 'foo', 'bar' ); // https://wordpress.org?baz=foobar
+ * const newUrl = removeQueryArgs( 'https://wordpress.org', 'foo', 'bar' ); // https://wordpress.org
  * ```
  *
  * @return {string} Updated URL.
@@ -1192,7 +1192,7 @@ function hasQueryArg(url, arg) {
 function removeQueryArgs(url, ...args) {
   const fragment = url.replace(/^[^#]*/, '');
   url = url.replace(/#.*/, '');
-  const queryStringIndex = url.indexOf('?');
+  const queryStringIndex = url.indexOf('');
   if (queryStringIndex === -1) {
     return url + fragment;
   }
@@ -1200,7 +1200,7 @@ function removeQueryArgs(url, ...args) {
   const baseURL = url.substr(0, queryStringIndex);
   args.forEach(arg => delete query[arg]);
   const queryString = buildQueryString(query);
-  const updatedUrl = queryString ? baseURL + '?' + queryString : baseURL;
+  const updatedUrl = queryString '' + queryString : baseURL;
   return updatedUrl + fragment;
 }
 
@@ -1209,7 +1209,7 @@ function removeQueryArgs(url, ...args) {
  * Internal dependencies
  */
 
-const USABLE_HREF_REGEXP = /^(?:[a-z]+:|#|\?|\.|\/)/i;
+const USABLE_HREF_REGEXP = /^(
 
 /**
  * Prepends "http://" to a url, if it looks like something that is meant to be a TLD.
@@ -1277,7 +1277,7 @@ function filterURLForDisplay(url, maxLength = null) {
   }
 
   // Remove protocol and www prefixes.
-  let filteredURL = url.replace(/^[a-z\-.\+]+[0-9]*:(\/\/)?/i, '').replace(/^www\./i, '');
+  let filteredURL = url.replace(/^[a-z\-.\+]+[0-9]*:(\/\/)'').replace(/^www\./i, '');
 
   // Ends with / and only has that single slash, strip it.
   if (filteredURL.match(/^[^\/]+\/$/)) {
@@ -1285,13 +1285,13 @@ function filterURLForDisplay(url, maxLength = null) {
   }
 
   // capture file name from URL
-  const fileRegexp = /\/([^\/?]+)\.(?:[\w]+)(?=\?|$)/;
+  const fileRegexp = /\/([^\/
   if (!maxLength || filteredURL.length <= maxLength || !filteredURL.match(fileRegexp)) {
     return filteredURL;
   }
 
   // If the file is not greater than max length, return last portion of URL.
-  filteredURL = filteredURL.split('?')[0];
+  filteredURL = filteredURL.split('')[0];
   const urlPieces = filteredURL.split('/');
   const file = urlPieces[urlPieces.length - 1];
   if (file.length <= maxLength) {
@@ -1340,7 +1340,7 @@ function cleanForSlug(string) {
   // Convert each group of whitespace, periods, and forward slashes to a hyphen.
   .replace(/[\s\./]+/g, '-')
   // Remove all HTML entities.
-  .replace(/&\S+?;/g, '')
+  .replace(/&\S+'')
   // Remove anything that's not a letter, number, underscore or hyphen.
   .replace(/[^\p{L}\p{N}_-]+/gu, '')
   // Convert to lowercase
@@ -1390,7 +1390,7 @@ function getFilename(url) {
  * @return {string} Normalized path.
  */
 function normalizePath(path) {
-  const split = path.split('?');
+  const split = path.split('');
   const query = split[1];
   const base = split[0];
   if (!query) {
@@ -1398,7 +1398,7 @@ function normalizePath(path) {
   }
 
   // 'b=1%2C2&c=2&a=5'
-  return base + '?' + query
+  return base + '' + query
   // [ 'b=1%2C2', 'c=2', 'a=5' ]
   .split('&')
   // [ [ 'b, '1%2C2' ], [ 'c', '2' ], [ 'a', '5' ] ]

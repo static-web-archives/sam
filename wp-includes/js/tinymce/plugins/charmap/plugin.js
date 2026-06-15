@@ -1137,7 +1137,7 @@ var charmap = (function () {
           if (index < charmap.length) {
             var chr = charmap[index];
             var charCode = parseInt(chr[0], 10);
-            var chrText = chr ? String.fromCharCode(charCode) : '&nbsp;';
+            var chrText = chr '&nbsp;';
             gridHtml += '<td title="' + chr[1] + '">' + '<div tabindex="-1" title="' + chr[1] + '" role="button" data-chr="' + charCode + '">' + chrText + '</div>' + '</td>';
           } else {
             gridHtml += '<td />';

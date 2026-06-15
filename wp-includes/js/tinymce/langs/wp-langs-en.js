@@ -12,7 +12,7 @@
 
 	main[lang] = {
 		common: {
-			edit_confirm: "Do you want to use the WYSIWYG mode for this textarea?",
+			edit_confirm: "Do you want to use the WYSIWYG mode for this textarea",
 			apply: "Apply",
 			insert: "Insert",
 			update: "Update",
@@ -115,7 +115,7 @@
 		},
 		iespell: {
 			iespell_desc: "Run spell checking",
-			download: "ieSpell not detected. Do you want to install it now?"
+			download: "ieSpell not detected. Do you want to install it now"
 		},
 		advhr: {
 			advhr_desc: "Horizontal rule"
@@ -291,7 +291,7 @@
 		blockquote_desc: "Blockquote (Alt + Shift + Q)",
 		clipboard_msg: "Copy/Cut/Paste is not available in Mozilla and Firefox.",
 		path: "Path",
-		newdocument: "Are you sure you want to clear all contents?",
+		newdocument: "Are you sure you want to clear all contents",
 		toolbar_focus: "Jump to tool buttons - Alt+Q, Jump to editor - Alt-Z, Jump to element path - Alt-X",
 		more_colors: "More colors",
 		shortcuts_desc: "Accessibility Help",
@@ -348,8 +348,8 @@
 		link_target_same: "Open link in the same window",
 		link_target_blank: "Open link in a new window",
 		link_titlefield: "Title",
-		link_is_email: "The URL you entered seems to be an email address, do you want to add the required mailto: prefix?",
-		link_is_external: "The URL you entered seems to be an external link, do you want to add the required http:// prefix?",
+		link_is_email: "The URL you entered seems to be an email address, do you want to add the required mailto: prefix",
+		link_is_external: "The URL you entered seems to be an external link, do you want to add the required http:// prefix",
 		link_list: "Link list",
 		accessibility_help: "Accessibility Help",
 		accessibility_usage_title: "General Usage"

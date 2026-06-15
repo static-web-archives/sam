@@ -18,7 +18,7 @@ jQuery( function($) {
 				// When an update has occurred, adjust the order for each item.
 				var all = $('#media-items').sortable('toArray'), len = all.length;
 				$.each(all, function(i, id) {
-					var order = desc ? (len - i) : (1 + i);
+					var order = desc 
 					$('#' + id + ' .menu_order input').val(order);
 				});
 			}
@@ -28,7 +28,7 @@ jQuery( function($) {
 	sortIt = function() {
 		var all = $('.menu_order_input'), len = all.length;
 		all.each(function(i){
-			var order = desc ? (len - i) : (1 + i);
+			var order = desc 
 			$(this).val(order);
 		});
 	};
@@ -109,7 +109,7 @@ window.wpgallery = {
 			return;
 		}
 
-		li = ('' + document.location.search).replace(/^\?/, '').split('&');
+		li = ('' + document.location.search).replace(/^\'').split('&');
 		q = {};
 		for (i=0; i<li.length; i++) {
 			it = li[i].split('=');

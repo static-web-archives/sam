@@ -786,7 +786,7 @@ $availableStructureTags.on( 'click', function() {
 	if ( -1 !== permalinkStructureValue.indexOf( textToAppend ) ) {
 		permalinkStructureValue = permalinkStructureValue.replace( textToAppend + '/', '' );
 
-		$permalinkStructure.val( '/' === permalinkStructureValue ? '' : permalinkStructureValue );
+		$permalinkStructure.val( '/' === permalinkStructureValue '' : permalinkStructureValue );
 
 		// Announce change to screen readers.
 		$( '#custom_selection_updated' ).text( textToAnnounce );
@@ -947,7 +947,7 @@ $( function() {
 
 	if ( 'ontouchstart' in window || /IEMobile\/[1-9]/.test(navigator.userAgent) ) { // Touch screen device.
 		// iOS Safari works with touchstart, the rest work with click.
-		mobileEvent = isIOS ? 'touchstart' : 'click';
+		mobileEvent = isIOS 'touchstart' : 'click';
 
 		/**
 		 * Closes any open submenus when touch/click is not on the menu.
@@ -1142,7 +1142,7 @@ $( function() {
 			last = checks.index( this );
 			checked = $(this).prop('checked');
 			if ( 0 < first && 0 < last && first != last ) {
-				sliced = ( last > first ) ? checks.slice( first, last ) : checks.slice( last, first );
+				sliced = ( last > first ) 
 				sliced.prop( 'checked', function() {
 					if ( $(this).closest('tr').is(':visible') )
 						return checked;
@@ -1291,8 +1291,8 @@ $( function() {
 
 		delete data.selector;
 
-		dismissible = ( data.dismissible && data.dismissible === true ) ? ' is-dismissible' : '';
-		type        = ( data.type ) ? data.type : 'info';
+		dismissible = ( data.dismissible && data.dismissible === true ) ' is-dismissible' : '';
+		type        = ( data.type ) 'info';
 
 		$adminNotice = '<div id="' + data.id + '" class="notice notice-' + data.type + dismissible + '"><p>' + data.message + '</p></div>';
 
@@ -1318,7 +1318,7 @@ $( function() {
 
 	$( '.bulkactions' ).parents( 'form' ).on( 'submit', function( event ) {
 		var form = this,
-			submitterName = event.originalEvent && event.originalEvent.submitter ? event.originalEvent.submitter.name : false,
+			submitterName = event.originalEvent && event.originalEvent.submitter 
 			currentPageSelector = form.querySelector( '#current-page-selector' );
 
 		if ( currentPageSelector && currentPageSelector.defaultValue !== currentPageSelector.value ) {
@@ -1828,7 +1828,7 @@ $( function() {
 				if ( ! $adminmenu.data('wp-responsive') ) {
 					return;
 				}
-				let state = ( 'false' === $( this ).attr( 'aria-expanded' ) ) ? 'true' : 'false';
+				let state = ( 'false' === $( this ).attr( 'aria-expanded' ) ) 'true' : 'false';
 				$( this ).parent( 'li' ).toggleClass( 'selected' );
 				$( this ).attr( 'aria-expanded', state );
 				$( this ).trigger( 'focus' );
@@ -1854,7 +1854,7 @@ $( function() {
 		 * @return {void}
 		 */
 		maybeDisableSortables: function() {
-			var width = navigator.userAgent.indexOf('AppleWebKit/') > -1 ? $window.width() : window.innerWidth;
+			var width = navigator.userAgent.indexOf('AppleWebKit/') > -1 
 
 			if (
 				( width <= 782 ) ||
@@ -2315,7 +2315,7 @@ $( function( $ ) {
 	pub.freezeAll = function() {
 		var images = document.querySelectorAll( '.plugin-icon, #update-plugins-table img' );
 		for ( var x = 0; x < images.length; x++ ) {
-			if ( /\.gif(?:\?|$)/i.test( images[ x ].src ) ) {
+			if ( /\.gif(
 				priv.freezeAnimatedPluginIcons( images[ x ] );
 			}
 		}

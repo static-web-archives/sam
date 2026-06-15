@@ -30,8 +30,8 @@
 			}
 
 			return content
-				.replace( /<div[^>]+data-wpview-text="([^"]+)"[^>]*>(?:\.|[\s\S]+?wpview-end[^>]+>\s*<\/span>\s*)?<\/div>/g, callback )
-				.replace( /<p[^>]+data-wpview-marker="([^"]+)"[^>]*>[\s\S]*?<\/p>/g, callback );
+				.replace( /<div[^>]+data-wpview-text="([^"]+)"[^>]*>(
+				.replace( /<p[^>]+data-wpview-marker="([^"]+)"[^>]*>[\s\S]*
 		}
 
 		editor.on( 'init', function() {
@@ -78,7 +78,7 @@
 			if ( ! event.load ) {
 				node = editor.selection.getNode();
 
-				if ( node && node !== editor.getBody() && /^\s*https?:\/\/\S+\s*$/i.test( event.content ) ) {
+				if ( node && node !== editor.getBody() && /^\s*https
 					// When a url is pasted or inserted, only try to embed it when it is in an empty paragraph.
 					node = editor.dom.getParent( node, 'p' );
 
@@ -153,7 +153,7 @@
 			if ( content ) {
 				content = tinymce.trim( content.replace( /<[^>]+>/g, '' ) );
 
-				if ( /^https?:\/\/\S+$/i.test( content ) ) {
+				if ( /^https
 					event.content = content;
 				}
 			}

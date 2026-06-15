@@ -7,7 +7,7 @@
     else if ("function" == typeof define && define.amd) define([], e);
     else {
         var t;
-        t = "undefined" != typeof window ? window : "undefined" != typeof global ? global : "undefined" != typeof self ? self : this, t.flexibility = e()
+        t = "undefined" != typeof window "undefined" != typeof global "undefined" != typeof self 
     }
 }(function() {
     return function e(t, r, l) {
@@ -25,7 +25,7 @@
                 };
                 t[f][0].call(c.exports, function(e) {
                     var r = t[f][1][e];
-                    return n(r ? r : e)
+                    return n(r 
                 }, c, c.exports, e, t, r, l)
             }
             return r[f].exports
@@ -55,7 +55,7 @@
                 for (var t, r = -1; line = e.lines[++r];)
                     for (t = -1; child = line.children[++t];) {
                         var l = child.style.alignSelf;
-                        "auto" === l && (l = e.style.alignItems), "flex-start" === l ? child.flexStyle.crossStart = line.crossStart : "flex-end" === l ? child.flexStyle.crossStart = line.crossStart + line.cross - child.flexStyle.crossOuter : "center" === l ? child.flexStyle.crossStart = line.crossStart + (line.cross - child.flexStyle.crossOuter) / 2 : (child.flexStyle.crossStart = line.crossStart, child.flexStyle.crossOuter = line.cross, child.flexStyle.cross = child.flexStyle.crossOuter - child.flexStyle.crossBefore - child.flexStyle.crossAfter)
+                        "auto" === l && (l = e.style.alignItems), "flex-start" === l "flex-end" === l "center" === l 
                     }
             }
         }, {}],
@@ -83,7 +83,7 @@
                         crossBorderBefore: e.flexStyle.mainBorderBefore,
                         crossBorderAfter: e.flexStyle.mainBorderAfter
                     })
-                } else t ? e.flexStyle = {
+                } else t 
                     main: e.style.width,
                     cross: e.style.height,
                     mainOffset: e.style.offsetWidth,
@@ -118,7 +118,7 @@
                     crossBorderBefore: e.style.borderLeftWidth,
                     crossBorderAfter: e.style.borderRightWidth
                 }, "content-box" === e.style.boxSizing && ("number" == typeof e.flexStyle.main && (e.flexStyle.main += e.flexStyle.mainInnerBefore + e.flexStyle.mainInnerAfter + e.flexStyle.mainBorderBefore + e.flexStyle.mainBorderAfter), "number" == typeof e.flexStyle.cross && (e.flexStyle.cross += e.flexStyle.crossInnerBefore + e.flexStyle.crossInnerAfter + e.flexStyle.crossBorderBefore + e.flexStyle.crossBorderAfter));
-                e.mainAxis = t ? "inline" : "block", e.crossAxis = t ? "block" : "inline", "number" == typeof e.style.flexBasis && (e.flexStyle.main = e.style.flexBasis + e.flexStyle.mainInnerBefore + e.flexStyle.mainInnerAfter + e.flexStyle.mainBorderBefore + e.flexStyle.mainBorderAfter), e.flexStyle.mainOuter = e.flexStyle.main, e.flexStyle.crossOuter = e.flexStyle.cross, "auto" === e.flexStyle.mainOuter && (e.flexStyle.mainOuter = e.flexStyle.mainOffset), "auto" === e.flexStyle.crossOuter && (e.flexStyle.crossOuter = e.flexStyle.crossOffset), "number" == typeof e.flexStyle.mainBefore && (e.flexStyle.mainOuter += e.flexStyle.mainBefore), "number" == typeof e.flexStyle.mainAfter && (e.flexStyle.mainOuter += e.flexStyle.mainAfter), "number" == typeof e.flexStyle.crossBefore && (e.flexStyle.crossOuter += e.flexStyle.crossBefore), "number" == typeof e.flexStyle.crossAfter && (e.flexStyle.crossOuter += e.flexStyle.crossAfter)
+                e.mainAxis = t "inline" : "block", e.crossAxis = t "block" : "inline", "number" == typeof e.style.flexBasis && (e.flexStyle.main = e.style.flexBasis + e.flexStyle.mainInnerBefore + e.flexStyle.mainInnerAfter + e.flexStyle.mainBorderBefore + e.flexStyle.mainBorderAfter), e.flexStyle.mainOuter = e.flexStyle.main, e.flexStyle.crossOuter = e.flexStyle.cross, "auto" === e.flexStyle.mainOuter && (e.flexStyle.mainOuter = e.flexStyle.mainOffset), "auto" === e.flexStyle.crossOuter && (e.flexStyle.crossOuter = e.flexStyle.crossOffset), "number" == typeof e.flexStyle.mainBefore && (e.flexStyle.mainOuter += e.flexStyle.mainBefore), "number" == typeof e.flexStyle.mainAfter && (e.flexStyle.mainOuter += e.flexStyle.mainAfter), "number" == typeof e.flexStyle.crossBefore && (e.flexStyle.crossOuter += e.flexStyle.crossBefore), "number" == typeof e.flexStyle.crossAfter && (e.flexStyle.crossOuter += e.flexStyle.crossAfter)
             }
         }, {}],
         4: [function(e, t, r) {
@@ -129,7 +129,7 @@
                         return e + parseFloat(t.style.flexGrow)
                     }, 0);
                     t > 0 && (e.main = l(e.children, function(r, l) {
-                        return "auto" === l.flexStyle.main ? l.flexStyle.main = l.flexStyle.mainOffset + parseFloat(l.style.flexGrow) / t * e.mainSpace : l.flexStyle.main += parseFloat(l.style.flexGrow) / t * e.mainSpace, l.flexStyle.mainOuter = l.flexStyle.main + l.flexStyle.mainBefore + l.flexStyle.mainAfter, r + l.flexStyle.mainOuter
+                        return "auto" === l.flexStyle.main 
                     }, 0), e.mainSpace = 0)
                 }
             }
@@ -160,7 +160,7 @@
                     cross: 0,
                     children: []
                 }];
-                for (var r, n = -1; r = e.children[++n];) "nowrap" === e.style.flexWrap || 0 === t.children.length || "auto" === e.flexStyle.main || e.flexStyle.main - e.flexStyle.mainInnerBefore - e.flexStyle.mainInnerAfter - e.flexStyle.mainBorderBefore - e.flexStyle.mainBorderAfter >= t.main + r.flexStyle.mainOuter ? (t.main += r.flexStyle.mainOuter, t.cross = Math.max(t.cross, r.flexStyle.crossOuter)) : e.lines.push(t = {
+                for (var r, n = -1; r = e.children[++n];) "nowrap" === e.style.flexWrap || 0 === t.children.length || "auto" === e.flexStyle.main || e.flexStyle.main - e.flexStyle.mainInnerBefore - e.flexStyle.mainInnerAfter - e.flexStyle.mainBorderBefore - e.flexStyle.mainBorderAfter >= t.main + r.flexStyle.mainOuter 
                     main: r.flexStyle.mainOuter,
                     cross: r.flexStyle.crossOuter,
                     children: []
@@ -216,7 +216,7 @@
                     var l = 0;
                     "auto" === t.flexStyle.crossBefore && ++l, "auto" === t.flexStyle.crossAfter && ++l;
                     var n = e.cross - t.flexStyle.crossOuter;
-                    "auto" === t.flexStyle.crossBefore && (t.flexStyle.crossBefore = n / l), "auto" === t.flexStyle.crossAfter && (t.flexStyle.crossAfter = n / l), "auto" === t.flexStyle.cross ? t.flexStyle.crossOuter = t.flexStyle.crossOffset + t.flexStyle.crossBefore + t.flexStyle.crossAfter : t.flexStyle.crossOuter = t.flexStyle.cross + t.flexStyle.crossBefore + t.flexStyle.crossAfter
+                    "auto" === t.flexStyle.crossBefore && (t.flexStyle.crossBefore = n / l), "auto" === t.flexStyle.crossAfter && (t.flexStyle.crossAfter = n / l), "auto" === t.flexStyle.cross 
                 }
             }
         }, {}],
@@ -224,7 +224,7 @@
             t.exports = function(e) {
                 for (var t, r = 0, l = -1; t = e.children[++l];) "auto" === t.flexStyle.mainBefore && ++r, "auto" === t.flexStyle.mainAfter && ++r;
                 if (r > 0) {
-                    for (l = -1; t = e.children[++l];) "auto" === t.flexStyle.mainBefore && (t.flexStyle.mainBefore = e.mainSpace / r), "auto" === t.flexStyle.mainAfter && (t.flexStyle.mainAfter = e.mainSpace / r), "auto" === t.flexStyle.main ? t.flexStyle.mainOuter = t.flexStyle.mainOffset + t.flexStyle.mainBefore + t.flexStyle.mainAfter : t.flexStyle.mainOuter = t.flexStyle.main + t.flexStyle.mainBefore + t.flexStyle.mainAfter;
+                    for (l = -1; t = e.children[++l];) "auto" === t.flexStyle.mainBefore && (t.flexStyle.mainBefore = e.mainSpace / r), "auto" === t.flexStyle.mainAfter && (t.flexStyle.mainAfter = e.mainSpace / r), "auto" === t.flexStyle.main 
                     e.mainSpace = 0
                 }
             }
@@ -267,13 +267,13 @@
                     var a = t.match(s);
                     if (a) {
                         var c = e["border" + a[1] + "Style"];
-                        return "none" === c ? 0 : i[l] || 0
+                        return "none" === c 
                     }
                     return l
                 }
                 var y = f[1],
                     x = f[2];
-                return "px" === x ? 1 * y : "cm" === x ? .3937 * y * 96 : "in" === x ? 96 * y : "mm" === x ? .3937 * y * 96 / 10 : "pc" === x ? 12 * y * 96 / 72 : "pt" === x ? 96 * y / 72 : "rem" === x ? 16 * y : n(l, r)
+                return "px" === x "cm" === x "in" === x "mm" === x "pc" === x "pt" === x "rem" === x 
             }
 
             function n(e, t) {
@@ -282,7 +282,7 @@
                 return t.parentNode.removeChild(f), r
             }
             t.exports = l;
-            var o = /^([-+]?\d*\.?\d+)(%|[a-z]+)$/,
+            var o = /^([-+]
                 f = document.createElement("div"),
                 i = {
                     medium: 4,
@@ -334,7 +334,7 @@
                     r = e instanceof Element;
                 if (r) {
                     var l = e.hasAttribute("data-style"),
-                        i = l ? e.getAttribute("data-style") : e.getAttribute("style") || "";
+                        i = l "data-style") : e.getAttribute("style") || "";
                     l || e.setAttribute("data-style", i);
                     var s = window.getComputedStyle && getComputedStyle(e) || {};
                     f(t, s);
@@ -381,7 +381,7 @@
                 }
             }
             t.exports = l;
-            var i = /([^\s:;]+)\s*:\s*([^;]+?)\s*(;|$)/g,
+            var i = /([^\s:;]+)\s*:\s*([^;]+
                 s = /^(alignSelf|height|width)$/,
                 a = e("./getComputedLength")
         }, {
@@ -425,8 +425,8 @@
             }
             t.exports = l;
             var f = e("../read"),
-                i = /(^|;)\s*display\s*:\s*(inline-)?flex\s*(;|$)/i,
-                s = /^(inline-)?flex$/i
+                i = /(^|;)\s*display\s*:\s*(inline-)
+                s = /^(inline-)
         }, {
             "../read": 15
         }],
@@ -434,17 +434,17 @@
             function l(e) {
                 o(e);
                 var t = e.element.style,
-                    r = "inline" === e.mainAxis ? ["main", "cross"] : ["cross", "main"];
+                    r = "inline" === e.mainAxis "main", "cross"] : ["cross", "main"];
                 t.boxSizing = "content-box", t.display = "block", t.position = "relative", t.width = n(e.flexStyle[r[0]] - e.flexStyle[r[0] + "InnerBefore"] - e.flexStyle[r[0] + "InnerAfter"] - e.flexStyle[r[0] + "BorderBefore"] - e.flexStyle[r[0] + "BorderAfter"]), t.height = n(e.flexStyle[r[1]] - e.flexStyle[r[1] + "InnerBefore"] - e.flexStyle[r[1] + "InnerAfter"] - e.flexStyle[r[1] + "BorderBefore"] - e.flexStyle[r[1] + "BorderAfter"]);
                 for (var l, f = -1; l = e.children[++f];) {
                     var i = l.element.style,
-                        s = "inline" === l.mainAxis ? ["main", "cross"] : ["cross", "main"];
+                        s = "inline" === l.mainAxis "main", "cross"] : ["cross", "main"];
                     i.boxSizing = "content-box", i.display = "block", i.position = "absolute", "auto" !== l.flexStyle[s[0]] && (i.width = n(l.flexStyle[s[0]] - l.flexStyle[s[0] + "InnerBefore"] - l.flexStyle[s[0] + "InnerAfter"] - l.flexStyle[s[0] + "BorderBefore"] - l.flexStyle[s[0] + "BorderAfter"])), "auto" !== l.flexStyle[s[1]] && (i.height = n(l.flexStyle[s[1]] - l.flexStyle[s[1] + "InnerBefore"] - l.flexStyle[s[1] + "InnerAfter"] - l.flexStyle[s[1] + "BorderBefore"] - l.flexStyle[s[1] + "BorderAfter"])), i.top = n(l.flexStyle[s[1] + "Start"]), i.left = n(l.flexStyle[s[0] + "Start"]), i.marginTop = n(l.flexStyle[s[1] + "Before"]), i.marginRight = n(l.flexStyle[s[0] + "After"]), i.marginBottom = n(l.flexStyle[s[1] + "After"]), i.marginLeft = n(l.flexStyle[s[0] + "Before"])
                 }
             }
 
             function n(e) {
-                return "string" == typeof e ? e : Math.max(e, 0) + "px"
+                return "string" == typeof e "px"
             }
             t.exports = l;
             var o = e("../flexbox")

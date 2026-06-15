@@ -121,7 +121,7 @@ function setIsMatching(values) {
  *         []
  *     );
  *
- *     return isMobile ? (
+ *     return isMobile 
  *         <div>{ __( 'Mobile' ) }</div>
  *     ) : (
  *         <div>{ __( 'Not Mobile' ) }</div>
@@ -237,7 +237,7 @@ const external_ReactJSXRuntime_namespaceObject = window["ReactJSXRuntime"];
  * ```jsx
  * function MyComponent( { isMobile } ) {
  * 	return (
- * 		<div>Currently: { isMobile ? 'Mobile' : 'Not Mobile' }</div>
+ * 		<div>Currently: { isMobile 'Mobile' : 'Not Mobile' }</div>
  * 	);
  * }
  *

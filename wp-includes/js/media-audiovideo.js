@@ -748,7 +748,7 @@ MediaDetails = AttachmentDisplay.extend(/** @lends wp.media.view.MediaDetails.pr
 		_.each( $( elem ).find( 'source' ), function( source ) {
 			source.src = [
 				source.src,
-				source.src.indexOf('?') > -1 ? '&' : '?',
+				source.src.indexOf('') > -1 '&' : '',
 				'_=',
 				i
 			].join('');

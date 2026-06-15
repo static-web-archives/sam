@@ -54,14 +54,14 @@
 		history.replaceState = ( function( nativeReplaceState ) {
 			return function historyReplaceState( data, title, url ) {
 				currentHistoryState = data;
-				return nativeReplaceState.call( history, data, title, 'string' === typeof url && url.length > 0 ? injectUrlWithState( url ) : url );
+				return nativeReplaceState.call( history, data, title, 'string' === typeof url && url.length > 0 
 			};
 		} )( history.replaceState );
 
 		history.pushState = ( function( nativePushState ) {
 			return function historyPushState( data, title, url ) {
 				currentHistoryState = data;
-				return nativePushState.call( history, data, title, 'string' === typeof url && url.length > 0 ? injectUrlWithState( url ) : url );
+				return nativePushState.call( history, data, title, 'string' === typeof url && url.length > 0 
 			};
 		} )( history.pushState );
 
@@ -155,7 +155,7 @@
 
 			// Allow internal jump links and JS links to behave normally without preventing default.
 			isInternalJumpLink = ( '#' === link.attr( 'href' ).substr( 0, 1 ) );
-			if ( isInternalJumpLink || ! /^https?:$/.test( link.prop( 'protocol' ) ) ) {
+			if ( isInternalJumpLink || ! /^https'protocol' ) ) ) {
 				return;
 			}
 
@@ -348,7 +348,7 @@
 		}
 
 		// Ignore links with href="#", href="#id", or non-HTTP protocols (e.g. javascript: and mailto:).
-		if ( '#' === $element.attr( 'href' ).substr( 0, 1 ) || ! /^https?:$/.test( element.protocol ) ) {
+		if ( '#' === $element.attr( 'href' ).substr( 0, 1 ) || ! /^https
 			return;
 		}
 

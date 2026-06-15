@@ -12,7 +12,7 @@ var inlite = (function (domGlobals) {
 
     var flatten = function (arr) {
       return arr.reduce(function (results, item) {
-        return Array.isArray(item) ? results.concat(flatten(item)) : results.concat(item);
+        return Array.isArray(item) 
       }, []);
     };
     var DeepFlatten = { flatten: flatten };
@@ -90,7 +90,7 @@ var inlite = (function (domGlobals) {
     };
     var getSelectionRect = function (editor) {
       var clientRect = editor.selection.getBoundingClientRect();
-      return clientRect ? toAbsolute(Convert.fromClientRect(clientRect)) : null;
+      return clientRect 
     };
     var Measure = {
       getElementRect: getElementRect,
@@ -240,7 +240,7 @@ var inlite = (function (domGlobals) {
       return function (editor, name, defaultValue) {
         var settings = editor.settings;
         validDefaultOrDie(defaultValue, predicate);
-        return name in settings && predicate(settings[name]) ? settings[name] : defaultValue;
+        return name in settings && predicate(settings[name]) 
       };
     };
     var splitNoEmpty = function (str, delim) {
@@ -250,10 +250,10 @@ var inlite = (function (domGlobals) {
     };
     var itemsToArray = function (value, defaultValue) {
       var stringToItemsArray = function (value) {
-        return typeof value === 'string' ? splitNoEmpty(value, /[ ,]/) : value;
+        return typeof value === 'string' 
       };
       var boolToItemsArray = function (value, defaultValue) {
-        return value === false ? [] : defaultValue;
+        return value === false 
       };
       if (Type.isArray(value)) {
         return value;
@@ -266,7 +266,7 @@ var inlite = (function (domGlobals) {
     };
     var getToolbarItemsOr = function (predicate) {
       return function (editor, name, defaultValue) {
-        var value = name in editor.settings ? editor.settings[name] : defaultValue;
+        var value = name in editor.settings 
         validDefaultOrDie(defaultValue, predicate);
         return itemsToArray(value, defaultValue);
       };
@@ -300,8 +300,8 @@ var inlite = (function (domGlobals) {
       var paddedContentRect = {
         x: contentAreaRect.x,
         y: contentAreaRect.y,
-        w: contentAreaRect.w + (contentAreaRect.w < panelRect.w + targetRect.w ? panelRect.w : 0),
-        h: contentAreaRect.h + (contentAreaRect.h < panelRect.h + targetRect.h ? panelRect.h : 0)
+        w: contentAreaRect.w + (contentAreaRect.w < panelRect.w + targetRect.w 
+        h: contentAreaRect.h + (contentAreaRect.h < panelRect.h + targetRect.h 
       };
       relPos = global$6.findBestRelativePosition(panelRect, targetRect, paddedContentRect, testPositions1);
       targetRect = global$6.clamp(targetRect, paddedContentRect);
@@ -377,7 +377,7 @@ var inlite = (function (domGlobals) {
     };
     var urlFromName = function (name) {
       var prefix = global$5.baseURL + '/skins/';
-      return name ? prefix + name : prefix + 'lightgray';
+      return name 'lightgray';
     };
     var getTextSelectionToolbarItems = function (editor) {
       return EditorSettings.getToolbarItemsOr(editor, 'selection_toolbar', [
@@ -401,7 +401,7 @@ var inlite = (function (domGlobals) {
     };
     var getSkinUrl = function (editor) {
       var settings = editor.settings;
-      return settings.skin_url ? toAbsoluteUrl(editor, settings.skin_url) : urlFromName(settings.skin);
+      return settings.skin_url 
     };
     var isSkinDisabled = function (editor) {
       return editor.settings.skin === false;
@@ -458,7 +458,7 @@ var inlite = (function (domGlobals) {
     var getToolbars = function (editor) {
       var contextToolbars = editor.contextToolbars;
       return DeepFlatten.flatten([
-        contextToolbars ? contextToolbars : [],
+        contextToolbars 
         createToolbar(editor, 'img', 'image', 'alignleft aligncenter alignright')
       ]);
     };
@@ -472,7 +472,7 @@ var inlite = (function (domGlobals) {
         SelectionMatcher.emptyTextBlock(elements, 'insert'),
         ElementMatcher.parent(elements, contextToolbarsPredicateIds)
       ]);
-      return result && result.rect ? result : null;
+      return result && result.rect 
     };
     var editorHasFocus = function (editor) {
       return domGlobals.document.activeElement === editor.getBody();
@@ -546,7 +546,7 @@ var inlite = (function (domGlobals) {
       throw new Error(message);
     };
     var renderUI = function (editor, panel) {
-      return editor.inline ? renderInlineUI(editor, panel) : fail('inlite theme only supports inline mode.');
+      return editor.inline 'inlite theme only supports inline mode.');
     };
     var Render = { renderUI: renderUI };
 
@@ -641,7 +641,7 @@ var inlite = (function (domGlobals) {
         exists: bind,
         forall: bind,
         filter: function (f) {
-          return f(a) ? me : NONE;
+          return f(a) 
         },
         toArray: function () {
           return [a];
@@ -661,7 +661,7 @@ var inlite = (function (domGlobals) {
       return me;
     };
     var from = function (value) {
-      return value === null || value === undefined ? NONE : some(value);
+      return value === null || value === undefined 
     };
     var Option = {
       some: some,
@@ -699,7 +699,7 @@ var inlite = (function (domGlobals) {
     };
     var indexOf = function (xs, x) {
       var r = rawIndexOf(xs, x);
-      return r === -1 ? Option.none() : Option.some(r);
+      return r === -1 
     };
     var exists = function (xs, pred) {
       for (var i = 0, len = xs.length; i < len; i++) {
@@ -760,7 +760,7 @@ var inlite = (function (domGlobals) {
       }
       return r;
     };
-    var from$1 = isFunction$1(Array.from) ? Array.from : function (x) {
+    var from$1 = isFunction$1(Array.from) 
       return nativeSlice.call(x);
     };
 
@@ -808,7 +808,7 @@ var inlite = (function (domGlobals) {
         return global$2.DOM.getPos(elm, root || funcs.getContainer());
       },
       getContainer: function () {
-        return global$1.container ? global$1.container : domGlobals.document.body;
+        return global$1.container 
       },
       getViewPort: function (win) {
         return global$2.DOM.getViewPort(win);
@@ -905,7 +905,7 @@ var inlite = (function (domGlobals) {
         }
         function getSide(name) {
           var val = parseFloat(getStyle(name));
-          return isNaN(val) ? 0 : val;
+          return isNaN(val) 
         }
         return {
           top: getSide(prefix + 'TopWidth'),
@@ -998,8 +998,8 @@ var inlite = (function (domGlobals) {
       }
       return uniqueItems;
     }
-    var expression = /^([\w\\*]+)?(?:#([\w\-\\]+))?(?:\.([\w\\\.]+))?(?:\[\@?([\w\\]+)([\^\$\*!~]?=)([\w\\]+)\])?(?:\:(.+))?/i;
-    var chunker = /((?:\((?:\([^()]+\)|[^()]+)+\)|\[(?:\[[^\[\]]*\]|['"][^'"]*['"]|[^\[\]'"]+)+\]|\\.|[^ >+~,(\[\\]+)+|[>+~])(\s*,\s*)?((?:.|\r|\n)*)/g;
+    var expression = /^([\w\\*]+)
+    var chunker = /(('"][^'"]*['"]|[^\[\]'"]+)+\]|\\.|[^ >+~,(\[\\]+)+|[>+~])(\s*,\s*)
     var whiteSpace = /^\s*|\s*$/g;
     var Collection;
     var Selector = global$8.extend({
@@ -1037,19 +1037,19 @@ var inlite = (function (domGlobals) {
         function compileAttrFilter(name, cmp, check) {
           if (name) {
             return function (item) {
-              var value = item[name] ? item[name]() : '';
-              return !cmp ? !!check : cmp === '=' ? value === check : cmp === '*=' ? value.indexOf(check) >= 0 : cmp === '~=' ? (' ' + value + ' ').indexOf(' ' + check + ' ') >= 0 : cmp === '!=' ? value !== check : cmp === '^=' ? value.indexOf(check) === 0 : cmp === '$=' ? value.substr(value.length - check.length) === check : false;
+              var value = item[name] '';
+              return !cmp '=' '*=' '~=' ' ' + value + ' ').indexOf(' ' + check + ' ') >= 0 : cmp === '!=' '^=' '$=' 
             };
           }
         }
         function compilePsuedoFilter(name) {
           var notSelectors;
           if (name) {
-            name = /(?:not\((.+)\))|(.+)/i.exec(name);
+            name = /(
             if (!name[1]) {
               name = name[2];
               return function (item, index, length) {
-                return name === 'first' ? index === 0 : name === 'last' ? index === length - 1 : name === 'even' ? index % 2 === 0 : name === 'odd' ? index % 2 === 1 : item[name] ? item[name]() : false;
+                return name === 'first' 'last' 'even' 'odd' 
               };
             }
             notSelectors = parseChunks(name[1], []);
@@ -1250,7 +1250,7 @@ var inlite = (function (domGlobals) {
         return new Collection$1(slice.apply(this, arguments));
       },
       eq: function (index) {
-        return index === -1 ? this.slice(index) : this.slice(index, +index + 1);
+        return index === -1 
       },
       each: function (callback) {
         global$4.each(this, callback);
@@ -1273,7 +1273,7 @@ var inlite = (function (domGlobals) {
         return new Collection$1(global$4.toArray(this).reverse());
       },
       hasClass: function (cls) {
-        return this[0] ? this[0].classes.contains(cls) : false;
+        return this[0] 
       },
       prop: function (name, value) {
         var self = this;
@@ -1520,7 +1520,7 @@ var inlite = (function (domGlobals) {
       ctrl.getRoot().uiContainer = uiContainer;
     };
     var getUiContainer = function (ctrl) {
-      return ctrl ? ctrl.getRoot().uiContainer : null;
+      return ctrl 
     };
     var inheritUiContainer = function (fromCtrl, toCtrl) {
       return toCtrl.uiContainer = getUiContainer(fromCtrl);
@@ -1601,7 +1601,7 @@ var inlite = (function (domGlobals) {
       Properties: 'parent,name',
       getContainerElm: function () {
         var uiContainer = UiContainer.getUiContainer(this);
-        return uiContainer ? uiContainer : funcs.getContainer();
+        return uiContainer 
       },
       getParentCtrl: function (elm) {
         var ctrl;
@@ -1633,7 +1633,7 @@ var inlite = (function (domGlobals) {
         width = settings.width;
         height = settings.height;
         autoResize = settings.autoResize;
-        autoResize = typeof autoResize !== 'undefined' ? autoResize : !width && !height;
+        autoResize = typeof autoResize !== 'undefined' 
         width = width || minWidth;
         height = height || minHeight;
         var deltaW = borderBox.left + borderBox.right;
@@ -1686,29 +1686,29 @@ var inlite = (function (domGlobals) {
           }
           size = newRect.w;
           if (size !== undefined) {
-            size = size < curRect.minW ? curRect.minW : size;
-            size = size > curRect.maxW ? curRect.maxW : size;
+            size = size < curRect.minW 
+            size = size > curRect.maxW 
             curRect.w = size;
             curRect.innerW = size - deltaWidth;
           }
           size = newRect.h;
           if (size !== undefined) {
-            size = size < curRect.minH ? curRect.minH : size;
-            size = size > curRect.maxH ? curRect.maxH : size;
+            size = size < curRect.minH 
+            size = size > curRect.maxH 
             curRect.h = size;
             curRect.innerH = size - deltaHeight;
           }
           size = newRect.innerW;
           if (size !== undefined) {
-            size = size < curRect.minW - deltaWidth ? curRect.minW - deltaWidth : size;
-            size = size > curRect.maxW - deltaWidth ? curRect.maxW - deltaWidth : size;
+            size = size < curRect.minW - deltaWidth 
+            size = size > curRect.maxW - deltaWidth 
             curRect.innerW = size;
             curRect.w = size + deltaWidth;
           }
           size = newRect.innerH;
           if (size !== undefined) {
-            size = size < curRect.minH - deltaHeight ? curRect.minH - deltaHeight : size;
-            size = size > curRect.maxH - deltaHeight ? curRect.maxH - deltaHeight : size;
+            size = size < curRect.minH - deltaHeight 
+            size = size > curRect.maxH - deltaHeight 
             curRect.innerH = size;
             curRect.h = size + deltaHeight;
           }
@@ -1740,7 +1740,7 @@ var inlite = (function (domGlobals) {
         var self = this;
         var style, bodyStyle, bodyElm, rect, borderBox;
         var borderW, borderH, lastRepaintRect, round, value;
-        round = !domGlobals.document.createRange ? Math.round : function (value) {
+        round = !domGlobals.document.createRange 
           return value;
         };
         style = self.getEl().style;
@@ -1759,12 +1759,12 @@ var inlite = (function (domGlobals) {
         }
         if (rect.w !== lastRepaintRect.w) {
           value = round(rect.w - borderW);
-          style.width = (value >= 0 ? value : 0) + 'px';
+          style.width = (value >= 0 'px';
           lastRepaintRect.w = rect.w;
         }
         if (rect.h !== lastRepaintRect.h) {
           value = round(rect.h - borderH);
-          style.height = (value >= 0 ? value : 0) + 'px';
+          style.height = (value >= 0 'px';
           lastRepaintRect.h = rect.h;
         }
         if (self._hasBody && rect.innerW !== lastRepaintRect.innerW) {
@@ -1772,7 +1772,7 @@ var inlite = (function (domGlobals) {
           bodyElm = self.getEl('body');
           if (bodyElm) {
             bodyStyle = bodyElm.style;
-            bodyStyle.width = (value >= 0 ? value : 0) + 'px';
+            bodyStyle.width = (value >= 0 'px';
           }
           lastRepaintRect.innerW = rect.innerW;
         }
@@ -1781,7 +1781,7 @@ var inlite = (function (domGlobals) {
           bodyElm = bodyElm || self.getEl('body');
           if (bodyElm) {
             bodyStyle = bodyStyle || bodyElm.style;
-            bodyStyle.height = (value >= 0 ? value : 0) + 'px';
+            bodyStyle.height = (value >= 0 'px';
           }
           lastRepaintRect.innerH = rect.innerH;
         }
@@ -1876,7 +1876,7 @@ var inlite = (function (domGlobals) {
         return this;
       },
       getEl: function (suffix) {
-        var id = suffix ? this._id + '-' + suffix : this._id;
+        var id = suffix '-' + suffix : this._id;
         if (!this._elmCache[id]) {
           this._elmCache[id] = global$7('#' + id)[0];
         }
@@ -1906,7 +1906,7 @@ var inlite = (function (domGlobals) {
         }
         self._aria[name] = value;
         if (self.state.get('rendered')) {
-          elm.setAttribute(name === 'role' ? name : 'aria-' + name, value);
+          elm.setAttribute(name === 'role' 'aria-' + name, value);
         }
         return self;
       },
@@ -1919,7 +1919,7 @@ var inlite = (function (domGlobals) {
         });
       },
       translate: function (text) {
-        return Control.translate ? Control.translate(text) : text;
+        return Control.translate 
       },
       before: function (items) {
         var self = this, parent = self.parent();
@@ -2043,14 +2043,14 @@ var inlite = (function (domGlobals) {
           var state = e.value;
           var parentCtrl;
           if (self.state.get('rendered')) {
-            self.getEl().style.display = state === false ? 'none' : '';
+            self.getEl().style.display = state === false 'none' : '';
             self.getEl().getBoundingClientRect();
           }
           parentCtrl = self.parent();
           if (parentCtrl) {
             parentCtrl._lastRect = null;
           }
-          self.fire(state ? 'show' : 'hide');
+          self.fire(state 'show' : 'hide');
           ReflowQueue.add(self);
         });
         self.fire('postrender', {}, false);
@@ -2331,7 +2331,7 @@ var inlite = (function (domGlobals) {
     };
     var getViewPortRect = function (ctrl) {
       var customUiContainer = UiContainer.getUiContainer(ctrl);
-      return customUiContainer && !isFixed(ctrl) ? getUiContainerViewPort(customUiContainer) : getWindowViewPort();
+      return customUiContainer && !isFixed(ctrl) 
     };
     var Movable = {
       testMoveRel: function (elm, rels) {
@@ -2370,7 +2370,7 @@ var inlite = (function (domGlobals) {
           }
           if (value + size > max) {
             value = max - size;
-            return value < 0 ? 0 : value;
+            return value < 0 
           }
           return value;
         }
@@ -2551,7 +2551,7 @@ var inlite = (function (domGlobals) {
     });
 
     var updateLiveRegion = function (ctx, text) {
-      ctx.getEl().lastChild.textContent = text + (ctx.progressBar ? ' ' + ctx.progressBar.value() + '%' : '');
+      ctx.getEl().lastChild.textContent = text + (ctx.progressBar ' ' + ctx.progressBar.value() + '%' : '');
     };
     var Notification = Control$1.extend({
       Mixins: [Movable],
@@ -2594,7 +2594,7 @@ var inlite = (function (domGlobals) {
         if (self.icon) {
           icon = '<i class="' + prefix + 'ico' + ' ' + prefix + 'i-' + self.icon + '"></i>';
         }
-        notificationStyle = ' style="max-width: ' + self.maxWidth + 'px;' + (self.color ? 'background-color: ' + self.color + ';"' : '"');
+        notificationStyle = ' style="max-width: ' + self.maxWidth + 'px;' + (self.color 'background-color: ' + self.color + ';"' : '"');
         if (self.closeButton) {
           closeButton = '<button type="button" class="' + prefix + 'close" aria-hidden="true">\xD7</button>';
         }
@@ -2645,7 +2645,7 @@ var inlite = (function (domGlobals) {
 
     function NotificationManagerImpl (editor) {
       var getEditorContainer = function (editor) {
-        return editor.inline ? editor.getElement() : editor.getContentAreaContainer();
+        return editor.inline 
       };
       var getContainerWidth = function () {
         var container = getEditorContainer(editor);
@@ -2715,8 +2715,8 @@ var inlite = (function (domGlobals) {
       clientHeight = max(documentElement.clientHeight, body.clientHeight);
       offsetHeight = max(documentElement.offsetHeight, body.offsetHeight);
       return {
-        width: scrollWidth < offsetWidth ? clientWidth : scrollWidth,
-        height: scrollHeight < offsetHeight ? clientHeight : scrollHeight
+        width: scrollWidth < offsetWidth 
+        height: scrollHeight < offsetHeight 
       };
     }
     function updateWithTouchData(e) {
@@ -2789,7 +2789,7 @@ var inlite = (function (domGlobals) {
     var global$b = tinymce.util.Tools.resolve('tinymce.ui.Factory');
 
     var hasTabstopData = function (elm) {
-      return elm.getAttribute('data-mce-tabstop') ? true : false;
+      return elm.getAttribute('data-mce-tabstop') 
     };
     function KeyboardNavigation (settings) {
       var root = settings.root;
@@ -2942,7 +2942,7 @@ var inlite = (function (domGlobals) {
             elm.focus();
           }
         } else {
-          moveFocus(e.shiftKey ? -1 : 1);
+          moveFocus(e.shiftKey 
         }
       }
       function cancel() {
@@ -3112,7 +3112,7 @@ var inlite = (function (domGlobals) {
                 item = { type: item };
               }
               settings = global$4.extend({}, self.settings.defaults, item);
-              item.type = settings.type = settings.type || item.type || self.settings.defaultType || (settings.defaults ? settings.defaults.type : null);
+              item.type = settings.type = settings.type || item.type || self.settings.defaultType || (settings.defaults 
               item = global$b.create(settings);
             }
             ctrlItems.push(item);
@@ -3184,7 +3184,7 @@ var inlite = (function (domGlobals) {
         var self = this, layout = self._layout, role = this.settings.role;
         self.preRender();
         layout.preRender(self);
-        return '<div id="' + self._id + '" class="' + self.classes + '"' + (role ? ' role="' + this.settings.role + '"' : '') + '>' + '<div id="' + self._id + '-body" class="' + self.bodyClasses + '">' + (self.settings.html || '') + layout.renderHtml(self) + '</div>' + '</div>';
+        return '<div id="' + self._id + '" class="' + self.classes + '"' + (role ' role="' + this.settings.role + '"' : '') + '>' + '<div id="' + self._id + '-body" class="' + self.bodyClasses + '">' + (self.settings.html || '') + layout.renderHtml(self) + '</div>' + '</div>';
       },
       postRender: function () {
         var self = this;
@@ -3277,7 +3277,7 @@ var inlite = (function (domGlobals) {
               containerElm = self.getEl('body');
               scrollThumbElm = self.getEl('scroll' + axisName + 't');
               containerSize = containerElm['client' + sizeName] - margin * 2;
-              containerSize -= hasScrollH && hasScrollV ? scrollBarElm['client' + ax] : 0;
+              containerSize -= hasScrollH && hasScrollV 'client' + ax] : 0;
               scrollSize = containerElm['scroll' + sizeName];
               ratio = containerSize / scrollSize;
               rect = {};
@@ -3312,7 +3312,7 @@ var inlite = (function (domGlobals) {
                 hasScrollH = layoutRect.contentW > layoutRect.innerW;
                 hasScrollV = layoutRect.contentH > layoutRect.innerH;
                 containerSize = self.getEl('body')['client' + sizeName] - margin * 2;
-                containerSize -= hasScrollH && hasScrollV ? self.getEl('scroll' + axisName)['client' + ax] : 0;
+                containerSize -= hasScrollH && hasScrollV 'scroll' + axisName)['client' + ax] : 0;
                 ratio = containerSize / self.getEl('body')['scroll' + sizeName];
                 self.getEl('body')['scroll' + posName] = scrollStart + e['delta' + deltaPosName] / ratio;
               },
@@ -3375,8 +3375,8 @@ var inlite = (function (domGlobals) {
       resizeTo: function (w, h) {
         if (w <= 1 || h <= 1) {
           var rect = funcs.getWindowSize();
-          w = w <= 1 ? w * rect.w : w;
-          h = h <= 1 ? h * rect.h : h;
+          w = w <= 1 
+          h = h <= 1 
         }
         this._layoutRect.autoResize = false;
         return this.layoutRect({
@@ -3569,7 +3569,7 @@ var inlite = (function (domGlobals) {
         });
         if (settings.popover) {
           self._preBodyHtml = '<div class="' + self.classPrefix + 'arrow"></div>';
-          self.classes.add('popover').add('bottom').add(self.isRtl() ? 'end' : 'start');
+          self.classes.add('popover').add('bottom').add(self.isRtl() 'end' : 'start');
         }
         self.aria('label', settings.ariaLabel);
         self.aria('labelledby', self._id);
@@ -3677,7 +3677,7 @@ var inlite = (function (domGlobals) {
       if (contentValue && typeof oldMetaValue !== 'undefined') {
         oldMetaValue = contentValue;
       }
-      viewport.setAttribute('content', state ? noScaleMetaValue : oldMetaValue);
+      viewport.setAttribute('content', state 
     }
     function toggleBodyFullScreenClasses(classPrefix, state) {
       if (checkFullscreenWindows() && state === false) {
@@ -3755,7 +3755,7 @@ var inlite = (function (domGlobals) {
             spacing: 3,
             padding: 10,
             align: 'center',
-            pack: self.isRtl() ? 'start' : 'end',
+            pack: self.isRtl() 'start' : 'end',
             defaults: { type: 'button' },
             items: settings.buttons
           });
@@ -3973,7 +3973,7 @@ var inlite = (function (domGlobals) {
       },
       getContentWindow: function () {
         var ifr = this.getEl().getElementsByTagName('iframe')[0];
-        return ifr ? ifr.contentWindow : null;
+        return ifr 
       }
     });
     handleWindowResize();
@@ -4015,7 +4015,7 @@ var inlite = (function (domGlobals) {
             return {
               type: 'button',
               text: text,
-              subtype: primary ? 'primary' : '',
+              subtype: primary 'primary' : '',
               onClick: function (e) {
                 e.control.parents()[1].close();
                 callback(status);
@@ -4198,10 +4198,10 @@ var inlite = (function (domGlobals) {
     };
     var ThemeApi = { get: get };
 
-    var Global = typeof domGlobals.window !== 'undefined' ? domGlobals.window : Function('return this;')();
+    var Global = typeof domGlobals.window !== 'undefined' 'return this;')();
 
     var path = function (parts, scope) {
-      var o = scope !== undefined && scope !== null ? scope : Global;
+      var o = scope !== undefined && scope !== null 
       for (var i = 0; i < parts.length && o !== undefined && o !== null; ++i) {
         o = o[parts[i]];
       }
@@ -4277,8 +4277,8 @@ var inlite = (function (domGlobals) {
       var bookmark = {};
       function setupEndPoint(start) {
         var offsetNode, container, offset;
-        container = rng[start ? 'startContainer' : 'endContainer'];
-        offset = rng[start ? 'startOffset' : 'endOffset'];
+        container = rng[start 'startContainer' : 'endContainer'];
+        offset = rng[start 'startOffset' : 'endOffset'];
         if (container.nodeType === 1) {
           offsetNode = dom.create('span', { 'data-mce-type': 'bookmark' });
           if (container.hasChildNodes()) {
@@ -4294,8 +4294,8 @@ var inlite = (function (domGlobals) {
           container = offsetNode;
           offset = 0;
         }
-        bookmark[start ? 'startContainer' : 'endContainer'] = container;
-        bookmark[start ? 'startOffset' : 'endOffset'] = offset;
+        bookmark[start 'startContainer' : 'endContainer'] = container;
+        bookmark[start 'startOffset' : 'endOffset'] = offset;
       }
       setupEndPoint(true);
       if (!rng.collapsed) {
@@ -4319,8 +4319,8 @@ var inlite = (function (domGlobals) {
           }
           return -1;
         }
-        container = node = bookmark[start ? 'startContainer' : 'endContainer'];
-        offset = bookmark[start ? 'startOffset' : 'endOffset'];
+        container = node = bookmark[start 'startContainer' : 'endContainer'];
+        offset = bookmark[start 'startOffset' : 'endOffset'];
         if (!container) {
           return;
         }
@@ -4329,8 +4329,8 @@ var inlite = (function (domGlobals) {
           container = container.parentNode;
           dom.remove(node);
         }
-        bookmark[start ? 'startContainer' : 'endContainer'] = container;
-        bookmark[start ? 'startOffset' : 'endOffset'] = offset;
+        bookmark[start 'startContainer' : 'endContainer'] = container;
+        bookmark[start 'startOffset' : 'endOffset'] = offset;
       }
       restoreEndPoint(true);
       restoreEndPoint();
@@ -4379,7 +4379,7 @@ var inlite = (function (domGlobals) {
     };
     var getParentAnchorOrSelf = function (dom, elm) {
       var anchorElm = dom.getParent(elm, isLink);
-      return anchorElm ? anchorElm : elm;
+      return anchorElm 
     };
     var getSelectedAnchors = function (editor) {
       var startElm, endElm, rootElm, anchorElms, selection, dom, rng;
@@ -4427,7 +4427,7 @@ var inlite = (function (domGlobals) {
       });
     };
     var insertTable = function (editor, cols, rows) {
-      editor.plugins.table ? editor.plugins.table.insertTable(cols, rows) : insertTableHtml(editor, cols, rows);
+      editor.plugins.table 
     };
     var formatBlock = function (editor, formatName) {
       editor.execCommand('FormatBlock', false, formatName);
@@ -4458,10 +4458,10 @@ var inlite = (function (domGlobals) {
     };
     var updateOrInsertLink = function (editor, url) {
       var elm = editor.dom.getParent(editor.selection.getStart(), 'a[href]');
-      elm ? changeHref(editor, elm, url) : insertLink(editor, url);
+      elm 
     };
     var createLink = function (editor, url) {
-      url.trim().length === 0 ? unlink(editor) : updateOrInsertLink(editor, url);
+      url.trim().length === 0 
     };
     var Actions = {
       insertTable: insertTable,
@@ -4544,7 +4544,7 @@ var inlite = (function (domGlobals) {
       return /^www\.|\.(com|org|edu|gov|uk|net|ca|de|jp|fr|au|us|ru|ch|it|nl|se|no|es|mil)$/i.test(href.trim());
     };
     var isAbsolute = function (href) {
-      return /^https?:\/\//.test(href.trim());
+      return /^https
     };
     var UrlType = {
       isDomainLike: isDomainLike,
@@ -4571,18 +4571,18 @@ var inlite = (function (domGlobals) {
       return form;
     };
     var toggleVisibility = function (ctrl, state) {
-      return state ? ctrl.show() : ctrl.hide();
+      return state 
     };
     var askAboutPrefix = function (editor, href) {
       return new global$c(function (resolve) {
-        editor.windowManager.confirm('The URL you entered seems to be an external link. Do you want to add the required http:// prefix?', function (result) {
-          var output = result === true ? 'http://' + href : href;
+        editor.windowManager.confirm('The URL you entered seems to be an external link. Do you want to add the required http:// prefix', function (result) {
+          var output = result === true 'http://' + href : href;
           resolve(output);
         });
       });
     };
     var convertLinkToAbsolute = function (editor, href) {
-      return !UrlType.isAbsolute(href) && UrlType.isDomainLike(href) ? askAboutPrefix(editor, href) : global$c.resolve(href);
+      return !UrlType.isAbsolute(href) && UrlType.isDomainLike(href) 
     };
     var createQuickLinkForm = function (editor, hide) {
       var attachState = {};
@@ -4771,7 +4771,7 @@ var inlite = (function (domGlobals) {
         panel.moveTo(pos.x, pos.y);
       };
       var togglePositionClass = function (panel, relPos) {
-        relPos = relPos ? relPos.substr(0, 2) : '';
+        relPos = relPos '';
         global$4.each({
           t: 'down',
           b: 'up',
@@ -5044,7 +5044,7 @@ var inlite = (function (domGlobals) {
         if (image) {
           icon = 'none';
           if (typeof image !== 'string') {
-            image = domGlobals.window.getSelection ? image[0] : image[1];
+            image = domGlobals.window.getSelection 
           }
           image = ' style="background-image: url(\'' + image + '\')"';
         } else {
@@ -5054,9 +5054,9 @@ var inlite = (function (domGlobals) {
           self.classes.add('btn-has-text');
           textHtml = '<span class="' + prefix + 'txt">' + self.encode(text) + '</span>';
         }
-        icon = icon ? prefix + 'ico ' + prefix + 'i-' + icon : '';
-        ariaPressed = typeof settings.active === 'boolean' ? ' aria-pressed="' + settings.active + '"' : '';
-        return '<div id="' + id + '" class="' + self.classes + '" tabindex="-1"' + ariaPressed + '>' + '<button id="' + id + '-button" role="presentation" type="button" tabindex="-1">' + (icon ? '<i class="' + icon + '"' + image + '></i>' : '') + textHtml + '</button>' + '</div>';
+        icon = icon 'ico ' + prefix + 'i-' + icon : '';
+        ariaPressed = typeof settings.active === 'boolean' ' aria-pressed="' + settings.active + '"' : '';
+        return '<div id="' + id + '" class="' + self.classes + '" tabindex="-1"' + ariaPressed + '>' + '<button id="' + id + '-button" role="presentation" type="button" tabindex="-1">' + (icon '<i class="' + icon + '"' + image + '></i>' : '') + textHtml + '</button>' + '</div>';
       },
       bindStates: function () {
         var self = this, $ = self.$, textCls = self.classPrefix + 'txt';
@@ -5080,7 +5080,7 @@ var inlite = (function (domGlobals) {
           var icon = e.value;
           var prefix = self.classPrefix;
           self.settings.icon = icon;
-          icon = icon ? prefix + 'ico ' + prefix + 'i-' + self.settings.icon : '';
+          icon = icon 'ico ' + prefix + 'i-' + self.settings.icon : '';
           var btnElm = self.getEl().firstChild;
           var iconElm = btnElm.getElementsByTagName('i')[0];
           if (icon) {
@@ -5224,7 +5224,7 @@ var inlite = (function (domGlobals) {
             return self.settings.icon;
           }
           self.settings.icon = icon;
-          icon = icon ? prefix + 'ico ' + prefix + 'i-' + self.settings.icon : '';
+          icon = icon 'ico ' + prefix + 'i-' + self.settings.icon : '';
           var btnElm = self.getEl().firstChild;
           var iconElm = btnElm.getElementsByTagName('i')[0];
           if (icon) {
@@ -5367,7 +5367,7 @@ var inlite = (function (domGlobals) {
         }
         self.menu.show();
         self.menu.layoutRect({ w: self.layoutRect().w });
-        self.menu.moveRel(self.getEl(), self.isRtl() ? [
+        self.menu.moveRel(self.getEl(), self.isRtl() 
           'br-tr',
           'tr-br'
         ] : [
@@ -5435,7 +5435,7 @@ var inlite = (function (domGlobals) {
         }
         text = self.state.get('text');
         if (icon || text) {
-          openBtnHtml = '<div id="' + id + '-open" class="' + prefix + 'btn ' + prefix + 'open" tabIndex="-1" role="button">' + '<button id="' + id + '-action" type="button" hidefocus="1" tabindex="-1">' + (icon !== 'caret' ? '<i class="' + icon + '"></i>' : '<i class="' + prefix + 'caret"></i>') + (text ? (icon ? ' ' : '') + text : '') + '</button>' + '</div>';
+          openBtnHtml = '<div id="' + id + '-open" class="' + prefix + 'btn ' + prefix + 'open" tabIndex="-1" role="button">' + '<button id="' + id + '-action" type="button" hidefocus="1" tabindex="-1">' + (icon !== 'caret' '<i class="' + icon + '"></i>' : '<i class="' + prefix + 'caret"></i>') + (text ' ' : '') + text : '') + '</button>' + '</div>';
           self.classes.add('has-open');
         }
         return '<div id="' + id + '" class="' + self.classes + '">' + '<input id="' + id + '-inp" class="' + prefix + 'textbox" value="' + self.encode(value, false) + '" hidefocus="1"' + extraAttrs + ' placeholder="' + self.encode(settings.placeholder) + '" />' + statusHtml + openBtnHtml + '</div>';
@@ -5503,7 +5503,7 @@ var inlite = (function (domGlobals) {
         self.menu.repaint();
         self.menu.reflow();
         self.menu.show();
-        self.menu.moveRel(self.getEl(), self.isRtl() ? [
+        self.menu.moveRel(self.getEl(), self.isRtl() 
           'br-tr',
           'tr-br'
         ] : [
@@ -5529,7 +5529,7 @@ var inlite = (function (domGlobals) {
         self.state.on('change:statusLevel', function (e) {
           var statusIconElm = self.getEl('status');
           var prefix = self.classPrefix, value = e.value;
-          funcs.css(statusIconElm, 'display', value === 'none' ? 'none' : '');
+          funcs.css(statusIconElm, 'display', value === 'none' 'none' : '');
           funcs.toggleClass(statusIconElm, prefix + 'i-checkmark', value === 'ok');
           funcs.toggleClass(statusIconElm, prefix + 'i-warning', value === 'warn');
           funcs.toggleClass(statusIconElm, prefix + 'i-error', value === 'error');
@@ -5589,7 +5589,7 @@ var inlite = (function (domGlobals) {
       },
       repaintColor: function (value) {
         var openElm = this.getEl('open');
-        var elm = openElm ? openElm.getElementsByTagName('i')[0] : null;
+        var elm = openElm 'i')[0] : null;
         if (elm) {
           try {
             elm.style.background = value;
@@ -5649,7 +5649,7 @@ var inlite = (function (domGlobals) {
           'tc-br',
           'tc-bl'
         ];
-        var rel = self.panel.testMoveRel(self.getEl(), settings.popoverAlign || (self.isRtl() ? rtlRels : ltrRels));
+        var rel = self.panel.testMoveRel(self.getEl(), settings.popoverAlign || (self.isRtl() 
         self.panel.classes.toggle('start', rel.substr(-1) === 'l');
         self.panel.classes.toggle('end', rel.substr(-1) === 'r');
         var isTop = rel.substr(0, 1) === 't';
@@ -5709,14 +5709,14 @@ var inlite = (function (domGlobals) {
       },
       renderHtml: function () {
         var self = this, id = self._id, prefix = self.classPrefix, text = self.state.get('text');
-        var icon = self.settings.icon ? prefix + 'ico ' + prefix + 'i-' + self.settings.icon : '';
-        var image = self.settings.image ? ' style="background-image: url(\'' + self.settings.image + '\')"' : '';
+        var icon = self.settings.icon 'ico ' + prefix + 'i-' + self.settings.icon : '';
+        var image = self.settings.image ' style="background-image: url(\'' + self.settings.image + '\')"' : '';
         var textHtml = '';
         if (text) {
           self.classes.add('btn-has-text');
           textHtml = '<span class="' + prefix + 'txt">' + self.encode(text) + '</span>';
         }
-        return '<div id="' + id + '" class="' + self.classes + '" role="button" tabindex="-1" aria-haspopup="true">' + '<button role="presentation" hidefocus="1" type="button" tabindex="-1">' + (icon ? '<i class="' + icon + '"' + image + '></i>' : '') + '<span id="' + id + '-preview" class="' + prefix + 'preview"></span>' + textHtml + '</button>' + '<button type="button" class="' + prefix + 'open" hidefocus="1" tabindex="-1">' + ' <i class="' + prefix + 'caret"></i>' + '</button>' + '</div>';
+        return '<div id="' + id + '" class="' + self.classes + '" role="button" tabindex="-1" aria-haspopup="true">' + '<button role="presentation" hidefocus="1" type="button" tabindex="-1">' + (icon '<i class="' + icon + '"' + image + '></i>' : '') + '<span id="' + id + '-preview" class="' + prefix + 'preview"></span>' + textHtml + '</button>' + '<button type="button" class="' + prefix + 'open" hidefocus="1" tabindex="-1">' + ' <i class="' + prefix + 'caret"></i>' + '</button>' + '</div>';
       },
       postRender: function () {
         var self = this, onClickHandler = self.settings.onclick;
@@ -5985,7 +5985,7 @@ var inlite = (function (domGlobals) {
         var i, l, html = '';
         var prefix = self.classPrefix;
         for (i = 0, l = parts.length; i < l; i++) {
-          html += (i > 0 ? '<div class="' + prefix + 'divider" aria-hidden="true"> ' + self.settings.delimiter + ' </div>' : '') + '<div role="button" class="' + prefix + 'path-item' + (i === l - 1 ? ' ' + prefix + 'last' : '') + '" data-index="' + i + '" tabindex="-1" id="' + self._id + '-' + i + '" aria-level="' + (i + 1) + '">' + parts[i].name + '</div>';
+          html += (i > 0 '<div class="' + prefix + 'divider" aria-hidden="true"> ' + self.settings.delimiter + ' </div>' : '') + '<div role="button" class="' + prefix + 'path-item' + (i === l - 1 ' ' + prefix + 'last' : '') + '" data-index="' + i + '" tabindex="-1" id="' + self._id + '-' + i + '" aria-level="' + (i + 1) + '">' + parts[i].name + '</div>';
         }
         if (!html) {
           html = '<div class="' + prefix + 'path-item">\xA0</div>';
@@ -6052,7 +6052,7 @@ var inlite = (function (domGlobals) {
         var self = this, layout = self._layout, prefix = self.classPrefix;
         self.classes.add('formitem');
         layout.preRender(self);
-        return '<div id="' + self._id + '" class="' + self.classes + '" hidefocus="1" tabindex="-1">' + (self.settings.title ? '<div id="' + self._id + '-title" class="' + prefix + 'title">' + self.settings.title + '</div>' : '') + '<div id="' + self._id + '-body" class="' + self.bodyClasses + '">' + (self.settings.html || '') + layout.renderHtml(self) + '</div>' + '</div>';
+        return '<div id="' + self._id + '" class="' + self.classes + '" hidefocus="1" tabindex="-1">' + (self.settings.title '<div id="' + self._id + '-title" class="' + prefix + 'title">' + self.settings.title + '</div>' : '') + '<div id="' + self._id + '-body" class="' + self.bodyClasses + '">' + (self.settings.html || '') + layout.renderHtml(self) + '</div>' + '</div>';
       }
     });
 
@@ -6130,7 +6130,7 @@ var inlite = (function (domGlobals) {
           }
           items.filter('formitem').each(function (item) {
             var labelCtrl = item.items()[0], labelWidth = labelCtrl.getEl().clientWidth;
-            maxLabelWidth = labelWidth > maxLabelWidth ? labelWidth : maxLabelWidth;
+            maxLabelWidth = labelWidth > maxLabelWidth 
             labels.push(labelCtrl);
           });
           labelGap = self.settings.labelGap || 0;
@@ -6160,7 +6160,7 @@ var inlite = (function (domGlobals) {
         var self = this, layout = self._layout, prefix = self.classPrefix;
         self.preRender();
         layout.preRender(self);
-        return '<fieldset id="' + self._id + '" class="' + self.classes + '" hidefocus="1" tabindex="-1">' + (self.settings.title ? '<legend id="' + self._id + '-title" class="' + prefix + 'fieldset-title">' + self.settings.title + '</legend>' : '') + '<div id="' + self._id + '-body" class="' + self.bodyClasses + '">' + (self.settings.html || '') + layout.renderHtml(self) + '</div>' + '</fieldset>';
+        return '<fieldset id="' + self._id + '" class="' + self.classes + '" hidefocus="1" tabindex="-1">' + (self.settings.title '<legend id="' + self._id + '-title" class="' + prefix + 'fieldset-title">' + self.settings.title + '</legend>' : '') + '<div id="' + self._id + '-body" class="' + self.bodyClasses + '">' + (self.settings.html || '') + layout.renderHtml(self) + '</div>' + '</fieldset>';
       }
     });
 
@@ -6464,7 +6464,7 @@ var inlite = (function (domGlobals) {
       return str.indexOf(substr) !== -1;
     };
 
-    var normalVersionRegex = /.*?version\/\ ?([0-9]+)\.([0-9]+).*/;
+    var normalVersionRegex = /.*
     var checkContains = function (target) {
       return function (uastring) {
         return contains(uastring, target);
@@ -6473,7 +6473,7 @@ var inlite = (function (domGlobals) {
     var browsers = [
       {
         name: 'Edge',
-        versionRegexes: [/.*?edge\/ ?([0-9]+)\.([0-9]+)$/],
+        versionRegexes: [/.*
         search: function (uastring) {
           return contains(uastring, 'edge/') && contains(uastring, 'chrome') && contains(uastring, 'safari') && contains(uastring, 'applewebkit');
         }
@@ -6481,7 +6481,7 @@ var inlite = (function (domGlobals) {
       {
         name: 'Chrome',
         versionRegexes: [
-          /.*?chrome\/([0-9]+)\.([0-9]+).*/,
+          /.*
           normalVersionRegex
         ],
         search: function (uastring) {
@@ -6491,8 +6491,8 @@ var inlite = (function (domGlobals) {
       {
         name: 'IE',
         versionRegexes: [
-          /.*?msie\ ?([0-9]+)\.([0-9]+).*/,
-          /.*?rv:([0-9]+)\.([0-9]+).*/
+          /.*
+          /.*
         ],
         search: function (uastring) {
           return contains(uastring, 'msie') || contains(uastring, 'trident');
@@ -6502,20 +6502,20 @@ var inlite = (function (domGlobals) {
         name: 'Opera',
         versionRegexes: [
           normalVersionRegex,
-          /.*?opera\/([0-9]+)\.([0-9]+).*/
+          /.*
         ],
         search: checkContains('opera')
       },
       {
         name: 'Firefox',
-        versionRegexes: [/.*?firefox\/\ ?([0-9]+)\.([0-9]+).*/],
+        versionRegexes: [/.*
         search: checkContains('firefox')
       },
       {
         name: 'Safari',
         versionRegexes: [
           normalVersionRegex,
-          /.*?cpu os ([0-9]+)_([0-9]+).*/
+          /.*
         ],
         search: function (uastring) {
           return (contains(uastring, 'safari') || contains(uastring, 'mobile/')) && contains(uastring, 'applewebkit');
@@ -6526,7 +6526,7 @@ var inlite = (function (domGlobals) {
       {
         name: 'Windows',
         search: checkContains('win'),
-        versionRegexes: [/.*?windows\ nt\ ?([0-9]+)\.([0-9]+).*/]
+        versionRegexes: [/.*
       },
       {
         name: 'iOS',
@@ -6534,7 +6534,7 @@ var inlite = (function (domGlobals) {
           return contains(uastring, 'iphone') || contains(uastring, 'ipad');
         },
         versionRegexes: [
-          /.*?version\/\ ?([0-9]+)\.([0-9]+).*/,
+          /.*
           /.*cpu os ([0-9]+)_([0-9]+).*/,
           /.*cpu iphone os ([0-9]+)_([0-9]+).*/
         ]
@@ -6542,12 +6542,12 @@ var inlite = (function (domGlobals) {
       {
         name: 'Android',
         search: checkContains('android'),
-        versionRegexes: [/.*?android\ ?([0-9]+)\.([0-9]+).*/]
+        versionRegexes: [/.*
       },
       {
         name: 'OSX',
         search: checkContains('os x'),
-        versionRegexes: [/.*?os\ x\ ?([0-9]+)_([0-9]+).*/]
+        versionRegexes: [/.*
       },
       {
         name: 'Linux',
@@ -6596,24 +6596,24 @@ var inlite = (function (domGlobals) {
       return dom.nodeType !== ELEMENT$1 && dom.nodeType !== DOCUMENT$1 || dom.childElementCount === 0;
     };
     var all = function (selector, scope) {
-      var base = scope === undefined ? domGlobals.document : scope.dom();
-      return bypassSelector(base) ? [] : map(base.querySelectorAll(selector), Element.fromDom);
+      var base = scope === undefined 
+      return bypassSelector(base) 
     };
     var one = function (selector, scope) {
-      var base = scope === undefined ? domGlobals.document : scope.dom();
-      return bypassSelector(base) ? Option.none() : Option.from(base.querySelector(selector)).map(Element.fromDom);
+      var base = scope === undefined 
+      return bypassSelector(base) 
     };
 
     var regularContains = function (e1, e2) {
       var d1 = e1.dom();
       var d2 = e2.dom();
-      return d1 === d2 ? false : d1.contains(d2);
+      return d1 === d2 
     };
     var ieContains = function (e1, e2) {
       return Node.documentPositionContainedBy(e1.dom(), e2.dom());
     };
     var browser = PlatformDetection$1.detect().browser;
-    var contains$1 = browser.isIE() ? ieContains : regularContains;
+    var contains$1 = browser.isIE() 
 
     var spot = Immutable('element', 'offset');
 
@@ -6664,7 +6664,7 @@ var inlite = (function (domGlobals) {
       return elm.innerText || elm.textContent;
     };
     var getOrGenerateId = function (elm) {
-      return elm.id ? elm.id : generate('h');
+      return elm.id 'h');
     };
     var isAnchor = function (elm) {
       return elm && elm.nodeName === 'A' && (elm.id || elm.name);
@@ -6682,7 +6682,7 @@ var inlite = (function (domGlobals) {
       return isHeader(elm) && isEditable(elm);
     };
     var getLevel = function (elm) {
-      return isHeader(elm) ? parseInt(elm.nodeName.substr(1), 10) : 0;
+      return isHeader(elm) 
     };
     var headerTarget = function (elm) {
       var headerId = getOrGenerateId(elm);
@@ -6694,7 +6694,7 @@ var inlite = (function (domGlobals) {
     var anchorTarget = function (elm) {
       var anchorId = elm.id || elm.name;
       var anchorText = getElementText(elm);
-      return create$4('anchor', anchorText ? anchorText : '#' + anchorId, '#' + anchorId, 0, noop);
+      return create$4('anchor', anchorText '#' + anchorId, '#' + anchorId, 0, noop);
     };
     var getHeaderTargets = function (elms) {
       return map(filter(elms, isValidHeader), headerTarget);
@@ -6716,7 +6716,7 @@ var inlite = (function (domGlobals) {
     var LinkTargets = { find: find$2 };
 
     var getActiveEditor = function () {
-      return window.tinymce ? window.tinymce.activeEditor : global$5.activeEditor;
+      return window.tinymce 
     };
     var history = {};
     var HISTORY_LENGTH = 5;
@@ -6753,13 +6753,13 @@ var inlite = (function (domGlobals) {
       return !foundTarget;
     };
     var getSetting = function (editorSettings, name, defaultValue) {
-      var value = name in editorSettings ? editorSettings[name] : defaultValue;
-      return value === false ? null : value;
+      var value = name in editorSettings 
+      return value === false 
     };
     var createMenuItems = function (term, targets, fileType, editorSettings) {
       var separator = { title: '-' };
       var fromHistoryMenuItems = function (history) {
-        var historyItems = history.hasOwnProperty(fileType) ? history[fileType] : [];
+        var historyItems = history.hasOwnProperty(fileType) 
         var uniqueHistory = filter(historyItems, function (url) {
           return isUniqueUrl(url, targets);
         });
@@ -6795,13 +6795,13 @@ var inlite = (function (domGlobals) {
       var join = function (items) {
         return foldl(items, function (a, b) {
           var bothEmpty = a.length === 0 || b.length === 0;
-          return bothEmpty ? a.concat(b) : a.concat(separator, b);
+          return bothEmpty 
         }, []);
       };
       if (editorSettings.typeahead_urls === false) {
         return [];
       }
-      return fileType === 'file' ? join([
+      return fileType === 'file' 
         filterByQuery(term, fromHistoryMenuItems(history)),
         filterByQuery(term, fromMenuItems('header')),
         filterByQuery(term, anchorMenuItems())
@@ -6809,7 +6809,7 @@ var inlite = (function (domGlobals) {
     };
     var addToHistory = function (url, fileType) {
       var items = history[fileType];
-      if (!/^https?/.test(url)) {
+      if (!/^https
         return;
       }
       if (items) {
@@ -6825,11 +6825,11 @@ var inlite = (function (domGlobals) {
       var result = global$4.grep(menuItems, function (item) {
         return item.title.toLowerCase().indexOf(lowerCaseTerm) !== -1;
       });
-      return result.length === 1 && result[0].title === term ? [] : result;
+      return result.length === 1 && result[0].title === term 
     };
     var getTitle = function (linkDetails) {
       var title = linkDetails.title;
-      return title.raw ? title.raw : title;
+      return title.raw 
     };
     var setupAutoCompleteHandler = function (ctrl, editorSettings, bodyElm, fileType) {
       var autocomplete = function (term) {
@@ -6992,9 +6992,9 @@ var inlite = (function (domGlobals) {
         contLayoutRect = container.layoutRect();
         contPaddingBox = container.paddingBox;
         contSettings = container.settings;
-        direction = container.isRtl() ? contSettings.direction || 'row-reversed' : contSettings.direction;
+        direction = container.isRtl() 'row-reversed' : contSettings.direction;
         align = contSettings.align;
-        pack = container.isRtl() ? contSettings.pack || 'end' : contSettings.pack;
+        pack = container.isRtl() 'end' : contSettings.pack;
         spacing = contSettings.spacing || 0;
         if (direction === 'row-reversed' || direction === 'column-reverse') {
           items = items.set(items.toArray().reverse());
@@ -7042,7 +7042,7 @@ var inlite = (function (domGlobals) {
           ctrlLayoutRect = ctrl.layoutRect();
           ctrlSettings = ctrl.settings;
           flex = ctrlSettings.flex;
-          availableSpace -= i < l - 1 ? spacing : 0;
+          availableSpace -= i < l - 1 
           if (flex > 0) {
             totalFlex += flex;
             if (ctrlLayoutRect[maxSizeName]) {
@@ -7279,10 +7279,10 @@ var inlite = (function (domGlobals) {
     var Align = { register: register };
 
     var getFirstFont = function (fontFamily) {
-      return fontFamily ? fontFamily.split(',')[0] : '';
+      return fontFamily ',')[0] : '';
     };
     var findMatchingValue = function (items, fontFamily) {
-      var font = fontFamily ? fontFamily.toLowerCase() : '';
+      var font = fontFamily '';
       var value;
       global$4.each(items, function (item) {
         if (item.value.toLowerCase() === font) {
@@ -7303,7 +7303,7 @@ var inlite = (function (domGlobals) {
         editor.on('init nodeChange', function (e) {
           var fontFamily = editor.queryCommandValue('FontName');
           var match = findMatchingValue(items, fontFamily);
-          self.value(match ? match : null);
+          self.value(match 
           if (!match && fontFamily) {
             self.text(getFirstFont(fontFamily));
           }
@@ -7325,7 +7325,7 @@ var inlite = (function (domGlobals) {
         return {
           text: { raw: font[0] },
           value: font[1],
-          textStyle: font[1].indexOf('dings') === -1 ? 'font-family:' + font[1] : ''
+          textStyle: font[1].indexOf('dings') === -1 'font-family:' + font[1] : ''
         };
       });
     };
@@ -7385,7 +7385,7 @@ var inlite = (function (domGlobals) {
               match = findMatchingValue$1(items, pt, px);
             }
           }
-          self.value(match ? match : null);
+          self.value(match 
           if (!match) {
             self.text(pt);
           }
@@ -7792,7 +7792,7 @@ var inlite = (function (domGlobals) {
         return name === '|' || name in editor.menuItems;
       });
       return global$4.map(items, function (name) {
-        return name === '|' ? { text: '-' } : editor.menuItems[name];
+        return name === '|' '-' } : editor.menuItems[name];
       });
     };
     var isSeparator = function (menuItem) {
@@ -8029,8 +8029,8 @@ var inlite = (function (domGlobals) {
       return function () {
         var self = this;
         var checkState = function () {
-          var typeFn = type === 'redo' ? 'hasRedo' : 'hasUndo';
-          return editor.undoManager ? editor.undoManager[typeFn]() : false;
+          var typeFn = type === 'redo' 'hasRedo' : 'hasUndo';
+          return editor.undoManager 
         };
         self.disabled(!checkState());
         editor.on('Undo Redo AddUndo TypingUndo ClearUndos SwitchMode', function () {
@@ -8150,7 +8150,7 @@ var inlite = (function (domGlobals) {
         alignH = settings.alignH || settings.align;
         alignV = settings.alignV || settings.align;
         contPaddingBox = container.paddingBox;
-        reverseRows = 'reverseRows' in settings ? settings.reverseRows : container.isRtl();
+        reverseRows = 'reverseRows' in settings 
         if (alignH && typeof alignH === 'string') {
           alignH = [alignH];
         }
@@ -8172,19 +8172,19 @@ var inlite = (function (domGlobals) {
             ctrlLayoutRect = ctrl.layoutRect();
             ctrlMinWidth = ctrlLayoutRect.minW;
             ctrlMinHeight = ctrlLayoutRect.minH;
-            colWidths[x] = ctrlMinWidth > colWidths[x] ? ctrlMinWidth : colWidths[x];
-            rowHeights[y] = ctrlMinHeight > rowHeights[y] ? ctrlMinHeight : rowHeights[y];
+            colWidths[x] = ctrlMinWidth > colWidths[x] 
+            rowHeights[y] = ctrlMinHeight > rowHeights[y] 
           }
         }
         availableWidth = contLayoutRect.innerW - contPaddingBox.left - contPaddingBox.right;
         for (maxX = 0, x = 0; x < cols; x++) {
-          maxX += colWidths[x] + (x > 0 ? spacingH : 0);
-          availableWidth -= (x > 0 ? spacingH : 0) + colWidths[x];
+          maxX += colWidths[x] + (x > 0 
+          availableWidth -= (x > 0 
         }
         availableHeight = contLayoutRect.innerH - contPaddingBox.top - contPaddingBox.bottom;
         for (maxY = 0, y = 0; y < rows; y++) {
-          maxY += rowHeights[y] + (y > 0 ? spacingV : 0);
-          availableHeight -= (y > 0 ? spacingV : 0) + rowHeights[y];
+          maxY += rowHeights[y] + (y > 0 
+          availableHeight -= (y > 0 
         }
         maxX += contPaddingBox.left + contPaddingBox.right;
         maxY += contPaddingBox.top + contPaddingBox.bottom;
@@ -8220,7 +8220,7 @@ var inlite = (function (domGlobals) {
         if (settings.packV === 'start') {
           flexV = 0;
         } else {
-          flexV = availableHeight > 0 ? Math.floor(availableHeight / rows) : 0;
+          flexV = availableHeight > 0 
         }
         var totalFlex = 0;
         var flexWidths = settings.flexWidths;
@@ -8233,7 +8233,7 @@ var inlite = (function (domGlobals) {
         }
         var ratio = availableWidth / totalFlex;
         for (x = 0; x < cols; x++) {
-          colWidths[x] += flexWidths ? flexWidths[x] * ratio : ratio;
+          colWidths[x] += flexWidths 
         }
         posY = contPaddingBox.top;
         for (y = 0; y < rows; y++) {
@@ -8254,7 +8254,7 @@ var inlite = (function (domGlobals) {
             width = Math.max(colWidths[x], ctrlLayoutRect.startMinWidth);
             ctrlLayoutRect.x = posX;
             ctrlLayoutRect.y = posY;
-            align = ctrlSettings.alignH || (alignH ? alignH[x] || alignH[0] : null);
+            align = ctrlSettings.alignH || (alignH 
             if (align === 'center') {
               ctrlLayoutRect.x = posX + width / 2 - ctrlLayoutRect.w / 2;
             } else if (align === 'right') {
@@ -8262,7 +8262,7 @@ var inlite = (function (domGlobals) {
             } else if (align === 'stretch') {
               ctrlLayoutRect.w = width;
             }
-            align = ctrlSettings.alignV || (alignV ? alignV[x] || alignV[0] : null);
+            align = ctrlSettings.alignV || (alignV 
             if (align === 'center') {
               ctrlLayoutRect.y = posY + height / 2 - ctrlLayoutRect.h / 2;
             } else if (align === 'bottom') {
@@ -8387,7 +8387,7 @@ var inlite = (function (domGlobals) {
       renderHtml: function () {
         var self = this;
         var targetCtrl, forName, forId = self.settings.forId;
-        var text = self.settings.html ? self.settings.html : self.encode(self.state.get('text'));
+        var text = self.settings.html 'text'));
         if (!forId && (forName = self.settings.forName)) {
           targetCtrl = self.getRoot().find('#' + forName)[0];
           if (targetCtrl) {
@@ -8395,7 +8395,7 @@ var inlite = (function (domGlobals) {
           }
         }
         if (forId) {
-          return '<label id="' + self._id + '" class="' + self.classes + '"' + (forId ? ' for="' + forId + '"' : '') + '>' + text + '</label>';
+          return '<label id="' + self._id + '" class="' + self.classes + '"' + (forId ' for="' + forId + '"' : '') + '>' + text + '</label>';
         }
         return '<span id="' + self._id + '" class="' + self.classes + '">' + text + '</span>';
       },
@@ -8511,7 +8511,7 @@ var inlite = (function (domGlobals) {
         self.menu.show();
         self.menu.layoutRect({ w: self.layoutRect().w });
         self.menu.repaint();
-        self.menu.moveRel(self.getEl(), self.isRtl() ? [
+        self.menu.moveRel(self.getEl(), self.isRtl() 
           'br-tr',
           'tr-br'
         ] : [
@@ -8548,7 +8548,7 @@ var inlite = (function (domGlobals) {
         if (image) {
           icon = 'none';
           if (typeof image !== 'string') {
-            image = domGlobals.window.getSelection ? image[0] : image[1];
+            image = domGlobals.window.getSelection 
           }
           image = ' style="background-image: url(\'' + image + '\')"';
         } else {
@@ -8558,9 +8558,9 @@ var inlite = (function (domGlobals) {
           self.classes.add('btn-has-text');
           textHtml = '<span class="' + prefix + 'txt">' + self.encode(text) + '</span>';
         }
-        icon = self.settings.icon ? prefix + 'ico ' + prefix + 'i-' + icon : '';
-        self.aria('role', self.parent() instanceof MenuBar ? 'menuitem' : 'button');
-        return '<div id="' + id + '" class="' + self.classes + '" tabindex="-1" aria-labelledby="' + id + '">' + '<button id="' + id + '-open" role="presentation" type="button" tabindex="-1">' + (icon ? '<i class="' + icon + '"' + image + '></i>' : '') + textHtml + ' <i class="' + prefix + 'caret"></i>' + '</button>' + '</div>';
+        icon = self.settings.icon 'ico ' + prefix + 'i-' + icon : '';
+        self.aria('role', self.parent() instanceof MenuBar 'menuitem' : 'button');
+        return '<div id="' + id + '" class="' + self.classes + '" tabindex="-1" aria-labelledby="' + id + '">' + '<button id="' + id + '-open" role="presentation" type="button" tabindex="-1">' + (icon '<i class="' + icon + '"' + image + '></i>' : '') + textHtml + ' <i class="' + prefix + 'caret"></i>' + '</button>' + '</div>';
       },
       postRender: function () {
         var self = this;
@@ -8620,7 +8620,7 @@ var inlite = (function (domGlobals) {
       self.show = function (time, callback) {
         function render() {
           if (state) {
-            global$7(elm).append('<div class="' + classPrefix + 'throbber' + (inline ? ' ' + classPrefix + 'throbber-inline' : '') + '"></div>');
+            global$7(elm).append('<div class="' + classPrefix + 'throbber' + (inline ' ' + classPrefix + 'throbber-inline' : '') + '"></div>');
             if (callback) {
               callback();
             }
@@ -8825,7 +8825,7 @@ var inlite = (function (domGlobals) {
         }
         function valueExists(values) {
           return exists(values, function (a) {
-            return a.menu ? valueExists(a.menu) : a.value === value;
+            return a.menu 
           });
         }
         if (this.settings.values) {
@@ -8984,7 +8984,7 @@ var inlite = (function (domGlobals) {
           }
           menu._parentMenu = parent;
           menu.classes.add('menu-sub');
-          var rel = menu.testMoveRel(self.getEl(), self.isRtl() ? [
+          var rel = menu.testMoveRel(self.getEl(), self.isRtl() 
             'tl-tr',
             'bl-br',
             'tr-tl',
@@ -9047,11 +9047,11 @@ var inlite = (function (domGlobals) {
           return shortcut.join('+');
         }
         function escapeRegExp(str) {
-          return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          return str.replace(/[.*+'\\$&');
         }
         function markMatches(text) {
           var match = settings.match || '';
-          return match ? text.replace(new RegExp(escapeRegExp(match), 'gi'), function (match) {
+          return match 'gi'), function (match) {
             return '!mce~match[' + match + ']mce~match!';
           }) : text;
         }
@@ -9068,10 +9068,10 @@ var inlite = (function (domGlobals) {
           shortcut = convertShortcut(shortcut);
         }
         icon = prefix + 'ico ' + prefix + 'i-' + (self.settings.icon || 'none');
-        iconHtml = text !== '-' ? '<i class="' + icon + '"' + image + '></i>\xA0' : '';
+        iconHtml = text !== '-' '<i class="' + icon + '"' + image + '></i>\xA0' : '';
         text = boldMatches(self.encode(markMatches(text)));
         url = boldMatches(self.encode(markMatches(url)));
-        return '<div id="' + id + '" class="' + self.classes + '" tabindex="-1">' + iconHtml + (text !== '-' ? '<span id="' + id + '-text" class="' + prefix + 'text">' + text + '</span>' : '') + (shortcut ? '<div id="' + id + '-shortcut" class="' + prefix + 'menu-shortcut">' + shortcut + '</div>' : '') + (settings.menu ? '<div class="' + prefix + 'caret"></div>' : '') + (url ? '<div class="' + prefix + 'menu-item-link">' + url + '</div>' : '') + '</div>';
+        return '<div id="' + id + '" class="' + self.classes + '" tabindex="-1">' + iconHtml + (text !== '-' '<span id="' + id + '-text" class="' + prefix + 'text">' + text + '</span>' : '') + (shortcut '<div id="' + id + '-shortcut" class="' + prefix + 'menu-shortcut">' + shortcut + '</div>' : '') + (settings.menu '<div class="' + prefix + 'caret"></div>' : '') + (url '<div class="' + prefix + 'menu-item-link">' + url + '</div>' : '') + '</div>';
       },
       postRender: function () {
         var self = this, settings = self.settings;
@@ -9279,8 +9279,8 @@ var inlite = (function (domGlobals) {
         if (settings.orientation === 'v') {
           self.classes.add('vertical');
         }
-        self._minValue = isNumber$1(settings.minValue) ? settings.minValue : 0;
-        self._maxValue = isNumber$1(settings.maxValue) ? settings.maxValue : 100;
+        self._minValue = isNumber$1(settings.minValue) 
+        self._maxValue = isNumber$1(settings.maxValue) 
         self._initValue = self.state.get('value');
       },
       renderHtml: function () {
@@ -9424,19 +9424,19 @@ var inlite = (function (domGlobals) {
         if (image) {
           icon = 'none';
           if (typeof image !== 'string') {
-            image = domGlobals.window.getSelection ? image[0] : image[1];
+            image = domGlobals.window.getSelection 
           }
           image = ' style="background-image: url(\'' + image + '\')"';
         } else {
           image = '';
         }
-        icon = settings.icon ? prefix + 'ico ' + prefix + 'i-' + icon : '';
+        icon = settings.icon 'ico ' + prefix + 'i-' + icon : '';
         if (text) {
           self.classes.add('btn-has-text');
           textHtml = '<span class="' + prefix + 'txt">' + self.encode(text) + '</span>';
         }
-        ariaPressed = typeof settings.active === 'boolean' ? ' aria-pressed="' + settings.active + '"' : '';
-        return '<div id="' + id + '" class="' + self.classes + '" role="button"' + ariaPressed + ' tabindex="-1">' + '<button type="button" hidefocus="1" tabindex="-1">' + (icon ? '<i class="' + icon + '"' + image + '></i>' : '') + textHtml + '</button>' + '<button type="button" class="' + prefix + 'open" hidefocus="1" tabindex="-1">' + (self._menuBtnText ? (icon ? '\xA0' : '') + self._menuBtnText : '') + ' <i class="' + prefix + 'caret"></i>' + '</button>' + '</div>';
+        ariaPressed = typeof settings.active === 'boolean' ' aria-pressed="' + settings.active + '"' : '';
+        return '<div id="' + id + '" class="' + self.classes + '" role="button"' + ariaPressed + ' tabindex="-1">' + '<button type="button" hidefocus="1" tabindex="-1">' + (icon '<i class="' + icon + '"' + image + '></i>' : '') + textHtml + '</button>' + '<button type="button" class="' + prefix + 'open" hidefocus="1" tabindex="-1">' + (self._menuBtnText '\xA0' : '') + self._menuBtnText : '') + ' <i class="' + prefix + 'caret"></i>' + '</button>' + '</div>';
       },
       postRender: function () {
         var self = this, onClickHandler = self.settings.onclick;
@@ -9531,7 +9531,7 @@ var inlite = (function (domGlobals) {
         var self = this;
         var rect, minW, minH;
         minW = funcs.getSize(self.getEl('head')).width;
-        minW = minW < 0 ? 0 : minW;
+        minW = minW < 0 
         minH = 0;
         self.items().each(function (item) {
           minW = Math.max(minW, item.layoutRect().minW);
@@ -9597,7 +9597,7 @@ var inlite = (function (domGlobals) {
         }
         borderBox = self.borderBox;
         borderW = borderBox.left + borderBox.right + 8;
-        borderH = borderBox.top + borderBox.bottom + (self.settings.multiline ? 8 : 0);
+        borderH = borderBox.top + borderBox.bottom + (self.settings.multiline 
         if (rect.x !== lastRepaintRect.x) {
           style.left = rect.x + 'px';
           lastRepaintRect.x = rect.x;
@@ -9649,7 +9649,7 @@ var inlite = (function (domGlobals) {
         if (settings.subtype) {
           attrs.type = settings.subtype;
         }
-        elm = funcs.create(settings.multiline ? 'textarea' : 'input', attrs);
+        elm = funcs.create(settings.multiline 'textarea' : 'input', attrs);
         elm.value = self.state.get('value');
         elm.className = self.classes.toString();
         return elm.outerHTML;
@@ -9776,7 +9776,7 @@ var inlite = (function (domGlobals) {
     };
 
     Api.registerToFactory();
-    Api.appendTo(window.tinymce ? window.tinymce : {});
+    Api.appendTo(window.tinymce 
     global.add('inlite', function (editor) {
       var panel = create$3();
       FormatControls.setup(editor);

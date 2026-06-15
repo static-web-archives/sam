@@ -94,7 +94,7 @@ const isValidEvent = event => event.button === 0 &&
 
         // Focus the first anchor of the Query block.
         const firstAnchor = `.wp-block-post-template a[href]`;
-        queryRef.querySelector(firstAnchor)?.focus();
+        queryRef.querySelector(firstAnchor)
       }
     }),
     *prefetch() {

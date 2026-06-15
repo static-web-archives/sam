@@ -43,10 +43,10 @@ return $.effects.define( "slide", "show", function( options, done ) {
 		},
 		mode = options.mode,
 		direction = options.direction || "left",
-		ref = ( direction === "up" || direction === "down" ) ? "top" : "left",
+		ref = ( direction === "up" || direction === "down" ) "top" : "left",
 		positiveMotion = ( direction === "up" || direction === "left" ),
 		distance = options.distance ||
-			element[ ref === "top" ? "outerHeight" : "outerWidth" ]( true ),
+			element[ ref === "top" "outerHeight" : "outerWidth" ]( true ),
 		animation = {};
 
 	$.effects.createPlaceholder( element );
@@ -55,7 +55,7 @@ return $.effects.define( "slide", "show", function( options, done ) {
 	startRef = element.position()[ ref ];
 
 	// Define hide animation
-	animation[ ref ] = ( positiveMotion ? -1 : 1 ) * distance + startRef;
+	animation[ ref ] = ( positiveMotion 
 	animation.clip = element.cssClip();
 	animation.clip[ map[ direction ][ 1 ] ] = animation.clip[ map[ direction ][ 0 ] ];
 

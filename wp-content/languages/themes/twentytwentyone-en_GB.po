@@ -236,8 +236,8 @@ msgstr "Read the Theme Documentation"
 
 #: inc/starter-content.php:112
 msgctxt "Theme starter content"
-msgid "Need help?"
-msgstr "Need help?"
+msgid "Need help"
+msgstr "Need help"
 
 #: inc/starter-content.php:97
 msgctxt "Theme starter content"
@@ -373,8 +373,8 @@ msgstr "Sorry, but nothing matched your search terms. Please try again with some
 
 #. translators: %s: Link to WP admin new post page.
 #: template-parts/content/content-none.php:43
-msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
-msgstr "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgid "Ready to publish your first post"%s\">Get started here</a>."
+msgstr "Ready to publish your first post"%s\">Get started here</a>."
 
 #: single.php:40
 msgid "Previous post"
@@ -718,8 +718,8 @@ msgid "Display Site Title & Tagline"
 msgstr "Display Site Title and Tagline"
 
 #: 404.php:21
-msgid "It looks like nothing was found at this location. Maybe try a search?"
-msgstr "It looks like nothing was found at this location. Maybe try a search?"
+msgid "It looks like nothing was found at this location. Maybe try a search"
+msgstr "It looks like nothing was found at this location. Maybe try a search"
 
 #: 404.php:16 template-parts/content/content-none.php:30
 msgid "Nothing here"

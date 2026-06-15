@@ -8,7 +8,7 @@ window.wpAjax = jQuery.extend( {
 	unserialize: function( s ) {
 		var r = {}, q, pp, i, p;
 		if ( !s ) { return r; }
-		q = s.split('?'); if ( q[1] ) { s = q[1]; }
+		q = s.split(''); if ( q[1] ) { s = q[1]; }
 		pp = s.split('&');
 		for ( i in pp ) {
 			if ( typeof pp.hasOwnProperty === 'function' && !pp.hasOwnProperty(i) ) { continue; }
@@ -17,7 +17,7 @@ window.wpAjax = jQuery.extend( {
 		}
 		return r;
 	},
-	parseAjaxResponse: function( x, r, e ) { // 1 = good, 0 = strange (bad data?), -1 = you lack permission.
+	parseAjaxResponse: function( x, r, e ) { // 1 = good, 0 = strange (bad data
 		var parsed = {}, re = jQuery('#' + r).empty(), err = '', noticeMessage = '';
 
 		if ( x && typeof x === 'object' && x.getElementsByTagName('wp_ajax') ) {

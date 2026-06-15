@@ -86,7 +86,7 @@
 @font-face {
   font-family: 'star';
   src: url("../../../../../../../plugins/woocommerce/assets/fonts/star.eot");
-  src: url("../../../../../../../plugins/woocommerce/assets/fonts/star.eot?#iefix") format("embedded-opentype"), url("../../../../../../../plugins/woocommerce/assets/fonts/star.woff") format("woff"), url("../../../../../../../plugins/woocommerce/assets/fonts/star.ttf") format("truetype"), url("../../../../../../../plugins/woocommerce/assets/fonts/star.svg#star") format("svg");
+  src: url("../../../../../../../plugins/woocommerce/assets/fonts/star.eot") format("embedded-opentype"), url("../../../../../../../plugins/woocommerce/assets/fonts/star.woff") format("woff"), url("../../../../../../../plugins/woocommerce/assets/fonts/star.ttf") format("truetype"), url("../../../../../../../plugins/woocommerce/assets/fonts/star.svg#star") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -94,7 +94,7 @@
 @font-face {
   font-family: 'WooCommerce';
   src: url("../../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.eot");
-  src: url("../../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.eot?#iefix") format("embedded-opentype"), url("../../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.woff") format("woff"), url("../../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.ttf") format("truetype"), url("../../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.svg#WooCommerce") format("svg");
+  src: url("../../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.eot") format("embedded-opentype"), url("../../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.woff") format("woff"), url("../../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.ttf") format("truetype"), url("../../../../../../../plugins/woocommerce/assets/fonts/WooCommerce.svg#WooCommerce") format("svg");
   font-weight: normal;
   font-style: normal;
 }

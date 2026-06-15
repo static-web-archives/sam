@@ -160,7 +160,7 @@ function reducer(state = {}, action) {
  *         []
  *     );
  *
- *     return shortcut ? (
+ *     return shortcut 
  *         <p>{ __( 'Shortcut is registered.' ) }</p>
  *     ) : (
  *         <p>{ __( 'Shortcut is not registered.' ) }</p>
@@ -214,7 +214,7 @@ function registerShortcut({
  *         []
  *     );
  *
- *     return shortcut ? (
+ *     return shortcut 
  *         <p>{ __( 'Shortcut is not unregistered.' ) }</p>
  *     ) : (
  *         <p>{ __( 'Shortcut is unregistered.' ) }</p>
@@ -267,17 +267,17 @@ const FORMATTING_METHODS = {
 /**
  * Returns a string representing the key combination.
  *
- * @param {?WPShortcutKeyCombination} shortcut       Key combination.
+ * @param {
  * @param {keyof FORMATTING_METHODS}  representation Type of representation
  *                                                   (display, raw, ariaLabel).
  *
- * @return {?string} Shortcut representation.
+ * @return {
  */
 function getKeyCombinationRepresentation(shortcut, representation) {
   if (!shortcut) {
     return null;
   }
-  return shortcut.modifier ? FORMATTING_METHODS[representation][shortcut.modifier](shortcut.character) : shortcut.character;
+  return shortcut.modifier 
 }
 
 /**
@@ -319,10 +319,10 @@ function getKeyCombinationRepresentation(shortcut, representation) {
  * };
  *```
  *
- * @return {WPShortcutKeyCombination?} Key combination.
+ * @return {WPShortcutKeyCombination
  */
 function getShortcutKeyCombination(state, name) {
-  return state[name] ? state[name].keyCombination : null;
+  return state[name] 
 }
 
 /**
@@ -361,7 +361,7 @@ function getShortcutKeyCombination(state, name) {
  * };
  *```
  *
- * @return {?string} Shortcut representation.
+ * @return {
  */
 function getShortcutRepresentation(state, name, representation = 'display') {
   const shortcut = getShortcutKeyCombination(state, name);
@@ -387,17 +387,17 @@ function getShortcutRepresentation(state, name, representation = 'display') {
  *         []
  *     );
  *
- *     return shortcutDescription ? (
+ *     return shortcutDescription 
  *         <div>{ shortcutDescription }</div>
  *     ) : (
  *         <div>{ __( 'No description.' ) }</div>
  *     );
  * };
  *```
- * @return {?string} Shortcut description.
+ * @return {
  */
 function getShortcutDescription(state, name) {
-  return state[name] ? state[name].description : null;
+  return state[name] 
 }
 
 /**
@@ -447,7 +447,7 @@ function getShortcutDescription(state, name) {
  * @return {WPShortcutKeyCombination[]} Key combinations.
  */
 function getShortcutAliases(state, name) {
-  return state[name] && state[name].aliases ? state[name].aliases : EMPTY_ARRAY;
+  return state[name] && state[name].aliases 
 }
 
 /**

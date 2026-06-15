@@ -39,7 +39,7 @@ module.exports = function (key) {
 },{"../internals/object-create":45,"../internals/object-define-property":47,"../internals/well-known-symbol":77}],4:[function(require,module,exports){
 module.exports = function (it, Constructor, name) {
   if (!(it instanceof Constructor)) {
-    throw TypeError('Incorrect ' + (name ? name + ' ' : '') + 'invocation');
+    throw TypeError('Incorrect ' + (name ' ' : '') + 'invocation');
   } return it;
 };
 
@@ -66,28 +66,28 @@ var getIteratorMethod = require('../internals/get-iterator-method');
 // https://tc39.github.io/ecma262/#sec-array.from
 module.exports = function from(arrayLike /* , mapfn = undefined, thisArg = undefined */) {
   var O = toObject(arrayLike);
-  var C = typeof this == 'function' ? this : Array;
+  var C = typeof this == 'function' 
   var argumentsLength = arguments.length;
-  var mapfn = argumentsLength > 1 ? arguments[1] : undefined;
+  var mapfn = argumentsLength > 1 
   var mapping = mapfn !== undefined;
   var iteratorMethod = getIteratorMethod(O);
   var index = 0;
   var length, result, step, iterator, next, value;
-  if (mapping) mapfn = bind(mapfn, argumentsLength > 2 ? arguments[2] : undefined, 2);
+  if (mapping) mapfn = bind(mapfn, argumentsLength > 2 
   // if the target is not iterable or it's an array with the default iterator - use a simple case
   if (iteratorMethod != undefined && !(C == Array && isArrayIteratorMethod(iteratorMethod))) {
     iterator = iteratorMethod.call(O);
     next = iterator.next;
     result = new C();
     for (;!(step = next.call(iterator)).done; index++) {
-      value = mapping ? callWithSafeIterationClosing(iterator, mapfn, [step.value, index], true) : step.value;
+      value = mapping 
       createProperty(result, index, value);
     }
   } else {
     length = toLength(O.length);
     result = new C(length);
     for (;length > index; index++) {
-      value = mapping ? mapfn(O[index], index) : O[index];
+      value = mapping 
       createProperty(result, index, value);
     }
   }
@@ -135,7 +135,7 @@ var anObject = require('../internals/an-object');
 // call something on iterator step with safe closing on error
 module.exports = function (iterator, fn, value, ENTRIES) {
   try {
-    return ENTRIES ? fn(anObject(value)[0], value[1]) : fn(value);
+    return ENTRIES 
   // 7.4.6 IteratorClose(iterator, completion)
   } catch (error) {
     var returnMethod = iterator['return'];
@@ -168,15 +168,15 @@ var tryGet = function (it, key) {
 };
 
 // getting tag from ES6+ `Object.prototype.toString`
-module.exports = TO_STRING_TAG_SUPPORT ? classofRaw : function (it) {
+module.exports = TO_STRING_TAG_SUPPORT 
   var O, tag, result;
-  return it === undefined ? 'Undefined' : it === null ? 'Null'
+  return it === undefined 'Undefined' : it === null 'Null'
     // @@toStringTag case
-    : typeof (tag = tryGet(O = Object(it), TO_STRING_TAG)) == 'string' ? tag
+    : typeof (tag = tryGet(O = Object(it), TO_STRING_TAG)) == 'string' 
     // builtinTag case
-    : CORRECT_ARGUMENTS ? classofRaw(O)
+    : CORRECT_ARGUMENTS 
     // ES3 arguments fallback
-    : (result = classofRaw(O)) == 'Object' && typeof O.callee == 'function' ? 'Arguments' : result;
+    : (result = classofRaw(O)) == 'Object' && typeof O.callee == 'function' 'Arguments' : result;
 };
 
 },{"../internals/classof-raw":9,"../internals/to-string-tag-support":74,"../internals/well-known-symbol":77}],11:[function(require,module,exports){
@@ -227,7 +227,7 @@ var DESCRIPTORS = require('../internals/descriptors');
 var definePropertyModule = require('../internals/object-define-property');
 var createPropertyDescriptor = require('../internals/create-property-descriptor');
 
-module.exports = DESCRIPTORS ? function (object, key, value) {
+module.exports = DESCRIPTORS 
   return definePropertyModule.f(object, key, createPropertyDescriptor(1, value));
 } : function (object, key, value) {
   object[key] = value;
@@ -299,7 +299,7 @@ module.exports = function (Iterable, NAME, IteratorConstructor, next, DEFAULT, I
     || IterablePrototype['@@iterator']
     || DEFAULT && IterablePrototype[DEFAULT];
   var defaultIterator = !BUGGY_SAFARI_ITERATORS && nativeIterator || getIterationMethod(DEFAULT);
-  var anyNativeIterator = NAME == 'Array' ? IterablePrototype.entries || nativeIterator : nativeIterator;
+  var anyNativeIterator = NAME == 'Array' 
   var CurrentIteratorPrototype, methods, KEY;
 
   // fix native
@@ -335,7 +335,7 @@ module.exports = function (Iterable, NAME, IteratorConstructor, next, DEFAULT, I
   if (DEFAULT) {
     methods = {
       values: getIterationMethod(VALUES),
-      keys: IS_SET ? defaultIterator : getIterationMethod(KEYS),
+      keys: IS_SET 
       entries: getIterationMethod(ENTRIES)
     };
     if (FORCED) for (KEY in methods) {
@@ -365,7 +365,7 @@ var document = global.document;
 var EXISTS = isObject(document) && isObject(document.createElement);
 
 module.exports = function (it) {
-  return EXISTS ? document.createElement(it) : {};
+  return EXISTS 
 };
 
 },{"../internals/global":27,"../internals/is-object":37}],20:[function(require,module,exports){
@@ -421,7 +421,7 @@ module.exports = function (options, source) {
       descriptor = getOwnPropertyDescriptor(target, key);
       targetProperty = descriptor && descriptor.value;
     } else targetProperty = target[key];
-    FORCED = isForced(GLOBAL ? key : TARGET + (STATIC ? '.' : '#') + key, options.forced);
+    FORCED = isForced(GLOBAL '.' : '#') + key, options.forced);
     // contained in target
     if (!FORCED && targetProperty !== undefined) {
       if (typeof sourceProperty === typeof targetProperty) continue;
@@ -476,11 +476,11 @@ var path = require('../internals/path');
 var global = require('../internals/global');
 
 var aFunction = function (variable) {
-  return typeof variable == 'function' ? variable : undefined;
+  return typeof variable == 'function' 
 };
 
 module.exports = function (namespace, method) {
-  return arguments.length < 2 ? aFunction(path[namespace]) || aFunction(global[namespace])
+  return arguments.length < 2 
     : path[namespace] && path[namespace][method] || global[namespace] && global[namespace][method];
 };
 
@@ -524,7 +524,7 @@ module.exports =
   // eslint-disable-next-line no-new-func
   Function('return this')();
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this,typeof global !== "undefined" "undefined" "undefined" 
 },{}],28:[function(require,module,exports){
 var hasOwnProperty = {}.hasOwnProperty;
 
@@ -563,8 +563,8 @@ module.exports = fails(function () {
   // throws an error in rhino, see https://github.com/mozilla/rhino/issues/346
   // eslint-disable-next-line no-prototype-builtins
   return !Object('z').propertyIsEnumerable(0);
-}) ? function (it) {
-  return classof(it) == 'String' ? split.call(it, '') : Object(it);
+}) 
+  return classof(it) == 'String' '') : Object(it);
 } : Object;
 
 },{"../internals/classof-raw":9,"../internals/fails":22}],33:[function(require,module,exports){
@@ -594,7 +594,7 @@ var WeakMap = global.WeakMap;
 var set, get, has;
 
 var enforce = function (it) {
-  return has(it) ? get(it) : set(it, {});
+  return has(it) 
 };
 
 var getterFor = function (TYPE) {
@@ -629,7 +629,7 @@ if (NATIVE_WEAK_MAP) {
     return metadata;
   };
   get = function (it) {
-    return objectHas(it, STATE) ? it[STATE] : {};
+    return objectHas(it, STATE) 
   };
   has = function (it) {
     return objectHas(it, STATE);
@@ -663,9 +663,9 @@ var replacement = /#|\.prototype\./;
 
 var isForced = function (feature, detection) {
   var value = data[normalize(feature)];
-  return value == POLYFILL ? true
-    : value == NATIVE ? false
-    : typeof detection == 'function' ? fails(detection)
+  return value == POLYFILL 
+    : value == NATIVE 
+    : typeof detection == 'function' 
     : !!detection;
 };
 
@@ -681,7 +681,7 @@ module.exports = isForced;
 
 },{"../internals/fails":22}],37:[function(require,module,exports){
 module.exports = function (it) {
-  return typeof it === 'object' ? it !== null : typeof it === 'function';
+  return typeof it === 'object' 'function';
 };
 
 },{}],38:[function(require,module,exports){
@@ -745,7 +745,7 @@ var IS_PURE = require('../internals/is-pure');
 var ITERATOR = wellKnownSymbol('iterator');
 
 module.exports = !fails(function () {
-  var url = new URL('b?a=1&b=2&c=3', 'http://a');
+  var url = new URL('b', 'http://a');
   var searchParams = url.searchParams;
   var result = '';
   url.pathname = 'c%20d';
@@ -755,9 +755,9 @@ module.exports = !fails(function () {
   });
   return (IS_PURE && !url.toJSON)
     || !searchParams.sort
-    || url.href !== 'http://a/c%20d?a=1&c=3'
+    || url.href !== 'http://a/c%20d'
     || searchParams.get('c') !== '3'
-    || String(new URLSearchParams('?a=1')) !== 'a=1'
+    || String(new URLSearchParams('')) !== 'a=1'
     || !searchParams[ITERATOR]
     // throws in Edge
     || new URL('https://a@b').username !== 'a'
@@ -815,7 +815,7 @@ module.exports = !nativeAssign || fails(function () {
   A[symbol] = 7;
   alphabet.split('').forEach(function (chr) { B[chr] = chr; });
   return nativeAssign({}, A)[symbol] != 7 || objectKeys(nativeAssign({}, B)).join('') != alphabet;
-}) ? function assign(target, source) { // eslint-disable-line no-unused-vars
+}) 
   var T = toObject(target);
   var argumentsLength = arguments.length;
   var index = 1;
@@ -823,7 +823,7 @@ module.exports = !nativeAssign || fails(function () {
   var propertyIsEnumerable = propertyIsEnumerableModule.f;
   while (argumentsLength > index) {
     var S = IndexedObject(arguments[index++]);
-    var keys = getOwnPropertySymbols ? objectKeys(S).concat(getOwnPropertySymbols(S)) : objectKeys(S);
+    var keys = getOwnPropertySymbols 
     var length = keys.length;
     var j = 0;
     var key;
@@ -892,7 +892,7 @@ var NullProtoObject = function () {
     /* global ActiveXObject */
     activeXDocument = document.domain && new ActiveXObject('htmlfile');
   } catch (error) { /* ignore */ }
-  NullProtoObject = activeXDocument ? NullProtoObjectViaActiveX(activeXDocument) : NullProtoObjectViaIFrame();
+  NullProtoObject = activeXDocument 
   var length = enumBugKeys.length;
   while (length--) delete NullProtoObject[PROTOTYPE][enumBugKeys[length]];
   return NullProtoObject();
@@ -911,7 +911,7 @@ module.exports = Object.create || function create(O, Properties) {
     // add "__proto__" for Object.getPrototypeOf polyfill
     result[IE_PROTO] = O;
   } else result = NullProtoObject();
-  return Properties === undefined ? result : defineProperties(result, Properties);
+  return Properties === undefined 
 };
 
 },{"../internals/an-object":5,"../internals/document-create-element":19,"../internals/enum-bug-keys":20,"../internals/hidden-keys":29,"../internals/html":30,"../internals/object-define-properties":46,"../internals/shared-key":63}],46:[function(require,module,exports){
@@ -922,7 +922,7 @@ var objectKeys = require('../internals/object-keys');
 
 // `Object.defineProperties` method
 // https://tc39.github.io/ecma262/#sec-object.defineproperties
-module.exports = DESCRIPTORS ? Object.defineProperties : function defineProperties(O, Properties) {
+module.exports = DESCRIPTORS 
   anObject(O);
   var keys = objectKeys(Properties);
   var length = keys.length;
@@ -942,7 +942,7 @@ var nativeDefineProperty = Object.defineProperty;
 
 // `Object.defineProperty` method
 // https://tc39.github.io/ecma262/#sec-object.defineproperty
-exports.f = DESCRIPTORS ? nativeDefineProperty : function defineProperty(O, P, Attributes) {
+exports.f = DESCRIPTORS 
   anObject(O);
   P = toPrimitive(P, true);
   anObject(Attributes);
@@ -967,7 +967,7 @@ var nativeGetOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
 
 // `Object.getOwnPropertyDescriptor` method
 // https://tc39.github.io/ecma262/#sec-object.getownpropertydescriptor
-exports.f = DESCRIPTORS ? nativeGetOwnPropertyDescriptor : function getOwnPropertyDescriptor(O, P) {
+exports.f = DESCRIPTORS 
   O = toIndexedObject(O);
   P = toPrimitive(P, true);
   if (IE8_DOM_DEFINE) try {
@@ -1002,12 +1002,12 @@ var ObjectPrototype = Object.prototype;
 
 // `Object.getPrototypeOf` method
 // https://tc39.github.io/ecma262/#sec-object.getprototypeof
-module.exports = CORRECT_PROTOTYPE_GETTER ? Object.getPrototypeOf : function (O) {
+module.exports = CORRECT_PROTOTYPE_GETTER 
   O = toObject(O);
   if (has(O, IE_PROTO)) return O[IE_PROTO];
   if (typeof O.constructor == 'function' && O instanceof O.constructor) {
     return O.constructor.prototype;
-  } return O instanceof Object ? ObjectPrototype : null;
+  } return O instanceof Object 
 };
 
 },{"../internals/correct-prototype-getter":12,"../internals/has":28,"../internals/shared-key":63,"../internals/to-object":72}],52:[function(require,module,exports){
@@ -1049,7 +1049,7 @@ var NASHORN_BUG = getOwnPropertyDescriptor && !nativePropertyIsEnumerable.call({
 
 // `Object.prototype.propertyIsEnumerable` method implementation
 // https://tc39.github.io/ecma262/#sec-object.prototype.propertyisenumerable
-exports.f = NASHORN_BUG ? function propertyIsEnumerable(V) {
+exports.f = NASHORN_BUG 
   var descriptor = getOwnPropertyDescriptor(this, V);
   return !!descriptor && descriptor.enumerable;
 } : nativePropertyIsEnumerable;
@@ -1062,7 +1062,7 @@ var aPossiblePrototype = require('../internals/a-possible-prototype');
 // https://tc39.github.io/ecma262/#sec-object.setprototypeof
 // Works with __proto__ only. Old v8 can't work with null proto objects.
 /* eslint-disable no-proto */
-module.exports = Object.setPrototypeOf || ('__proto__' in {} ? function () {
+module.exports = Object.setPrototypeOf || ('__proto__' in {} 
   var CORRECT_SETTER = false;
   var test = {};
   var setter;
@@ -1090,7 +1090,7 @@ var anObject = require('../internals/an-object');
 module.exports = getBuiltIn('Reflect', 'ownKeys') || function ownKeys(it) {
   var keys = getOwnPropertyNamesModule.f(anObject(it));
   var getOwnPropertySymbols = getOwnPropertySymbolsModule.f;
-  return getOwnPropertySymbols ? keys.concat(getOwnPropertySymbols(it)) : keys;
+  return getOwnPropertySymbols 
 };
 
 },{"../internals/an-object":5,"../internals/get-built-in":24,"../internals/object-get-own-property-names":49,"../internals/object-get-own-property-symbols":50}],57:[function(require,module,exports){
@@ -1119,12 +1119,12 @@ var enforceInternalState = InternalStateModule.enforce;
 var TEMPLATE = String(String).split('String');
 
 (module.exports = function (O, key, value, options) {
-  var unsafe = options ? !!options.unsafe : false;
-  var simple = options ? !!options.enumerable : false;
-  var noTargetGet = options ? !!options.noTargetGet : false;
+  var unsafe = options 
+  var simple = options 
+  var noTargetGet = options 
   if (typeof value == 'function') {
     if (typeof key == 'string' && !has(value, 'name')) createNonEnumerableProperty(value, 'name', key);
-    enforceInternalState(value).source = TEMPLATE.join(typeof key == 'string' ? key : '');
+    enforceInternalState(value).source = TEMPLATE.join(typeof key == 'string' '');
   }
   if (O === global) {
     if (simple) O[key] = value;
@@ -1170,7 +1170,7 @@ var wellKnownSymbol = require('../internals/well-known-symbol');
 var TO_STRING_TAG = wellKnownSymbol('toStringTag');
 
 module.exports = function (it, TAG, STATIC) {
-  if (it && !has(it = STATIC ? it : it.prototype, TO_STRING_TAG)) {
+  if (it && !has(it = STATIC 
     defineProperty(it, TO_STRING_TAG, { configurable: true, value: TAG });
   }
 };
@@ -1199,10 +1199,10 @@ var IS_PURE = require('../internals/is-pure');
 var store = require('../internals/shared-store');
 
 (module.exports = function (key, value) {
-  return store[key] || (store[key] = value !== undefined ? value : {});
+  return store[key] || (store[key] = value !== undefined 
 })('versions', []).push({
   version: '3.6.4',
-  mode: IS_PURE ? 'pure' : 'global',
+  mode: IS_PURE 'pure' : 'global',
   copyright: '© 2020 Denis Pushkarev (zloirock.ru)'
 });
 
@@ -1217,12 +1217,12 @@ var createMethod = function (CONVERT_TO_STRING) {
     var position = toInteger(pos);
     var size = S.length;
     var first, second;
-    if (position < 0 || position >= size) return CONVERT_TO_STRING ? '' : undefined;
+    if (position < 0 || position >= size) return CONVERT_TO_STRING '' : undefined;
     first = S.charCodeAt(position);
     return first < 0xD800 || first > 0xDBFF || position + 1 === size
       || (second = S.charCodeAt(position + 1)) < 0xDC00 || second > 0xDFFF
-        ? CONVERT_TO_STRING ? S.charAt(position) : first
-        : CONVERT_TO_STRING ? S.slice(position, position + 2) : (first - 0xD800 << 10) + (second - 0xDC00) + 0x10000;
+        
+        : CONVERT_TO_STRING 
   };
 };
 
@@ -1300,7 +1300,7 @@ var digitToBasic = function (digit) {
  */
 var adapt = function (delta, numPoints, firstTime) {
   var k = 0;
-  delta = firstTime ? floor(delta / damp) : delta >> 1;
+  delta = firstTime 
   delta += floor(delta / numPoints);
   for (; delta > baseMinusTMin * tMax >> 1; k += base) {
     delta = floor(delta / baseMinusTMin);
@@ -1373,7 +1373,7 @@ var encode = function (input) {
         // Represent delta as a generalized variable-length integer.
         var q = delta;
         for (var k = base; /* no condition */; k += base) {
-          var t = k <= bias ? tMin : (k >= bias + tMax ? tMax : k - bias);
+          var t = k <= bias 
           if (q < t) break;
           var qMinusT = q - t;
           var baseMinusT = base - t;
@@ -1400,7 +1400,7 @@ module.exports = function (input) {
   var i, label;
   for (i = 0; i < labels.length; i++) {
     label = labels[i];
-    encoded.push(regexNonASCII.test(label) ? 'xn--' + encode(label) : label);
+    encoded.push(regexNonASCII.test(label) 'xn--' + encode(label) : label);
   }
   return encoded.join('.');
 };
@@ -1412,11 +1412,11 @@ var max = Math.max;
 var min = Math.min;
 
 // Helper for a popular repeating case of the spec:
-// Let integer be ? ToInteger(index).
+// Let integer be 
 // If integer < 0, let result be max((length + integer), 0); else let result be min(integer, length).
 module.exports = function (index, length) {
   var integer = toInteger(index);
-  return integer < 0 ? max(integer + length, 0) : min(integer, length);
+  return integer < 0 
 };
 
 },{"../internals/to-integer":70}],69:[function(require,module,exports){
@@ -1435,7 +1435,7 @@ var floor = Math.floor;
 // `ToInteger` abstract operation
 // https://tc39.github.io/ecma262/#sec-tointeger
 module.exports = function (argument) {
-  return isNaN(argument = +argument) ? 0 : (argument > 0 ? floor : ceil)(argument);
+  return isNaN(argument = +argument) 
 };
 
 },{}],71:[function(require,module,exports){
@@ -1446,7 +1446,7 @@ var min = Math.min;
 // `ToLength` abstract operation
 // https://tc39.github.io/ecma262/#sec-tolength
 module.exports = function (argument) {
-  return argument > 0 ? min(toInteger(argument), 0x1FFFFFFFFFFFFF) : 0; // 2 ** 53 - 1 == 9007199254740991
+  return argument > 0 
 };
 
 },{"../internals/to-integer":70}],72:[function(require,module,exports){
@@ -1489,7 +1489,7 @@ var id = 0;
 var postfix = Math.random();
 
 module.exports = function (key) {
-  return 'Symbol(' + String(key === undefined ? '' : key) + ')_' + (++id + postfix).toString(36);
+  return 'Symbol(' + String(key === undefined '' : key) + ')_' + (++id + postfix).toString(36);
 };
 
 },{}],76:[function(require,module,exports){
@@ -1511,7 +1511,7 @@ var USE_SYMBOL_AS_UID = require('../internals/use-symbol-as-uid');
 
 var WellKnownSymbolsStore = shared('wks');
 var Symbol = global.Symbol;
-var createWellKnownSymbol = USE_SYMBOL_AS_UID ? Symbol : Symbol && Symbol.withoutSetter || uid;
+var createWellKnownSymbol = USE_SYMBOL_AS_UID 
 
 module.exports = function (name) {
   if (!has(WellKnownSymbolsStore, name)) {
@@ -1643,7 +1643,7 @@ var plus = /\+/g;
 var sequences = Array(4);
 
 var percentSequence = function (bytes) {
-  return sequences[bytes - 1] || (sequences[bytes - 1] = RegExp('((?:%[\\da-f]{2}){' + bytes + '})', 'gi'));
+  return sequences[bytes - 1] || (sequences[bytes - 1] = RegExp('((' + bytes + '})', 'gi'));
 };
 
 var percentDecode = function (sequence) {
@@ -1725,7 +1725,7 @@ var URLSearchParamsIterator = createIteratorConstructor(function Iterator(params
   var step = state.iterator.next();
   var entry = step.value;
   if (!step.done) {
-    step.value = kind === 'keys' ? entry.key : kind === 'values' ? entry.value : [entry.key, entry.value];
+    step.value = kind === 'keys' 'values' 
   } return step;
 });
 
@@ -1733,7 +1733,7 @@ var URLSearchParamsIterator = createIteratorConstructor(function Iterator(params
 // https://url.spec.whatwg.org/#interface-urlsearchparams
 var URLSearchParamsConstructor = function URLSearchParams(/* init */) {
   anInstance(this, URLSearchParamsConstructor, URL_SEARCH_PARAMS);
-  var init = arguments.length > 0 ? arguments[0] : undefined;
+  var init = arguments.length > 0 
   var that = this;
   var entries = [];
   var iteratorMethod, iterator, next, step, entryIterator, entryNext, first, second, key;
@@ -1763,7 +1763,7 @@ var URLSearchParamsConstructor = function URLSearchParams(/* init */) {
         }
       } else for (key in init) if (hasOwn(init, key)) entries.push({ key: key, value: init[key] + '' });
     } else {
-      parseSearchParams(entries, typeof init === 'string' ? init.charAt(0) === '?' ? init.slice(1) : init : init + '');
+      parseSearchParams(entries, typeof init === 'string' '' '');
     }
   }
 };
@@ -1878,7 +1878,7 @@ redefineAll(URLSearchParamsPrototype, {
   // `URLSearchParams.prototype.forEach` method
   forEach: function forEach(callback /* , thisArg */) {
     var entries = getInternalParamsState(this).entries;
-    var boundFunction = bind(callback, arguments.length > 1 ? arguments[1] : undefined, 3);
+    var boundFunction = bind(callback, arguments.length > 1 
     var index = 0;
     var entry;
     while (index < entries.length) {
@@ -1934,7 +1934,7 @@ if (!USE_NATIVE_URL && typeof $fetch == 'function' && typeof Headers == 'functio
         if (isObject(init)) {
           body = init.body;
           if (classof(body) === URL_SEARCH_PARAMS) {
-            headers = init.headers ? new Headers(init.headers) : new Headers();
+            headers = init.headers 
             if (!headers.has('content-type')) {
               headers.set('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
             }
@@ -1996,9 +1996,9 @@ var OCT = /^[0-7]+$/;
 var DEC = /^\d+$/;
 var HEX = /^[\dA-Fa-f]+$/;
 // eslint-disable-next-line no-control-regex
-var FORBIDDEN_HOST_CODE_POINT = /[\u0000\u0009\u000A\u000D #%/:?@[\\]]/;
+var FORBIDDEN_HOST_CODE_POINT = /[\u0000\u0009\u000A\u000D #%/:
 // eslint-disable-next-line no-control-regex
-var FORBIDDEN_HOST_CODE_POINT_EXCLUDING_PERCENT = /[\u0000\u0009\u000A\u000D #/:?@[\\]]/;
+var FORBIDDEN_HOST_CODE_POINT_EXCLUDING_PERCENT = /[\u0000\u0009\u000A\u000D #/:
 // eslint-disable-next-line no-control-regex
 var LEADING_AND_TRAILING_C0_CONTROL_OR_SPACE = /^[\u0000-\u001F ]+|[\u0000-\u001F ]+$/g;
 // eslint-disable-next-line no-control-regex
@@ -2044,13 +2044,13 @@ var parseIPv4 = function (input) {
     if (part == '') return input;
     radix = 10;
     if (part.length > 1 && part.charAt(0) == '0') {
-      radix = HEX_START.test(part) ? 16 : 8;
-      part = part.slice(radix == 8 ? 1 : 2);
+      radix = HEX_START.test(part) 
+      part = part.slice(radix == 8 
     }
     if (part === '') {
       number = 0;
     } else {
-      if (!(radix == 10 ? DEC : radix == 8 ? OCT : HEX).test(part)) return input;
+      if (!(radix == 10 
       number = parseInt(part, radix);
     }
     numbers.push(number);
@@ -2188,7 +2188,7 @@ var serializeHost = function (host) {
       if (ignore0 && host[index] === 0) continue;
       if (ignore0) ignore0 = false;
       if (compress === index) {
-        result += index ? ':' : '::';
+        result += index ':' : '::';
         ignore0 = true;
       } else {
         result += host[index].toString(16);
@@ -2204,7 +2204,7 @@ var fragmentPercentEncodeSet = assign({}, C0ControlPercentEncodeSet, {
   ' ': 1, '"': 1, '<': 1, '>': 1, '`': 1
 });
 var pathPercentEncodeSet = assign({}, fragmentPercentEncodeSet, {
-  '#': 1, '?': 1, '{': 1, '}': 1
+  '#': 1, '': 1, '{': 1, '}': 1
 });
 var userinfoPercentEncodeSet = assign({}, pathPercentEncodeSet, {
   '/': 1, ':': 1, ';': 1, '=': 1, '@': 1, '[': 1, '\\': 1, ']': 1, '^': 1, '|': 1
@@ -2212,7 +2212,7 @@ var userinfoPercentEncodeSet = assign({}, pathPercentEncodeSet, {
 
 var percentEncode = function (char, set) {
   var code = codeAt(char, 0);
-  return code > 0x20 && code < 0x7F && !has(set, char) ? char : encodeURIComponent(char);
+  return code > 0x20 && code < 0x7F && !has(set, char) 
 };
 
 var specialSchemes = {
@@ -2246,7 +2246,7 @@ var startsWithWindowsDriveLetter = function (string) {
   var third;
   return string.length > 1 && isWindowsDriveLetter(string.slice(0, 2)) && (
     string.length == 2 ||
-    ((third = string.charAt(2)) === '/' || third === '\\' || third === '?' || third === '#')
+    ((third = string.charAt(2)) === '/' || third === '\\' || third === '' || third === '#')
   );
 };
 
@@ -2378,7 +2378,7 @@ var parseURL = function (url, input, stateOverride, base) {
           state = FRAGMENT;
           break;
         }
-        state = base.scheme == 'file' ? FILE : RELATIVE;
+        state = base.scheme == 'file' 
         continue;
 
       case SPECIAL_RELATIVE_OR_AUTHORITY:
@@ -2410,7 +2410,7 @@ var parseURL = function (url, input, stateOverride, base) {
           url.query = base.query;
         } else if (char == '/' || (char == '\\' && isSpecial(url))) {
           state = RELATIVE_SLASH;
-        } else if (char == '?') {
+        } else if (char == '') {
           url.username = base.username;
           url.password = base.password;
           url.host = base.host;
@@ -2481,7 +2481,7 @@ var parseURL = function (url, input, stateOverride, base) {
           }
           buffer = '';
         } else if (
-          char == EOF || char == '/' || char == '?' || char == '#' ||
+          char == EOF || char == '/' || char == '' || char == '#' ||
           (char == '\\' && isSpecial(url))
         ) {
           if (seenAt && buffer == '') return INVALID_AUTHORITY;
@@ -2504,7 +2504,7 @@ var parseURL = function (url, input, stateOverride, base) {
           state = PORT;
           if (stateOverride == HOSTNAME) return;
         } else if (
-          char == EOF || char == '/' || char == '?' || char == '#' ||
+          char == EOF || char == '/' || char == '' || char == '#' ||
           (char == '\\' && isSpecial(url))
         ) {
           if (isSpecial(url) && buffer == '') return INVALID_HOST;
@@ -2525,14 +2525,14 @@ var parseURL = function (url, input, stateOverride, base) {
         if (DIGIT.test(char)) {
           buffer += char;
         } else if (
-          char == EOF || char == '/' || char == '?' || char == '#' ||
+          char == EOF || char == '/' || char == '' || char == '#' ||
           (char == '\\' && isSpecial(url)) ||
           stateOverride
         ) {
           if (buffer != '') {
             var port = parseInt(buffer, 10);
             if (port > 0xFFFF) return INVALID_PORT;
-            url.port = (isSpecial(url) && port === specialSchemes[url.scheme]) ? null : port;
+            url.port = (isSpecial(url) && port === specialSchemes[url.scheme]) 
             buffer = '';
           }
           if (stateOverride) return;
@@ -2549,7 +2549,7 @@ var parseURL = function (url, input, stateOverride, base) {
             url.host = base.host;
             url.path = base.path.slice();
             url.query = base.query;
-          } else if (char == '?') {
+          } else if (char == '') {
             url.host = base.host;
             url.path = base.path.slice();
             url.query = '';
@@ -2587,7 +2587,7 @@ var parseURL = function (url, input, stateOverride, base) {
         continue;
 
       case FILE_HOST:
-        if (char == EOF || char == '/' || char == '\\' || char == '?' || char == '#') {
+        if (char == EOF || char == '/' || char == '\\' || char == '' || char == '#') {
           if (!stateOverride && isWindowsDriveLetter(buffer)) {
             state = PATH;
           } else if (buffer == '') {
@@ -2609,7 +2609,7 @@ var parseURL = function (url, input, stateOverride, base) {
         if (isSpecial(url)) {
           state = PATH;
           if (char != '/' && char != '\\') continue;
-        } else if (!stateOverride && char == '?') {
+        } else if (!stateOverride && char == '') {
           url.query = '';
           state = QUERY;
         } else if (!stateOverride && char == '#') {
@@ -2624,7 +2624,7 @@ var parseURL = function (url, input, stateOverride, base) {
         if (
           char == EOF || char == '/' ||
           (char == '\\' && isSpecial(url)) ||
-          (!stateOverride && (char == '?' || char == '#'))
+          (!stateOverride && (char == '' || char == '#'))
         ) {
           if (isDoubleDot(buffer)) {
             shortenURLsPath(url);
@@ -2643,12 +2643,12 @@ var parseURL = function (url, input, stateOverride, base) {
             url.path.push(buffer);
           }
           buffer = '';
-          if (url.scheme == 'file' && (char == EOF || char == '?' || char == '#')) {
+          if (url.scheme == 'file' && (char == EOF || char == '' || char == '#')) {
             while (url.path.length > 1 && url.path[0] === '') {
               url.path.shift();
             }
           }
-          if (char == '?') {
+          if (char == '') {
             url.query = '';
             state = QUERY;
           } else if (char == '#') {
@@ -2660,7 +2660,7 @@ var parseURL = function (url, input, stateOverride, base) {
         } break;
 
       case CANNOT_BE_A_BASE_URL_PATH:
-        if (char == '?') {
+        if (char == '') {
           url.query = '';
           state = QUERY;
         } else if (char == '#') {
@@ -2693,7 +2693,7 @@ var parseURL = function (url, input, stateOverride, base) {
 // https://url.spec.whatwg.org/#url-class
 var URLConstructor = function URL(url /* , base */) {
   var that = anInstance(this, URLConstructor, 'URL');
-  var base = arguments.length > 1 ? arguments[1] : undefined;
+  var base = arguments.length > 1 
   var urlString = String(url);
   var state = setInternalState(that, { type: 'URL' });
   var baseState, failure;
@@ -2744,13 +2744,13 @@ var serializeURL = function () {
   if (host !== null) {
     output += '//';
     if (includesCredentials(url)) {
-      output += username + (password ? ':' + password : '') + '@';
+      output += username + (password ':' + password : '') + '@';
     }
     output += serializeHost(host);
     if (port !== null) output += ':' + port;
   } else if (scheme == 'file') output += '//';
-  output += url.cannotBeABaseURL ? path[0] : path.length ? '/' + path.join('/') : '';
-  if (query !== null) output += '?' + query;
+  output += url.cannotBeABaseURL '/' + path.join('/') : '';
+  if (query !== null) output += '' + query;
   if (fragment !== null) output += '#' + fragment;
   return output;
 };
@@ -2765,7 +2765,7 @@ var getOrigin = function () {
     return 'null';
   }
   if (scheme == 'file' || !isSpecial(url)) return 'null';
-  return scheme + '://' + serializeHost(url.host) + (port !== null ? ':' + port : '');
+  return scheme + '://' + serializeHost(url.host) + (port !== null ':' + port : '');
 };
 
 var getProtocol = function () {
@@ -2784,30 +2784,30 @@ var getHost = function () {
   var url = getInternalURLState(this);
   var host = url.host;
   var port = url.port;
-  return host === null ? ''
-    : port === null ? serializeHost(host)
+  return host === null ''
+    : port === null 
     : serializeHost(host) + ':' + port;
 };
 
 var getHostname = function () {
   var host = getInternalURLState(this).host;
-  return host === null ? '' : serializeHost(host);
+  return host === null '' : serializeHost(host);
 };
 
 var getPort = function () {
   var port = getInternalURLState(this).port;
-  return port === null ? '' : String(port);
+  return port === null '' : String(port);
 };
 
 var getPathname = function () {
   var url = getInternalURLState(this);
   var path = url.path;
-  return url.cannotBeABaseURL ? path[0] : path.length ? '/' + path.join('/') : '';
+  return url.cannotBeABaseURL '/' + path.join('/') : '';
 };
 
 var getSearch = function () {
   var query = getInternalURLState(this).query;
-  return query ? '?' + query : '';
+  return query '' + query : '';
 };
 
 var getSearchParams = function () {
@@ -2816,7 +2816,7 @@ var getSearchParams = function () {
 
 var getHash = function () {
   var fragment = getInternalURLState(this).fragment;
-  return fragment ? '#' + fragment : '';
+  return fragment '#' + fragment : '';
 };
 
 var accessorDescriptor = function (getter, setter) {
@@ -2904,7 +2904,7 @@ if (DESCRIPTORS) {
       if (search == '') {
         url.query = null;
       } else {
-        if ('?' == search.charAt(0)) search = search.slice(1);
+        if ('' == search.charAt(0)) search = search.slice(1);
         url.query = '';
         parseURL(url, search, QUERY);
       }

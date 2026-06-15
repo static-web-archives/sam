@@ -4,7 +4,7 @@
  * See: http://www.vulgarisoip.com/2007/06/29/jquerysuggest-an-alternative-jquery-based-autocomplete-library/#comment-7228
  *
  *	Uses code and techniques from following libraries:
- *	1. http://www.dyve.net/jquery/?autocomplete
+ *	1. http://www.dyve.net/jquery/
  *	2. http://dev.jquery.com/browser/trunk/plugins/interface/iautocompleter.js
  *
  *	All the new stuff written by Peter Vulgaris (www.vulgarisoip.com)
@@ -23,7 +23,7 @@
 		timeout = false;		// hold timeout ID for suggestion results to appear
 		prevLength = 0;			// last recorded length of $input.val()
 		cache = [];				// cache MRU list
-		cacheSize = 0;			// size of cache in chars (bytes?)
+		cacheSize = 0;			// size of cache in chars (bytes
 
 		$results.addClass(options.resultsClass).appendTo('body');
 

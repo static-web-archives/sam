@@ -414,7 +414,7 @@ input.bulk-select-switcher:focus + .bulk-select-button-label {
 	padding: 0;
 }
 
-/* @todo: is this actually used? */
+/* @todo: is this actually used
 #cancel-save {
 	text-decoration: underline;
 	font-size: 12px;

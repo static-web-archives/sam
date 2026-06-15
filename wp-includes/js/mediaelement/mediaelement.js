@@ -8,12 +8,12 @@
  * Copyright 2010-2017, John Dyer (http://j.hn/)
  * License: MIT
  *
- */(function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(_dereq_,module,exports){
+ */(function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n"function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(_dereq_,module,exports){
 
 },{}],2:[function(_dereq_,module,exports){
 (function (global){
-var topLevel = typeof global !== 'undefined' ? global :
-    typeof window !== 'undefined' ? window : {}
+var topLevel = typeof global !== 'undefined' 
+    typeof window !== 'undefined' 
 var minDoc = _dereq_(1);
 
 var doccy;
@@ -30,7 +30,7 @@ if (typeof document !== 'undefined') {
 
 module.exports = doccy;
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this,typeof global !== "undefined" "undefined" "undefined" 
 },{"1":1}],3:[function(_dereq_,module,exports){
 (function (global){
 var win;
@@ -47,7 +47,7 @@ if (typeof window !== "undefined") {
 
 module.exports = win;
 
-}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+}).call(this,typeof global !== "undefined" "undefined" "undefined" 
 },{}],4:[function(_dereq_,module,exports){
 (function (root) {
 
@@ -85,9 +85,9 @@ module.exports = win;
     }
     self._handled = true;
     Promise._immediateFn(function () {
-      var cb = self._state === 1 ? deferred.onFulfilled : deferred.onRejected;
+      var cb = self._state === 1 
       if (cb === null) {
-        (self._state === 1 ? resolve : reject)(deferred.promise, self._value);
+        (self._state === 1 
         return;
       }
       var ret;
@@ -147,8 +147,8 @@ module.exports = win;
   }
 
   function Handler(onFulfilled, onRejected, promise) {
-    this.onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : null;
-    this.onRejected = typeof onRejected === 'function' ? onRejected : null;
+    this.onFulfilled = typeof onFulfilled === 'function' 
+    this.onRejected = typeof onRejected === 'function' 
     this.promise = promise;
   }
 
@@ -290,7 +290,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" "function" && obj.constructor === Symbol && obj !== Symbol.prototype "symbol" : typeof obj; };
 
 var _mejs = _dereq_(7);
 
@@ -300,7 +300,7 @@ var _en = _dereq_(9);
 
 var _general = _dereq_(18);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule 
 
 var i18n = { lang: 'en', en: _en.EN };
 
@@ -315,15 +315,15 @@ i18n.language = function () {
 			throw new TypeError('Language code must be a string value');
 		}
 
-		if (!/^[a-z]{2,3}((\-|_)[a-z]{2})?$/i.test(args[0])) {
+		if (!/^[a-z]{2,3}((\-|_)[a-z]{2})
 			throw new TypeError('Language code must have format 2-3 letters and. optionally, hyphen, underscore followed by 2 more letters');
 		}
 
 		i18n.lang = args[0];
 
 		if (i18n[args[0]] === undefined) {
-			args[1] = args[1] !== null && args[1] !== undefined && _typeof(args[1]) === 'object' ? args[1] : {};
-			i18n[args[0]] = !(0, _general.isObjectEmpty)(args[1]) ? args[1] : _en.EN;
+			args[1] = args[1] !== null && args[1] !== undefined && _typeof(args[1]) === 'object' 
+			i18n[args[0]] = !(0, _general.isObjectEmpty)(args[1]) 
 		} else if (args[1] !== null && args[1] !== undefined && _typeof(args[1]) === 'object') {
 			i18n[args[0]] = args[1];
 		}
@@ -333,7 +333,7 @@ i18n.language = function () {
 };
 
 i18n.t = function (message) {
-	var pluralParam = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+	var pluralParam = arguments.length > 1 && arguments[1] !== undefined 
 
 
 	if (typeof message === 'string' && message.length) {
@@ -345,168 +345,168 @@ i18n.t = function (message) {
 
 		var _plural = function _plural(input, number, form) {
 
-			if ((typeof input === 'undefined' ? 'undefined' : _typeof(input)) !== 'object' || typeof number !== 'number' || typeof form !== 'number') {
+			if ((typeof input === 'undefined' 'undefined' : _typeof(input)) !== 'object' || typeof number !== 'number' || typeof form !== 'number') {
 				return input;
 			}
 
 			var _pluralForms = function () {
 				return [function () {
-					return arguments.length <= 1 ? undefined : arguments[1];
+					return arguments.length <= 1 
 				}, function () {
-					return (arguments.length <= 0 ? undefined : arguments[0]) === 1 ? arguments.length <= 1 ? undefined : arguments[1] : arguments.length <= 2 ? undefined : arguments[2];
+					return (arguments.length <= 0 
 				}, function () {
-					return (arguments.length <= 0 ? undefined : arguments[0]) === 0 || (arguments.length <= 0 ? undefined : arguments[0]) === 1 ? arguments.length <= 1 ? undefined : arguments[1] : arguments.length <= 2 ? undefined : arguments[2];
+					return (arguments.length <= 0 
 				}, function () {
-					if ((arguments.length <= 0 ? undefined : arguments[0]) % 10 === 1 && (arguments.length <= 0 ? undefined : arguments[0]) % 100 !== 11) {
-						return arguments.length <= 1 ? undefined : arguments[1];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) !== 0) {
-						return arguments.length <= 2 ? undefined : arguments[2];
+					if ((arguments.length <= 0 
+						return arguments.length <= 1 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 2 
 					} else {
-						return arguments.length <= 3 ? undefined : arguments[3];
+						return arguments.length <= 3 
 					}
 				}, function () {
-					if ((arguments.length <= 0 ? undefined : arguments[0]) === 1 || (arguments.length <= 0 ? undefined : arguments[0]) === 11) {
-						return arguments.length <= 1 ? undefined : arguments[1];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) === 2 || (arguments.length <= 0 ? undefined : arguments[0]) === 12) {
-						return arguments.length <= 2 ? undefined : arguments[2];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) > 2 && (arguments.length <= 0 ? undefined : arguments[0]) < 20) {
-						return arguments.length <= 3 ? undefined : arguments[3];
+					if ((arguments.length <= 0 
+						return arguments.length <= 1 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 2 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 3 
 					} else {
-						return arguments.length <= 4 ? undefined : arguments[4];
+						return arguments.length <= 4 
 					}
 				}, function () {
-					if ((arguments.length <= 0 ? undefined : arguments[0]) === 1) {
-						return arguments.length <= 1 ? undefined : arguments[1];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) === 0 || (arguments.length <= 0 ? undefined : arguments[0]) % 100 > 0 && (arguments.length <= 0 ? undefined : arguments[0]) % 100 < 20) {
-						return arguments.length <= 2 ? undefined : arguments[2];
+					if ((arguments.length <= 0 
+						return arguments.length <= 1 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 2 
 					} else {
-						return arguments.length <= 3 ? undefined : arguments[3];
+						return arguments.length <= 3 
 					}
 				}, function () {
-					if ((arguments.length <= 0 ? undefined : arguments[0]) % 10 === 1 && (arguments.length <= 0 ? undefined : arguments[0]) % 100 !== 11) {
-						return arguments.length <= 1 ? undefined : arguments[1];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) % 10 >= 2 && ((arguments.length <= 0 ? undefined : arguments[0]) % 100 < 10 || (arguments.length <= 0 ? undefined : arguments[0]) % 100 >= 20)) {
-						return arguments.length <= 2 ? undefined : arguments[2];
+					if ((arguments.length <= 0 
+						return arguments.length <= 1 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 2 
 					} else {
 						return [3];
 					}
 				}, function () {
-					if ((arguments.length <= 0 ? undefined : arguments[0]) % 10 === 1 && (arguments.length <= 0 ? undefined : arguments[0]) % 100 !== 11) {
-						return arguments.length <= 1 ? undefined : arguments[1];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) % 10 >= 2 && (arguments.length <= 0 ? undefined : arguments[0]) % 10 <= 4 && ((arguments.length <= 0 ? undefined : arguments[0]) % 100 < 10 || (arguments.length <= 0 ? undefined : arguments[0]) % 100 >= 20)) {
-						return arguments.length <= 2 ? undefined : arguments[2];
+					if ((arguments.length <= 0 
+						return arguments.length <= 1 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 2 
 					} else {
-						return arguments.length <= 3 ? undefined : arguments[3];
+						return arguments.length <= 3 
 					}
 				}, function () {
-					if ((arguments.length <= 0 ? undefined : arguments[0]) === 1) {
-						return arguments.length <= 1 ? undefined : arguments[1];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) >= 2 && (arguments.length <= 0 ? undefined : arguments[0]) <= 4) {
-						return arguments.length <= 2 ? undefined : arguments[2];
+					if ((arguments.length <= 0 
+						return arguments.length <= 1 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 2 
 					} else {
-						return arguments.length <= 3 ? undefined : arguments[3];
+						return arguments.length <= 3 
 					}
 				}, function () {
-					if ((arguments.length <= 0 ? undefined : arguments[0]) === 1) {
-						return arguments.length <= 1 ? undefined : arguments[1];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) % 10 >= 2 && (arguments.length <= 0 ? undefined : arguments[0]) % 10 <= 4 && ((arguments.length <= 0 ? undefined : arguments[0]) % 100 < 10 || (arguments.length <= 0 ? undefined : arguments[0]) % 100 >= 20)) {
-						return arguments.length <= 2 ? undefined : arguments[2];
+					if ((arguments.length <= 0 
+						return arguments.length <= 1 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 2 
 					} else {
-						return arguments.length <= 3 ? undefined : arguments[3];
+						return arguments.length <= 3 
 					}
 				}, function () {
-					if ((arguments.length <= 0 ? undefined : arguments[0]) % 100 === 1) {
-						return arguments.length <= 2 ? undefined : arguments[2];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) % 100 === 2) {
-						return arguments.length <= 3 ? undefined : arguments[3];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) % 100 === 3 || (arguments.length <= 0 ? undefined : arguments[0]) % 100 === 4) {
-						return arguments.length <= 4 ? undefined : arguments[4];
+					if ((arguments.length <= 0 
+						return arguments.length <= 2 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 3 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 4 
 					} else {
-						return arguments.length <= 1 ? undefined : arguments[1];
+						return arguments.length <= 1 
 					}
 				}, function () {
-					if ((arguments.length <= 0 ? undefined : arguments[0]) === 1) {
-						return arguments.length <= 1 ? undefined : arguments[1];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) === 2) {
-						return arguments.length <= 2 ? undefined : arguments[2];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) > 2 && (arguments.length <= 0 ? undefined : arguments[0]) < 7) {
-						return arguments.length <= 3 ? undefined : arguments[3];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) > 6 && (arguments.length <= 0 ? undefined : arguments[0]) < 11) {
-						return arguments.length <= 4 ? undefined : arguments[4];
+					if ((arguments.length <= 0 
+						return arguments.length <= 1 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 2 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 3 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 4 
 					} else {
-						return arguments.length <= 5 ? undefined : arguments[5];
+						return arguments.length <= 5 
 					}
 				}, function () {
-					if ((arguments.length <= 0 ? undefined : arguments[0]) === 0) {
-						return arguments.length <= 1 ? undefined : arguments[1];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) === 1) {
-						return arguments.length <= 2 ? undefined : arguments[2];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) === 2) {
-						return arguments.length <= 3 ? undefined : arguments[3];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) % 100 >= 3 && (arguments.length <= 0 ? undefined : arguments[0]) % 100 <= 10) {
-						return arguments.length <= 4 ? undefined : arguments[4];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) % 100 >= 11) {
-						return arguments.length <= 5 ? undefined : arguments[5];
+					if ((arguments.length <= 0 
+						return arguments.length <= 1 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 2 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 3 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 4 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 5 
 					} else {
-						return arguments.length <= 6 ? undefined : arguments[6];
+						return arguments.length <= 6 
 					}
 				}, function () {
-					if ((arguments.length <= 0 ? undefined : arguments[0]) === 1) {
-						return arguments.length <= 1 ? undefined : arguments[1];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) === 0 || (arguments.length <= 0 ? undefined : arguments[0]) % 100 > 1 && (arguments.length <= 0 ? undefined : arguments[0]) % 100 < 11) {
-						return arguments.length <= 2 ? undefined : arguments[2];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) % 100 > 10 && (arguments.length <= 0 ? undefined : arguments[0]) % 100 < 20) {
-						return arguments.length <= 3 ? undefined : arguments[3];
+					if ((arguments.length <= 0 
+						return arguments.length <= 1 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 2 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 3 
 					} else {
-						return arguments.length <= 4 ? undefined : arguments[4];
+						return arguments.length <= 4 
 					}
 				}, function () {
-					if ((arguments.length <= 0 ? undefined : arguments[0]) % 10 === 1) {
-						return arguments.length <= 1 ? undefined : arguments[1];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) % 10 === 2) {
-						return arguments.length <= 2 ? undefined : arguments[2];
+					if ((arguments.length <= 0 
+						return arguments.length <= 1 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 2 
 					} else {
-						return arguments.length <= 3 ? undefined : arguments[3];
+						return arguments.length <= 3 
 					}
 				}, function () {
-					return (arguments.length <= 0 ? undefined : arguments[0]) !== 11 && (arguments.length <= 0 ? undefined : arguments[0]) % 10 === 1 ? arguments.length <= 1 ? undefined : arguments[1] : arguments.length <= 2 ? undefined : arguments[2];
+					return (arguments.length <= 0 
 				}, function () {
-					if ((arguments.length <= 0 ? undefined : arguments[0]) === 1) {
-						return arguments.length <= 1 ? undefined : arguments[1];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) % 10 >= 2 && (arguments.length <= 0 ? undefined : arguments[0]) % 10 <= 4 && ((arguments.length <= 0 ? undefined : arguments[0]) % 100 < 10 || (arguments.length <= 0 ? undefined : arguments[0]) % 100 >= 20)) {
-						return arguments.length <= 2 ? undefined : arguments[2];
+					if ((arguments.length <= 0 
+						return arguments.length <= 1 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 2 
 					} else {
-						return arguments.length <= 3 ? undefined : arguments[3];
+						return arguments.length <= 3 
 					}
 				}, function () {
-					if ((arguments.length <= 0 ? undefined : arguments[0]) === 1) {
-						return arguments.length <= 1 ? undefined : arguments[1];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) === 2) {
-						return arguments.length <= 2 ? undefined : arguments[2];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) !== 8 && (arguments.length <= 0 ? undefined : arguments[0]) !== 11) {
-						return arguments.length <= 3 ? undefined : arguments[3];
+					if ((arguments.length <= 0 
+						return arguments.length <= 1 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 2 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 3 
 					} else {
-						return arguments.length <= 4 ? undefined : arguments[4];
+						return arguments.length <= 4 
 					}
 				}, function () {
-					return (arguments.length <= 0 ? undefined : arguments[0]) === 0 ? arguments.length <= 1 ? undefined : arguments[1] : arguments.length <= 2 ? undefined : arguments[2];
+					return (arguments.length <= 0 
 				}, function () {
-					if ((arguments.length <= 0 ? undefined : arguments[0]) === 1) {
-						return arguments.length <= 1 ? undefined : arguments[1];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) === 2) {
-						return arguments.length <= 2 ? undefined : arguments[2];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) === 3) {
-						return arguments.length <= 3 ? undefined : arguments[3];
+					if ((arguments.length <= 0 
+						return arguments.length <= 1 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 2 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 3 
 					} else {
-						return arguments.length <= 4 ? undefined : arguments[4];
+						return arguments.length <= 4 
 					}
 				}, function () {
-					if ((arguments.length <= 0 ? undefined : arguments[0]) === 0) {
-						return arguments.length <= 1 ? undefined : arguments[1];
-					} else if ((arguments.length <= 0 ? undefined : arguments[0]) === 1) {
-						return arguments.length <= 2 ? undefined : arguments[2];
+					if ((arguments.length <= 0 
+						return arguments.length <= 1 
+					} else if ((arguments.length <= 0 
+						return arguments.length <= 2 
 					} else {
-						return arguments.length <= 3 ? undefined : arguments[3];
+						return arguments.length <= 3 
 					}
 				}];
 			}();
@@ -557,7 +557,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" "function" && obj.constructor === Symbol && obj !== Symbol.prototype "symbol" : typeof obj; };
 
 var _window = _dereq_(3);
 
@@ -579,7 +579,7 @@ var _renderer = _dereq_(8);
 
 var _constants = _dereq_(16);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -590,7 +590,7 @@ var MediaElement = function MediaElement(idOrNode, options, sources) {
 
 	var t = this;
 
-	sources = Array.isArray(sources) ? sources : null;
+	sources = Array.isArray(sources) 
 
 	t.defaults = {
 		renderers: [],
@@ -705,7 +705,7 @@ var MediaElement = function MediaElement(idOrNode, options, sources) {
 	t.mediaElement.changeRenderer = function (rendererName, mediaFiles) {
 
 		var t = _this,
-		    media = Object.keys(mediaFiles[0]).length > 2 ? mediaFiles[0] : mediaFiles[0].src;
+		    media = Object.keys(mediaFiles[0]).length > 2 
 
 		if (t.mediaElement.renderer !== undefined && t.mediaElement.renderer !== null && t.mediaElement.renderer.name === rendererName) {
 			t.mediaElement.renderer.pause();
@@ -736,7 +736,7 @@ var MediaElement = function MediaElement(idOrNode, options, sources) {
 			return true;
 		}
 
-		var rendererArray = t.mediaElement.options.renderers.length ? t.mediaElement.options.renderers : _renderer.renderer.order;
+		var rendererArray = t.mediaElement.options.renderers.length 
 
 		for (var _i = 0, total = rendererArray.length; _i < total; _i++) {
 			var index = rendererArray[_i];
@@ -768,7 +768,7 @@ var MediaElement = function MediaElement(idOrNode, options, sources) {
 
 	t.mediaElement.generateError = function (message, urlList) {
 		message = message || '';
-		urlList = Array.isArray(urlList) ? urlList : [];
+		urlList = Array.isArray(urlList) 
 		var event = (0, _general.createEvent)('error', t.mediaElement);
 		event.message = message;
 		event.urls = urlList;
@@ -798,7 +798,7 @@ var MediaElement = function MediaElement(idOrNode, options, sources) {
 
 			var capName = '' + propName.substring(0, 1).toUpperCase() + propName.substring(1),
 			    getFn = function getFn() {
-				return t.mediaElement.renderer !== undefined && t.mediaElement.renderer !== null && typeof t.mediaElement.renderer['get' + capName] === 'function' ? t.mediaElement.renderer['get' + capName]() : null;
+				return t.mediaElement.renderer !== undefined && t.mediaElement.renderer !== null && typeof t.mediaElement.renderer['get' + capName] === 'function' 'get' + capName]() : null;
 			},
 			    setFn = function setFn(value) {
 				if (t.mediaElement.renderer !== undefined && t.mediaElement.renderer !== null && typeof t.mediaElement.renderer['set' + capName] === 'function') {
@@ -812,7 +812,7 @@ var MediaElement = function MediaElement(idOrNode, options, sources) {
 		}
 	},
 	    getSrc = function getSrc() {
-		return t.mediaElement.renderer !== undefined && t.mediaElement.renderer !== null ? t.mediaElement.renderer.getSrc() : null;
+		return t.mediaElement.renderer !== undefined && t.mediaElement.renderer !== null 
 	},
 	    setSrc = function setSrc(value) {
 		var mediaFiles = [];
@@ -820,14 +820,14 @@ var MediaElement = function MediaElement(idOrNode, options, sources) {
 		if (typeof value === 'string') {
 			mediaFiles.push({
 				src: value,
-				type: value ? (0, _media2.getTypeFromFile)(value) : ''
+				type: value ''
 			});
-		} else if ((typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value.src !== undefined) {
+		} else if ((typeof value === 'undefined' 'undefined' : _typeof(value)) === 'object' && value.src !== undefined) {
 			var _src = (0, _media2.absolutizeUrl)(value.src),
 			    _type2 = value.type,
 			    media = Object.assign(value, {
 				src: _src,
-				type: (_type2 === '' || _type2 === null || _type2 === undefined) && _src ? (0, _media2.getTypeFromFile)(_src) : _type2
+				type: (_type2 === '' || _type2 === null || _type2 === undefined) && _src 
 			});
 			mediaFiles.push(media);
 		} else if (Array.isArray(value)) {
@@ -837,14 +837,14 @@ var MediaElement = function MediaElement(idOrNode, options, sources) {
 				    _type3 = value[_i2].type,
 				    _media = Object.assign(value[_i2], {
 					src: _src2,
-					type: (_type3 === '' || _type3 === null || _type3 === undefined) && _src2 ? (0, _media2.getTypeFromFile)(_src2) : _type3
+					type: (_type3 === '' || _type3 === null || _type3 === undefined) && _src2 
 				});
 
 				mediaFiles.push(_media);
 			}
 		}
 
-		var renderInfo = _renderer.renderer.select(mediaFiles, t.mediaElement.options.renderers.length ? t.mediaElement.options.renderers : []),
+		var renderInfo = _renderer.renderer.select(mediaFiles, t.mediaElement.options.renderers.length 
 		    event = void 0;
 
 		if (!t.mediaElement.paused && !(t.mediaElement.src == null || t.mediaElement.src === '')) {
@@ -860,7 +860,7 @@ var MediaElement = function MediaElement(idOrNode, options, sources) {
 		}
 
 		var shouldChangeRenderer = !(mediaFiles[0].src == null || mediaFiles[0].src === '');
-		return shouldChangeRenderer ? t.mediaElement.changeRenderer(renderInfo.rendererName, mediaFiles) : null;
+		return shouldChangeRenderer 
 	},
 	    triggerAction = function triggerAction(methodName, args) {
 		try {
@@ -1014,7 +1014,7 @@ var _window = _dereq_(3);
 
 var _window2 = _interopRequireDefault(_window);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule 
 
 var mejs = {};
 
@@ -1043,7 +1043,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.renderer = undefined;
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" "function" && obj.constructor === Symbol && obj !== Symbol.prototype "symbol" : typeof obj; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1051,7 +1051,7 @@ var _mejs = _dereq_(7);
 
 var _mejs2 = _interopRequireDefault(_mejs);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -1076,11 +1076,11 @@ var Renderer = function () {
 	}, {
 		key: 'select',
 		value: function select(mediaFiles) {
-			var renderers = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : [];
+			var renderers = arguments.length > 1 && arguments[1] !== undefined 
 
 			var renderersLength = renderers.length;
 
-			renderers = renderers.length ? renderers : this.order;
+			renderers = renderers.length 
 
 			if (!renderersLength) {
 				var rendererIndicator = [/^(html5|native)/i, /^flash/i, /iframe$/i],
@@ -1131,7 +1131,7 @@ var Renderer = function () {
 	}, {
 		key: 'renderers',
 		set: function set(renderers) {
-			if (renderers !== null && (typeof renderers === 'undefined' ? 'undefined' : _typeof(renderers)) !== 'object') {
+			if (renderers !== null && (typeof renderers === 'undefined' 'undefined' : _typeof(renderers)) !== 'object') {
 				throw new TypeError('renderers must be an array of objects.');
 			}
 
@@ -1242,7 +1242,7 @@ var EN = exports.EN = {
 },{}],10:[function(_dereq_,module,exports){
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" "function" && obj.constructor === Symbol && obj !== Symbol.prototype "symbol" : typeof obj; };
 
 var _window = _dereq_(3);
 
@@ -1262,7 +1262,7 @@ var _constants = _dereq_(16);
 
 var _dom = _dereq_(17);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule 
 
 var NativeDash = {
 
@@ -1276,7 +1276,7 @@ var NativeDash = {
 				NativeDash._createPlayer(settings);
 			});
 		} else {
-			settings.options.path = typeof settings.options.path === 'string' ? settings.options.path : 'https://cdn.dashjs.org/latest/dash.all.min.js';
+			settings.options.path = typeof settings.options.path === 'string' 'https://cdn.dashjs.org/latest/dash.all.min.js';
 
 			NativeDash.promise = NativeDash.promise || (0, _dom.loadScript)(settings.options.path);
 			NativeDash.promise.then(function () {
@@ -1341,13 +1341,13 @@ var DashNativeRenderer = {
 			var capName = '' + propName.substring(0, 1).toUpperCase() + propName.substring(1);
 
 			node['get' + capName] = function () {
-				return dashPlayer !== null ? node[propName] : null;
+				return dashPlayer !== null 
 			};
 
 			node['set' + capName] = function (value) {
 				if (_mejs2.default.html5media.readOnlyProperties.indexOf(propName) === -1) {
 					if (propName === 'src') {
-						var source = (typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value.src ? value.src : value;
+						var source = (typeof value === 'undefined' 'undefined' : _typeof(value)) === 'object' && value.src 
 						node[propName] = source;
 						if (dashPlayer !== null) {
 							dashPlayer.reset();
@@ -1359,7 +1359,7 @@ var DashNativeRenderer = {
 								id: id
 							});
 
-							if (value && (typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && _typeof(value.drm) === 'object') {
+							if (value && (typeof value === 'undefined' 'undefined' : _typeof(value)) === 'object' && _typeof(value.drm) === 'object') {
 								dashPlayer.setProtectionData(value.drm);
 								if ((0, _general.isString)(options.dash.robustnessLevel) && options.dash.robustnessLevel) {
 									dashPlayer.getProtectionController().setRobustnessLevel(options.dash.robustnessLevel);
@@ -1481,7 +1481,7 @@ var DashNativeRenderer = {
 };
 
 _media.typeChecks.push(function (url) {
-	return ~url.toLowerCase().indexOf('.mpd') ? 'application/dash+xml' : null;
+	return ~url.toLowerCase().indexOf('.mpd') 'application/dash+xml' : null;
 });
 
 _renderer.renderer.add(DashNativeRenderer);
@@ -1494,7 +1494,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.PluginDetector = undefined;
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" "function" && obj.constructor === Symbol && obj !== Symbol.prototype "symbol" : typeof obj; };
 
 var _window = _dereq_(3);
 
@@ -1520,7 +1520,7 @@ var _constants = _dereq_(16);
 
 var _media = _dereq_(19);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule 
 
 var PluginDetector = exports.PluginDetector = {
 	plugins: [],
@@ -1723,8 +1723,8 @@ var FlashMediaElementRenderer = {
 		var autoplay = mediaElement.originalNode.autoplay,
 		    flashVars = ['uid=' + flash.id, 'autoplay=' + autoplay, 'allowScriptAccess=' + flash.options.shimScriptAccess, 'preload=' + (mediaElement.originalNode.getAttribute('preload') || '')],
 		    isVideo = mediaElement.originalNode !== null && mediaElement.originalNode.tagName.toLowerCase() === 'video',
-		    flashHeight = isVideo ? mediaElement.originalNode.height : 1,
-		    flashWidth = isVideo ? mediaElement.originalNode.width : 1;
+		    flashHeight = isVideo 
+		    flashWidth = isVideo 
 
 		if (mediaElement.originalNode.getAttribute('src')) {
 			flashVars.push('src=' + mediaElement.originalNode.getAttribute('src'));
@@ -1762,7 +1762,7 @@ var FlashMediaElementRenderer = {
 				settings.push('style="clip: rect(0 0 0 0); position: absolute;"');
 			}
 
-			specialIEContainer.outerHTML = '<object ' + settings.join(' ') + '>' + ('<param name="movie" value="' + flash.options.pluginPath + flash.options.filename + '?x=' + new Date() + '" />') + ('<param name="flashvars" value="' + flashVars.join('&amp;') + '" />') + '<param name="quality" value="high" />' + '<param name="bgcolor" value="#000000" />' + '<param name="wmode" value="transparent" />' + ('<param name="allowScriptAccess" value="' + flash.options.shimScriptAccess + '" />') + '<param name="allowFullScreen" value="true" />' + ('<div>' + _i18n2.default.t('mejs.install-flash') + '</div>') + '</object>';
+			specialIEContainer.outerHTML = '<object ' + settings.join(' ') + '>' + ('<param name="movie" value="' + flash.options.pluginPath + flash.options.filename + '' + new Date() + '" />') + ('<param name="flashvars" value="' + flashVars.join('&amp;') + '" />') + '<param name="quality" value="high" />' + '<param name="bgcolor" value="#000000" />' + '<param name="wmode" value="transparent" />' + ('<param name="allowScriptAccess" value="' + flash.options.shimScriptAccess + '" />') + '<param name="allowFullScreen" value="true" />' + ('<div>' + _i18n2.default.t('mejs.install-flash') + '</div>') + '</object>';
 		} else {
 
 			settings = ['id="__' + flash.id + '"', 'name="__' + flash.id + '"', 'play="true"', 'loop="false"', 'quality="high"', 'bgcolor="#000000"', 'wmode="transparent"', 'allowScriptAccess="' + flash.options.shimScriptAccess + '"', 'allowFullScreen="true"', 'type="application/x-shockwave-flash"', 'pluginspage="//www.macromedia.com/go/getflashplayer"', 'src="' + flash.options.pluginPath + flash.options.filename + '"', 'flashvars="' + flashVars.join('&') + '"'];
@@ -1931,7 +1931,7 @@ if (hasFlash) {
 },{"16":16,"18":18,"19":19,"2":2,"3":3,"5":5,"7":7,"8":8}],12:[function(_dereq_,module,exports){
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" "function" && obj.constructor === Symbol && obj !== Symbol.prototype "symbol" : typeof obj; };
 
 var _window = _dereq_(3);
 
@@ -1951,7 +1951,7 @@ var _media = _dereq_(19);
 
 var _dom = _dereq_(17);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule 
 
 var NativeFlv = {
 
@@ -1965,7 +1965,7 @@ var NativeFlv = {
 				NativeFlv._createPlayer(settings);
 			});
 		} else {
-			settings.options.path = typeof settings.options.path === 'string' ? settings.options.path : 'https://cdn.jsdelivr.net/npm/flv.js@latest';
+			settings.options.path = typeof settings.options.path === 'string' 'https://cdn.jsdelivr.net/npm/flv.js@latest';
 
 			NativeFlv.promise = NativeFlv.promise || (0, _dom.loadScript)(settings.options.path);
 			NativeFlv.promise.then(function () {
@@ -2024,13 +2024,13 @@ var FlvNativeRenderer = {
 			var capName = '' + propName.substring(0, 1).toUpperCase() + propName.substring(1);
 
 			node['get' + capName] = function () {
-				return flvPlayer !== null ? node[propName] : null;
+				return flvPlayer !== null 
 			};
 
 			node['set' + capName] = function (value) {
 				if (_mejs2.default.html5media.readOnlyProperties.indexOf(propName) === -1) {
 					if (propName === 'src') {
-						node[propName] = (typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value.src ? value.src : value;
+						node[propName] = (typeof value === 'undefined' 'undefined' : _typeof(value)) === 'object' && value.src 
 						if (flvPlayer !== null) {
 							var _flvOptions = {};
 							_flvOptions.type = 'flv';
@@ -2172,7 +2172,7 @@ var FlvNativeRenderer = {
 };
 
 _media.typeChecks.push(function (url) {
-	return ~url.toLowerCase().indexOf('.flv') ? 'video/flv' : null;
+	return ~url.toLowerCase().indexOf('.flv') 'video/flv' : null;
 });
 
 _renderer.renderer.add(FlvNativeRenderer);
@@ -2180,7 +2180,7 @@ _renderer.renderer.add(FlvNativeRenderer);
 },{"16":16,"17":17,"18":18,"19":19,"3":3,"7":7,"8":8}],13:[function(_dereq_,module,exports){
 'use strict';
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" "function" && obj.constructor === Symbol && obj !== Symbol.prototype "symbol" : typeof obj; };
 
 var _window = _dereq_(3);
 
@@ -2200,7 +2200,7 @@ var _media = _dereq_(19);
 
 var _dom = _dereq_(17);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule 
 
 var NativeHls = {
 
@@ -2214,7 +2214,7 @@ var NativeHls = {
 				NativeHls._createPlayer(settings);
 			});
 		} else {
-			settings.options.path = typeof settings.options.path === 'string' ? settings.options.path : 'https://cdn.jsdelivr.net/npm/hls.js@latest';
+			settings.options.path = typeof settings.options.path === 'string' 'https://cdn.jsdelivr.net/npm/hls.js@latest';
 
 			NativeHls.promise = NativeHls.promise || (0, _dom.loadScript)(settings.options.path);
 			NativeHls.promise.then(function () {
@@ -2276,13 +2276,13 @@ var HlsNativeRenderer = {
 			var capName = '' + propName.substring(0, 1).toUpperCase() + propName.substring(1);
 
 			node['get' + capName] = function () {
-				return hlsPlayer !== null ? node[propName] : null;
+				return hlsPlayer !== null 
 			};
 
 			node['set' + capName] = function (value) {
 				if (_mejs2.default.html5media.readOnlyProperties.indexOf(propName) === -1) {
 					if (propName === 'src') {
-						node[propName] = (typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object' && value.src ? value.src : value;
+						node[propName] = (typeof value === 'undefined' 'undefined' : _typeof(value)) === 'object' && value.src 
 						if (hlsPlayer !== null) {
 							hlsPlayer.destroy();
 							for (var i = 0, _total = events.length; i < _total; i++) {
@@ -2461,7 +2461,7 @@ var HlsNativeRenderer = {
 };
 
 _media.typeChecks.push(function (url) {
-	return ~url.toLowerCase().indexOf('.m3u8') ? 'application/x-mpegURL' : null;
+	return ~url.toLowerCase().indexOf('.m3u8') 'application/x-mpegURL' : null;
 });
 
 _renderer.renderer.add(HlsNativeRenderer);
@@ -2487,7 +2487,7 @@ var _general = _dereq_(18);
 
 var _constants = _dereq_(16);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule 
 
 var HtmlMediaElement = {
 	name: 'html5',
@@ -2636,7 +2636,7 @@ var _media = _dereq_(19);
 
 var _dom = _dereq_(17);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule 
 
 var YouTubeApi = {
 	isIframeStarted: false,
@@ -2682,7 +2682,7 @@ var YouTubeApi = {
 
 		var youTubeId = '';
 
-		if (url.indexOf('?') > 0) {
+		if (url.indexOf('') > 0) {
 			youTubeId = YouTubeApi.getYouTubeIdFromParam(url);
 
 			if (youTubeId === '') {
@@ -2693,7 +2693,7 @@ var YouTubeApi = {
 		}
 
 		var id = youTubeId.substring(youTubeId.lastIndexOf('/') + 1);
-		youTubeId = id.split('?');
+		youTubeId = id.split('');
 		return youTubeId[0];
 	},
 
@@ -2703,7 +2703,7 @@ var YouTubeApi = {
 			return null;
 		}
 
-		var parts = url.split('?'),
+		var parts = url.split(''),
 		    parameters = parts[1].split('&');
 
 		var youTubeId = '';
@@ -2725,7 +2725,7 @@ var YouTubeApi = {
 			return null;
 		}
 
-		var parts = url.split('?');
+		var parts = url.split('');
 		url = parts[0];
 		return url.substring(url.lastIndexOf('/') + 1);
 	},
@@ -2839,7 +2839,7 @@ var YouTubeIframeRenderer = {
 				if (youTubeApi !== null) {
 					switch (propName) {
 						case 'src':
-							var url = typeof value === 'string' ? value : value[0].src,
+							var url = typeof value === 'string' 
 							    _videoId = YouTubeApi.getYouTubeId(url);
 
 							if (mediaElement.originalNode.autoplay) {
@@ -2953,8 +2953,8 @@ var YouTubeIframeRenderer = {
 		mediaElement.originalNode.style.display = 'none';
 
 		var isAudio = mediaElement.originalNode.tagName.toLowerCase() === 'audio',
-		    height = isAudio ? '1' : mediaElement.originalNode.height,
-		    width = isAudio ? '1' : mediaElement.originalNode.width,
+		    height = isAudio '1' : mediaElement.originalNode.height,
+		    width = isAudio '1' : mediaElement.originalNode.width,
 		    videoId = YouTubeApi.getYouTubeId(mediaFiles[0].src),
 		    youtubeSettings = {
 			id: youtube.id,
@@ -2962,7 +2962,7 @@ var YouTubeIframeRenderer = {
 			videoId: videoId,
 			height: height,
 			width: width,
-			host: youtube.options.youtube && youtube.options.youtube.nocookie ? 'https://www.youtube-nocookie.com' : undefined,
+			host: youtube.options.youtube && youtube.options.youtube.nocookie 'https://www.youtube-nocookie.com' : undefined,
 			playerVars: Object.assign({
 				controls: 0,
 				rel: 0,
@@ -3134,7 +3134,7 @@ var YouTubeIframeRenderer = {
 			var quality = options.youtube.imageQuality,
 			    resolutions = ['default', 'hqdefault', 'mqdefault', 'sddefault', 'maxresdefault'],
 			    id = YouTubeApi.getYouTubeId(mediaElement.originalNode.src);
-			return quality && resolutions.indexOf(quality) > -1 && id ? 'https://img.youtube.com/vi/' + id + '/' + quality + '.jpg' : '';
+			return quality && resolutions.indexOf(quality) > -1 && id 'https://img.youtube.com/vi/' + id + '/' + quality + '.jpg' : '';
 		};
 
 		return youtube;
@@ -3146,7 +3146,7 @@ _window2.default.onYouTubePlayerAPIReady = function () {
 };
 
 _media.typeChecks.push(function (url) {
-	return (/\/\/(www\.youtube|youtu\.?be)/i.test(url) ? 'video/x-youtube' : null
+	return (/\/\/(www\.youtube|youtu\.'video/x-youtube' : null
 	);
 });
 
@@ -3172,7 +3172,7 @@ var _mejs = _dereq_(7);
 
 var _mejs2 = _interopRequireDefault(_mejs);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule 
 
 var NAV = exports.NAV = _window2.default.navigator;
 var UA = exports.UA = NAV.userAgent.toLowerCase();
@@ -3366,7 +3366,7 @@ var _mejs = _dereq_(7);
 
 var _mejs2 = _interopRequireDefault(_mejs);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule 
 
 function loadScript(url) {
 	return new Promise(function (resolve, reject) {
@@ -3425,11 +3425,11 @@ var addClass = exports.addClass = addClassMethod;
 var removeClass = exports.removeClass = removeClassMethod;
 
 function toggleClass(el, className) {
-	hasClass(el, className) ? removeClass(el, className) : addClass(el, className);
+	hasClass(el, className) 
 }
 
 function fadeOut(el) {
-	var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 400;
+	var duration = arguments.length > 1 && arguments[1] !== undefined 
 	var callback = arguments[2];
 
 	if (!el.style.opacity) {
@@ -3441,7 +3441,7 @@ function fadeOut(el) {
 		start = start || timestamp;
 		var progress = timestamp - start;
 		var opacity = parseFloat(1 - progress / duration, 2);
-		el.style.opacity = opacity < 0 ? 0 : opacity;
+		el.style.opacity = opacity < 0 
 		if (progress > duration) {
 			if (callback && typeof callback === 'function') {
 				callback();
@@ -3453,7 +3453,7 @@ function fadeOut(el) {
 }
 
 function fadeIn(el) {
-	var duration = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 400;
+	var duration = arguments.length > 1 && arguments[1] !== undefined 
 	var callback = arguments[2];
 
 	if (!el.style.opacity) {
@@ -3465,7 +3465,7 @@ function fadeIn(el) {
 		start = start || timestamp;
 		var progress = timestamp - start;
 		var opacity = parseFloat(progress / duration, 2);
-		el.style.opacity = opacity > 1 ? 1 : opacity;
+		el.style.opacity = opacity > 1 
 		if (progress > duration) {
 			if (callback && typeof callback === 'function') {
 				callback();
@@ -3495,7 +3495,7 @@ function visible(elem) {
 }
 
 function ajax(url, dataType, success, error) {
-	var xhr = _window2.default.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+	var xhr = _window2.default.XMLHttpRequest 'Microsoft.XMLHTTP');
 
 	var type = 'application/x-www-form-urlencoded; charset=UTF-8',
 	    completed = false,
@@ -3585,7 +3585,7 @@ var _mejs = _dereq_(7);
 
 var _mejs2 = _interopRequireDefault(_mejs);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule 
 
 function escapeHTML(input) {
 
@@ -3609,7 +3609,7 @@ function debounce(func, wait) {
 	var _this = this,
 	    _arguments = arguments;
 
-	var immediate = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+	var immediate = arguments.length > 2 && arguments[2] !== undefined 
 
 
 	if (typeof func !== 'function') {
@@ -3645,17 +3645,17 @@ function isObjectEmpty(instance) {
 }
 
 function splitEvents(events, id) {
-	var rwindow = /^((after|before)print|(before)?unload|hashchange|message|o(ff|n)line|page(hide|show)|popstate|resize|storage)\b/;
+	var rwindow = /^((after|before)print|(before)
 
 	var ret = { d: [], w: [] };
 	(events || '').split(' ').forEach(function (v) {
-		var eventName = '' + v + (id ? '.' + id : '');
+		var eventName = '' + v + (id '.' + id : '');
 
 		if (eventName.startsWith('.')) {
 			ret.d.push(eventName);
 			ret.w.push(eventName);
 		} else {
-			ret[rwindow.test(v) ? 'w' : 'd'].push(eventName);
+			ret[rwindow.test(v) 'w' : 'd'].push(eventName);
 		}
 	});
 
@@ -3723,7 +3723,7 @@ var _mejs2 = _interopRequireDefault(_mejs);
 
 var _general = _dereq_(18);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule 
 
 var typeChecks = exports.typeChecks = [];
 
@@ -3739,9 +3739,9 @@ function absolutizeUrl(url) {
 }
 
 function formatType(url) {
-	var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
+	var type = arguments.length > 1 && arguments[1] !== undefined '';
 
-	return url && !type ? getTypeFromFile(url) : type;
+	return url && !type 
 }
 
 function getMimeFromType(type) {
@@ -3750,7 +3750,7 @@ function getMimeFromType(type) {
 		throw new Error('`type` argument must be a string');
 	}
 
-	return type && type.indexOf(';') > -1 ? type.substr(0, type.indexOf(';')) : type;
+	return type && type.indexOf(';') > -1 ';')) : type;
 }
 
 function getTypeFromFile(url) {
@@ -3791,9 +3791,9 @@ function getExtension(url) {
 		throw new Error('`url` argument must be a string');
 	}
 
-	var baseUrl = url.split('?')[0],
+	var baseUrl = url.split('')[0],
 	    baseName = baseUrl.split('\\').pop().split('/').pop();
-	return ~baseName.indexOf('.') ? baseName.substring(baseName.lastIndexOf('.') + 1) : '';
+	return ~baseName.indexOf('.') '.') + 1) : '';
 }
 
 function normalizeExtension(extension) {
@@ -3839,7 +3839,7 @@ var _promisePolyfill = _dereq_(4);
 
 var _promisePolyfill2 = _interopRequireDefault(_promisePolyfill);
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+function _interopRequireDefault(obj) { return obj && obj.__esModule 
 
 (function (arr) {
 	arr.forEach(function (item) {
@@ -3954,7 +3954,7 @@ if (/firefox/i.test(navigator.userAgent)) {
 	var getComputedStyle = window.getComputedStyle;
 	window.getComputedStyle = function (el, pseudoEl) {
 		var t = getComputedStyle(el, pseudoEl);
-		return t === null ? { getPropertyValue: function getPropertyValue() {} } : t;
+		return t === null 
 	};
 }
 

@@ -318,7 +318,7 @@ wp.textWidgets = ( function( $ ) {
 					// Show pointer when pasting HTML.
 					editor.on( 'pastepreprocess', function( event ) {
 						var content = event.content;
-						if ( -1 !== component.dismissedPointers.indexOf( 'text_widget_paste_html' ) || ! content || ! /&lt;\w+.*?&gt;/.test( content ) ) {
+						if ( -1 !== component.dismissedPointers.indexOf( 'text_widget_paste_html' ) || ! content || ! /&lt;\w+.*
 							return;
 						}
 

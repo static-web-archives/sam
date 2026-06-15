@@ -47,7 +47,7 @@
 		request = wp.hooks.applyFilters( 'wp_application_passwords_new_password_request', request, userId );
 
 		wp.apiRequest( {
-			path: '/wp/v2/users/' + userId + '/application-passwords?_locale=user',
+			path: '/wp/v2/users/' + userId + '/application-passwords',
 			method: 'POST',
 			data: request
 		} ).always( function() {
@@ -82,7 +82,7 @@
 	$appPassTbody.on( 'click', '.delete', function( e ) {
 		e.preventDefault();
 
-		if ( ! window.confirm( wp.i18n.__( 'Are you sure you want to revoke this password? This action cannot be undone.' ) ) ) {
+		if ( ! window.confirm( wp.i18n.__( 'Are you sure you want to revoke this password' ) ) ) {
 			return;
 		}
 
@@ -94,7 +94,7 @@
 		$submitButton.prop( 'disabled', true );
 
 		wp.apiRequest( {
-			path: '/wp/v2/users/' + userId + '/application-passwords/' + uuid + '?_locale=user',
+			path: '/wp/v2/users/' + userId + '/application-passwords/' + uuid + '',
 			method: 'DELETE'
 		} ).always( function() {
 			$submitButton.prop( 'disabled', false );
@@ -113,7 +113,7 @@
 	$removeAllBtn.on( 'click', function( e ) {
 		e.preventDefault();
 
-		if ( ! window.confirm( wp.i18n.__( 'Are you sure you want to revoke all passwords? This action cannot be undone.' ) ) ) {
+		if ( ! window.confirm( wp.i18n.__( 'Are you sure you want to revoke all passwords' ) ) ) {
 			return;
 		}
 
@@ -123,7 +123,7 @@
 		$submitButton.prop( 'disabled', true );
 
 		wp.apiRequest( {
-			path: '/wp/v2/users/' + userId + '/application-passwords?_locale=user',
+			path: '/wp/v2/users/' + userId + '/application-passwords',
 			method: 'DELETE'
 		} ).always( function() {
 			$submitButton.prop( 'disabled', false );

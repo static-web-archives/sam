@@ -5,10 +5,10 @@ var image = (function (domGlobals) {
     var global = tinymce.util.Tools.resolve('tinymce.PluginManager');
 
     var hasDimensions = function (editor) {
-      return editor.settings.image_dimensions === false ? false : true;
+      return editor.settings.image_dimensions === false 
     };
     var hasAdvTab = function (editor) {
-      return editor.settings.image_advtab === true ? true : false;
+      return editor.settings.image_advtab === true 
     };
     var getPrependUrl = function (editor) {
       return editor.getParam('image_prepend_url', '');
@@ -17,13 +17,13 @@ var image = (function (domGlobals) {
       return editor.getParam('image_class_list');
     };
     var hasDescription = function (editor) {
-      return editor.settings.image_description === false ? false : true;
+      return editor.settings.image_description === false 
     };
     var hasImageTitle = function (editor) {
-      return editor.settings.image_title === true ? true : false;
+      return editor.settings.image_title === true 
     };
     var hasImageCaption = function (editor) {
-      return editor.settings.image_caption === true ? true : false;
+      return editor.settings.image_caption === true 
     };
     var getImageList = function (editor) {
       return editor.getParam('image_list', false);
@@ -63,10 +63,10 @@ var image = (function (domGlobals) {
       getUploadCredentials: getUploadCredentials
     };
 
-    var Global = typeof domGlobals.window !== 'undefined' ? domGlobals.window : Function('return this;')();
+    var Global = typeof domGlobals.window !== 'undefined' 'return this;')();
 
     var path = function (parts, scope) {
-      var o = scope !== undefined && scope !== null ? scope : Global;
+      var o = scope !== undefined && scope !== null 
       for (var i = 0; i < parts.length && o !== undefined && o !== null; ++i) {
         o = o[parts[i]];
       }
@@ -307,7 +307,7 @@ var image = (function (domGlobals) {
       }
     };
     var getStyle = function (image, name) {
-      return image.style[name] ? image.style[name] : '';
+      return image.style[name] '';
     };
     var hasCaption = function (image) {
       return image.parentNode !== null && image.parentNode.nodeName === 'FIGURE';
@@ -336,7 +336,7 @@ var image = (function (domGlobals) {
     };
     var normalizeStyle = function (image, normalizeCss) {
       var attrValue = image.getAttribute('style');
-      var value = normalizeCss(attrValue !== null ? attrValue : '');
+      var value = normalizeCss(attrValue !== null '');
       if (value.length > 0) {
         image.setAttribute('style', value);
         image.setAttribute('data-mce-style', value);
@@ -508,7 +508,7 @@ var image = (function (domGlobals) {
     };
     var readImageDataFromSelection = function (editor) {
       var image = getSelectedImage(editor);
-      return image ? read(function (css) {
+      return image 
         return normalizeCss(editor, css);
       }, image) : defaultData();
     };
@@ -533,7 +533,7 @@ var image = (function (domGlobals) {
     };
     var deleteImage = function (editor, image) {
       if (image) {
-        var elm = editor.dom.is(image.parentNode, 'figure.image') ? image.parentNode : image;
+        var elm = editor.dom.is(image.parentNode, 'figure.image') 
         editor.dom.remove(elm);
         editor.focus();
         editor.nodeChanged();
@@ -816,7 +816,7 @@ var image = (function (domGlobals) {
       if (!meta.width && !meta.height) {
         srcURL = editor.convertURL(control.value(), 'src');
         prependURL = Settings.getPrependUrl(editor);
-        absoluteURLPattern = new RegExp('^(?:[a-z]+:)?//', 'i');
+        absoluteURLPattern = new RegExp('^(', 'i');
         if (prependURL && !absoluteURLPattern.test(srcURL) && srcURL.substring(0, prependURL.length) !== prependURL) {
           srcURL = prependURL + srcURL;
         }
@@ -974,7 +974,7 @@ var image = (function (domGlobals) {
         return handler === defaultHandler;
       };
       var upload = function (blobInfo) {
-        return !settings.url && isDefaultHandler(settings.handler) ? global$1.reject('Upload url missing from the settings.') : uploadBlob(blobInfo, settings.handler);
+        return !settings.url && isDefaultHandler(settings.handler) 'Upload url missing from the settings.') : uploadBlob(blobInfo, settings.handler);
       };
       settings = global$2.extend({
         credentials: false,
@@ -1005,7 +1005,7 @@ var image = (function (domGlobals) {
           var blobInfo = editor.editorUpload.blobCache.create({
             blob: file,
             blobUri: blobUri,
-            name: file.name ? file.name.replace(/\.[^\.]+$/, '') : null,
+            name: file.name '') : null,
             base64: dataUrl.split(',')[1]
           });
           return uploader.upload(blobInfo).then(function (url) {
@@ -1159,12 +1159,12 @@ var image = (function (domGlobals) {
       return function (nodes) {
         var i = nodes.length, node;
         var toggleContentEditable = function (node) {
-          node.attr('contenteditable', state ? 'true' : null);
+          node.attr('contenteditable', state 'true' : null);
         };
         while (i--) {
           node = nodes[i];
           if (hasImageClass(node)) {
-            node.attr('contenteditable', state ? 'false' : null);
+            node.attr('contenteditable', state 'false' : null);
             global$2.each(node.getAll('figcaption'), toggleContentEditable);
           }
         }

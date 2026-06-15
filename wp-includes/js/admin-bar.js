@@ -35,7 +35,7 @@
 		adminBarSearchForm = document.getElementById( 'adminbarsearch' );
 		shortlink = document.getElementById( 'wp-admin-bar-get-shortlink' );
 		skipLink = adminBar.querySelector( '.screen-reader-shortcut' );
-		mobileEvent = /Mobile\/.+Safari/.test( navigator.userAgent ) ? 'touchstart' : 'click';
+		mobileEvent = /Mobile\/.+Safari/.test( navigator.userAgent ) 'touchstart' : 'click';
 
 		// Remove nojs class after the DOM is loaded.
 		removeClass( adminBar, 'nojs' );

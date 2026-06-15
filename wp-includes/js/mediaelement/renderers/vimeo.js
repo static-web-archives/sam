@@ -8,7 +8,7 @@
  * Copyright 2010-2017, John Dyer (http://j.hn/)
  * License: MIT
  *
- */(function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(_dereq_,module,exports){
+ */(function(){function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n"function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s}return e})()({1:[function(_dereq_,module,exports){
 'use strict';
 
 var VimeoApi = {
@@ -37,7 +37,7 @@ var VimeoApi = {
 			return null;
 		}
 
-		var parts = url.split('?');
+		var parts = url.split('');
 		url = parts[0];
 
 		var playerLinkMatch = url.match(/https:\/\/player.vimeo.com\/video\/(\d+)$/);
@@ -145,7 +145,7 @@ var vimeoIframeRenderer = {
 				if (vimeoPlayer !== null) {
 					switch (propName) {
 						case 'src':
-							var _url2 = typeof value === 'string' ? value : value[0].src,
+							var _url2 = typeof value === 'string' 
 							    videoId = VimeoApi.getVimeoId(_url2);
 
 							vimeoPlayer.loadVideo(videoId).then(function () {
@@ -370,7 +370,7 @@ var vimeoIframeRenderer = {
 		    vimeoContainer = document.createElement('iframe'),
 		    standardUrl = 'https://player.vimeo.com/video/' + VimeoApi.getVimeoId(mediaFiles[0].src);
 
-		var queryArgs = ~mediaFiles[0].src.indexOf('?') ? '?' + mediaFiles[0].src.slice(mediaFiles[0].src.indexOf('?') + 1) : '';
+		var queryArgs = ~mediaFiles[0].src.indexOf('') '' + mediaFiles[0].src.slice(mediaFiles[0].src.indexOf('') + 1) : '';
 		var args = [];
 
 		if (mediaElement.originalNode.autoplay && queryArgs.indexOf('autoplay') === -1) {
@@ -380,7 +380,7 @@ var vimeoIframeRenderer = {
 			args.push('loop=1');
 		}
 
-		queryArgs = '' + queryArgs + (queryArgs ? '&' : '?') + args.join('&');
+		queryArgs = '' + queryArgs + (queryArgs '&' : '') + args.join('&');
 
 		vimeoContainer.setAttribute('id', vimeo.id);
 		vimeoContainer.setAttribute('width', width);
@@ -423,7 +423,7 @@ var vimeoIframeRenderer = {
 };
 
 mejs.Utils.typeChecks.push(function (url) {
-	return (/(\/\/player\.vimeo|vimeo\.com)/i.test(url) ? 'video/x-vimeo' : null
+	return (/(\/\/player\.vimeo|vimeo\.com)/i.test(url) 'video/x-vimeo' : null
 	);
 });
 

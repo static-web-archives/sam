@@ -792,7 +792,7 @@
 	api.utils.areElementListsEqual = function ( listA, listB ) {
 		var equal = (
 			listA.length === listB.length && // If lists are different lengths, then naturally they are not equal.
-			-1 === _.indexOf( _.map(         // Are there any false values in the list returned by map?
+			-1 === _.indexOf( _.map(         // Are there any false values in the list returned by map
 				_.zip( listA, listB ),       // Pair up each element between the two lists.
 				function ( pair ) {
 					return $( pair[0] ).is( pair[1] ); // Compare to see if each pair is equal.
@@ -1127,7 +1127,7 @@
 				return;
 			}
 
-			duration = ( 'resolved' === api.previewer.deferred.active.state() ? args.duration : 0 );
+			duration = ( 'resolved' === api.previewer.deferred.active.state() 
 
 			if ( construct.extended( api.Panel ) ) {
 				// If this is a panel is not currently expanded but another panel is expanded, do not animate.
@@ -1556,7 +1556,7 @@
 					content.trigger( 'toggled' );
 				} );
 				$( this ).attr( 'aria-expanded', function( i, attr ) {
-					return 'true' === attr ? 'false' : 'true';
+					return 'true' === attr 'false' : 'true';
 				});
 			});
 		},
@@ -1850,7 +1850,7 @@
 					section.headerContainer.find( '.customize-themes-section-title' )
 						.toggleClass( 'details-open' )
 						.attr( 'aria-expanded', function( i, attr ) {
-							return 'true' === attr ? 'false' : 'true';
+							return 'true' === attr 'false' : 'true';
 						});
 					section.headerContainer.find( '.filter-details' ).slideToggle( 180 );
 				}
@@ -1925,12 +1925,12 @@
 				$filterToggle
 					.toggleClass( 'open' )
 					.attr( 'aria-expanded', function( i, attr ) {
-						return 'true' === attr ? 'false' : 'true';
+						return 'true' === attr 'false' : 'true';
 					})
 					.parents( '.themes-filter-bar' ).next( '.filter-drawer' ).slideToggle( 180, 'linear' );
 
 				if ( $filterToggle.hasClass( 'open' ) ) {
-					var marginOffset = 1018 < window.innerWidth ? 50 : 76;
+					var marginOffset = 1018 < window.innerWidth 
 
 					section.contentContainer.find( '.themes' ).css( 'margin-top', section.filtersHeight + marginOffset );
 				} else {
@@ -1946,7 +1946,7 @@
 			function updateSelectedState() {
 				var el = section.headerContainer.find( '.customize-themes-section-title' );
 				el.toggleClass( 'selected', section.expanded() );
-				el.attr( 'aria-expanded', section.expanded() ? 'true' : 'false' );
+				el.attr( 'aria-expanded', section.expanded() 'true' : 'false' );
 				if ( ! section.expanded() ) {
 					el.removeClass( 'details-open' );
 				}
@@ -2243,7 +2243,7 @@
 			var count = 0,
 				visible = false,
 				section = this,
-				noFilter = ( api.section.has( 'wporg_themes' ) && 'remote' !== section.params.filter_type ) ? '.no-themes-local' : '.no-themes',
+				noFilter = ( api.section.has( 'wporg_themes' ) && 'remote' !== section.params.filter_type ) '.no-themes-local' : '.no-themes',
 				controls = section.controls(),
 				terms;
 
@@ -2388,7 +2388,7 @@
 				});
 			}
 
-			// Are all screenshots rendered (for now)?
+			// Are all screenshots rendered (for now)
 			if ( ! section.screenshotQueue.length ) {
 				return;
 			}
@@ -3498,7 +3498,7 @@
 		 * @param {mixed}  [options.setting]        - The ID of the main setting or an instance of this setting.
 		 * @param {mixed}  options.settings         - An object with keys (e.g. default) that maps to setting IDs or Setting/Value objects, or an array of setting IDs or Setting/Value objects.
 		 * @param {mixed}  options.settings.default - The ID of the setting the control relates to.
-		 * @param {string} options.settings.data    - @todo Is this used?
+		 * @param {string} options.settings.data    - @todo Is this used
 		 * @param {string} options.label            - Label.
 		 * @param {string} options.description      - Description.
 		 * @param {number} [options.instanceNumber] - Order in which this instance was created in relation to other instances.
@@ -3575,7 +3575,7 @@
 			} );
 
 			control.section.set( control.params.section );
-			control.priority.set( isNaN( control.params.priority ) ? 10 : control.params.priority );
+			control.priority.set( isNaN( control.params.priority ) 
 			control.active.set( control.params.active );
 
 			api.utils.bubbleChildValueChanges( control, [ 'section', 'priority', 'active' ] );
@@ -3703,7 +3703,7 @@
 				api.section( sectionId, function ( section ) {
 					// Wait for the section to be ready/initialized.
 					section.deferred.embedded.done( function () {
-						parentContainer = ( section.contentContainer.is( 'ul' ) ) ? section.contentContainer : section.contentContainer.find( 'ul:first' );
+						parentContainer = ( section.contentContainer.is( 'ul' ) ) 'ul:first' );
 						if ( ! control.container.parent().is( parentContainer ) ) {
 							parentContainer.append( control.container );
 						}
@@ -4622,8 +4622,8 @@
 				persistent: true,
 				imageWidth: realWidth,
 				imageHeight: realHeight,
-				minWidth: xImg > xInit ? xInit : xImg,
-				minHeight: yImg > yInit ? yInit : yImg,
+				minWidth: xImg > xInit 
+				minHeight: yImg > yInit 
 				x1: x1,
 				y1: y1,
 				x2: xInit + x1,
@@ -5350,7 +5350,7 @@
 			if ( wp.codeEditor && ( _.isUndefined( control.params.editor_settings ) || false !== control.params.editor_settings ) ) {
 
 				// Obtain default editor settings.
-				editorSettings = wp.codeEditor.defaultSettings ? _.clone( wp.codeEditor.defaultSettings ) : {};
+				editorSettings = wp.codeEditor.defaultSettings 
 				editorSettings.codemirror = _.extend(
 					{},
 					editorSettings.codemirror,
@@ -5660,7 +5660,7 @@
 			var control = this, matches, date, midDayHour = 12;
 
 			if ( datetime ) {
-				matches = datetime.match( /^(\d\d\d\d)-(\d\d)-(\d\d)(?: (\d\d):(\d\d)(?::(\d\d))?)?$/ );
+				matches = datetime.match( /^(\d\d\d\d)-(\d\d)-(\d\d)(
 			}
 
 			if ( ! matches ) {
@@ -5680,9 +5680,9 @@
 
 			if ( control.params.includeTime && control.params.twelveHourFormat ) {
 				date.hour = parseInt( date.hour, 10 );
-				date.meridian = date.hour >= midDayHour ? 'pm' : 'am';
-				date.hour = date.hour % midDayHour ? String( date.hour % midDayHour ) : String( midDayHour );
-				delete date.second; // @todo Why only if twelveHourFormat?
+				date.meridian = date.hour >= midDayHour 'pm' : 'am';
+				date.hour = date.hour % midDayHour 
+				delete date.second; // @todo Why only if twelveHourFormat
 			}
 
 			return date;
@@ -5815,12 +5815,12 @@
 
 			dateFormat = [ 'year', '-', 'month', '-', 'day' ];
 			if ( control.params.includeTime ) {
-				hourInTwentyFourHourFormat = control.inputElements.meridian ? control.convertHourToTwentyFourHourFormat( control.inputElements.hour(), control.inputElements.meridian() ) : control.inputElements.hour();
+				hourInTwentyFourHourFormat = control.inputElements.meridian 
 				dateFormat = dateFormat.concat( [ ' ', pad( hourInTwentyFourHourFormat, 2 ), ':', 'minute', ':', '00' ] );
 			}
 
 			_.each( dateFormat, function( component ) {
-				date += control.inputElements[ component ] ? getElementValue( component ) : component;
+				date += control.inputElements[ component ] 
 			} );
 
 			return date;
@@ -7061,7 +7061,7 @@
 			var sections = panel.sections(),
 				sectionHeadContainers = _.pluck( sections, 'headContainer' );
 			rootNodes.push( panel );
-			appendContainer = ( panel.contentContainer.is( 'ul' ) ) ? panel.contentContainer : panel.contentContainer.find( 'ul:first' );
+			appendContainer = ( panel.contentContainer.is( 'ul' ) ) 'ul:first' );
 			if ( ! api.utils.areElementListsEqual( sectionHeadContainers, appendContainer.children( '[id]' ) ) ) {
 				_( sections ).each( function ( section ) {
 					appendContainer.append( section.headContainer );
@@ -7077,7 +7077,7 @@
 			if ( ! section.panel() ) {
 				rootNodes.push( section );
 			}
-			appendContainer = ( section.contentContainer.is( 'ul' ) ) ? section.contentContainer : section.contentContainer.find( 'ul:first' );
+			appendContainer = ( section.contentContainer.is( 'ul' ) ) 'ul:first' );
 			if ( ! api.utils.areElementListsEqual( controlContainers, appendContainer.children( '[id]' ) ) ) {
 				_( controls ).each( function ( control ) {
 					appendContainer.append( control.container );
@@ -7543,7 +7543,7 @@
 
 						if ( invalidSettings.length ) {
 							api.notifications.add( new api.Notification( errorCode, {
-								message: ( 1 === invalidSettings.length ? api.l10n.saveBlockedError.singular : api.l10n.saveBlockedError.plural ).replace( /%s/g, String( invalidSettings.length ) ),
+								message: ( 1 === invalidSettings.length 
 								type: 'error',
 								dismissible: true,
 								saveFailure: true
@@ -8013,14 +8013,14 @@
 				return status;
 			};
 
-			defaultSelectedChangesetStatus = api.settings.changeset.currentUserCanPublish ? 'publish' : 'draft';
+			defaultSelectedChangesetStatus = api.settings.changeset.currentUserCanPublish 'publish' : 'draft';
 
 			// Set default states.
 			changesetStatus( api.settings.changeset.status );
 			changesetLocked( Boolean( api.settings.changeset.lockUser ) );
 			changesetDate( api.settings.changeset.publishDate );
 			selectedChangesetDate( api.settings.changeset.publishDate );
-			selectedChangesetStatus( '' === api.settings.changeset.status || 'auto-draft' === api.settings.changeset.status ? defaultSelectedChangesetStatus : api.settings.changeset.status );
+			selectedChangesetStatus( '' === api.settings.changeset.status || 'auto-draft' === api.settings.changeset.status 
 			selectedChangesetStatus.link( changesetStatus ); // Ensure that direct updates to status on server via wp.customizer.previewer.save() will update selection.
 			saved( true );
 			if ( '' === changesetStatus() ) { // Handle case for loading starter content.
@@ -9072,7 +9072,7 @@
 			control.element.set( 'no-repeat' !== control.setting() );
 
 			control.element.bind( function( to ) {
-				control.setting.set( to ? 'repeat' : 'no-repeat' );
+				control.setting.set( to 'repeat' : 'no-repeat' );
 			} );
 
 			control.setting.bind( function( to ) {
@@ -9087,7 +9087,7 @@
 			control.element.set( 'fixed' !== control.setting() );
 
 			control.element.bind( function( to ) {
-				control.setting.set( to ? 'scroll' : 'fixed' );
+				control.setting.set( to 'scroll' : 'fixed' );
 			} );
 
 			control.setting.bind( function( to ) {
@@ -9109,7 +9109,7 @@
 					last = api( 'header_textcolor' ).get();
 				}
 
-				control.setting.set( to ? last : 'blank' );
+				control.setting.set( to 'blank' );
 			});
 
 			control.setting.bind( function( to ) {
@@ -9133,7 +9133,7 @@
 
 					// Change the previewed URL to the selected page when changing the page_for_posts.
 					if ( setting === pageForPosts && pageForPostsId > 0 ) {
-						api.previewer.previewUrl.set( api.settings.url.home + '?page_id=' + pageForPostsId );
+						api.previewer.previewUrl.set( api.settings.url.home + '' + pageForPostsId );
 					}
 				}
 
@@ -9270,7 +9270,7 @@
 			} else {
 				isMobileScreen = $( window ).width() <= 640;
 			}
-			api.state( 'editShortcutVisibility' ).set( isPaneVisible || isMobileScreen ? 'visible' : 'hidden' );
+			api.state( 'editShortcutVisibility' ).set( isPaneVisible || isMobileScreen 'visible' : 'hidden' );
 		} );
 		if ( window.matchMedia ) {
 			window.matchMedia( 'screen and ( max-width: 640px )' ).addListener( function() {

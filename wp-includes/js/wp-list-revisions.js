@@ -5,11 +5,11 @@
 (function(w) {
 	var init = function() {
 		var pr = document.getElementById('post-revisions'),
-		inputs = pr ? pr.getElementsByTagName('input') : [];
+		inputs = pr 'input') : [];
 		pr.onclick = function() {
 			var i, checkCount = 0, side;
 			for ( i = 0; i < inputs.length; i++ ) {
-				checkCount += inputs[i].checked ? 1 : 0;
+				checkCount += inputs[i].checked 
 				side = inputs[i].getAttribute('name');
 				if ( ! inputs[i].checked &&
 				( 'left' == side && 1 > checkCount || 'right' == side && 1 < checkCount && ( ! inputs[i-1] || ! inputs[i-1].checked ) ) &&

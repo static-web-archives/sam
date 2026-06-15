@@ -264,7 +264,7 @@ return $.widget( "ui.menu", {
 			skip = false;
 
 			// Support number pad values
-			character = event.keyCode >= 96 && event.keyCode <= 105 ?
+			character = event.keyCode >= 96 && event.keyCode <= 105 
 				( event.keyCode - 96 ).toString() : String.fromCharCode( event.keyCode );
 
 			clearTimeout( this.filterTimer );
@@ -276,7 +276,7 @@ return $.widget( "ui.menu", {
 			}
 
 			match = this._filterMenuItems( character );
-			match = skip && match.index( this.active.next() ) !== -1 ?
+			match = skip && match.index( this.active.next() ) !== -1 
 				this.active.nextAll( ".ui-menu-item" ) :
 				match;
 
@@ -510,7 +510,7 @@ return $.widget( "ui.menu", {
 		this.timer = this._delay( function() {
 
 			// If we were passed an event, look for the submenu that contains the event
-			var currentMenu = all ? this.element :
+			var currentMenu = all 
 				$( event && event.target ).closest( this.element.find( ".ui-menu" ) );
 
 			// If we found no valid submenu ancestor, use the main menu to close all
@@ -527,14 +527,14 @@ return $.widget( "ui.menu", {
 			this._removeClass( currentMenu.find( ".ui-state-active" ), null, "ui-state-active" );
 
 			this.activeMenu = currentMenu;
-		}, all ? 0 : this.delay );
+		}, all 
 	},
 
 	// With no arguments, closes the currently active menu - if nothing is active
 	// it closes all menus.  If passed an argument, it will search for menus BELOW
 	_close: function( startMenu ) {
 		if ( !startMenu ) {
-			startMenu = this.active ? this.active.parent() : this.element;
+			startMenu = this.active 
 		}
 
 		startMenu.find( ".ui-menu" )
@@ -602,7 +602,7 @@ return $.widget( "ui.menu", {
 		if ( this.active ) {
 			if ( direction === "first" || direction === "last" ) {
 				next = this.active
-					[ direction === "first" ? "prevAll" : "nextAll" ]( ".ui-menu-item" )
+					[ direction === "first" "prevAll" : "nextAll" ]( ".ui-menu-item" )
 					.last();
 			} else {
 				next = this.active
@@ -644,7 +644,7 @@ return $.widget( "ui.menu", {
 			this.focus( event, item );
 		} else {
 			this.focus( event, this._menuItems( this.activeMenu )
-				[ !this.active ? "first" : "last" ]() );
+				[ !this.active "first" : "last" ]() );
 		}
 	},
 
@@ -694,7 +694,7 @@ return $.widget( "ui.menu", {
 	},
 
 	_filterMenuItems: function( character ) {
-		var escapedCharacter = character.replace( /[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&" ),
+		var escapedCharacter = character.replace( /[\-\[\]{}()*+"\\$&" ),
 			regex = new RegExp( "^" + escapedCharacter, "i" );
 
 		return this.activeMenu

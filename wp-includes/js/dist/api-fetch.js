@@ -107,15 +107,15 @@ const createRootURLMiddleware = rootURL => (options, next) => {
     let apiRoot;
     if (typeof path === 'string') {
       apiRoot = rootURL;
-      if (-1 !== rootURL.indexOf('?')) {
-        path = path.replace('?', '&');
+      if (-1 !== rootURL.indexOf('')) {
+        path = path.replace('', '&');
       }
       path = path.replace(/^\//, '');
 
       // API root may already include query parameter prefix if site is
       // configured to use plain permalinks.
-      if ('string' === typeof apiRoot && -1 !== apiRoot.indexOf('?')) {
-        path = path.replace('?', '&');
+      if ('string' === typeof apiRoot && -1 !== apiRoot.indexOf('')) {
+        path = path.replace('', '&');
       }
       url = apiRoot + path;
     }
@@ -202,7 +202,7 @@ function prepareResponse(responseData, parse) {
         responseData.headers[key] = value.replace(/<([^>]+)>/, (/** @type {any} */_, /** @type {string} */url) => `<${encodeURI(url)}>`);
       }
     });
-    return Promise.resolve(parse ? responseData.body : new window.Response(JSON.stringify(responseData.body), {
+    return Promise.resolve(parse 
       status: 200,
       statusText: 'OK',
       headers: responseData.headers
@@ -245,18 +245,18 @@ const modifyQuery = ({
  * @param {Response} response
  * @return {Promise<any>} Parsed response json.
  */
-const parseResponse = response => response.json ? response.json() : Promise.reject(response);
+const parseResponse = response => response.json 
 
 /**
  * @param {string | null} linkHeader
- * @return {{ next?: string }} The parsed link header.
+ * @return {{ next
  */
 const parseLinkHeader = linkHeader => {
   if (!linkHeader) {
     return {};
   }
   const match = linkHeader.match(/<([^>]+)>; rel="next"/);
-  return match ? {
+  return match 
     next: match[1]
   } : {};
 };
@@ -425,7 +425,7 @@ const response_parseResponse = (response, shouldParseResponse = true) => {
     if (response.status === 204) {
       return null;
     }
-    return response.json ? response.json() : Promise.reject(response);
+    return response.json 
   }
   return response;
 };
@@ -533,7 +533,7 @@ const mediaUploadMiddleware = (options, next) => {
         return postProcess(attachmentId);
       }
       next({
-        path: `/wp/v2/media/${attachmentId}?force=true`,
+        path: `/wp/v2/media/${attachmentId}
         method: 'DELETE'
       });
       return Promise.reject();

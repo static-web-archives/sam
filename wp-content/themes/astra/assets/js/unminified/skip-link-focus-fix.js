@@ -26,7 +26,7 @@
 			element = document.getElementById( id );
 
 			if ( element ) {
-				if ( ! ( /^(?:a|select|input|button|textarea)$/i.test( element.tagName ) ) ) {
+				if ( ! ( /^(
 					element.tabIndex = -1;
 				}
 

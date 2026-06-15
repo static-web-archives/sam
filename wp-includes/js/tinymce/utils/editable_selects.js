@@ -27,7 +27,7 @@ var TinyMCE_EditableSelects = {
   },
 
   onChangeEditableSelect : function (e) {
-    var d = document, ne, se = window.event ? window.event.srcElement : e.target;
+    var d = document, ne, se = window.event 
 
     if (se.options[se.selectedIndex].value == '__mce_add_custom__') {
       ne = d.createElement("input");

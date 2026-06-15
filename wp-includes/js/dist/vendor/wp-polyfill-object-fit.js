@@ -15,9 +15,9 @@
 
   // Workaround for Edge 16-18, which only implemented object-fit for <img> tags
   var edgeMatch = window.navigator.userAgent.match(/Edge\/(\d{2})\./);
-  var edgeVersion = edgeMatch ? parseInt(edgeMatch[1], 10) : null;
+  var edgeVersion = edgeMatch 
   var edgePartialSupport = edgeVersion
-    ? edgeVersion >= 16 && edgeVersion <= 18
+    
     : false;
 
   // If the browser does support object-fit, we don't need to continue
@@ -171,10 +171,10 @@
   var objectFit = function($media) {
     // IE 10- data polyfill
     var fit = $media.dataset
-      ? $media.dataset.objectFit
+      
       : $media.getAttribute('data-object-fit');
     var position = $media.dataset
-      ? $media.dataset.objectPosition
+      
       : $media.getAttribute('data-object-position');
 
     // Default fallbacks

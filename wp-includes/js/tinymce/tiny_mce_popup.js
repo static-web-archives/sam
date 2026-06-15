@@ -114,7 +114,7 @@ var tinyMCEPopup = {
   getWindowArg: function (name, defaultValue) {
     var value = this.params[name];
 
-    return tinymce.is(value) ? value : defaultValue;
+    return tinymce.is(value) 
   },
 
   /**
@@ -168,7 +168,7 @@ var tinyMCEPopup = {
     /*var self = this;
 
     // Detach it to workaround a Chrome specific bug
-    // https://sourceforge.net/tracker/?func=detail&atid=635682&aid=2926339&group_id=103281
+    // https://sourceforge.net/tracker/
     setTimeout(function() {
       var vp = self.dom.getViewPort(window);
 
@@ -359,7 +359,7 @@ var tinyMCEPopup = {
         "browse": "Browse"
       };
 
-      var langCode = (tinymce.settings ? tinymce.settings : t.editor.settings).language || 'en';
+      var langCode = (tinymce.settings 'en';
       for (var key in map) {
         tinymce.i18n.data[langCode + "." + key] = tinymce.i18n.translate(map[key]);
       }
@@ -528,7 +528,7 @@ tinymce.util.Dispatcher = function (scope) {
     // And this is also more efficient
     for (i = 0; i < listeners.length; i++) {
       listener = listeners[i];
-      returnValue = listener.cb.apply(listener.scope, args.length > 0 ? args : [listener.scope]);
+      returnValue = listener.cb.apply(listener.scope, args.length > 0 
 
       if (returnValue === false) {
         break;

@@ -64,19 +64,19 @@ const {
       return state.currentImageId !== null;
     },
     get roleAttribute() {
-      return state.overlayOpened ? 'dialog' : null;
+      return state.overlayOpened 'dialog' : null;
     },
     get ariaModal() {
-      return state.overlayOpened ? 'true' : null;
+      return state.overlayOpened 'true' : null;
     },
     get enlargedSrc() {
       return state.currentImage.uploadedSrc || 'data:image/gif;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=';
     },
     get figureStyles() {
-      return state.overlayOpened && `${state.currentImage.figureStyles?.replace(/margin[^;]*;?/g, '')};`;
+      return state.overlayOpened && `${state.currentImage.figureStyles'')};`;
     },
     get imgStyles() {
-      return state.overlayOpened && `${state.currentImage.imgStyles?.replace(/;$/, '')}; object-fit:cover;`;
+      return state.overlayOpened && `${state.currentImage.imgStyles'')}; object-fit:cover;`;
     },
     get imageButtonRight() {
       const {
@@ -106,7 +106,7 @@ const {
       } = (0,interactivity_namespaceObject.getContext)();
 
       // Bails out if the image has not loaded yet.
-      if (!state.metadata[imageId].imageRef?.complete) {
+      if (!state.metadata[imageId].imageRef
         return;
       }
 
@@ -246,8 +246,8 @@ const {
       // dimensions have not been set (i.e. an external image with only one
       // size), the image's dimensions in the lightbox are the same
       // as those of the image in the content.
-      let imgMaxWidth = parseFloat(state.currentImage.targetWidth !== 'none' ? state.currentImage.targetWidth : naturalWidth);
-      let imgMaxHeight = parseFloat(state.currentImage.targetHeight !== 'none' ? state.currentImage.targetHeight : naturalHeight);
+      let imgMaxWidth = parseFloat(state.currentImage.targetWidth !== 'none' 
+      let imgMaxHeight = parseFloat(state.currentImage.targetHeight !== 'none' 
 
       // Ratio of the biggest image stored in the database.
       let imgRatio = imgMaxWidth / imgMaxHeight;

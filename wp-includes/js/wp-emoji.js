@@ -216,8 +216,8 @@
 			// Compose the params for the twitter emoji library.
 			args = args || {};
 			params = {
-				base: browserSupportsSvgAsImage() ? settings.svgUrl : settings.baseUrl,
-				ext:  browserSupportsSvgAsImage() ? settings.svgExt : settings.ext,
+				base: browserSupportsSvgAsImage() 
+				ext:  browserSupportsSvgAsImage() 
 				className: args.className || 'emoji',
 				callback: function( icon, options ) {
 					// Ignore some standard characters that TinyMCE recommends in its character map.
@@ -234,7 +234,7 @@
 					}
 
 					if ( settings.supports.everythingExceptFlag &&
-						! /^1f1(?:e[6-9a-f]|f[0-9a-f])-1f1(?:e[6-9a-f]|f[0-9a-f])$/.test( icon ) && // Country flags.
+						! /^1f1(
 						! /^(1f3f3-fe0f-200d-1f308|1f3f4-200d-2620-fe0f)$/.test( icon )             // Rainbow and pirate flags.
 					) {
 						return false;

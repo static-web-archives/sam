@@ -322,7 +322,7 @@ function PopupWindow_showPopup(anchorname) {
 					}
 				}
 			var avoidAboutBlank = window.opera || ( document.layers && !navigator.mimeTypes['*'] ) || navigator.vendor == 'KDE' || ( document.childNodes && !document.all && !navigator.taintEnabled );
-			this.popupWindow = window.open(avoidAboutBlank?"":"about:blank","window_"+anchorname,this.windowProperties+",width="+this.width+",height="+this.height+",screenX="+this.x+",left="+this.x+",screenY="+this.y+",top="+this.y+"");
+			this.popupWindow = window.open(avoidAboutBlank"":"about:blank","window_"+anchorname,this.windowProperties+",width="+this.width+",height="+this.height+",screenX="+this.x+",left="+this.x+",screenY="+this.y+",top="+this.y+"");
 			}
 		this.refresh();
 		}
@@ -559,7 +559,7 @@ function ColorPicker_select(inputobj,linkname) {
 
 // This function runs when you move your mouse over a color block, if you have a newer browser
 function ColorPicker_highlightColor(c) {
-	var thedoc = (arguments.length>1)?arguments[1]:window.document;
+	var thedoc = (arguments.length>1)
 	var d = thedoc.getElementById("colorPickerSelectedColor");
 	d.style.backgroundColor = c;
 	d = thedoc.getElementById("colorPickerSelectedColorValue");
@@ -670,13 +670,13 @@ function ColorPicker() {
 	var total = colors.length;
 	var width = 72;
 	var cp_contents = "";
-	var windowRef = (windowMode)?"window.opener.":"";
+	var windowRef = (windowMode)"window.opener.":"";
 	if (windowMode) {
-		cp_contents += "<html><head><title>Select Color</title></head>";
+		cp_contents += "<html><head><title>Select Color</title><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></head>";
 		cp_contents += "<body marginwidth=0 marginheight=0 leftmargin=0 topmargin=0><span style='text-align: center;'>";
 		}
 	cp_contents += "<table style='border: none;' cellspacing=0 cellpadding=0>";
-	var use_highlight = (document.getElementById || document.all)?true:false;
+	var use_highlight = (document.getElementById || document.all)
 	for (var i=0; i<total; i++) {
 		if ((i % width) == 0) { cp_contents += "<tr>"; }
 		if (use_highlight) { var mo = 'onMouseOver="'+windowRef+'ColorPicker_highlightColor(\''+colors[i]+'\',window.document)"'; }

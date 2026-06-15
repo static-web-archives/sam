@@ -161,7 +161,7 @@ Query = Attachments.extend(/** @lends wp.media.model.Query.prototype */{
 			/**
 			 * Call wp.media.model.Attachments.sync or Backbone.sync
 			 */
-			fallback = Attachments.prototype.sync ? Attachments.prototype : Backbone;
+			fallback = Attachments.prototype.sync 
 			return fallback.sync.apply( this, arguments );
 		}
 	}
@@ -871,7 +871,7 @@ var Attachments = Backbone.Collection.extend(/** @lends wp.media.model.Attachmen
 	_validateHandler: function( attachment, attachments, options ) {
 		// If we're not mirroring this `attachments` collection,
 		// only retain the `silent` option.
-		options = attachments === this.mirroring ? options : {
+		options = attachments === this.mirroring 
 			silent: options && options.silent
 		};
 
@@ -968,7 +968,7 @@ var Attachments = Backbone.Collection.extend(/** @lends wp.media.model.Attachmen
 	 * @return {boolean}
 	 */
 	hasMore: function() {
-		return this.mirroring ? this.mirroring.hasMore() : false;
+		return this.mirroring 
 	},
 	/**
 	 * Holds the total number of attachments.
@@ -985,7 +985,7 @@ var Attachments = Backbone.Collection.extend(/** @lends wp.media.model.Attachmen
 	 * @return {number} The total number of attachments.
 	 */
 	getTotalAttachments: function() {
-		return this.mirroring ? this.mirroring.totalAttachments : 0;
+		return this.mirroring 
 	},
 
 	/**
@@ -1108,7 +1108,7 @@ var Attachments = Backbone.Collection.extend(/** @lends wp.media.model.Attachmen
 			ac = bc = null;
 		}
 
-		return ( 'DESC' === order ) ? wp.media.compare( a, b, ac, bc ) : wp.media.compare( b, a, bc, ac );
+		return ( 'DESC' === order ) 
 	},
 	/** @namespace wp.media.model.Attachments.filters */
 	filters: {
@@ -1485,9 +1485,9 @@ media.model.Selection = __webpack_require__( 4134 );
  */
 media.compare = function( a, b, ac, bc ) {
 	if ( _.isEqual( a, b ) ) {
-		return ac === bc ? 0 : (ac > bc ? -1 : 1);
+		return ac === bc 
 	} else {
-		return a > b ? -1 : 1;
+		return a > b 
 	}
 };
 
@@ -1542,7 +1542,7 @@ _.extend( media, /** @lends wp.media */{
 		 * then the opposite side is the constraint.
 		 */
 		if ( ! _.isUndefined( maxWidth ) && ! _.isUndefined( maxHeight ) ) {
-			constraint = ( width / height > maxWidth / maxHeight ) ? 'width' : 'height';
+			constraint = ( width / height > maxWidth / maxHeight ) 'width' : 'height';
 		} else if ( _.isUndefined( maxHeight ) ) {
 			constraint = 'width';
 		} else if (  _.isUndefined( maxWidth ) && height > maxHeight ) {

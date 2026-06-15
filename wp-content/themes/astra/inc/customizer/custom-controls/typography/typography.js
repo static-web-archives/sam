@@ -191,13 +191,13 @@
 			inherit             = fontSelect.data( 'inherit' ),
 			weightSelect        = api.control( weightKey ).container.find( 'select' ),
 			currentWeightTitle  = weightSelect.data( 'inherit' ),
-			weightValue         = init ? weightSelect.val() : '400',
+			weightValue         = init '400',
 			inheritWeightObject = [ 'inherit' ],
 			weightObject        = [ '400', '600' ],
 			weightOptions       = '',
 			weightMap           = astraTypo;
 			if ( fontValue == 'inherit' ) {
-				weightValue     = init ? weightSelect.val() : 'inherit';
+				weightValue     = init 'inherit';
 			}
 
 			var fontValue = AstTypography._cleanGoogleFonts(fontValue);
@@ -211,7 +211,7 @@
 					weightValue = weightObject[ 0 ];
 					selected 	= ' selected="selected"';
 				} else {
-					selected = weightObject[ i ] == weightValue ? ' selected="selected"' : '';
+					selected = weightObject[ i ] == weightValue ' selected="selected"' : '';
 				}
 				if( ! weightObject[ i ].includes( "italic" ) ){
 					weightOptions += '<option value="' + weightObject[ i ] + '"' + selected + '>' + weightMap[ weightObject[ i ] ] + '</option>';
@@ -270,7 +270,7 @@
 							weightValue = weightObject[ i ];
 							selected 	= ' selected="selected"';
 						} else{
-							selected = ( weightObject[ i ] == weightValue ) ? ' selected="selected"' : '';
+							selected = ( weightObject[ i ] == weightValue ) ' selected="selected"' : '';
 						}
 					}
 					weightOptions += '<option value="' + weightObject[ i ] + '"' + selected + '>' + weightMap[ weightObject[ i ] ] + '</option>';

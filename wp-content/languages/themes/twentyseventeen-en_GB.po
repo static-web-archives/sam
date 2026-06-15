@@ -184,8 +184,8 @@ msgstr "Sorry, but nothing matched your search terms. Please try again with some
 
 #. translators: %s: Post editor URL.
 #: template-parts/post/content-none.php:27
-msgid "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
-msgstr "Ready to publish your first post? <a href=\"%s\">Get started here</a>."
+msgid "Ready to publish your first post"%s\">Get started here</a>."
+msgstr "Ready to publish your first post"%s\">Get started here</a>."
 
 #: template-parts/post/content-none.php:17 search.php:26
 msgid "Nothing Found"
@@ -311,8 +311,8 @@ msgid "Oops! That page can&rsquo;t be found."
 msgstr "Oops! That page can&rsquo;t be found."
 
 #: 404.php:24
-msgid "It looks like nothing was found at this location. Maybe try a search?"
-msgstr "It looks like nothing was found at this location. Maybe try a search?"
+msgid "It looks like nothing was found at this location. Maybe try a search"
+msgstr "It looks like nothing was found at this location. Maybe try a search"
 
 #: index.php:53 archive.php:49 search.php:50
 msgid "Previous page"

@@ -34,7 +34,7 @@ window.wp = window.wp || {};
 
 					if ( target.hasClass( 'wp-switch-editor' ) ) {
 						id = target.attr( 'data-wp-editor-id' );
-						mode = target.hasClass( 'switch-tmce' ) ? 'tmce' : 'html';
+						mode = target.hasClass( 'switch-tmce' ) 'tmce' : 'html';
 						switchEditor( id, mode );
 					}
 				});
@@ -143,7 +143,7 @@ window.wp = window.wp || {};
 					// The iframe is forced to 100% height there, we shouldn't match it.
 					if ( ! tinymce.Env.iOS ) {
 						iframe = editor.iframeElement;
-						editorHeight = iframe ? parseInt( iframe.style.height, 10 ) : 0;
+						editorHeight = iframe 
 
 						if ( editorHeight ) {
 							toolbarHeight = getToolbarHeight( editor );
@@ -203,7 +203,7 @@ window.wp = window.wp || {};
 			if ( lastLtPos > lastGtPos || content.substr( cursorPosition, 1 ) === '>' ) {
 				// Find what the tag is.
 				var tagContent = content.substr( lastLtPos ),
-					tagMatch = tagContent.match( /<\s*(\/)?(\w+|\!-{2}.*-{2})/ );
+					tagMatch = tagContent.match( /<\s*(\/)
 
 				if ( ! tagMatch ) {
 					return null;
@@ -333,7 +333,7 @@ window.wp = window.wp || {};
 			 * are treated.
 			 */
 			var urlRegexp = new RegExp(
-				'(^|[\\n\\r][\\n\\r]|<p>)(https?:\\/\\/[^\s"]+?)(<\\/p>\s*|[\\n\\r][\\n\\r]|$)', 'gi'
+				'(^|[\\n\\r][\\n\\r]|<p>)(https"]+', 'gi'
 			);
 
 			while ( shortcodeMatch = urlRegexp.exec( content ) ) {
@@ -370,7 +370,7 @@ window.wp = window.wp || {};
 						overflow: 'hidden',
 						'line-height': 0
 					} )
-					.html( content ? content : '' );
+					.html( content '' );
 		}
 
 		/**
@@ -482,7 +482,7 @@ window.wp = window.wp || {};
 				htmlModeCursorStartPosition = adjustedCursorPositions.cursorStart,
 				htmlModeCursorEndPosition = adjustedCursorPositions.cursorEnd,
 
-				mode = htmlModeCursorStartPosition !== htmlModeCursorEndPosition ? 'range' : 'single',
+				mode = htmlModeCursorStartPosition !== htmlModeCursorEndPosition 'range' : 'single',
 
 				selectedText = null,
 				cursorMarkerSkeleton = getCursorMarkerSpan( $$, '&#65279;' ).attr( 'data-mce-type','bookmark' );
@@ -634,7 +634,7 @@ window.wp = window.wp || {};
 		 */
 		function fixTextAreaContent( event ) {
 			// Keep empty paragraphs :(
-			event.content = event.content.replace( /<p>(?:<br ?\/?>|\u00a0|\uFEFF| )*<\/p>/g, '<p>&nbsp;</p>' );
+			event.content = event.content.replace( /<p>('<p>&nbsp;</p>' );
 		}
 
 		/**
@@ -682,7 +682,7 @@ window.wp = window.wp || {};
 			 * Inspired by:
 			 * @link https://stackoverflow.com/a/17497803/153310
 			 *
-			 * Why do it this way and not with TinyMCE's bookmarks?
+			 * Why do it this way and not with TinyMCE's bookmarks
 			 *
 			 * TinyMCE's bookmarks are very nice when working with selections and positions, BUT
 			 * there is no way to determine the precise position of the bookmark when switching modes, since
@@ -696,7 +696,7 @@ window.wp = window.wp || {};
 			 * To avoid this, we insert two custom `span`s that will serve as the markers at the beginning and end of the
 			 * selection.
 			 *
-			 * Why not use TinyMCE's selection API or the DOM API to wrap the contents? Because if we do that, this creates
+			 * Why not use TinyMCE's selection API or the DOM API to wrap the contents
 			 * a new node, which is inserted in the dom. Now this will be fine, if we worked with fixed selections to
 			 * full nodes. Unfortunately in our case, the user can select whatever they like, which means that the
 			 * selection may start in the middle of one node and end in the middle of a completely different one. If we
@@ -873,7 +873,7 @@ window.wp = window.wp || {};
 
 			// Protect script and style tags.
 			if ( html.indexOf( '<script' ) !== -1 || html.indexOf( '<style' ) !== -1 ) {
-				html = html.replace( /<(script|style)[^>]*>[\s\S]*?<\/\1>/g, function( match ) {
+				html = html.replace( /<(script|style)[^>]*>[\s\S]*
 					preserve.push( match );
 					return '<wp-preserve>';
 				} );
@@ -882,30 +882,30 @@ window.wp = window.wp || {};
 			// Protect pre tags.
 			if ( html.indexOf( '<pre' ) !== -1 ) {
 				preserve_linebreaks = true;
-				html = html.replace( /<pre[^>]*>[\s\S]+?<\/pre>/g, function( a ) {
-					a = a.replace( /<br ?\/?>(\r\n|\n)?/g, '<wp-line-break>' );
-					a = a.replace( /<\/?p( [^>]*)?>(\r\n|\n)?/g, '<wp-line-break>' );
-					return a.replace( /\r?\n/g, '<wp-line-break>' );
+				html = html.replace( /<pre[^>]*>[\s\S]+
+					a = a.replace( /<br '<wp-line-break>' );
+					a = a.replace( /<\/'<wp-line-break>' );
+					return a.replace( /\r'<wp-line-break>' );
 				});
 			}
 
 			// Remove line breaks but keep <br> tags inside image captions.
 			if ( html.indexOf( '[caption' ) !== -1 ) {
 				preserve_br = true;
-				html = html.replace( /\[caption[\s\S]+?\[\/caption\]/g, function( a ) {
+				html = html.replace( /\[caption[\s\S]+
 					return a.replace( /<br([^>]*)>/g, '<wp-temp-br$1>' ).replace( /[\r\n\t]+/, '' );
 				});
 			}
 
 			// Normalize white space characters before and after block tags.
 			html = html.replace( new RegExp( '\\s*</(' + blocklist1 + ')>\\s*', 'g' ), '</$1>\n' );
-			html = html.replace( new RegExp( '\\s*<((?:' + blocklist1 + ')(?: [^>]*)?)>', 'g' ), '\n<$1>' );
+			html = html.replace( new RegExp( '\\s*<((' + blocklist1 + ')(', 'g' ), '\n<$1>' );
 
 			// Mark </p> if it has any attributes.
-			html = html.replace( /(<p [^>]+>.*?)<\/p>/g, '$1</p#>' );
+			html = html.replace( /(<p [^>]+>.*'$1</p#>' );
 
 			// Preserve the first <p> inside a <div>.
-			html = html.replace( /<div( [^>]*)?>\s*<p>/gi, '<div$1>\n\n' );
+			html = html.replace( /<div( [^>]*)'<div$1>\n\n' );
 
 			// Remove paragraph tags.
 			html = html.replace( /\s*<p>/gi, '' );
@@ -915,7 +915,7 @@ window.wp = window.wp || {};
 			html = html.replace( /\n[\s\u00a0]+\n/g, '\n\n' );
 
 			// Replace <br> tags with line breaks.
-			html = html.replace( /(\s*)<br ?\/?>\s*/gi, function( match, space ) {
+			html = html.replace( /(\s*)<br 
 				if ( space && space.indexOf( '\n' ) !== -1 ) {
 					return '\n\n';
 				}
@@ -932,7 +932,7 @@ window.wp = window.wp || {};
 			html = html.replace( /caption\]\n\n+\[caption/g, 'caption]\n\n[caption' );
 
 			// Pad block elements tags with a line break.
-			html = html.replace( new RegExp('\\s*<((?:' + blocklist2 + ')(?: [^>]*)?)\\s*>', 'g' ), '\n<$1>' );
+			html = html.replace( new RegExp('\\s*<((' + blocklist2 + ')(', 'g' ), '\n<$1>' );
 			html = html.replace( new RegExp('\\s*</(' + blocklist2 + ')>\\s*', 'g' ), '</$1>\n' );
 
 			// Indent <li>, <dt> and <dd> tags.
@@ -946,12 +946,12 @@ window.wp = window.wp || {};
 
 			// Pad <hr> with two line breaks.
 			if ( html.indexOf( '<hr' ) !== -1 ) {
-				html = html.replace( /\s*<hr( [^>]*)?>\s*/g, '\n\n<hr$1>\n\n' );
+				html = html.replace( /\s*<hr( [^>]*)'\n\n<hr$1>\n\n' );
 			}
 
 			// Remove line breaks in <object> tags.
 			if ( html.indexOf( '<object' ) !== -1 ) {
-				html = html.replace( /<object[\s\S]+?<\/object>/g, function( a ) {
+				html = html.replace( /<object[\s\S]+
 					return a.replace( /[\r\n]+/g, '' );
 				});
 			}
@@ -960,7 +960,7 @@ window.wp = window.wp || {};
 			html = html.replace( /<\/p#>/g, '</p>\n' );
 
 			// Pad remaining <p> tags whit a line break.
-			html = html.replace( /\s*(<p [^>]+>[\s\S]*?<\/p>)/g, '\n$1' );
+			html = html.replace( /\s*(<p [^>]+>[\s\S]*'\n$1' );
 
 			// Trim.
 			html = html.replace( /^\s+/, '' );
@@ -1008,7 +1008,7 @@ window.wp = window.wp || {};
 
 			// Remove line breaks from <object>.
 			if ( text.indexOf( '<object' ) !== -1 ) {
-				text = text.replace( /<object[\s\S]+?<\/object>/g, function( a ) {
+				text = text.replace( /<object[\s\S]+
 					return a.replace( /\n+/g, '' );
 				});
 			}
@@ -1021,7 +1021,7 @@ window.wp = window.wp || {};
 			// Preserve line breaks in <pre> and <script> tags.
 			if ( text.indexOf( '<pre' ) !== -1 || text.indexOf( '<script' ) !== -1 ) {
 				preserve_linebreaks = true;
-				text = text.replace( /<(pre|script)[^>]*>[\s\S]*?<\/\1>/g, function( a ) {
+				text = text.replace( /<(pre|script)[^>]*>[\s\S]*
 					return a.replace( /\n/g, '<wp-line-break>' );
 				});
 			}
@@ -1035,7 +1035,7 @@ window.wp = window.wp || {};
 			if ( text.indexOf( '[caption' ) !== -1 ) {
 				preserve_br = true;
 
-				text = text.replace( /\[caption[\s\S]+?\[\/caption\]/g, function( a ) {
+				text = text.replace( /\[caption[\s\S]+
 					a = a.replace( /<br([^>]*)>/g, '<wp-temp-br$1>' );
 
 					a = a.replace( /<[^<>]+>/g, function( b ) {
@@ -1050,9 +1050,9 @@ window.wp = window.wp || {};
 			text = text.replace( /<br \/>\s*<br \/>/gi, '\n\n' );
 
 			// Pad block tags with two line breaks.
-			text = text.replace( new RegExp( '(<(?:' + blocklist + ')(?: [^>]*)?>)', 'gi' ), '\n\n$1' );
-			text = text.replace( new RegExp( '(</(?:' + blocklist + ')>)', 'gi' ), '$1\n\n' );
-			text = text.replace( /<hr( [^>]*)?>/gi, '<hr$1>\n\n' );
+			text = text.replace( new RegExp( '(<(' + blocklist + ')(', 'gi' ), '\n\n$1' );
+			text = text.replace( new RegExp( '(</(' + blocklist + ')>)', 'gi' ), '$1\n\n' );
+			text = text.replace( /<hr( [^>]*)'<hr$1>\n\n' );
 
 			// Remove white space chars around <option>.
 			text = text.replace( /\s*<option/gi, '<option' );
@@ -1062,22 +1062,22 @@ window.wp = window.wp || {};
 			text = text.replace( /\n\s*\n+/g, '\n\n' );
 
 			// Convert two line breaks to a paragraph.
-			text = text.replace( /([\s\S]+?)\n\n/g, '<p>$1</p>\n' );
+			text = text.replace( /([\s\S]+'<p>$1</p>\n' );
 
 			// Remove empty paragraphs.
-			text = text.replace( /<p>\s*?<\/p>/gi, '');
+			text = text.replace( /<p>\s*'');
 
 			// Remove <p> tags that are around block tags.
-			text = text.replace( new RegExp( '<p>\\s*(</?(?:' + blocklist + ')(?: [^>]*)?>)\\s*</p>', 'gi' ), '$1' );
-			text = text.replace( /<p>(<li.+?)<\/p>/gi, '$1');
+			text = text.replace( new RegExp( '<p>\\s*(</' + blocklist + ')(', 'gi' ), '$1' );
+			text = text.replace( /<p>(<li.+'$1');
 
 			// Fix <p> in blockquotes.
 			text = text.replace( /<p>\s*<blockquote([^>]*)>/gi, '<blockquote$1><p>');
 			text = text.replace( /<\/blockquote>\s*<\/p>/gi, '</p></blockquote>');
 
 			// Remove <p> tags that are wrapped around block tags.
-			text = text.replace( new RegExp( '<p>\\s*(</?(?:' + blocklist + ')(?: [^>]*)?>)', 'gi' ), '$1' );
-			text = text.replace( new RegExp( '(</?(?:' + blocklist + ')(?: [^>]*)?>)\\s*</p>', 'gi' ), '$1' );
+			text = text.replace( new RegExp( '<p>\\s*(</' + blocklist + ')(', 'gi' ), '$1' );
+			text = text.replace( new RegExp( '(</' + blocklist + ')(', 'gi' ), '$1' );
 
 			text = text.replace( /(<br[^>]*>)\s*\n/gi, '$1' );
 
@@ -1085,15 +1085,15 @@ window.wp = window.wp || {};
 			text = text.replace( /\s*\n/g, '<br />\n');
 
 			// Remove <br> tags that are around block tags.
-			text = text.replace( new RegExp( '(</?(?:' + blocklist + ')[^>]*>)\\s*<br />', 'gi' ), '$1' );
-			text = text.replace( /<br \/>(\s*<\/?(?:p|li|div|dl|dd|dt|th|pre|td|ul|ol)>)/gi, '$1' );
+			text = text.replace( new RegExp( '(</' + blocklist + ')[^>]*>)\\s*<br />', 'gi' ), '$1' );
+			text = text.replace( /<br \/>(\s*<\/'$1' );
 
 			// Remove <p> and <br> around captions.
-			text = text.replace( /(?:<p>|<br ?\/?>)*\s*\[caption([^\[]+)\[\/caption\]\s*(?:<\/p>|<br ?\/?>)*/gi, '[caption$1[/caption]' );
+			text = text.replace( /('[caption$1[/caption]' );
 
 			// Make sure there is <p> when there is </p> inside block tags that can contain other blocks.
-			text = text.replace( /(<(?:div|th|td|form|fieldset|dd)[^>]*>)(.*?)<\/p>/g, function( a, b, c ) {
-				if ( c.match( /<p( [^>]*)?>/ ) ) {
+			text = text.replace( /(<(
+				if ( c.match( /<p( [^>]*)
 					return a;
 				}
 

@@ -1,6 +1,6 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory() :
-  typeof define === 'function' && define.amd ? define('inert', factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' 
+  typeof define === 'function' && define.amd 'inert', factory) :
   (factory());
 }(this, (function () { 'use strict';
 
@@ -71,7 +71,7 @@
 
         // Make the subtree hidden from assistive technology
         if (this._rootElement.hasAttribute('aria-hidden')) {
-          /** @type {?string} */
+          /** @type {
           this._savedAriaHidden = this._rootElement.getAttribute('aria-hidden');
         } else {
           this._savedAriaHidden = null;
@@ -119,10 +119,10 @@
           //    instance has been destroyed and a method is called.
           // 2) We don't want to cast "this", because we want type-aware optimizations
           //    to know which properties we're setting.
-          this._observer = /** @type {?} */null;
-          this._rootElement = /** @type {?} */null;
-          this._managedNodes = /** @type {?} */null;
-          this._inertManager = /** @type {?} */null;
+          this._observer = /** @type {
+          this._rootElement = /** @type {
+          this._managedNodes = /** @type {
+          this._inertManager = /** @type {
         }
 
         /**
@@ -311,7 +311,7 @@
           return this._savedAriaHidden !== null;
         }
 
-        /** @param {?string} ariaHidden */
+        /** @param {
 
       }, {
         key: 'savedAriaHidden',
@@ -319,7 +319,7 @@
           this._savedAriaHidden = ariaHidden;
         }
 
-        /** @return {?string} */
+        /** @return {
         ,
         get: function get() {
           return this._savedAriaHidden;
@@ -365,7 +365,7 @@
          */
         this._inertRoots = new Set([inertRoot]);
 
-        /** @type {?number} */
+        /** @type {
         this._savedTabIndex = null;
 
         /** @type {boolean} */
@@ -401,8 +401,8 @@
           }
 
           // See note in InertRoot.destructor for why we cast these nulls to ANY.
-          this._node = /** @type {?} */null;
-          this._inertRoots = /** @type {?} */null;
+          this._node = /** @type {
+          this._inertRoots = /** @type {
           this._destroyed = true;
         }
 
@@ -504,7 +504,7 @@
           return this._node;
         }
 
-        /** @param {?number} tabIndex */
+        /** @param {
 
       }, {
         key: 'savedTabIndex',
@@ -513,7 +513,7 @@
           this._savedTabIndex = tabIndex;
         }
 
-        /** @return {?number} */
+        /** @return {
         ,
         get: function get() {
           this._throwIfDestroyed();
@@ -665,7 +665,7 @@
          * If the node is not currently managed, this is essentially a no-op.
          * @param {!Node} node
          * @param {!InertRoot} inertRoot
-         * @return {?InertNode} The potentially destroyed InertNode associated with this node, if any.
+         * @return {
          */
 
       }, {
@@ -748,7 +748,7 @@
      * @param {!Node} node
      * @param {(function (!HTMLElement))=} callback Callback to be called for each element traversed,
      *     before descending into child nodes.
-     * @param {?ShadowRoot=} shadowRootAncestor The nearest ShadowRoot ancestor, if any.
+     * @param {
      */
 
 
@@ -775,7 +775,7 @@
         if (element.localName == 'content') {
           var content = /** @type {!HTMLContentElement} */element;
           // Verifies if ShadowDom v0 is supported.
-          var distributedNodes = content.getDistributedNodes ? content.getDistributedNodes() : [];
+          var distributedNodes = content.getDistributedNodes 
           for (var i = 0; i < distributedNodes.length; i++) {
             composedTreeWalk(distributedNodes[i], callback, shadowRootAncestor);
           }
@@ -788,7 +788,7 @@
         if (element.localName == 'slot') {
           var slot = /** @type {!HTMLSlotElement} */element;
           // Verify if ShadowDom v1 is supported.
-          var _distributedNodes = slot.assignedNodes ? slot.assignedNodes({ flatten: true }) : [];
+          var _distributedNodes = slot.assignedNodes 
           for (var _i = 0; _i < _distributedNodes.length; _i++) {
             composedTreeWalk(_distributedNodes[_i], callback, shadowRootAncestor);
           }

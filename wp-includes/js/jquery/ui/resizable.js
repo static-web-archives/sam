@@ -84,7 +84,7 @@ $.widget( "ui.resizable", $.ui.mouse, {
 			return false;
 		}
 
-		var scroll = ( a && a === "left" ) ? "scrollLeft" : "scrollTop",
+		var scroll = ( a && a === "left" ) "scrollLeft" : "scrollTop",
 			has = false;
 
 		if ( el[ scroll ] > 0 ) {
@@ -118,7 +118,7 @@ $.widget( "ui.resizable", $.ui.mouse, {
 			aspectRatio: o.aspectRatio,
 			originalElement: this.element,
 			_proportionallyResizeElements: [],
-			_helper: o.helper || o.ghost || o.animate ? o.helper || "ui-resizable-helper" : null
+			_helper: o.helper || o.ghost || o.animate "ui-resizable-helper" : null
 		} );
 
 		// Wrap the element if it cannot hold child nodes
@@ -246,7 +246,7 @@ $.widget( "ui.resizable", $.ui.mouse, {
 	_setupHandles: function() {
 		var o = this.options, handle, i, n, hname, axis, that = this;
 		this.handles = o.handles ||
-			( !$( ".ui-resizable-handle", this.element ).length ?
+			( !$( ".ui-resizable-handle", this.element ).length 
 				"e,s,se" : {
 					n: ".ui-resizable-n",
 					e: ".ui-resizable-e",
@@ -308,14 +308,14 @@ $.widget( "ui.resizable", $.ui.mouse, {
 							.match( /^(textarea|input|select|button)$/i ) ) {
 					axis = $( this.handles[ i ], this.element );
 
-					padWrapper = /sw|ne|nw|se|n|s/.test( i ) ?
+					padWrapper = /sw|ne|nw|se|n|s/.test( i ) 
 						axis.outerHeight() :
 						axis.outerWidth();
 
 					padPos = [ "padding",
-						/ne|nw|n/.test( i ) ? "Top" :
-						/se|sw|s/.test( i ) ? "Bottom" :
-						/^e$/.test( i ) ? "Right" : "Left" ].join( "" );
+						/ne|nw|n/.test( i ) "Top" :
+						/se|sw|s/.test( i ) "Bottom" :
+						/^e$/.test( i ) "Right" : "Left" ].join( "" );
 
 					target.css( padPos, padWrapper );
 
@@ -337,7 +337,7 @@ $.widget( "ui.resizable", $.ui.mouse, {
 				if ( this.className ) {
 					axis = this.className.match( /ui-resizable-(se|sw|ne|nw|n|e|s|w)/i );
 				}
-				that.axis = axis && axis[ 1 ] ? axis[ 1 ] : "se";
+				that.axis = axis && axis[ 1 ] "se";
 			}
 		} );
 
@@ -386,7 +386,7 @@ $.widget( "ui.resizable", $.ui.mouse, {
 		this.offset = this.helper.offset();
 		this.position = { left: curleft, top: curtop };
 
-		this.size = this._helper ? {
+		this.size = this._helper 
 				width: this.helper.width(),
 				height: this.helper.height()
 			} : {
@@ -394,7 +394,7 @@ $.widget( "ui.resizable", $.ui.mouse, {
 				height: el.height()
 			};
 
-		this.originalSize = this._helper ? {
+		this.originalSize = this._helper 
 				width: el.outerWidth(),
 				height: el.outerHeight()
 			} : {
@@ -410,12 +410,12 @@ $.widget( "ui.resizable", $.ui.mouse, {
 		this.originalPosition = { left: curleft, top: curtop };
 		this.originalMousePosition = { left: event.pageX, top: event.pageY };
 
-		this.aspectRatio = ( typeof o.aspectRatio === "number" ) ?
+		this.aspectRatio = ( typeof o.aspectRatio === "number" ) 
 			o.aspectRatio :
 			( ( this.originalSize.width / this.originalSize.height ) || 1 );
 
 		cursor = $( ".ui-resizable-" + this.axis ).css( "cursor" );
-		$( "body" ).css( "cursor", cursor === "auto" ? this.axis + "-resize" : cursor );
+		$( "body" ).css( "cursor", cursor === "auto" "-resize" : cursor );
 
 		this._addClass( "ui-resizable-resizing" );
 		this._propagate( "start", event );
@@ -475,8 +475,8 @@ $.widget( "ui.resizable", $.ui.mouse, {
 
 			pr = this._proportionallyResizeElements;
 			ista = pr.length && ( /textarea/i ).test( pr[ 0 ].nodeName );
-			soffseth = ista && this._hasScroll( pr[ 0 ], "left" ) ? 0 : that.sizeDiff.height;
-			soffsetw = ista ? 0 : that.sizeDiff.width;
+			soffseth = ista && this._hasScroll( pr[ 0 ], "left" ) 
+			soffsetw = ista 
 
 			s = {
 				width: ( that.helper.width()  - soffsetw ),
@@ -553,10 +553,10 @@ $.widget( "ui.resizable", $.ui.mouse, {
 			o = this.options;
 
 		b = {
-			minWidth: this._isNumber( o.minWidth ) ? o.minWidth : 0,
-			maxWidth: this._isNumber( o.maxWidth ) ? o.maxWidth : Infinity,
-			minHeight: this._isNumber( o.minHeight ) ? o.minHeight : 0,
-			maxHeight: this._isNumber( o.maxHeight ) ? o.maxHeight : Infinity
+			minWidth: this._isNumber( o.minWidth ) 
+			maxWidth: this._isNumber( o.maxWidth ) 
+			minHeight: this._isNumber( o.minHeight ) 
+			maxHeight: this._isNumber( o.maxHeight ) 
 		};
 
 		if ( this._aspectRatio || forceAspectRatio ) {
@@ -820,8 +820,8 @@ $.ui.plugin.add( "resizable", "animate", {
 			o = that.options,
 			pr = that._proportionallyResizeElements,
 			ista = pr.length && ( /textarea/i ).test( pr[ 0 ].nodeName ),
-			soffseth = ista && that._hasScroll( pr[ 0 ], "left" ) ? 0 : that.sizeDiff.height,
-			soffsetw = ista ? 0 : that.sizeDiff.width,
+			soffseth = ista && that._hasScroll( pr[ 0 ], "left" ) 
+			soffsetw = ista 
 			style = {
 				width: ( that.size.width - soffsetw ),
 				height: ( that.size.height - soffseth )
@@ -832,7 +832,7 @@ $.ui.plugin.add( "resizable", "animate", {
 				( that.position.top - that.originalPosition.top ) ) || null;
 
 		that.element.animate(
-			$.extend( style, top && left ? { top: top, left: left } : {} ), {
+			$.extend( style, top && left 
 				duration: o.animateDuration,
 				easing: o.animateEasing,
 				step: function() {
@@ -867,9 +867,9 @@ $.ui.plugin.add( "resizable", "containment", {
 			o = that.options,
 			el = that.element,
 			oc = o.containment,
-			ce = ( oc instanceof $ ) ?
+			ce = ( oc instanceof $ ) 
 				oc.get( 0 ) :
-				( /parent/.test( oc ) ) ? el.parent().get( 0 ) : oc;
+				( /parent/.test( oc ) ) 
 
 		if ( !ce ) {
 			return;
@@ -911,8 +911,8 @@ $.ui.plugin.add( "resizable", "containment", {
 			co = that.containerOffset;
 			ch = that.containerSize.height;
 			cw = that.containerSize.width;
-			width = ( that._hasScroll( ce, "left" ) ? ce.scrollWidth : cw );
-			height = ( that._hasScroll( ce ) ? ce.scrollHeight : ch );
+			width = ( that._hasScroll( ce, "left" ) 
+			height = ( that._hasScroll( ce ) 
 
 			that.parentData = {
 				element: ce,
@@ -942,9 +942,9 @@ $.ui.plugin.add( "resizable", "containment", {
 			cop = co;
 		}
 
-		if ( cp.left < ( that._helper ? co.left : 0 ) ) {
+		if ( cp.left < ( that._helper 
 			that.size.width = that.size.width +
-				( that._helper ?
+				( that._helper 
 					( that.position.left - co.left ) :
 					( that.position.left - cop.left ) );
 
@@ -952,12 +952,12 @@ $.ui.plugin.add( "resizable", "containment", {
 				that.size.height = that.size.width / that.aspectRatio;
 				continueResize = false;
 			}
-			that.position.left = o.helper ? co.left : 0;
+			that.position.left = o.helper 
 		}
 
-		if ( cp.top < ( that._helper ? co.top : 0 ) ) {
+		if ( cp.top < ( that._helper 
 			that.size.height = that.size.height +
-				( that._helper ?
+				( that._helper 
 					( that.position.top - co.top ) :
 					that.position.top );
 
@@ -965,7 +965,7 @@ $.ui.plugin.add( "resizable", "containment", {
 				that.size.width = that.size.height * that.aspectRatio;
 				continueResize = false;
 			}
-			that.position.top = that._helper ? co.top : 0;
+			that.position.top = that._helper 
 		}
 
 		isParent = that.containerElement.get( 0 ) === that.element.parent().get( 0 );
@@ -980,12 +980,12 @@ $.ui.plugin.add( "resizable", "containment", {
 		}
 
 		woset = Math.abs( that.sizeDiff.width +
-			( that._helper ?
+			( that._helper 
 				that.offset.left - cop.left :
 				( that.offset.left - co.left ) ) );
 
 		hoset = Math.abs( that.sizeDiff.height +
-			( that._helper ?
+			( that._helper 
 				that.offset.top - cop.top :
 				( that.offset.top - co.top ) ) );
 
@@ -1071,7 +1071,7 @@ $.ui.plugin.add( "resizable", "alsoResize", {
 
 			$( o.alsoResize ).each( function() {
 				var el = $( this ), start = $( this ).data( "ui-resizable-alsoresize" ), style = {},
-					css = el.parents( ui.originalElement[ 0 ] ).length ?
+					css = el.parents( ui.originalElement[ 0 ] ).length 
 							[ "width", "height" ] :
 							[ "width", "height", "top", "left" ];
 
@@ -1153,7 +1153,7 @@ $.ui.plugin.add( "resizable", "grid", {
 			os = that.originalSize,
 			op = that.originalPosition,
 			a = that.axis,
-			grid = typeof o.grid === "number" ? [ o.grid, o.grid ] : o.grid,
+			grid = typeof o.grid === "number" 
 			gridX = ( grid[ 0 ] || 1 ),
 			gridY = ( grid[ 1 ] || 1 ),
 			ox = Math.round( ( cs.width - os.width ) / gridX ) * gridX,

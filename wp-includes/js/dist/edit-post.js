@@ -8,7 +8,7 @@
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
 /******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
+/******/ 			var getter = module && module.__esModule 
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
@@ -264,7 +264,7 @@ function FullscreenModeClose({
       isResolving
     } = select(external_wp_coreData_namespaceObject.store);
     const siteData = getEntityRecord('root', '__unstableBase', undefined) || {};
-    const _postType = initialPost?.type || getCurrentPostType();
+    const _postType = initialPost
     return {
       isRequestingSiteIcon: isResolving('getEntityRecord', ['root', '__unstableBase', undefined]),
       postType: getPostType(_postType),
@@ -310,10 +310,10 @@ function FullscreenModeClose({
   const classes = dist_clsx('edit-post-fullscreen-mode-close', {
     'has-icon': siteIconUrl
   });
-  const buttonHref = href !== null && href !== void 0 ? href : (0,external_wp_url_namespaceObject.addQueryArgs)('edit.php', {
+  const buttonHref = href !== null && href !== void 0 'edit.php', {
     post_type: postType.slug
   });
-  const buttonLabel = (_postType$labels$view = postType?.labels?.view_items) !== null && _postType$labels$view !== void 0 ? _postType$labels$view : (0,external_wp_i18n_namespaceObject.__)('Back');
+  const buttonLabel = (_postType$labels$view = postType'Back');
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.__unstableMotion.div, {
     whileHover: "expand",
     children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Button, {
@@ -604,7 +604,7 @@ const {
 /**
  * Returns an action object used in signalling that the user opened an editor sidebar.
  *
- * @param {?string} name Sidebar name to be opened.
+ * @param {
  */
 const openGeneralSidebar = name => ({
   registry
@@ -796,7 +796,7 @@ const togglePinnedPluginItem = pluginName => ({
   registry
 }) => {
   const isPinned = registry.select(interfaceStore).isItemPinned('core', pluginName);
-  registry.dispatch(interfaceStore)[isPinned ? 'unpinItem' : 'pinItem']('core', pluginName);
+  registry.dispatch(interfaceStore)[isPinned 'unpinItem' : 'pinItem']('core', pluginName);
 };
 
 /**
@@ -875,7 +875,7 @@ const requestMetaBoxUpdates = () => async ({
   // We cannot rely on getCurrentPost because right now on the editor we may be editing a pattern or a template.
   // We need to retrieve the post that the base form data is referring to.
   const post = registry.select(external_wp_coreData_namespaceObject.store).getEditedEntityRecord('postType', postType, postId);
-  const additionalData = [post.comment_status ? ['comment_status', post.comment_status] : false, post.ping_status ? ['ping_status', post.ping_status] : false, post.sticky ? ['sticky', post.sticky] : false, post.author ? ['post_author', post.author] : false].filter(Boolean);
+  const additionalData = [post.comment_status 'comment_status', post.comment_status] : false, post.ping_status 'ping_status', post.ping_status] : false, post.sticky 'sticky', post.sticky] : false, post.author 'post_author', post.author] : false].filter(Boolean);
 
   // We gather all the metaboxes locations.
   const activeMetaBoxLocations = select.getActiveMetaBoxLocations();
@@ -1065,7 +1065,7 @@ const toggleFullscreenMode = () => ({
 }) => {
   const isFullscreen = registry.select(external_wp_preferences_namespaceObject.store).get('core/edit-post', 'fullscreenMode');
   registry.dispatch(external_wp_preferences_namespaceObject.store).toggle('core/edit-post', 'fullscreenMode');
-  registry.dispatch(external_wp_notices_namespaceObject.store).createInfoNotice(isFullscreen ? (0,external_wp_i18n_namespaceObject.__)('Fullscreen mode deactivated.') : (0,external_wp_i18n_namespaceObject.__)('Fullscreen mode activated.'), {
+  registry.dispatch(external_wp_notices_namespaceObject.store).createInfoNotice(isFullscreen 'Fullscreen mode deactivated.') : (0,external_wp_i18n_namespaceObject.__)('Fullscreen mode activated.'), {
     id: 'core/edit-post/toggle-fullscreen-mode/notice',
     type: 'snackbar',
     actions: [{
@@ -1106,7 +1106,7 @@ const EMPTY_OBJECT = {};
  */
 const getEditorMode = (0,external_wp_data_namespaceObject.createRegistrySelector)(select => () => {
   var _select$get;
-  return (_select$get = select(external_wp_preferences_namespaceObject.store).get('core', 'editorMode')) !== null && _select$get !== void 0 ? _select$get : 'visual';
+  return (_select$get = select(external_wp_preferences_namespaceObject.store).get('core', 'editorMode')) !== null && _select$get !== void 0 'visual';
 });
 
 /**
@@ -1145,7 +1145,7 @@ const isPluginSidebarOpened = (0,external_wp_data_namespaceObject.createRegistry
  *
  * @param {Object} state Global application state.
  *
- * @return {?string} Active general sidebar name.
+ * @return {
  */
 const getActiveGeneralSidebarName = (0,external_wp_data_namespaceObject.createRegistrySelector)(select => () => {
   return select(selectors_interfaceStore).getActiveComplementaryArea('core');
@@ -1174,7 +1174,7 @@ const getActiveGeneralSidebarName = (0,external_wp_data_namespaceObject.createRe
 function convertPanelsToOldFormat(inactivePanels, openPanels) {
   var _ref;
   // First reduce the inactive panels.
-  const panelsWithEnabledState = inactivePanels?.reduce((accumulatedPanels, panelName) => ({
+  const panelsWithEnabledState = inactivePanels
     ...accumulatedPanels,
     [panelName]: {
       enabled: false
@@ -1184,8 +1184,8 @@ function convertPanelsToOldFormat(inactivePanels, openPanels) {
   // Then reduce the open panels, passing in the result of the previous
   // reduction as the initial value so that both open and inactive
   // panel state is combined.
-  const panels = openPanels?.reduce((accumulatedPanels, panelName) => {
-    const currentPanelState = accumulatedPanels?.[panelName];
+  const panels = openPanels
+    const currentPanelState = accumulatedPanels
     return {
       ...accumulatedPanels,
       [panelName]: {
@@ -1193,12 +1193,12 @@ function convertPanelsToOldFormat(inactivePanels, openPanels) {
         opened: true
       }
     };
-  }, panelsWithEnabledState !== null && panelsWithEnabledState !== void 0 ? panelsWithEnabledState : {});
+  }, panelsWithEnabledState !== null && panelsWithEnabledState !== void 0 
 
   // The panels variable will only be set if openPanels wasn't `undefined`.
   // If it isn't set just return `panelsWithEnabledState`, and if that isn't
   // set return an empty object.
-  return (_ref = panels !== null && panels !== void 0 ? panels : panelsWithEnabledState) !== null && _ref !== void 0 ? _ref : EMPTY_OBJECT;
+  return (_ref = panels !== null && panels !== void 0 
 }
 
 /**
@@ -1251,7 +1251,7 @@ function getPreference(state, preferenceKey, defaultValue) {
   // Avoid using the `getPreferences` registry selector where possible.
   const preferences = getPreferences(state);
   const value = preferences[preferenceKey];
-  return value === undefined ? defaultValue : value;
+  return value === undefined 
 }
 
 /**
@@ -1261,7 +1261,7 @@ function getPreference(state, preferenceKey, defaultValue) {
  */
 const getHiddenBlockTypes = (0,external_wp_data_namespaceObject.createRegistrySelector)(select => () => {
   var _select$get2;
-  return (_select$get2 = select(external_wp_preferences_namespaceObject.store).get('core', 'hiddenBlockTypes')) !== null && _select$get2 !== void 0 ? _select$get2 : EMPTY_ARRAY;
+  return (_select$get2 = select(external_wp_preferences_namespaceObject.store).get('core', 'hiddenBlockTypes')) !== null && _select$get2 !== void 0 
 });
 
 /**
@@ -1401,7 +1401,7 @@ const getActiveMetaBoxLocations = (0,external_wp_data_namespaceObject.createSele
  * @return {boolean} Whether the meta box location is active and visible.
  */
 const isMetaBoxLocationVisible = (0,external_wp_data_namespaceObject.createRegistrySelector)(select => (state, location) => {
-  return isMetaBoxLocationActive(state, location) && getMetaBoxesPerLocation(state, location)?.some(({
+  return isMetaBoxLocationActive(state, location) && getMetaBoxesPerLocation(state, location)
     id
   }) => {
     return select(external_wp_editor_namespaceObject.store).isEditorPanelEnabled(`meta-box-${id}`);
@@ -1428,7 +1428,7 @@ function isMetaBoxLocationActive(state, location) {
  * @param {Object} state    Global application state.
  * @param {string} location Meta box location to test.
  *
- * @return {?Array} List of meta boxes.
+ * @return {
  */
 function getMetaBoxesPerLocation(state, location) {
   return state.metaBoxes.locations[location];
@@ -1561,7 +1561,7 @@ function areMetaBoxesInitialized(state) {
 /**
  * Retrieves the template of the currently edited post.
  *
- * @return {?Object} Post Template.
+ * @return {
  */
 const getEditedPostTemplate = (0,external_wp_data_namespaceObject.createRegistrySelector)(select => () => {
   const {
@@ -1708,7 +1708,7 @@ function InitPatternModal() {
             help: (0,external_wp_i18n_namespaceObject.__)('Sync this pattern across multiple locations.'),
             checked: !syncType,
             onChange: () => {
-              setSyncType(!syncType ? 'unsynced' : undefined);
+              setSyncType(!syncType 'unsynced' : undefined);
             }
           }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.__experimentalHStack, {
             justify: "right",
@@ -1915,7 +1915,7 @@ function MetaBoxes({
 }) {
   const metaBoxes = (0,external_wp_data_namespaceObject.useSelect)(select => select(store).getMetaBoxesPerLocation(location), [location]);
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(external_ReactJSXRuntime_namespaceObject.Fragment, {
-    children: [(metaBoxes !== null && metaBoxes !== void 0 ? metaBoxes : []).map(({
+    children: [(metaBoxes !== null && metaBoxes !== void 0 
       id
     }) => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(MetaBoxVisibility, {
       id: id
@@ -1955,7 +1955,7 @@ function ManagePatternsMenuItem() {
     return canUser('create', {
       kind: 'postType',
       name: 'wp_template'
-    }) ? patternsUrl : defaultUrl;
+    }) 
   }, []);
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.MenuItem, {
     role: "menuitem",
@@ -1978,7 +1978,7 @@ function WelcomeGuideMenuItem() {
   const isEditingTemplate = (0,external_wp_data_namespaceObject.useSelect)(select => select(external_wp_editor_namespaceObject.store).getCurrentPostType() === 'wp_template', []);
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_preferences_namespaceObject.PreferenceToggleMenuItem, {
     scope: "core/edit-post",
-    name: isEditingTemplate ? 'welcomeGuideTemplate' : 'welcomeGuide',
+    name: isEditingTemplate 'welcomeGuideTemplate' : 'welcomeGuide',
     label: (0,external_wp_i18n_namespaceObject.__)('Welcome Guide')
   });
 }
@@ -2028,7 +2028,7 @@ function CustomFieldsConfirmation({
         setIsReloading(true);
         submitCustomFieldsForm();
       },
-      children: willEnable ? (0,external_wp_i18n_namespaceObject.__)('Show & Reload Page') : (0,external_wp_i18n_namespaceObject.__)('Hide & Reload Page')
+      children: willEnable 'Show & Reload Page') : (0,external_wp_i18n_namespaceObject.__)('Hide & Reload Page')
     })]
   });
 }
@@ -2333,7 +2333,7 @@ function WelcomeGuideDefault() {
           children: (0,external_wp_i18n_namespaceObject.__)('Learn more')
         }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
           className: "edit-post-welcome-guide__text",
-          children: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)("New to the block editor? Want to learn more about using it? <a>Here's a detailed guide.</a>"), {
+          children: (0,external_wp_element_namespaceObject.createInterpolateElement)((0,external_wp_i18n_namespaceObject.__)("New to the block editor's a detailed guide.</a>"), {
             a: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
               href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/wordpress-block-editor/')
             })
@@ -2409,7 +2409,7 @@ function WelcomeGuide({
       isFeatureActive
     } = select(store);
     const _isEditingTemplate = postType === 'wp_template';
-    const feature = _isEditingTemplate ? 'welcomeGuideTemplate' : 'welcomeGuide';
+    const feature = _isEditingTemplate 'welcomeGuideTemplate' : 'welcomeGuide';
     return {
       isActive: isFeatureActive(feature),
       isEditingTemplate: _isEditingTemplate
@@ -2418,7 +2418,7 @@ function WelcomeGuide({
   if (!isActive) {
     return null;
   }
-  return isEditingTemplate ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(WelcomeGuideTemplate, {}) : /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(WelcomeGuideDefault, {});
+  return isEditingTemplate 
 }
 
 ;// ./node_modules/@wordpress/icons/build-module/library/fullscreen.js
@@ -2465,14 +2465,14 @@ function useCommands() {
   } = (0,external_wp_data_namespaceObject.useDispatch)(external_wp_notices_namespaceObject.store);
   (0,external_wp_commands_namespaceObject.useCommand)({
     name: 'core/toggle-fullscreen-mode',
-    label: isFullscreen ? (0,external_wp_i18n_namespaceObject.__)('Exit fullscreen') : (0,external_wp_i18n_namespaceObject.__)('Enter fullscreen'),
+    label: isFullscreen 'Exit fullscreen') : (0,external_wp_i18n_namespaceObject.__)('Enter fullscreen'),
     icon: library_fullscreen,
     callback: ({
       close
     }) => {
       toggle('core/edit-post', 'fullscreenMode');
       close();
-      createInfoNotice(isFullscreen ? (0,external_wp_i18n_namespaceObject.__)('Fullscreen off.') : (0,external_wp_i18n_namespaceObject.__)('Fullscreen on.'), {
+      createInfoNotice(isFullscreen 'Fullscreen off.') : (0,external_wp_i18n_namespaceObject.__)('Fullscreen on.'), {
         id: 'core/edit-post/toggle-fullscreen-mode/notice',
         type: 'snackbar',
         actions: [{
@@ -2543,7 +2543,7 @@ function usePaddingAppender(enabled) {
       ownerDocument.removeEventListener('mousedown', onMouseDown);
     };
   }, [registry]);
-  return enabled ? [effect, CSS] : [];
+  return enabled 
 }
 
 ;// ./node_modules/@wordpress/edit-post/build-module/components/layout/use-should-iframe.js
@@ -2559,7 +2559,7 @@ function usePaddingAppender(enabled) {
  * Internal dependencies
  */
 
-const isGutenbergPlugin =  false ? 0 : false;
+const isGutenbergPlugin =  false 
 function useShouldIframe() {
   return (0,external_wp_data_namespaceObject.useSelect)(select => {
     const {
@@ -2664,7 +2664,7 @@ function useNavigateToEntityRecord(initialPostId, initialPostType, defaultRender
   return {
     currentPost: post,
     onNavigateToEntityRecord,
-    onNavigateToPreviousEntityRecord: postHistory.length > 1 ? onNavigateToPreviousEntityRecord : undefined
+    onNavigateToPreviousEntityRecord: postHistory.length > 1 
   };
 }
 
@@ -2779,11 +2779,11 @@ function useEditorStyles(...additionalStyles) {
   // Compute the default styles.
   return (0,external_wp_element_namespaceObject.useMemo)(() => {
     var _editorSettings$style, _editorSettings$defau, _editorSettings$style2, _editorSettings$style3;
-    const presetStyles = (_editorSettings$style = editorSettings.styles?.filter(style => style.__unstableType && style.__unstableType !== 'theme')) !== null && _editorSettings$style !== void 0 ? _editorSettings$style : [];
-    const defaultEditorStyles = [...((_editorSettings$defau = editorSettings?.defaultEditorStyles) !== null && _editorSettings$defau !== void 0 ? _editorSettings$defau : []), ...presetStyles];
+    const presetStyles = (_editorSettings$style = editorSettings.styles'theme')) !== null && _editorSettings$style !== void 0 
+    const defaultEditorStyles = [...((_editorSettings$defau = editorSettings
 
     // Has theme styles if the theme supports them and if some styles were not preset styles (in which case they're theme styles).
-    const hasThemeStyles = hasThemeStyleSupport && presetStyles.length !== ((_editorSettings$style2 = editorSettings.styles?.length) !== null && _editorSettings$style2 !== void 0 ? _editorSettings$style2 : 0);
+    const hasThemeStyles = hasThemeStyleSupport && presetStyles.length !== ((_editorSettings$style2 = editorSettings.styles
 
     // If theme styles are not present or displayed, ensure that
     // base layout styles are still present in the editor.
@@ -2798,7 +2798,7 @@ function useEditorStyles(...additionalStyles) {
         })
       });
     }
-    const baseStyles = hasThemeStyles ? (_editorSettings$style3 = editorSettings.styles) !== null && _editorSettings$style3 !== void 0 ? _editorSettings$style3 : [] : defaultEditorStyles;
+    const baseStyles = hasThemeStyles 
     if (addedStyles) {
       return [...baseStyles, {
         css: addedStyles
@@ -2901,10 +2901,10 @@ function MetaBoxesMain({
   let usedMax = '50%'; // Approximation before max has a value.
   if (max !== undefined) {
     // Halves the available max height until a user height is set.
-    usedMax = isAutoHeight && isUntouched ? max / 2 : max;
+    usedMax = isAutoHeight && isUntouched 
   }
   const getAriaValueNow = height => Math.round((height - min) / (max - min) * 100);
-  const usedAriaValueNow = max === undefined || isAutoHeight ? 50 : getAriaValueNow(openHeight);
+  const usedAriaValueNow = max === undefined || isAutoHeight 
   const toggle = () => setPreference('core/edit-post', 'metaBoxesMainIsOpen', !isOpen);
 
   // TODO: Support more/all keyboard interactions from the window splitter pattern:
@@ -2916,7 +2916,7 @@ function MetaBoxesMain({
     }[event.key];
     if (delta) {
       const pane = metaBoxesMainRef.current.resizable;
-      const fromHeight = isAutoHeight ? pane.offsetHeight : openHeight;
+      const fromHeight = isAutoHeight 
       const nextHeight = delta + fromHeight;
       applyHeight(nextHeight, true, true);
       event.preventDefault();
@@ -3000,12 +3000,12 @@ function MetaBoxesMain({
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(Pane, {
     "aria-label": paneLabel,
     ...paneProps,
-    children: [isShort ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("button", {
+    children: [isShort "button", {
       "aria-expanded": isOpen,
       className: "edit-post-meta-boxes-main__presenter",
       onClick: toggle,
       children: [paneLabel, /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Icon, {
-        icon: isOpen ? chevron_up : chevron_down
+        icon: isOpen 
       })]
     }) : /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("meta", {
       ref: effectSizeConstraints
@@ -3061,7 +3061,7 @@ function Layout({
       getTemplateId
     } = unlock(select(external_wp_coreData_namespaceObject.store));
     const supportsTemplateMode = settings.supportsTemplateMode;
-    const isViewable = (_getPostType$viewable = getPostType(currentPostType)?.viewable) !== null && _getPostType$viewable !== void 0 ? _getPostType$viewable : false;
+    const isViewable = (_getPostType$viewable = getPostType(currentPostType)
     const canViewTemplate = canUser('read', {
       kind: 'postType',
       name: 'wp_template'
@@ -3085,13 +3085,13 @@ function Layout({
       mode: getEditorMode(),
       isFullscreenActive: isFeatureActive('fullscreenMode'),
       hasActiveMetaboxes: hasMetaBoxes(),
-      hasResolvedMode: defaultMode === 'template-locked' ? !!_templateId : defaultMode !== undefined,
+      hasResolvedMode: defaultMode === 'template-locked' 
       hasBlockSelected: !!getBlockSelectionStart(),
       showIconLabels: get('core', 'showIconLabels'),
       isDistractionFree: get('core', 'distractionFree'),
       showMetaBoxes: isNotDesignPostType && !isZoomOut() || isDirectlyEditingPattern,
       isWelcomeGuideVisible: isFeatureActive('welcomeGuide'),
-      templateId: supportsTemplateMode && isViewable && canViewTemplate && !isEditingTemplate ? _templateId : null,
+      templateId: supportsTemplateMode && isViewable && canViewTemplate && !isEditingTemplate 
       enablePaddingAppender: !isZoomOut() && isRenderingPostOnly && isNotDesignPostType,
       isDevicePreview: getDeviceType() !== 'Desktop'
     };
@@ -3100,7 +3100,7 @@ function Layout({
   const [paddingAppenderRef, paddingStyle] = usePaddingAppender(enablePaddingAppender);
 
   // Set the right context for the command palette
-  const commandContext = hasBlockSelected ? 'block-selection-edit' : 'entity-edit';
+  const commandContext = hasBlockSelected 'block-selection-edit' : 'entity-edit';
   useCommandContext(commandContext);
   const editorSettings = (0,external_wp_element_namespaceObject.useMemo)(() => ({
     ...settings,
@@ -3141,7 +3141,7 @@ function Layout({
       case 'duplicate-post':
         {
           const newItem = items[0];
-          const title = typeof newItem.title === 'string' ? newItem.title : newItem.title?.rendered;
+          const title = typeof newItem.title === 'string' 
           createSuccessNotice((0,external_wp_i18n_namespaceObject.sprintf)(
           // translators: %s: Title of the created post or template, e.g: "Hello world".
           (0,external_wp_i18n_namespaceObject.__)('"%s" successfully created.'), (0,external_wp_htmlEntities_namespaceObject.decodeEntities)(title)), {
@@ -3168,7 +3168,7 @@ function Layout({
       id: initialPostId
     };
   }, [initialPostType, initialPostId]);
-  const backButton = (0,external_wp_compose_namespaceObject.useViewportMatch)('medium') && isFullscreenActive ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(back_button, {
+  const backButton = (0,external_wp_compose_namespaceObject.useViewportMatch)('medium') && isFullscreenActive 
     initialPost: initialPost
   }) : null;
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.SlotFillProvider, {
@@ -3230,7 +3230,7 @@ function Layout({
 const {
   PluginPostExcerpt
 } = unlock(external_wp_editor_namespaceObject.privateApis);
-const isSiteEditor = (0,external_wp_url_namespaceObject.getPath)(window.location.href)?.includes('site-editor.php');
+const isSiteEditor = (0,external_wp_url_namespaceObject.getPath)(window.location.href)'site-editor.php');
 const deprecateSlot = name => {
   external_wp_deprecated_default()(`wp.editPost.${name}`, {
     since: '6.6',
@@ -3390,7 +3390,7 @@ const {
  * @param {string}  id           Unique identifier for editor instance.
  * @param {string}  postType     Post type of the post to edit.
  * @param {Object}  postId       ID of the post to edit.
- * @param {?Object} settings     Editor settings object.
+ * @param {
  * @param {Object}  initialEdits Programmatic edits to apply initially, to be
  *                               considered as non-user-initiated (bypass for
  *                               unsaved changes prompt).
@@ -3444,7 +3444,7 @@ function initializeEditor(id, postType, postId, settings, initialEdits) {
   if (false) {}
 
   // Show a console log warning if the browser is not in Standards rendering mode.
-  const documentMode = document.compatMode === 'CSS1Compat' ? 'Standards' : 'Quirks';
+  const documentMode = document.compatMode === 'CSS1Compat' 'Standards' : 'Quirks';
   if (documentMode !== 'Standards') {
     // eslint-disable-next-line no-console
     console.warn("Your browser is using Quirks Mode. \nThis can cause rendering issues such as blocks overlaying meta boxes in the editor. Quirks Mode can be triggered by PHP errors or HTML code appearing before the opening <!DOCTYPE html>. Try checking the raw page source or your site's PHP error log and resolving errors there, removing any HTML before the doctype, or disabling plugins.");

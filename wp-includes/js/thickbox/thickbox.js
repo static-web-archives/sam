@@ -70,8 +70,8 @@ function tb_show(caption, url, imageGroup) {//function called when the user clic
 		jQuery('#TB_load').show();//show loader
 
 		var baseURL;
-	   if(url.indexOf("?")!==-1){ //ff there is a query string involved
-			baseURL = url.substr(0, url.indexOf("?"));
+	   if(url.indexOf("")!==-1){ //ff there is a query string involved
+			baseURL = url.substr(0, url.indexOf(""));
 	   }else{
 	   		baseURL = url;
 	   }
@@ -199,7 +199,7 @@ function tb_show(caption, url, imageGroup) {//function called when the user clic
 			imgPreloader.src = url;
 		}else{//code to show html
 
-			var queryString = url.replace(/^[^\?]+\??/,'');
+			var queryString = url.replace(/^[^\'');
 			var params = tb_parseQuery( queryString );
 
 			TB_WIDTH = (params['width']*1) + 30 || 630; //defaults to 630 if no parameters were added to URL
@@ -248,7 +248,7 @@ function tb_show(caption, url, imageGroup) {//function called when the user clic
 					jQuery("#TB_window").css({'visibility':'visible'});
 				}else{
 					var load_url = url;
-					load_url += -1 === url.indexOf('?') ? '?' : '&';
+					load_url += -1 === url.indexOf('') '' : '&';
 					jQuery("#TB_ajaxContent").load(load_url += "random=" + (new Date().getTime()),function(){//to do a post change this load method
 						tb_position();
 						jQuery("#TB_load").remove();

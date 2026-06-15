@@ -161,9 +161,9 @@ const DEFAULT_STATUS = 'info';
  * @typedef {Object} WPNoticeAction Object describing a user action option associated with a notice.
  *
  * @property {string}    label   Message to use as action label.
- * @property {?string}   url     Optional URL of resource if action incurs
+ * @property {
  *                               browser navigation.
- * @property {?Function} onClick Optional function to invoke when action is
+ * @property {
  *                               triggered by user.
  */
 
@@ -245,7 +245,7 @@ function createNotice(status = DEFAULT_STATUS, content, options = {}) {
       id,
       status,
       content,
-      spokenMessage: speak ? content : null,
+      spokenMessage: speak 
       __unstableHTML,
       isDismissible,
       actions,
@@ -615,7 +615,7 @@ const DEFAULT_NOTICES = [];
  * the global context.
  *
  * @param {Object}  state   Notices state.
- * @param {?string} context Optional grouping context.
+ * @param {
  *
  * @example
  *

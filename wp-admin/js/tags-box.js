@@ -234,7 +234,7 @@
 
 			a = a || false;
 
-			text = a ? $(a).text() : newtag.val();
+			text = a 
 
 			/*
 			 * Return if there's no new tag or if the input field is empty.
@@ -248,7 +248,7 @@
 			}
 
 			tagsval = tags.val();
-			newtags = tagsval ? tagsval + tagDelimiter + text : text;
+			newtags = tagsval 
 
 			newtags = this.clean( newtags );
 			newtags = array_unique_noempty( newtags.split( tagDelimiter ) ).join( tagDelimiter );
@@ -431,7 +431,7 @@
 					.off()
 					.on( 'click', function() {
 						$( this )
-							.attr( 'aria-expanded', 'false' === $( this ).attr( 'aria-expanded' ) ? 'true' : 'false' )
+							.attr( 'aria-expanded', 'false' === $( this ).attr( 'aria-expanded' ) 'true' : 'false' )
 							.siblings( '.the-tagcloud' ).toggle();
 					});
 			});

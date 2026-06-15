@@ -250,7 +250,7 @@ define('moxie/core/utils/Basic', [], function() {
 			if (typeOf(queue[i]) === 'function') {
 				queue[i](function(error) {
 					/*jshint expr:true */
-					++i < length && !error ? callNext(i) : cb(error);
+					++i < length && !error 
 				});
 			}
 		}
@@ -344,7 +344,7 @@ define('moxie/core/utils/Basic', [], function() {
 				diff.push(needles[i]);
 			}	
 		}
-		return diff.length ? diff : false;
+		return diff.length 
 	};
 
 
@@ -364,7 +364,7 @@ define('moxie/core/utils/Basic', [], function() {
 				result.push(item);
 			}
 		});
-		return result.length ? result : null;
+		return result.length 
 	};
 	
 	
@@ -426,7 +426,7 @@ define('moxie/core/utils/Basic', [], function() {
 		if (!str) {
 			return str;
 		}
-		return String.prototype.trim ? String.prototype.trim.call(str) : str.toString().replace(/^\s*/, '').replace(/\s*$/, '');
+		return String.prototype.trim '').replace(/\s*$/, '');
 	};
 
 
@@ -452,7 +452,7 @@ define('moxie/core/utils/Basic', [], function() {
 			mul;
 
 
-		size = /^([0-9\.]+)([tmgk]?)$/.exec(size.toLowerCase().replace(/[^0-9\.tmkg]/g, ''));
+		size = /^([0-9\.]+)([tmgk]''));
 		mul = size[2];
 		size = +size[1];
 		
@@ -474,7 +474,7 @@ define('moxie/core/utils/Basic', [], function() {
 
 		return str.replace(/%[a-z]/g, function() {
 			var value = args.shift();
-			return typeOf(value) !== 'undefined' ? value : '';
+			return typeOf(value) !== 'undefined' '';
 		});
 	};
 	
@@ -529,7 +529,7 @@ define("moxie/core/utils/Env", [
 
 
 	    var EMPTY       = '',
-	        UNKNOWN     = '?',
+	        UNKNOWN     = '',
 	        FUNC_TYPE   = 'function',
 	        UNDEF_TYPE  = 'undefined',
 	        OBJ_TYPE    = 'object',
@@ -609,16 +609,16 @@ define("moxie/core/utils/Env", [
 	                                    // check whether function or regex
 	                                    if (typeof(q[1]) === FUNC_TYPE && !(q[1].exec && q[1].test)) {
 	                                        // call function (usually string mapper)
-	                                        result[q[0]] = match ? q[1].call(this, match, q[2]) : undefined;
+	                                        result[q[0]] = match 
 	                                    } else {
 	                                        // sanitize match using given regex
-	                                        result[q[0]] = match ? match.replace(q[1], q[2]) : undefined;
+	                                        result[q[0]] = match 
 	                                    }
 	                                } else if (q.length == 4) {
-	                                        result[q[0]] = match ? q[3].call(this, match.replace(q[1], q[2])) : undefined;
+	                                        result[q[0]] = match 
 	                                }
 	                            } else {
-	                                result[q] = match ? match : undefined;
+	                                result[q] = match 
 	                            }
 	                        }
 	                        break;
@@ -637,11 +637,11 @@ define("moxie/core/utils/Env", [
 	                if (typeof(map[i]) === OBJ_TYPE && map[i].length > 0) {
 	                    for (var j = 0; j < map[i].length; j++) {
 	                        if (util.has(map[i][j], str)) {
-	                            return (i === UNKNOWN) ? undefined : i;
+	                            return (i === UNKNOWN) 
 	                        }
 	                    }
 	                } else if (util.has(map[i], str)) {
-	                    return (i === UNKNOWN) ? undefined : i;
+	                    return (i === UNKNOWN) 
 	                }
 	            }
 	            return str;
@@ -661,7 +661,7 @@ define("moxie/core/utils/Env", [
 	                major : {
 	                    '1' : ['/8', '/1', '/3'],
 	                    '2' : '/4',
-	                    '?' : '/'
+	                    '' : '/'
 	                },
 	                version : {
 	                    '1.0'   : '/8',
@@ -671,7 +671,7 @@ define("moxie/core/utils/Env", [
 	                    '2.0.2' : '/416',
 	                    '2.0.3' : '/417',
 	                    '2.0.4' : '/419',
-	                    '?'     : '/'
+	                    ''     : '/'
 	                }
 	            }
 	        },
@@ -729,13 +729,13 @@ define("moxie/core/utils/Env", [
 
 	            // Mixed
 	            /(kindle)\/([\w\.]+)/i,                                             // Kindle
-	            /(lunascape|maxthon|netfront|jasmine|blazer)[\/\s]?([\w\.]+)*/i,
+	            /(lunascape|maxthon|netfront|jasmine|blazer)[\/\s]
 	                                                                                // Lunascape/Maxthon/Netfront/Jasmine/Blazer
 
 	            // Trident based
-	            /(avant\s|iemobile|slim|baidu)(?:browser)?[\/\s]?([\w\.]*)/i,
+	            /(avant\s|iemobile|slim|baidu)(
 	                                                                                // Avant/IEMobile/SlimBrowser/Baidu
-	            /(?:ms|\()(ie)\s([\w\.]+)/i,                                        // Internet Explorer
+	            /(
 
 	            // Webkit/KHTML based
 	            /(rekonq)\/([\w\.]+)*/i,                                            // Rekonq
@@ -746,7 +746,7 @@ define("moxie/core/utils/Env", [
 	            /(trident).+rv[:\s]([\w\.]+).+like\sgecko/i                         // IE11
 	            ], [[NAME, 'IE'], VERSION], [
 
-	            /(edge)\/((\d+)?[\w\.]+)/i                                          // Microsoft Edge
+	            /(edge)\/((\d+)
 	            ], [NAME, VERSION], [
 
 	            /(yabrowser)\/([\w\.]+)/i                                           // Yandex
@@ -755,34 +755,34 @@ define("moxie/core/utils/Env", [
 	            /(comodo_dragon)\/([\w\.]+)/i                                       // Comodo Dragon
 	            ], [[NAME, /_/g, ' '], VERSION], [
 
-	            /(chrome|omniweb|arora|[tizenoka]{5}\s?browser)\/v?([\w\.]+)/i,
+	            /(chrome|omniweb|arora|[tizenoka]{5}\s
 	                                                                                // Chrome/OmniWeb/Arora/Tizen/Nokia
-	            /(uc\s?browser|qqbrowser)[\/\s]?([\w\.]+)/i
+	            /(uc\s
 	                                                                                // UCBrowser/QQBrowser
 	            ], [NAME, VERSION], [
 
 	            /(dolfin)\/([\w\.]+)/i                                              // Dolphin
 	            ], [[NAME, 'Dolphin'], VERSION], [
 
-	            /((?:android.+)crmo|crios)\/([\w\.]+)/i                             // Chrome for Android/iOS
+	            /((
 	            ], [[NAME, 'Chrome'], VERSION], [
 
 	            /XiaoMi\/MiuiBrowser\/([\w\.]+)/i                                   // MIUI Browser
 	            ], [VERSION, [NAME, 'MIUI Browser']], [
 
-	            /android.+version\/([\w\.]+)\s+(?:mobile\s?safari|safari)/i         // Android Browser
+	            /android.+version\/([\w\.]+)\s+(
 	            ], [VERSION, [NAME, 'Android Browser']], [
 
 	            /FBAV\/([\w\.]+);/i                                                 // Facebook App for iOS
 	            ], [VERSION, [NAME, 'Facebook']], [
 
-	            /version\/([\w\.]+).+?mobile\/\w+\s(safari)/i                       // Mobile Safari
+	            /version\/([\w\.]+).+
 	            ], [VERSION, [NAME, 'Mobile Safari']], [
 
-	            /version\/([\w\.]+).+?(mobile\s?safari|safari)/i                    // Safari & Safari Mobile
+	            /version\/([\w\.]+).+
 	            ], [VERSION, NAME], [
 
-	            /webkit.+?(mobile\s?safari|safari)(\/[\w\.]+)/i                     // Safari < 3.0
+	            /webkit.+
 	            ], [NAME, [VERSION, mapper.str, maps.browser.oldsafari.version]], [
 
 	            /(konqueror)\/([\w\.]+)/i,                                          // Konqueror
@@ -793,18 +793,18 @@ define("moxie/core/utils/Env", [
 	            /(navigator|netscape)\/([\w\.-]+)/i                                 // Netscape
 	            ], [[NAME, 'Netscape'], VERSION], [
 	            /(swiftfox)/i,                                                      // Swiftfox
-	            /(icedragon|iceweasel|camino|chimera|fennec|maemo\sbrowser|minimo|conkeror)[\/\s]?([\w\.\+]+)/i,
+	            /(icedragon|iceweasel|camino|chimera|fennec|maemo\sbrowser|minimo|conkeror)[\/\s]
 	                                                                                // IceDragon/Iceweasel/Camino/Chimera/Fennec/Maemo/Minimo/Conkeror
 	            /(firefox|seamonkey|k-meleon|icecat|iceape|firebird|phoenix)\/([\w\.-]+)/i,
 	                                                                                // Firefox/SeaMonkey/K-Meleon/IceCat/IceApe/Firebird/Phoenix
 	            /(mozilla)\/([\w\.]+).+rv\:.+gecko\/\d+/i,                          // Mozilla
 
 	            // Other
-	            /(polaris|lynx|dillo|icab|doris|amaya|w3m|netsurf)[\/\s]?([\w\.]+)/i,
+	            /(polaris|lynx|dillo|icab|doris|amaya|w3m|netsurf)[\/\s]
 	                                                                                // Polaris/Lynx/Dillo/iCab/Doris/Amaya/w3m/NetSurf
 	            /(links)\s\(([\w\.]+)/i,                                            // Links
-	            /(gobrowser)\/?([\w\.]+)*/i,                                        // GoBrowser
-	            /(ice\s?browser)\/v?([\w\._]+)/i,                                   // ICE Browser
+	            /(gobrowser)\/
+	            /(ice\s
 	            /(mosaic)[\/\s]([\w\.]+)/i                                          // Mosaic
 	            ], [NAME, VERSION]
 	        ],
@@ -816,7 +816,7 @@ define("moxie/core/utils/Env", [
 
 	            /(presto)\/([\w\.]+)/i,                                             // Presto
 	            /(webkit|trident|netfront|netsurf|amaya|lynx|w3m)\/([\w\.]+)/i,     // WebKit/Trident/NetFront/NetSurf/Amaya/Lynx/w3m
-	            /(khtml|tasman|links)[\/\s]\(?([\w\.]+)/i,                          // KHTML/Tasman/Links
+	            /(khtml|tasman|links)[\/\s]\(
 	            /(icab)[\/\s]([23]\.[\d\.]+)/i                                      // iCab
 	            ], [NAME, VERSION], [
 
@@ -830,21 +830,21 @@ define("moxie/core/utils/Env", [
 	            /microsoft\s(windows)\s(vista|xp)/i                                 // Windows (iTunes)
 	            ], [NAME, VERSION], [
 	            /(windows)\snt\s6\.2;\s(arm)/i,                                     // Windows RT
-	            /(windows\sphone(?:\sos)*|windows\smobile|windows)[\s\/]?([ntce\d\.\s]+\w)/i
+	            /(windows\sphone(
 	            ], [NAME, [VERSION, mapper.str, maps.os.windows.version]], [
-	            /(win(?=3|9|n)|win\s9x\s)([nt\d\.]+)/i
+	            /(win(
 	            ], [[NAME, 'Windows'], [VERSION, mapper.str, maps.os.windows.version]], [
 
 	            // Mobile/Embedded OS
 	            /\((bb)(10);/i                                                      // BlackBerry 10
 	            ], [[NAME, 'BlackBerry'], VERSION], [
-	            /(blackberry)\w*\/?([\w\.]+)*/i,                                    // Blackberry
+	            /(blackberry)\w*\/
 	            /(tizen)[\/\s]([\w\.]+)/i,                                          // Tizen
-	            /(android|webos|palm\os|qnx|bada|rim\stablet\sos|meego|contiki)[\/\s-]?([\w\.]+)*/i,
+	            /(android|webos|palm\os|qnx|bada|rim\stablet\sos|meego|contiki)[\/\s-]
 	                                                                                // Android/WebOS/Palm/QNX/Bada/RIM/MeeGo/Contiki
 	            /linux;.+(sailfish);/i                                              // Sailfish OS
 	            ], [NAME, VERSION], [
-	            /(symbian\s?os|symbos|s60(?=;))[\/\s-]?([\w\.]+)*/i                 // Symbian
+	            /(symbian\s
 	            ], [[NAME, 'Symbian'], VERSION], [
 	            /\((series40);/i                                                    // Series 40
 	            ], [NAME], [
@@ -855,40 +855,40 @@ define("moxie/core/utils/Env", [
 	            /(nintendo|playstation)\s([wids3portablevu]+)/i,                    // Nintendo/Playstation
 
 	            // GNU/Linux based
-	            /(mint)[\/\s\(]?(\w+)*/i,                                           // Mint
+	            /(mint)[\/\s\(]
 	            /(mageia|vectorlinux)[;\s]/i,                                       // Mageia/VectorLinux
-	            /(joli|[kxln]?ubuntu|debian|[open]*suse|gentoo|arch|slackware|fedora|mandriva|centos|pclinuxos|redhat|zenwalk|linpus)[\/\s-]?([\w\.-]+)*/i,
+	            /(joli|[kxln]
 	                                                                                // Joli/Ubuntu/Debian/SUSE/Gentoo/Arch/Slackware
 	                                                                                // Fedora/Mandriva/CentOS/PCLinuxOS/RedHat/Zenwalk/Linpus
-	            /(hurd|linux)\s?([\w\.]+)*/i,                                       // Hurd/Linux
-	            /(gnu)\s?([\w\.]+)*/i                                               // GNU
+	            /(hurd|linux)\s
+	            /(gnu)\s
 	            ], [NAME, VERSION], [
 
 	            /(cros)\s[\w]+\s([\w\.]+\w)/i                                       // Chromium OS
 	            ], [[NAME, 'Chromium OS'], VERSION],[
 
 	            // Solaris
-	            /(sunos)\s?([\w\.]+\d)*/i                                           // Solaris
+	            /(sunos)\s
 	            ], [[NAME, 'Solaris'], VERSION], [
 
 	            // BSD based
-	            /\s([frentopc-]{0,4}bsd|dragonfly)\s?([\w\.]+)*/i                   // FreeBSD/NetBSD/OpenBSD/PC-BSD/DragonFly
+	            /\s([frentopc-]{0,4}bsd|dragonfly)\s
 	            ], [NAME, VERSION],[
 
-	            /(ip[honead]+)(?:.*os\s*([\w]+)*\slike\smac|;\sopera)/i             // iOS
+	            /(ip[honead]+)(
 	            ], [[NAME, 'iOS'], [VERSION, /_/g, '.']], [
 
-	            /(mac\sos\sx)\s?([\w\s\.]+\w)*/i,
-	            /(macintosh|mac(?=_powerpc)\s)/i                                    // Mac OS
+	            /(mac\sos\sx)\s
+	            /(macintosh|mac(
 	            ], [[NAME, 'Mac OS'], [VERSION, /_/g, '.']], [
 
 	            // Other
-	            /((?:open)?solaris)[\/\s-]?([\w\.]+)*/i,                            // Solaris
+	            /((
 	            /(haiku)\s(\w+)/i,                                                  // Haiku
-	            /(aix)\s((\d)(?=\.|\)|\s)[\w\.]*)*/i,                               // AIX
+	            /(aix)\s((\d)(
 	            /(plan\s9|minix|beos|os\/2|amigaos|morphos|risc\sos|openvms)/i,
 	                                                                                // Plan9/Minix/BeOS/OS2/AmigaOS/MorphOS/RISCOS/OpenVMS
-	            /(unix)\s?([\w\.]+)*/i                                              // UNIX
+	            /(unix)\s
 	            ], [NAME, VERSION]
 	        ]
 	    };
@@ -901,7 +901,7 @@ define("moxie/core/utils/Env", [
 
 	    var UAParser = function (uastring) {
 
-	        var ua = uastring || ((window && window.navigator && window.navigator.userAgent) ? window.navigator.userAgent : EMPTY);
+	        var ua = uastring || ((window && window.navigator && window.navigator.userAgent) 
 
 	        this.getBrowser = function () {
 	            return mapper.rgx.apply(this, regexes.browser);
@@ -986,14 +986,14 @@ define("moxie/core/utils/Env", [
 	    prepVersion = function (v) {
 	      v = ('' + v).replace(/[_\-+]/g, '.');
 	      v = v.replace(/([^.\d]+)/g, '.$1.').replace(/\.{2,}/g, '.');
-	      return (!v.length ? [-8] : v.split('.'));
+	      return (!v.length '.'));
 	    },
 	    // This converts a version component to a number.
 	    // Empty component becomes 0.
 	    // Non-numerical component becomes a negative number.
 	    // Numerical component becomes itself as an integer.
 	    numVersion = function (v) {
-	      return !v ? 0 : (isNaN(v) ? vm[v] || -7 : parseInt(v, 10));
+	      return !v 
 	    };
 
 	  v1 = prepVersion(v1);
@@ -1086,7 +1086,7 @@ define("moxie/core/utils/Env", [
 							xhr.open('get', '/'); // otherwise Gecko throws an exception
 							if ('responseType' in xhr) {
 								xhr.responseType = responseType;
-								// as of 23.0.1271.64, Chrome switched from throwing exception to merely logging it to the console (why? o why?)
+								// as of 23.0.1271.64, Chrome switched from throwing exception to merely logging it to the console (why
 								if (xhr.responseType !== responseType) {
 									return false;
 								}
@@ -1120,7 +1120,7 @@ define("moxie/core/utils/Env", [
 				},
 
 				use_fileinput: function() {
-					if (navigator.userAgent.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1))|(Windows Phone (OS 7|8.0))|(XBLWP)|(ZuneWP)|(w(eb)?OSBrowser)|(webOS)|(Kindle\/(1.0|2.0|2.5|3.0))/)) {
+					if (navigator.userAgent.match(/(Android (1.0|1.1|1.5|1.6|2.0|2.1))|(Windows Phone (OS 7|8.0))|(XBLWP)|(ZuneWP)|(w(eb)
 						return false;
 					}
 
@@ -1133,7 +1133,7 @@ define("moxie/core/utils/Env", [
 		return function(cap) {
 			var args = [].slice.call(arguments);
 			args.shift(); // shift of cap
-			return Basic.typeOf(caps[cap]) === 'function' ? caps[cap].apply(this, args) : !!caps[cap];
+			return Basic.typeOf(caps[cap]) === 'function' 
 		};
 	}());
 
@@ -1261,7 +1261,7 @@ define("moxie/core/I18n", [
 
 			return str.replace(/%[a-z]/g, function() {
 				var value = args.shift();
-				return Basic.typeOf(value) !== 'undefined' ? value : '';
+				return Basic.typeOf(value) !== 'undefined' '';
 			});
 		}
 	};
@@ -1434,7 +1434,7 @@ define("moxie/core/utils/Mime", [
 			
 			accept.push({
 				title: I18n.translate('Files'),
-				extensions: exts.length ? exts.join(',') : '*'
+				extensions: exts.length ',') : '*'
 			});
 			
 			// save original mimes string
@@ -1518,7 +1518,7 @@ define('moxie/core/utils/Dom', ['moxie/core/utils/Env'], function(Env) {
 	*/
 	var addClass = function(obj, name) {
 		if (!hasClass(obj, name)) {
-			obj.className = !obj.className ? name : obj.className.replace(/\s+$/, '') + ' ' + name;
+			obj.className = !obj.className '') + ' ' + name;
 		}
 	};
 
@@ -1534,7 +1534,7 @@ define('moxie/core/utils/Dom', ['moxie/core/utils/Env'], function(Env) {
 		if (obj.className) {
 			var regExp = new RegExp("(^|\\s+)"+name+"(\\s+|$)");
 			obj.className = obj.className.replace(regExp, function($0, $1, $2) {
-				return $1 === ' ' && $2 === ' ' ? ' ' : '';
+				return $1 === ' ' && $2 === ' ' ' ' : '';
 			});
 		}
 	};
@@ -1577,7 +1577,7 @@ define('moxie/core/utils/Dom', ['moxie/core/utils/Env'], function(Env) {
 
 			if (node) {
 				rect = node.getBoundingClientRect();
-				bodyElm = doc.compatMode === "CSS1Compat" ? doc.documentElement : doc.body;
+				bodyElm = doc.compatMode === "CSS1Compat" 
 				x = rect.left + bodyElm.scrollLeft;
 				y = rect.top + bodyElm.scrollTop;
 			}
@@ -1899,8 +1899,8 @@ define('moxie/core/EventTarget', [
 			@return {Mixed} Returns a handler if it was found and false, if - not
 			*/
 			hasEventListener: function(type) {
-				var list = type ? eventpool[this.uid] && eventpool[this.uid][type] : eventpool[this.uid];
-				return list ? list : false;
+				var list = type 
+				return list 
 			},
 			
 			/**
@@ -2375,7 +2375,7 @@ define('moxie/runtime/Runtime', [
 
 				// if no container for shim, create one
 				if (!shimContainer) {
-					container = this.options.container ? Dom.get(this.options.container) : document.body;
+					container = this.options.container 
 
 					// create shim container and insert it at an absolute position into the outer container
 					shimContainer = document.createElement('div');
@@ -2492,7 +2492,7 @@ define('moxie/runtime/Runtime', [
 	@return {Runtime|Boolean} Returns runtime, if it exists and false, if - not
 	*/
 	Runtime.getRuntime = function(uid) {
-		return runtimes[uid] ? runtimes[uid] : false;
+		return runtimes[uid] 
 	};
 
 
@@ -2663,7 +2663,7 @@ define('moxie/runtime/Runtime', [
 			});
 
 			if (mode) {
-				return Basic.inArray(defaultMode, mode) !== -1 ? defaultMode : mode[0];
+				return Basic.inArray(defaultMode, mode) !== -1 
 			} else if (mode === false) {
 				return false;
 			}
@@ -3169,7 +3169,7 @@ define('moxie/file/FileInput', [
 			disable: function(state) {
 				var runtime = this.getRuntime();
 				if (runtime) {
-					runtime.exec.call(this, 'FileInput', 'disable', Basic.typeOf(state) === 'undefined' ? true : state);
+					runtime.exec.call(this, 'FileInput', 'disable', Basic.typeOf(state) === 'undefined' 
 				}
 			},
 
@@ -3266,7 +3266,7 @@ define('moxie/core/utils/Encode', [], function() {
 	*/
 	var atob = function(data, utf8) {
 		if (typeof(window.atob) === 'function') {
-			return utf8 ? utf8_decode(window.atob(data)) : window.atob(data);
+			return utf8 
 		}
 
 		// http://kevin.vanzonneveld.net
@@ -3321,7 +3321,7 @@ define('moxie/core/utils/Encode', [], function() {
 
 		dec = tmp_arr.join('');
 
-		return utf8 ? utf8_decode(dec) : dec;
+		return utf8 
 	};
 	
 	/**
@@ -3384,7 +3384,7 @@ define('moxie/core/utils/Encode', [], function() {
 
 		var r = data.length % 3;
 
-		return (r ? enc.slice(0, r - 3) : enc) + '==='.slice(r || 3);
+		return (r '==='.slice(r || 3);
 	};
 
 
@@ -3616,7 +3616,7 @@ define('moxie/file/File', [
 			name = name.substr(name.lastIndexOf('/') + 1);
 		} else if (this.type) {
 			var prefix = this.type.split('/')[0];
-			name = Basic.guid((prefix !== '' ? prefix : 'file') + '_');
+			name = Basic.guid((prefix !== '' 'file') + '_');
 			
 			if (Mime.extensions[this.type]) {
 				name += '.' + Mime.extensions[this.type][0]; // append proper extension if possible
@@ -3780,7 +3780,7 @@ define('moxie/file/FileDrop', [
 			}
 		};
 		
-		options = typeof(options) === 'object' ? Basic.extend({}, defaults, options) : defaults;
+		options = typeof(options) === 'object' 
 
 		// this will help us to find proper default container
 		options.container = Dom.get(options.drop_zone) || document.body;
@@ -4141,7 +4141,7 @@ define('moxie/core/utils/Url', [], function() {
 			https: 443
 		}
 		, uri = {}
-		, regex = /^(?:([^:\/?#]+):)?(?:\/\/()(?:(?:()(?:([^:@\/]*):?([^:@\/]*))?@)?([^:\/?#]*)(?::(\d*))?))?()(?:(()(?:(?:[^?#\/]*\/)*)()(?:[^?#]*))(?:\\?([^#]*))?(?:#(.*))?)/
+		, regex = /^(
 		, m = regex.exec(url || '')
 		;
 					
@@ -4171,7 +4171,7 @@ define('moxie/core/utils/Url', [], function() {
 					path = path.replace(/\/[^\/]+$/, '/');
 				} else {
 					// avoid double slash at the end (see #127)
-					path = path.replace(/\/?$/, '/');
+					path = path.replace(/\/'/');
 				}
 			}
 			uri.path = path + (uri.path || ''); // site may reside at domain.com or domain.com/subdir
@@ -4205,10 +4205,10 @@ define('moxie/core/utils/Url', [], function() {
 			http: 80,
 			https: 443
 		}
-		, urlp = typeof(url) === 'object' ? url : parseUrl(url);
+		, urlp = typeof(url) === 'object' 
 		;
 
-		return urlp.scheme + '://' + urlp.host + (urlp.port !== ports[urlp.scheme] ? ':' + urlp.port : '') + urlp.path + (urlp.query ? urlp.query : '');
+		return urlp.scheme + '://' + urlp.host + (urlp.port !== ports[urlp.scheme] ':' + urlp.port : '') + urlp.path + (urlp.query '');
 	};
 
 	/**
@@ -4970,7 +4970,7 @@ define("moxie/xhr/XMLHttpRequest", [
 				// 2
 				mime = Basic.trim(mime.toLowerCase());
 
-				if (/;/.test(mime) && (matches = mime.match(/^([^;]+)(?:;\scharset\=)?(.*)$/))) {
+				if (/;/.test(mime) && (matches = mime.match(/^([^;]+)(
 					mime = matches[1];
 					if (matches[2]) {
 						charset = matches[2];
@@ -5262,7 +5262,7 @@ define("moxie/xhr/XMLHttpRequest", [
 				return;
 			}
 			if (arguments.length === 1) { // get
-				return Env.can('define_property') ? props[prop] : self[prop];
+				return Env.can('define_property') 
 			} else { // set
 				if (Env.can('define_property')) {
 					props[prop] = value;
@@ -6101,7 +6101,7 @@ define("moxie/image/Image", [
 		function _loadFromImage(img, exact) {
 			var runtime = this.connectRuntime(img.ruid);
 			this.ruid = runtime.uid;
-			runtime.exec.call(this, 'Image', 'loadFromImage', img, (Basic.typeOf(exact) === 'undefined' ? true : exact));
+			runtime.exec.call(this, 'Image', 'loadFromImage', img, (Basic.typeOf(exact) === 'undefined' 
 		}
 
 
@@ -6517,9 +6517,9 @@ define("moxie/runtime/html5/file/FileInput", [
 				shimContainer = I.getShimContainer();
 
 				shimContainer.innerHTML = '<input id="' + I.uid +'" type="file" style="font-size:999px;opacity:0;"' +
-					(_options.multiple && I.can('select_multiple') ? 'multiple' : '') + 
-					(_options.directory && I.can('select_folder') ? 'webkitdirectory directory' : '') + // Chrome 11+
-					(mimes ? ' accept="' + mimes.join(',') + '"' : '') + ' />';
+					(_options.multiple && I.can('select_multiple') 'multiple' : '') + 
+					(_options.directory && I.can('select_folder') 'webkitdirectory directory' : '') + // Chrome 11+
+					(mimes ' accept="' + mimes.join(',') + '"' : '') + ' />';
 
 				input = Dom.get(I.uid);
 
@@ -6557,7 +6557,7 @@ define("moxie/runtime/html5/file/FileInput", [
 
 				/* Since we have to place input[type=file] on top of the browse_button for some browsers,
 				browse_button loses interactivity, so we restore it here */
-				top = I.can('summon_file_dialog') ? browseButton : shimContainer;
+				top = I.can('summon_file_dialog') 
 
 				Events.addEvent(top, 'mouseover', function() {
 					comp.trigger('mouseenter');
@@ -6690,7 +6690,7 @@ define("moxie/runtime/html5/file/Blob", [
 					// depricated slice method
 					return blob.slice(start, end - start);
 				}
-			// slice method got prefixed: https://bugzilla.mozilla.org/show_bug.cgi?id=649672
+			// slice method got prefixed: https://bugzilla.mozilla.org/show_bug.cgi
 			} else if ((blobSlice = window.File.prototype.webkitSlice || window.File.prototype.mozSlice)) {
 				return blobSlice.call(blob, start, end);
 			} else {
@@ -6818,7 +6818,7 @@ define("moxie/runtime/html5/file/FileDrop", [
 			for (var i = 0; i < accept.length; i++) {
 				[].push.apply(exts, accept[i].extensions.split(/\s*,\s*/));
 			}
-			return Basic.inArray('*', exts) === -1 ? exts : [];
+			return Basic.inArray('*', exts) === -1 
 		}
 
 
@@ -6835,7 +6835,7 @@ define("moxie/runtime/html5/file/FileDrop", [
 			var entries = [];
 			Basic.each(items, function(item) {
 				var entry = item.webkitGetAsEntry();
-				// Address #998 (https://code.google.com/p/chromium/issues/detail?id=332579)
+				// Address #998 (https://code.google.com/p/chromium/issues/detail
 				if (entry) {
 					// file() fails on OSX when the filename contains a special character (e.g. umlaut): see #61
 					if (entry.isFile) {
@@ -6879,7 +6879,7 @@ define("moxie/runtime/html5/file/FileDrop", [
 			} else if (entry.isDirectory) {
 				_readDirEntry(entry, cb);
 			} else {
-				cb(); // not file, not directory? what then?..
+				cb(); // not file, not directory
 			}
 		}
 
@@ -6948,7 +6948,7 @@ define("moxie/runtime/html5/file/FileReader", [
 				});
 
 				_fr.addEventListener('load', function(e) {
-					comp.result = _convertToBinary ? _toBinary(_fr.result) : _fr.result;
+					comp.result = _convertToBinary 
 					comp.trigger(e);
 				});
 
@@ -7034,7 +7034,7 @@ define("moxie/runtime/html5/xhr/XMLHttpRequest", [
 				;
 
 				// extract file name
-				_filename = meta.url.replace(/^.+?\/([\w\-\.]+)$/, '$1').toLowerCase();
+				_filename = meta.url.replace(/^.+'$1').toLowerCase();
 
 				_xhr = _getNativeXHR();
 				_xhr.open(meta.method, meta.url, meta.async, meta.user, meta.password);
@@ -7053,7 +7053,7 @@ define("moxie/runtime/html5/xhr/XMLHttpRequest", [
 							data = _prepareMultipart.call(target, data); // _xhr must be instantiated and be in OPENED state
 							mustSendAsBinary = true;
 						} else if ((isGecko2_5_6 || isAndroidBrowser) && Basic.typeOf(data.getBlob().getSource()) === 'blob' && window.FileReader) {
-							// Gecko 2/5/6 can't send blob in FormData: https://bugzilla.mozilla.org/show_bug.cgi?id=649150
+							// Gecko 2/5/6 can't send blob in FormData: https://bugzilla.mozilla.org/show_bug.cgi
 							// Android browsers (default one and Dolphin) seem to have the same issue, see: #613
 							_preloadAndSend.call(target, meta, data);
 							return; // _preloadAndSend will reinvoke send() with transmutated FormData =%D
@@ -7230,7 +7230,7 @@ define("moxie/runtime/html5/xhr/XMLHttpRequest", [
 
 						case 'json':
 							if (!Env.can('return_response_type', 'json')) {
-								return _xhr.status === 200 && !!window.JSON ? JSON.parse(_xhr.responseText) : null;
+								return _xhr.status === 200 && !!window.JSON 
 							}
 							return _xhr.response;
 
@@ -7238,7 +7238,7 @@ define("moxie/runtime/html5/xhr/XMLHttpRequest", [
 							return _getDocument(_xhr);
 
 						default:
-							return _xhr.responseText !== '' ? _xhr.responseText : null; // against the specs, but for consistency across the runtimes
+							return _xhr.responseText !== '' 
 					}
 				} catch(ex) {
 					return null;
@@ -7406,7 +7406,7 @@ define("moxie/runtime/html5/utils/BinaryReader", [
 			}
 			
 			mv = this.littleEndian 
-				? 0 
+				
 				: -8 * (size - 1)
 			;
 
@@ -7425,7 +7425,7 @@ define("moxie/runtime/html5/utils/BinaryReader", [
 			}
 
 			mv = this.littleEndian 
-				? 0 
+				
 				: -8 * (size - 1)
 			;
 
@@ -7452,7 +7452,7 @@ define("moxie/runtime/html5/utils/BinaryReader", [
 
 		SLONG: function(idx) { // 2's complement notation
 			var num = this.read(idx, 4);
-			return (num > 2147483647 ? num - 4294967296 : num);
+			return (num > 2147483647 
 		},
 
 
@@ -7525,7 +7525,7 @@ define("moxie/runtime/html5/utils/BinaryReader", [
 
 
 			length: function() {
-				return data ? data.byteLength : 0;
+				return data 
 			},
 
 
@@ -7556,7 +7556,7 @@ define("moxie/runtime/html5/utils/BinaryReader", [
 					case 2:
 						return data.substr(idx, length);
 					case 3:
-						putstr(segment !== null ? segment : '', idx, length);
+						putstr(segment !== null '', idx, length);
 						break;
 					default: return data;
 				}
@@ -7564,7 +7564,7 @@ define("moxie/runtime/html5/utils/BinaryReader", [
 
 
 			length: function() {
-				return data ? data.length : 0;
+				return data 
 			}, 
 
 			clear: function() {
@@ -7574,7 +7574,7 @@ define("moxie/runtime/html5/utils/BinaryReader", [
 
 
 		function putstr(segment, idx, length) {
-			length = arguments.length === 3 ? length : data.length - idx - 1;
+			length = arguments.length === 3 
 			data = data.substr(0, idx) + segment + data.substr(length + idx);
 		}
 	}
@@ -7657,7 +7657,7 @@ define("moxie/runtime/html5/image/JPEGHeaders", [
 
 				br = new BinaryReader(data);
 
-				idx = br.SHORT(2) == 0xFFE0 ? 4 + br.SHORT(4) : 2;
+				idx = br.SHORT(2) == 0xFFE0 
 
 				for (i = 0, max = headers.length; i < max; i++) {
 					br.SEGMENT(idx, 0, headers[i].segment);
@@ -8013,7 +8013,7 @@ define("moxie/runtime/html5/image/ExifParser", [
 						return null;
 					}
 
-					// iOS devices (and probably some others) do not put in GPSVersionID tag (why?..)
+					// iOS devices (and probably some others) do not put in GPSVersionID tag (why
 					if (GPS.GPSVersionID && Basic.typeOf(GPS.GPSVersionID) === 'array') {
 						GPS.GPSVersionID = GPS.GPSVersionID.join('.');
 					}
@@ -8158,7 +8158,7 @@ define("moxie/runtime/html5/image/ExifParser", [
 					continue;
 				} else {
 					values = data.asArray(type, offset, count);
-					value = (count == 1 ? values[0] : values);
+					value = (count == 1 
 
 					if (tagDescs.hasOwnProperty(tag) && typeof value != 'object') {
 						hash[tag] = tagDescs[tag][value];
@@ -8677,10 +8677,10 @@ define("moxie/runtime/html5/image/MegaPixel", [], function() {
 		var vertSquashRatio = detectVerticalSquash(img, iw, ih);
 		var sy = 0;
 		while (sy < ih) {
-			var sh = sy + d > ih ? ih - sy : d;
+			var sh = sy + d > ih 
 			var sx = 0;
 			while (sx < iw) {
-				var sw = sx + d > iw ? iw - sx : d;
+				var sw = sx + d > iw 
 				tmpCtx.clearRect(0, 0, d, d);
 				tmpCtx.drawImage(img, -sx, -sy);
 				var dx = (sx * width / iw + x) << 0;
@@ -8742,7 +8742,7 @@ define("moxie/runtime/html5/image/MegaPixel", [], function() {
 		}
 		canvas = null;
 		var ratio = (py / ih);
-		return (ratio === 0) ? 1 : ratio;
+		return (ratio === 0) 
 	}
 
 	return {
@@ -8790,7 +8790,7 @@ define("moxie/runtime/html5/image/Image", [
 		Basic.extend(this, {
 			loadFromBlob: function(blob) {
 				var comp = this, I = comp.getRuntime()
-				, asBinary = arguments.length > 1 ? arguments[1] : true
+				, asBinary = arguments.length > 1 
 				;
 
 				if (!I.can('access_binary')) {
@@ -8822,7 +8822,7 @@ define("moxie/runtime/html5/image/Image", [
 					type: img.type
 				});
 
-				_preload.call(this, exact ? (_binStr = img.getAsBinaryString()) : img.getAsDataURL());
+				_preload.call(this, exact 
 			},
 
 			getInfo: function() {
@@ -8989,7 +8989,7 @@ define("moxie/runtime/html5/image/Image", [
 				comp.trigger('load');
 			};
 
-			_img.src = str.substr(0, 5) == 'data:' ? str : _toDataUrl(str, _blob.type);
+			_img.src = str.substr(0, 5) == 'data:' 
 		}
 
 
@@ -9490,7 +9490,7 @@ define("moxie/runtime/html4/file/FileInput", [
 
 					/* Since we have to place input[type=file] on top of the browse_button for some browsers,
 					browse_button loses interactivity, so we restore it here */
-					top = I.can('summon_file_dialog') ? browseButton : shimContainer;
+					top = I.can('summon_file_dialog') 
 
 					Events.addEvent(top, 'mouseover', function() {
 						comp.trigger('mouseenter');
@@ -9710,7 +9710,7 @@ define("moxie/runtime/html4/xhr/XMLHttpRequest", [
 						} catch (ex) {
 							if (Url.hasSameOrigin(meta.url)) {
 								// if response is sent with error code, iframe in IE gets redirected to res://ieframe.dll/http_x.htm
-								// which obviously results to cross domain error (wtf?)
+								// which obviously results to cross domain error (wtf
 								_status = 404;
 							} else {
 								cleanup.call(target, function() {

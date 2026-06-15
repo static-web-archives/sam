@@ -7,7 +7,7 @@
  * @ jQuery Plugin by Tzury Bar Yochay
         mail: tzury.by@gmail.com
         blog: evalinux.wordpress.com
-        face: facebook.com/profile.php?id=513676303
+        face: facebook.com/profile.php
 
         (c) Copyrights 2007
 
@@ -19,8 +19,8 @@ TODO:
     add mouse + mouse wheel events.
 
 USAGE:
-    $.hotkeys.add('Ctrl+c', function(){ alert('copy anyone?');});
-    $.hotkeys.add('Ctrl+c', {target:'div#editor', type:'keyup', propagate: true},function(){ alert('copy anyone?');});>
+    $.hotkeys.add('Ctrl+c', function(){ alert('copy anyone');});
+    $.hotkeys.add('Ctrl+c', {target:'div#editor', type:'keyup', propagate: true},function(){ alert('copy anyone');});>
     $.hotkeys.remove('Ctrl+c');
     $.hotkeys.remove('Ctrl+c', {target:'div#editor', type:'keypress'});
 
@@ -36,7 +36,7 @@ USAGE:
 
     this.shift_nums = { "`":"~", "1":"!", "2":"@", "3":"#", "4":"$", "5":"%", "6":"^", "7":"&",
         "8":"*", "9":"(", "0":")", "-":"_", "=":"+", ";":":", "'":"\"", ",":"<",
-        ".":">",  "/":"?",  "\\":"|" };
+        ".":">",  "/":"",  "\\":"|" };
 
     this.add = function(combi, options, callback) {
         if ( typeof options === 'function' ){
@@ -56,7 +56,7 @@ USAGE:
             var element = event.target;
             // @ TextNode -> nodeType == 3
             // WP: not needed with newer jQuery
-            // element = (element.nodeType==3) ? element.parentNode : element;
+            // element = (element.nodeType==3) 
 
             if ( opt['disableInInput'] ) { // Disable shortcut keys in Input, Textarea fields
                 var target = jQuery(element);

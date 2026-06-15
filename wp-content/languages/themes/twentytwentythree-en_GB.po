@@ -408,8 +408,8 @@ msgstr "Get In Touch"
 
 #: patterns/call-to-action.php:15
 msgctxt "sample content for call to action"
-msgid "Got any book recommendations?"
-msgstr "Got any book recommendations?"
+msgid "Got any book recommendations"
+msgstr "Got any book recommendations"
 
 #: patterns/call-to-action.php
 msgctxt "Pattern title"

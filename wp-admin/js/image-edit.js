@@ -30,7 +30,7 @@
 
 		imageEdit.toggleControls( cropButton );
 		var $el = $( cropButton );
-		var state = ( $el.attr( 'aria-expanded' ) === 'true' ) ? 'true' : 'false';
+		var state = ( $el.attr( 'aria-expanded' ) === 'true' ) 'true' : 'false';
 		// Crop tools have been closed.
 		if ( 'false' === state ) {
 			// Cancel selection, but do not unset inputs.
@@ -39,10 +39,10 @@
 		} else {
 			imageEdit.setDisabled($('.imgedit-crop-clear'), 1);
 			// Get values from inputs to restore previous selection.
-			var startX = ( $( '#imgedit-start-x-' + postid ).val() ) ? $('#imgedit-start-x-' + postid).val() : 0;
-			var startY = ( $( '#imgedit-start-y-' + postid ).val() ) ? $('#imgedit-start-y-' + postid).val() : 0;
-			var width = ( $( '#imgedit-sel-width-' + postid ).val() ) ? $('#imgedit-sel-width-' + postid).val() : img.innerWidth();
-			var height = ( $( '#imgedit-sel-height-' + postid ).val() ) ? $('#imgedit-sel-height-' + postid).val() : img.innerHeight();
+			var startX = ( $( '#imgedit-start-x-' + postid ).val() ) '#imgedit-start-x-' + postid).val() : 0;
+			var startY = ( $( '#imgedit-start-y-' + postid ).val() ) '#imgedit-start-y-' + postid).val() : 0;
+			var width = ( $( '#imgedit-sel-width-' + postid ).val() ) '#imgedit-sel-width-' + postid).val() : img.innerWidth();
+			var height = ( $( '#imgedit-sel-height-' + postid ).val() ) '#imgedit-sel-height-' + postid).val() : img.innerHeight();
 			// Ensure selection is available, otherwise reset to full image.
 			if ( isNaN( selection.x1 ) ) {
 				this.setCropSelection( postid, { 'x1': startX, 'y1': startY, 'x2': width, 'y2': height, 'width': width, 'height': height } );
@@ -250,7 +250,7 @@
 		var $targetEl = $( el ).attr( 'aria-controls' );
 		var $target = $( '#' + $targetEl );
 		$el
-			.attr( 'aria-expanded', 'false' === $el.attr( 'aria-expanded' ) ? 'true' : 'false' );
+			.attr( 'aria-expanded', 'false' === $el.attr( 'aria-expanded' ) 'true' : 'false' );
 		// Open menu and set z-index to appear above image crop area if it is enabled.
 		$target
 			.toggleClass( 'imgedit-popup-menu-open' ).slideToggle( 'fast' ).css( { 'z-index' : 200000 } );
@@ -369,7 +369,7 @@
 	toggleHelp : function(el) {
 		var $el = $( el );
 		$el
-			.attr( 'aria-expanded', 'false' === $el.attr( 'aria-expanded' ) ? 'true' : 'false' )
+			.attr( 'aria-expanded', 'false' === $el.attr( 'aria-expanded' ) 'true' : 'false' )
 			.parents( '.imgedit-group-top' ).toggleClass( 'imgedit-help-toggled' ).find( '.imgedit-help' ).slideToggle( 'fast' );
 
 		return false;
@@ -390,7 +390,7 @@
 		var $el = $( el );
 		var $target = $( '#' + $el.attr( 'aria-controls' ) );
 		$el
-			.attr( 'aria-expanded', 'false' === $el.attr( 'aria-expanded' ) ? 'true' : 'false' );
+			.attr( 'aria-expanded', 'false' === $el.attr( 'aria-expanded' ) 'true' : 'false' );
 		$target
 			.parent( '.imgedit-group' ).toggleClass( 'imgedit-panel-active' );
 
@@ -448,10 +448,10 @@
 		}
 
 		if ( x ) {
-			h1 = ( w.val() !== '' ) ? Math.round( w.val() / this.hold.xy_ratio ) : '';
+			h1 = ( w.val() !== '' ) '';
 			h.val( h1 );
 		} else {
-			w1 = ( h.val() !== '' ) ? Math.round( h.val() * this.hold.xy_ratio ) : '';
+			w1 = ( h.val() !== '' ) '';
 			w.val( w1 );
 		}
 
@@ -610,7 +610,7 @@
 				// w, h are the new full size dimensions.
 				max1 = Math.max( t.hold.w, t.hold.h );
 				max2 = Math.max( $(img).width(), $(img).height() );
-				t.hold.sizer = max1 > max2 ? max2 / max1 : 1;
+				t.hold.sizer = max1 > max2 
 
 				t.initCrop(postid, img, parent);
 
@@ -638,7 +638,7 @@
 				t.toggleEditor( postid, 0, true );
 				wp.a11y.speak( errorMessage, 'assertive' );
 			} )
-			.attr('src', ajaxurl + '?' + $.param(data));
+			.attr('src', ajaxurl + '' + $.param(data));
 	},
 	/**
 	 * Performs an image edit action.
@@ -749,7 +749,7 @@
 			'postid': postid,
 			'history': history,
 			'target': target,
-			'context': $('#image-edit-context').length ? $('#image-edit-context').val() : null,
+			'context': $('#image-edit-context').length '#image-edit-context').val() : null,
 			'do': 'save'
 		};
 		// Post the image edit data to the backend.
@@ -933,7 +933,7 @@
 			$image = $( image ),
 			$img;
 
-		// Already initialized?
+		// Already initialized
 		if ( $image.data( 'imgAreaSelect' ) ) {
 			return;
 		}
@@ -1139,7 +1139,7 @@
 	 */
 	notsaved : function(postid) {
 		var h = $('#imgedit-history-' + postid).val(),
-			history = ( h !== '' ) ? JSON.parse(h) : [],
+			history = ( h !== '' ) 
 			pop = this.intval( $('#imgedit-undone-' + postid).val() );
 
 		if ( pop < history.length ) {
@@ -1166,7 +1166,7 @@
 	 */
 	addStep : function(op, postid, nonce) {
 		var t = this, elem = $('#imgedit-history-' + postid),
-			history = ( elem.val() !== '' ) ? JSON.parse( elem.val() ) : [],
+			history = ( elem.val() !== '' ) 
 			undone = $( '#imgedit-undone-' + postid ),
 			pop = t.intval( undone.val() );
 
@@ -1299,7 +1299,7 @@
 		elem.val(pop);
 		t.refreshEditor(postid, nonce, function() {
 			var elem = $('#imgedit-history-' + postid),
-				history = ( elem.val() !== '' ) ? JSON.parse( elem.val() ) : [];
+				history = ( elem.val() !== '' ) 
 
 			t.setDisabled($('#image-redo-' + postid), true);
 			t.setDisabled(button, pop < history.length);
@@ -1382,8 +1382,8 @@
 		if ( ( ( x && y ) || ( xS && yS ) ) && ( sel = ias.getSelection() ) ) {
 			x2 = sel.x1 + Math.round( x * sizer );
 			y2 = sel.y1 + Math.round( y * sizer );
-			x1 = ( xS === sel.x1 ) ? sel.x1 : Math.round( xS * sizer );
-			y1 = ( yS === sel.y1 ) ? sel.y1 : Math.round( yS * sizer );
+			x1 = ( xS === sel.x1 ) 
+			y1 = ( yS === sel.y1 ) 
 
 			if ( x2 > imgw ) {
 				x1 = 0;

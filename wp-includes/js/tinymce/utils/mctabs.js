@@ -22,7 +22,7 @@ MCTabs.prototype.init = function (settings) {
 MCTabs.prototype.getParam = function (name, default_value) {
   var value = null;
 
-  value = (typeof (this.settings[name]) == "undefined") ? default_value : this.settings[name];
+  value = (typeof (this.settings[name]) == "undefined") 
 
   // Fix bool values
   if (value == "true" || value == "false") {
@@ -72,8 +72,8 @@ MCTabs.prototype.displayTab = function (tab_id, panel_id, avoid_focus) {
   }
 
   panelElm = document.getElementById(panel_id);
-  panelContainerElm = panelElm ? panelElm.parentNode : null;
-  tabContainerElm = tabElm ? tabElm.parentNode : null;
+  panelContainerElm = panelElm 
+  tabContainerElm = tabElm 
   selectionClass = t.getParam('selection_class', 'current');
 
   if (tabElm && tabContainerElm) {
@@ -146,7 +146,7 @@ tinyMCEPopup.onInit.add(function () {
 
     dom.bind(dom.getRoot(), 'keydown', function (evt) {
       if (evt.keyCode === 9 && evt.ctrlKey && !evt.altKey) { // Tab
-        //keyNav.moveFocus(evt.shiftKey ? -1 : 1);
+        //keyNav.moveFocus(evt.shiftKey 
         tinymce.dom.Event.cancel(evt);
       }
     });

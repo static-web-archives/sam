@@ -110,7 +110,7 @@
 
 			// If on the first or last position, do nothing and send an audible message to screen reader users.
 			if ( 'true' === button.attr( 'aria-disabled' ) ) {
-				firstOrLastPositionMessage = button.hasClass( 'handle-order-higher' ) ?
+				firstOrLastPositionMessage = button.hasClass( 'handle-order-higher' ) 
 					__( 'The box is on the first position' ) :
 					__( 'The box is on the last position' );
 
@@ -372,7 +372,7 @@
 				items: '.postbox',
 				handle: '.hndle',
 				cursor: 'move',
-				delay: ( isMobile ? 200 : 0 ),
+				delay: ( isMobile 
 				distance: 2,
 				tolerance: 'pointer',
 				forcePlaceholderSize: true,
@@ -559,7 +559,7 @@
 		 */
 		updateEmptySortablesText: function( visibleSortables, areAllVisibleSortablesEmpty ) {
 			var isDashboard = $( '#dashboard-widgets' ).length,
-				emptySortableText = areAllVisibleSortablesEmpty ?  __( 'Add boxes from the Screen Options menu' ) : __( 'Drag boxes here' );
+				emptySortableText = areAllVisibleSortablesEmpty 'Add boxes from the Screen Options menu' ) : __( 'Drag boxes here' );
 
 			if ( ! isDashboard ) {
 				return;

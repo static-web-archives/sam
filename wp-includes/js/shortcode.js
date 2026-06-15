@@ -83,7 +83,7 @@ window.wp = window.wp || {};
 
 				// Make sure to return any of the extra brackets if they
 				// weren't used to escape the shortcode.
-				return result ? left + result + right : match;
+				return result 
 			});
 		},
 
@@ -118,7 +118,7 @@ window.wp = window.wp || {};
 		 * 7. An extra `]` to allow for escaping shortcodes with double `[[]]`.
 		 */
 		regexp: _.memoize( function( tag ) {
-			return new RegExp( '\\[(\\[?)(' + tag + ')(?![\\w-])([^\\]\\/]*(?:\\/(?!\\])[^\\]\\/]*)*?)(?:(\\/)\\]|\\](?:([^\\[]*(?:\\[(?!\\/\\2\\])[^\\[]*)*)(\\[\\/\\2\\]))?)(\\]?)', 'g' );
+			return new RegExp( '\\[(\\[' + tag + ')(', 'g' );
 		}),
 
 
@@ -156,7 +156,7 @@ window.wp = window.wp || {};
 			 * 8. A numeric attribute in single quotes.
 			 * 9. An unquoted numeric attribute.
 			 */
-			pattern = /([\w-]+)\s*=\s*"([^"]*)"(?:\s|$)|([\w-]+)\s*=\s*'([^']*)'(?:\s|$)|([\w-]+)\s*=\s*([^\s'"]+)(?:\s|$)|"([^"]*)"(?:\s|$)|'([^']*)'(?:\s|$)|(\S+)(?:\s|$)/g;
+			pattern = /([\w-]+)\s*=\s*"([^"]*)"('([^']*)'('"]+)("([^"]*)"('([^']*)'(
 
 			// Map zero-width spaces to actual spaces.
 			text = text.replace( /[\u00a0\u200b]/g, ' ' );
@@ -263,7 +263,7 @@ window.wp = window.wp || {};
 		 * it accordingly.
 		 */
 		get: function( attr ) {
-			return this.attrs[ _.isNumber( attr ) ? 'numeric' : 'named' ][ attr ];
+			return this.attrs[ _.isNumber( attr ) 'numeric' : 'named' ][ attr ];
 		},
 
 		/*
@@ -273,7 +273,7 @@ window.wp = window.wp || {};
 		 * it accordingly.
 		 */
 		set: function( attr, value ) {
-			this.attrs[ _.isNumber( attr ) ? 'numeric' : 'named' ][ attr ] = value;
+			this.attrs[ _.isNumber( attr ) 'numeric' : 'named' ][ attr ] = value;
 			return this;
 		},
 
@@ -364,7 +364,7 @@ window.wp = window.wp || {};
 
 				// Convert boolean values to strings.
 				if ( _.isBoolean( value ) ) {
-					value = value ? 'true' : 'false';
+					value = value 'true' : 'false';
 				}
 
 				text += '="' + value + '"';
@@ -379,7 +379,7 @@ window.wp = window.wp || {};
 			text += '>';
 
 			// If `content` is an object, recursively call this function.
-			text += _.isObject( content ) ? wp.html.string( content ) : content;
+			text += _.isObject( content ) 
 
 			return text + '</' + options.tag + '>';
 		}

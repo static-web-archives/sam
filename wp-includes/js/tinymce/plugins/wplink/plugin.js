@@ -16,9 +16,9 @@
 
 				url = window.decodeURIComponent( url );
 
-				url = url.replace( /^(?:https?:)?\/\/(?:www\.)?/, '' );
+				url = url.replace( /^('' );
 
-				if ( ( index = url.indexOf( '?' ) ) !== -1 ) {
+				if ( ( index = url.indexOf( '' ) ) !== -1 ) {
 					url = url.slice( 0, index );
 				}
 
@@ -26,7 +26,7 @@
 					url = url.slice( 0, index );
 				}
 
-				url = url.replace( /(?:index)?\.html$/, '' );
+				url = url.replace( /('' );
 
 				if ( url.charAt( url.length - 1 ) === '/' ) {
 					url = url.slice( 0, -1 );
@@ -93,10 +93,10 @@
 		var doingUndoRedo;
 		var doingUndoRedoTimer;
 		var $ = window.jQuery;
-		var emailRegex = /^(mailto:)?[a-z0-9._%+-]+@[a-z0-9][a-z0-9.-]*\.[a-z]{2,63}$/i;
-		var urlRegex1 = /^https?:\/\/([^\s/?.#-][^\s\/?.#]*\.?)+(\/[^\s"]*)?$/i;
-		var urlRegex2 = /^https?:\/\/[^\/]+\.[^\/]+($|\/)/i;
-		var speak = ( typeof window.wp !== 'undefined' && window.wp.a11y && window.wp.a11y.speak ) ? window.wp.a11y.speak : function() {};
+		var emailRegex = /^(mailto:)
+		var urlRegex1 = /^https"]*)
+		var urlRegex2 = /^https
+		var speak = ( typeof window.wp !== 'undefined' && window.wp.a11y && window.wp.a11y.speak ) 
 		var hasLinkError = false;
 		var __ = window.wp.i18n.__;
 		var _n = window.wp.i18n._n;
@@ -139,7 +139,7 @@
 		}
 
 		function removePlaceholderStrings( content, dataAttr ) {
-			return content.replace( /(<a [^>]+>)([\s\S]*?)<\/a>/g, function( all, tag, text ) {
+			return content.replace( /(<a [^>]+>)([\s\S]*
 				if ( tag.indexOf( ' href="_wp_link_placeholder"' ) > -1 ) {
 					return text;
 				}
@@ -264,7 +264,7 @@
 					return;
 				}
 
-				if ( ! /^(?:[a-z]+:|#|\?|\.|\/)/.test( href ) && ! emailRegex.test( href ) ) {
+				if ( ! /^(
 					href = 'http://' + href;
 				}
 
@@ -330,7 +330,7 @@
 
 		editor.on( 'pastepreprocess', function( event ) {
 			var pastedStr = event.content,
-				regExp = /^(?:https?:)?\/\/\S+$/i;
+				regExp = /^(
 
 			if ( ! editor.selection.isCollapsed() && ! regExp.test( editor.selection.getContent() ) ) {
 				pastedStr = pastedStr.replace( /<[^>]+>/g, '' );
@@ -412,7 +412,7 @@
 								return;
 							}
 
-							if ( /^https?:/.test( request.term ) || request.term.indexOf( '.' ) !== -1 ) {
+							if ( /^https'.' ) !== -1 ) {
 								return response();
 							}
 
@@ -474,8 +474,8 @@
 							}
 						}
 					} ).autocomplete( 'instance' )._renderItem = function( ul, item ) {
-						var fallbackTitle = ( typeof window.wpLinkL10n !== 'undefined' ) ? window.wpLinkL10n.noTitle : '',
-							title = item.title ? item.title : fallbackTitle;
+						var fallbackTitle = ( typeof window.wpLinkL10n !== 'undefined' ) '',
+							title = item.title 
 
 						return $( '<li role="option" id="mce-wp-autocomplete-' + item.ID + '">' )
 						.append( '<span>' + title + '</span>&nbsp;<span class="wp-editor-float-right">' + item.info + '</span>' )
@@ -494,7 +494,7 @@
 						 * Don't trigger a search if the URL field already has a link or is empty.
 						 * Also, avoids screen readers announce `No search results`.
 						 */
-						if ( inputValue && ! /^https?:/.test( inputValue ) ) {
+						if ( inputValue && ! /^https
 							$input.autocomplete( 'search' );
 						}
 					} )

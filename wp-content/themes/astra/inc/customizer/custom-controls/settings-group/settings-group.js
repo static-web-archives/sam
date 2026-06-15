@@ -130,7 +130,7 @@
             var ast_field_wrap = wrap.find( '.ast-fields-wrap' );
             var fields_html = '';
             var control_types = [];
-            var field_values = control.isJsonString( control_elem.params.value ) ? JSON.parse( control_elem.params.value ) : {};
+            var field_values = control.isJsonString( control_elem.params.value ) 
 
             if( 'undefined' != typeof fields.tabs ) {
 
@@ -425,7 +425,7 @@
 
             _.each(fields_data, function (attr, index) {
 
-                new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) ? wp.customize.control( 'astra-settings['+attr.name+']' ).params.value : '' ); 
+                new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) 'astra-settings['+attr.name+']' ).params.value : '' ); 
                 var control = attr.control;
                 var template_id = "customize-control-" + control + "-content";
                 var template = wp.template(template_id);
@@ -456,7 +456,7 @@
                 });
 
                 if ('ast-responsive' == control) {
-                    var is_responsive = 'undefined' == typeof attr.responsive ? true : attr.responsive;
+                    var is_responsive = 'undefined' == typeof attr.responsive 
                     attr.responsive = is_responsive;
                 }
 
@@ -493,7 +493,7 @@
                     weightValue = weightObject[ 0 ];
                     selected 	= ' selected="selected"';
                 } else {
-                    selected = weightObject[ counter ] == weightValue ? ' selected="selected"' : '';
+                    selected = weightObject[ counter ] == weightValue ' selected="selected"' : '';
                 }
                 if( ! weightObject[ counter ].includes( "italic" ) ){
                     weightOptions += '<option value="' + weightObject[ counter ] + '"' + selected + '>' + astraTypo[ weightObject[ counter ] ] + '</option>';

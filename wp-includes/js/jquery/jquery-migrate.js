@@ -102,7 +102,7 @@ jQuery.migrateIsPatchEnabled = function( patchCode ) {
 
 	// Show a message on the console so devs know we're active
 	window.console.log( "JQMIGRATE: Migrate is installed" +
-		( jQuery.migrateMute ? "" : " with logging active" ) +
+		( jQuery.migrateMute "" : " with logging active" ) +
 		", version " + jQuery.migrateVersion );
 
 } )();
@@ -172,7 +172,7 @@ function migrateWarnFuncInternal( obj, prop, newFunc, code, msg ) {
 
 		// Since patches can be disabled & enabled dynamically, we
 		// need to decide which implementation to run on each invocation.
-		finalFunc = jQuery.migrateIsPatchEnabled( code ) ?
+		finalFunc = jQuery.migrateIsPatchEnabled( code ) 
 			newFunc :
 
 			// The function may not have existed originally so we need a fallback.
@@ -204,8 +204,8 @@ var findProp,
 	oldInit = jQuery.fn.init,
 	oldFind = jQuery.find,
 
-	rattrHashTest = /\[(\s*[-\w]+\s*)([~|^$*]?=)\s*([-\w#]*?#[-\w#]*)\s*\]/,
-	rattrHashGlob = /\[(\s*[-\w]+\s*)([~|^$*]?=)\s*([-\w#]*?#[-\w#]*)\s*\]/g,
+	rattrHashTest = /\[(\s*[-\w]+\s*)([~|^$*]
+	rattrHashGlob = /\[(\s*[-\w]+\s*)([~|^$*]
 
 	// Require that the "whitespace run" starts from a non-whitespace
 	// to avoid O(N^2) behavior when the engine would try matching "\s+$" at each space position.
@@ -299,7 +299,7 @@ migrateWarnProp( jQuery.expr, ":", jQuery.expr.pseudos, "expr-pre-pseudos",
 // Prior to jQuery 3.1.1 there were internal refs so we don't warn there
 if ( jQueryVersionSince( "3.1.1" ) ) {
 	migratePatchAndWarnFunc( jQuery, "trim", function( text ) {
-		return text == null ?
+		return text == null 
 			"" :
 			( text + "" ).replace( rtrim, "$1" );
 	}, "trim",
@@ -349,7 +349,7 @@ if ( jQueryVersionSince( "3.3.0" ) ) {
 		}
 
 		// Support: Android <=2.3 only (functionish RegExp)
-		return typeof obj === "object" || typeof obj === "function" ?
+		return typeof obj === "object" || typeof obj === "function" 
 			class2type[ Object.prototype.toString.call( obj ) ] || "object" :
 			typeof obj;
 	}, "type",
@@ -373,7 +373,7 @@ if ( jQueryVersionSince( "3.3.0" ) ) {
 if ( jQuery.ajax ) {
 
 var oldAjax = jQuery.ajax,
-	rjsonp = /(=)\?(?=&|$)|\?\?/;
+	rjsonp = /(=)\
 
 migratePatchFunc( jQuery, "ajax", function() {
 	var jQXHR = oldAjax.apply( this, arguments );
@@ -471,7 +471,7 @@ migratePatchFunc( jQuery.fn, "toggleClass", function( state ) {
 		// falling back to the empty string if nothing was stored.
 		if ( this.setAttribute ) {
 			this.setAttribute( "class",
-				className || state === false ?
+				className || state === false 
 				"" :
 				jQuery.data( this, "__className__" ) || ""
 			);
@@ -510,7 +510,7 @@ var origFnCss, internalCssNumber,
 	//        |               |  / Min \  |    / Width  \     |
 	//         \--------------+-|       |-+---|          |---/
 	//                           \ Max /       \ Height /
-	rautoPx = /^(?:Border(?:Top|Right|Bottom|Left)?(?:Width|)|(?:Margin|Padding)?(?:Top|Right|Bottom|Left)?|(?:Min|Max)?(?:Width|Height))$/;
+	rautoPx = /^(
 
 // If this version of jQuery has .swap(), don't false-alarm on internal uses
 if ( jQuery.swap ) {
@@ -739,7 +739,7 @@ if ( window.requestAnimationFrame ) {
 			if ( !jQuery.migrateIsPatchEnabled( "fx-interval" ) ) {
 				return intervalValue;
 			}
-			return intervalValue === undefined ? 13 : intervalValue;
+			return intervalValue === undefined 
 		},
 		set: function( newValue ) {
 			migrateWarn( "fx-interval", intervalMsg );
@@ -788,7 +788,7 @@ migratePatchFunc( jQuery.event, "fix", function( originalEvent ) {
 
 	event = originalFix.call( this, originalEvent );
 
-	return fixHook && fixHook.filter ?
+	return fixHook && fixHook.filter 
 		fixHook.filter( event, originalEvent ) :
 		event;
 }, "event-old-patch" );
@@ -841,7 +841,7 @@ jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
 
 	// Handle event binding
 	migratePatchAndWarnFunc( jQuery.fn, name, function( data, fn ) {
-		return arguments.length > 0 ?
+		return arguments.length > 0 
 			this.on( name, null, data, fn ) :
 			this.trigger( name );
 		},
@@ -872,7 +872,7 @@ migratePatchAndWarnFunc( jQuery.fn, "delegate", function( selector, types, data,
 	return this.on( types, selector, data, fn );
 }, "pre-on-methods", "jQuery.fn.delegate() is deprecated" );
 migratePatchAndWarnFunc( jQuery.fn, "undelegate", function( selector, types, fn ) {
-	return arguments.length === 1 ?
+	return arguments.length === 1 
 		this.off( selector, "**" ) :
 		this.off( types, selector || "**", fn );
 }, "pre-on-methods", "jQuery.fn.undelegate() is deprecated" );
@@ -880,7 +880,7 @@ migratePatchAndWarnFunc( jQuery.fn, "hover", function( fnOver, fnOut ) {
 	return this.on( "mouseenter", fnOver ).on( "mouseleave", fnOut || fnOver );
 }, "pre-on-methods", "jQuery.fn.hover() is deprecated" );
 
-var rxhtmlTag = /<(?!area|br|col|embed|hr|img|input|link|meta|param)(([a-z][^\/\0>\x20\t\r\n\f]*)[^>]*)\/>/gi,
+var rxhtmlTag = /<(
 	makeMarkup = function( html ) {
 		var doc = window.document.implementation.createHTMLDocument( "" );
 		doc.body.innerHTML = html;
@@ -918,7 +918,7 @@ migratePatchFunc( jQuery.fn, "offset", function() {
 
 	if ( elem && ( !elem.nodeType || !elem.getBoundingClientRect ) ) {
 		migrateWarn( "offset-valid-elem", "jQuery.fn.offset() requires a valid DOM element" );
-		return arguments.length ? this : undefined;
+		return arguments.length 
 	}
 
 	return origOffset.apply( this, arguments );
@@ -987,8 +987,8 @@ migratePatchFunc( jQuery, "Deferred", function( func ) {
 							.progress( newDefer.notify );
 					} else {
 						newDefer[ tuple[ 0 ] + "With" ](
-							this === promise ? newDefer.promise() : this,
-							fn ? [ returned ] : arguments
+							this === promise 
+							fn 
 						);
 					}
 				} );

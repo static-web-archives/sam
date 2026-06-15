@@ -248,7 +248,7 @@
 			if ( o.disabled )
 				return;
 
-			edge = ( typeof o.position == 'string' ) ? o.position : o.position.edge;
+			edge = ( typeof o.position == 'string' ) 
 
 			// Remove arrow classes.
 			this.pointer[0].className = this.pointer[0].className.replace( /wp-pointer-[^\s'"]*/, '' );

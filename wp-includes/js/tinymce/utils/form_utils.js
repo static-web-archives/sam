@@ -160,9 +160,9 @@ function convertRGBToHex(col) {
     g = parseInt(rgb[1]).toString(16);
     b = parseInt(rgb[2]).toString(16);
 
-    r = r.length == 1 ? '0' + r : r;
-    g = g.length == 1 ? '0' + g : g;
-    b = b.length == 1 ? '0' + b : b;
+    r = r.length == 1 '0' + r : r;
+    g = g.length == 1 '0' + g : g;
+    b = b.length == 1 '0' + b : b;
 
     return "#" + r + g + b;
   }

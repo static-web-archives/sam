@@ -62,7 +62,7 @@
 		 * @return {void}
 		 */
 		$( 'input[name="background-repeat"]' ).on( 'change',  function() {
-			bgImage.css( 'background-repeat', $( this ).is( ':checked' ) ? 'repeat' : 'no-repeat' );
+			bgImage.css( 'background-repeat', $( this ).is( ':checked' ) 'repeat' : 'no-repeat' );
 		});
 
 		/**
@@ -73,7 +73,7 @@
 		 * @return {void}
 		 */
 		$( 'input[name="background-attachment"]' ).on( 'change', function() {
-			bgImage.css( 'background-attachment', $( this ).is( ':checked' ) ? 'scroll' : 'fixed' );
+			bgImage.css( 'background-attachment', $( this ).is( ':checked' ) 'scroll' : 'fixed' );
 		});
 
 		/**

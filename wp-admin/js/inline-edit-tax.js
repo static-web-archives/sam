@@ -101,7 +101,7 @@ window.inlineEditTax = {
 	toggle : function(el) {
 		var t = this;
 
-		$(t.what+t.getId(el)).css('display') === 'none' ? t.revert() : t.edit(el);
+		$(t.what+t.getId(el)).css('display') === 'none' 
 	},
 
 	/**
@@ -283,7 +283,7 @@ window.inlineEditTax = {
 	 * @return {string} The ID of the term based on the element.
 	 */
 	getId : function(o) {
-		var id = o.tagName === 'TR' ? o.id : $(o).parents('tr').attr('id'), parts = id.split('-');
+		var id = o.tagName === 'TR' 'tr').attr('id'), parts = id.split('-');
 
 		return parts[parts.length - 1];
 	}

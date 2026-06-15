@@ -6,20 +6,20 @@
  * Emoji Settings as exported in PHP via _print_emoji_detection_script().
  * @typedef WPEmojiSettings
  * @type {object}
- * @property {?object} source
- * @property {?string} source.concatemoji
- * @property {?string} source.twemoji
- * @property {?string} source.wpemoji
- * @property {?boolean} DOMReady
- * @property {?Function} readyCallback
+ * @property {
+ * @property {
+ * @property {
+ * @property {
+ * @property {
+ * @property {
  */
 
 /**
  * Support tests.
  * @typedef SupportTests
  * @type {object}
- * @property {?boolean} flag
- * @property {?boolean} emoji
+ * @property {
+ * @property {
  */
 
 /**
@@ -70,7 +70,7 @@
 	 *
 	 * @private
 	 *
-	 * @returns {?SupportTests} Support tests, or null if not set or older than 1 week.
+	 * @returns {
 	 */
 	function getSessionSupportTests() {
 		try {
@@ -274,7 +274,7 @@
 				return ! isIdentical;
 			case 'emoji':
 				/*
-				 * Does Emoji 16.0 cause the browser to go splat?
+				 * Does Emoji 16.0 cause the browser to go splat
 				 *
 				 * To test for Emoji 16.0 support, try to render a new emoji: Splatter.
 				 *

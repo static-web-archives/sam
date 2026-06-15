@@ -238,10 +238,10 @@ wp.mediaWidgets = ( function( $ ) {
 						}
 
 						// Support YouTube embed links.
-						re = /https?:\/\/www\.youtube\.com\/embed\/([^/]+)/;
+						re = /https
 						youTubeEmbedMatch = re.exec( url );
 						if ( youTubeEmbedMatch ) {
-							url = 'https://www.youtube.com/watch?v=' + youTubeEmbedMatch[ 1 ];
+							url = 'https://www.youtube.com/watch' + youTubeEmbedMatch[ 1 ];
 							// silently change url to proper oembed-able version.
 							embedLinkView.model.attributes.url = url;
 						}
@@ -336,7 +336,7 @@ wp.mediaWidgets = ( function( $ ) {
 					editable:   true,
 
 					selectedDisplaySettings: this.options.selectedDisplaySettings,
-					displaySettings: _.isUndefined( this.options.showDisplaySettings ) ? true : this.options.showDisplaySettings,
+					displaySettings: _.isUndefined( this.options.showDisplaySettings ) 
 					displayUserSettings: false // We use the display settings from the current/default widget instance props.
 				}),
 
@@ -345,7 +345,7 @@ wp.mediaWidgets = ( function( $ ) {
 				// Embed states.
 				new wp.media.controller.Embed({
 					metadata: this.options.metadata,
-					type: 'image' === this.options.mimeType ? 'image' : 'link',
+					type: 'image' === this.options.mimeType 'image' : 'link',
 					invalidEmbedTypeError: this.options.invalidEmbedTypeError
 				})
 			]);
@@ -644,7 +644,7 @@ wp.mediaWidgets = ( function( $ ) {
 				if ( 'array' === control.model.schema[ propertyName ].type && _.isArray( value ) ) {
 					value = value.join( ',' );
 				} else if ( 'boolean' === control.model.schema[ propertyName ].type ) {
-					value = value ? '1' : ''; // Because in PHP, strval( true ) === '1' && strval( false ) === ''.
+					value = value '1' : ''; // Because in PHP, strval( true ) === '1' && strval( false ) === ''.
 				} else {
 					value = String( value );
 				}
@@ -756,7 +756,7 @@ wp.mediaWidgets = ( function( $ ) {
 				selectedDisplaySettings: control.displaySettings,
 				showDisplaySettings: control.showDisplaySettings,
 				metadata: mediaFrameProps,
-				state: control.isSelected() && 0 === control.model.get( 'attachment_id' ) ? 'embed' : 'insert',
+				state: control.isSelected() && 0 === control.model.get( 'attachment_id' ) 'embed' : 'insert',
 				invalidEmbedTypeError: control.l10n.unsupported_file_type
 			});
 			wp.media.frame = mediaFrame; // See wp.media().
@@ -904,7 +904,7 @@ wp.mediaWidgets = ( function( $ ) {
 			}
 
 			if ( mediaFrameProps.url ) {
-				extension = mediaFrameProps.url.replace( /#.*$/, '' ).replace( /\?.*$/, '' ).split( '.' ).pop().toLowerCase();
+				extension = mediaFrameProps.url.replace( /#.*$/, '' ).replace( /\'' ).split( '.' ).pop().toLowerCase();
 				if ( extension in control.model.schema ) {
 					modelProps[ extension ] = mediaFrameProps.url;
 				}

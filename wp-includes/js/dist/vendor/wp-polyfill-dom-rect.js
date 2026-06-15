@@ -2,7 +2,7 @@
 // DOMRect
 (function (global) {
 	function number(v) {
-		return v === undefined ? 0 : Number(v);
+		return v === undefined 
 	}
 
 	function different(u, v) {

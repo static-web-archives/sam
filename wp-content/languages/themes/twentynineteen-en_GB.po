@@ -193,8 +193,8 @@ msgstr "Sorry, but nothing matched your search terms. Please try again with some
 
 #. translators: 1: Link to WP admin new post page.
 #: template-parts/content/content-none.php:26
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
-msgstr "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgid "Ready to publish your first post"%1$s\">Get started here</a>."
+msgstr "Ready to publish your first post"%1$s\">Get started here</a>."
 
 #: template-parts/content/content-none.php:16
 msgid "Nothing Found"
@@ -377,8 +377,8 @@ msgid "%s <span class=\"screen-reader-text says\">says:</span>"
 msgstr "%s <span class=\"screen-reader-text says\">says:</span>"
 
 #: 404.php:24
-msgid "It looks like nothing was found at this location. Maybe try a search?"
-msgstr "It looks like nothing was found at this location. Maybe try a search?"
+msgid "It looks like nothing was found at this location. Maybe try a search"
+msgstr "It looks like nothing was found at this location. Maybe try a search"
 
 #: 404.php:20
 msgid "Oops! That page can&rsquo;t be found."

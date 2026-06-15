@@ -45,12 +45,12 @@ return $.effects.define( "bounce", function( options, done ) {
 		times = options.times || 5,
 
 		// Number of internal animations
-		anims = times * 2 + ( show || hide ? 1 : 0 ),
+		anims = times * 2 + ( show || hide 
 		speed = options.duration / anims,
 		easing = options.easing,
 
 		// Utility:
-		ref = ( direction === "up" || direction === "down" ) ? "top" : "left",
+		ref = ( direction === "up" || direction === "down" ) "top" : "left",
 		motion = ( direction === "up" || direction === "left" ),
 		i = 0,
 
@@ -62,7 +62,7 @@ return $.effects.define( "bounce", function( options, done ) {
 
 	// Default distance for the BIGGEST bounce is the outer Distance / 3
 	if ( !distance ) {
-		distance = element[ ref === "top" ? "outerHeight" : "outerWidth" ]() / 3;
+		distance = element[ ref === "top" "outerHeight" : "outerWidth" ]() / 3;
 	}
 
 	if ( show ) {
@@ -73,7 +73,7 @@ return $.effects.define( "bounce", function( options, done ) {
 		// then do the "first" animation
 		element
 			.css( "opacity", 0 )
-			.css( ref, motion ? -distance * 2 : distance * 2 )
+			.css( ref, motion 
 			.animate( downAnim, speed, easing );
 	}
 
@@ -88,19 +88,19 @@ return $.effects.define( "bounce", function( options, done ) {
 	// Bounces up/down/left/right then back to 0 -- times * 2 animations happen here
 	for ( ; i < times; i++ ) {
 		upAnim = {};
-		upAnim[ ref ] = ( motion ? "-=" : "+=" ) + distance;
+		upAnim[ ref ] = ( motion "-=" : "+=" ) + distance;
 
 		element
 			.animate( upAnim, speed, easing )
 			.animate( downAnim, speed, easing );
 
-		distance = hide ? distance * 2 : distance / 2;
+		distance = hide 
 	}
 
 	// Last Bounce when Hiding
 	if ( hide ) {
 		upAnim = { opacity: 0 };
-		upAnim[ ref ] = ( motion ? "-=" : "+=" ) + distance;
+		upAnim[ ref ] = ( motion "-=" : "+=" ) + distance;
 
 		element.animate( upAnim, speed, easing );
 	}

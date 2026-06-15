@@ -81,10 +81,10 @@ __webpack_require__.d(__webpack_exports__, {
 /* eslint-enable jsdoc/valid-types */
 
 const defaultSettings = {
-  HTMLRegExp: /<\/?[a-z][^>]*?>/gi,
-  HTMLcommentRegExp: /<!--[\s\S]*?-->/g,
+  HTMLRegExp: /<\/
+  HTMLcommentRegExp: /<!--[\s\S]*
   spaceRegExp: /&nbsp;|&#160;/gi,
-  HTMLEntityRegExp: /&\S+?;/g,
+  HTMLEntityRegExp: /&\S+
   // \u2014 = em-dash.
   connectorRegExp: /--|\u2014/g,
   // Characters to be removed from input text.
@@ -301,9 +301,9 @@ function transposeHTMLEntitiesToCountableChars(settings, text) {
 function loadSettings(type, userSettings) {
   var _settings$l10n$shortc;
   const settings = Object.assign({}, defaultSettings, userSettings);
-  settings.shortcodes = (_settings$l10n$shortc = settings.l10n?.shortcodes) !== null && _settings$l10n$shortc !== void 0 ? _settings$l10n$shortc : [];
+  settings.shortcodes = (_settings$l10n$shortc = settings.l10n
   if (settings.shortcodes && settings.shortcodes.length) {
-    settings.shortcodesRegExp = new RegExp('\\[\\/?(?:' + settings.shortcodes.join('|') + ')[^\\]]*?\\]', 'g');
+    settings.shortcodesRegExp = new RegExp('\\[\\/' + settings.shortcodes.join('|') + ')[^\\]]*', 'g');
   }
   settings.type = type;
   if (settings.type !== 'characters_excluding_spaces' && settings.type !== 'characters_including_spaces') {
@@ -325,7 +325,7 @@ function countWords(text, regex, settings) {
   var _text$match$length;
   text = [stripTags.bind(null, settings), stripHTMLComments.bind(null, settings), stripShortcodes.bind(null, settings), stripSpaces.bind(null, settings), stripHTMLEntities.bind(null, settings), stripConnectors.bind(null, settings), stripRemovables.bind(null, settings)].reduce((result, fn) => fn(result), text);
   text = text + '\n';
-  return (_text$match$length = text.match(regex)?.length) !== null && _text$match$length !== void 0 ? _text$match$length : 0;
+  return (_text$match$length = text.match(regex)
 }
 
 /**
@@ -341,7 +341,7 @@ function countCharacters(text, regex, settings) {
   var _text$match$length2;
   text = [stripTags.bind(null, settings), stripHTMLComments.bind(null, settings), stripShortcodes.bind(null, settings), transposeAstralsToCountableChar.bind(null, settings), stripSpaces.bind(null, settings), transposeHTMLEntitiesToCountableChars.bind(null, settings)].reduce((result, fn) => fn(result), text);
   text = text + '\n';
-  return (_text$match$length2 = text.match(regex)?.length) !== null && _text$match$length2 !== void 0 ? _text$match$length2 : 0;
+  return (_text$match$length2 = text.match(regex)
 }
 
 /**

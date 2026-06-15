@@ -38,7 +38,7 @@ directory of the getID3 distribution.
 Quick Start
 ===========================================================================
 
-Q: How can I check that getID3() works on my server/files?
+Q: How can I check that getID3() works on my server/files
 A: Unzip getID3() to a directory, then access /demos/demo.browse.php
 
 
@@ -46,7 +46,7 @@ A: Unzip getID3() to a directory, then access /demos/demo.browse.php
 Support
 ===========================================================================
 
-Q: I have a question, or I found a bug. What do I do?
+Q: I have a question, or I found a bug. What do I do
 A: The preferred method of support requests and/or bug reports is the
    forum at http://support.getid3.org/
 
@@ -57,7 +57,7 @@ Sourceforge Notification
 
 It's highly recommended that you sign up for notification from
 Sourceforge for when new versions are released. Please visit:
-http://sourceforge.net/project/showfiles.php?group_id=55859
+http://sourceforge.net/project/showfiles.php
 and click the little "monitor package" icon/link.  If you're
 previously signed up for the mailing list, be aware that it has
 been discontinued, only the automated Sourceforge notification
@@ -65,7 +65,7 @@ will be used from now on.
 
 
 
-What does getID3() do?
+What does getID3() do
 ===========================================================================
 
 Reads & parses (to varying degrees):
@@ -187,7 +187,7 @@ if ($fp_remote = fopen($remotefilename, 'rb')) {
 		fclose($fp_local);
 
 		$remote_headers = array_change_key_case(get_headers($remotefilename, 1), CASE_LOWER);
-		$remote_filesize = (isset($remote_headers['content-length']) ? (is_array($remote_headers['content-length']) ? $remote_headers['content-length'][count($remote_headers['content-length']) - 1] : $remote_headers['content-length']) : null);
+		$remote_filesize = (isset($remote_headers['content-length']) 'content-length']) 'content-length'][count($remote_headers['content-length']) - 1] : $remote_headers['content-length']) : null);
 
 		// Initialize getID3 engine
 		$getID3 = new getID3;
@@ -210,7 +210,7 @@ See /demos/demo.write.php for how to write tags.
 
 
 
-What does the returned data structure look like?
+What does the returned data structure look like
 ===========================================================================
 
 See structure.txt
@@ -281,7 +281,7 @@ Free Software Foundation, Inc.
 Boston, MA  02111-1307, USA.
 
 FAQ:
-Q: Can I use getID3() in my program? Do I need a commercial license?
+Q: Can I use getID3() in my program
 A: You're generally free to use getID3 however you see fit. The only
    case in which you would require a commercial license is if you're
    selling your closed-source program that integrates getID3. If you
@@ -292,7 +292,7 @@ A: You're generally free to use getID3 however you see fit. The only
 
 
 
-Why is it called "getID3()" if it does so much more than just that?
+Why is it called "getID3()" if it does so much more than just that
 ===========================================================================
 
 v0.1 did in fact just do that. I don't have a copy of code that old, but I
@@ -302,7 +302,7 @@ could essentially write it today with a one-line function:
 
 Future Plans
 ===========================================================================
-https://www.getid3.org/phpBB3/viewforum.php?f=7
+https://www.getid3.org/phpBB3/viewforum.php
 
 * Better support for MP4 container format
 * Scan for appended ID3v2 tag at end of file per ID3v2.4 specs (Section 5.0)
@@ -344,11 +344,11 @@ https://www.getid3.org/phpBB3/viewforum.php?f=7
 * Optional scan-through-frames for AVI verification
   (thanks rockcohenØmassive-interactive*nl)
 * Support for TTF (thanks infoØbutterflyx*com)
-* Support for DSS (https://www.getid3.org/phpBB3/viewtopic.php?t=171)
+* Support for DSS (https://www.getid3.org/phpBB3/viewtopic.php
 * Support for SMAF (http://smaf-yamaha.com/what/demo.html)
-  https://www.getid3.org/phpBB3/viewtopic.php?t=182
-* Support for AMR (https://www.getid3.org/phpBB3/viewtopic.php?t=195)
-* Support for 3gpp (https://www.getid3.org/phpBB3/viewtopic.php?t=195)
+  https://www.getid3.org/phpBB3/viewtopic.php
+* Support for AMR (https://www.getid3.org/phpBB3/viewtopic.php
+* Support for 3gpp (https://www.getid3.org/phpBB3/viewtopic.php
 * Support for ID4 (http://www.wackysoft.cjb.net grizlyY2KØhotmail*com)
 * Parse XML data returned in Ogg comments
 * Parse XML data from Quicktime SMIL metafiles (klausrathØmac*com)
@@ -356,13 +356,13 @@ https://www.getid3.org/phpBB3/viewforum.php?f=7
 * More complete parsing of JPG
 * Support for all old-style ASF packets
 * ASF/WMA/WMV tag writing
-* Parse declared T??? ID3v2 text information frames, where appropriate
+* Parse declared T
     (thanks Christian Fritz for the idea)
 * Recognize encoder:
   http://www.guerillasoft.com/EncSpot2/index.html
   http://ff123.net/identify.html
-  http://www.hydrogenaudio.org/?act=ST&f=16&t=9414
-  http://www.hydrogenaudio.org/?showtopic=11785
+  http://www.hydrogenaudio.org/
+  http://www.hydrogenaudio.org/
 * Support for other OS/2 bitmap structures: Bitmap Array('BA'),
   Color Icon('CI'), Color Pointer('CP'), Icon('IC'), Pointer ('PT')
   http://netghost.narod.ru/gff/graphics/summary/os2bmp.htm
@@ -384,7 +384,7 @@ https://www.getid3.org/phpBB3/viewforum.php?f=7
 
 Known Bugs/Issues in getID3() that may be fixed eventually
 ===========================================================================
-https://www.getid3.org/phpBB3/viewtopic.php?t=25
+https://www.getid3.org/phpBB3/viewtopic.php
 
 * Cannot determine bitrate for MPEG video with VBR video data
   (need documentation)
@@ -410,7 +410,7 @@ https://www.getid3.org/phpBB3/viewtopic.php?t=25
 
 Known Bugs/Issues in getID3() that cannot be fixed
 --------------------------------------------------
-https://www.getid3.org/phpBB3/viewtopic.php?t=25
+https://www.getid3.org/phpBB3/viewtopic.php
 
 * 32-bit PHP installations only:
   Files larger than 2GB cannot always be parsed fully by getID3()
@@ -440,7 +440,7 @@ https://www.getid3.org/phpBB3/viewtopic.php?t=25
 
 Known Bugs/Issues in other programs
 -----------------------------------
-https://www.getid3.org/phpBB3/viewtopic.php?t=25
+https://www.getid3.org/phpBB3/viewtopic.php
 
 * MusicBrainz Picard (at least up to v1.3.2) writes multiple
   ID3v2.3 genres in non-standard forward-slash separated text
@@ -455,7 +455,7 @@ https://www.getid3.org/phpBB3/viewtopic.php?t=25
     crash (WMP) or output Asian character set (iTunes)
 * Winamp (up to v2.80 at least) does not support ID3v2.4 tags,
     only ID3v2.3
-    see: http://forums.winamp.com/showthread.php?postid=387524
+    see: http://forums.winamp.com/showthread.php
 * Some versions of Helium2 (www.helium2.com) do not write
     ID3v2.4-compliant Frame Sizes, even though the tag is marked
     as ID3v2.4)  (detected by getID3())
@@ -575,12 +575,12 @@ Reference material:
 * http://netghost.narod.ru/gff/graphics/summary/os2bmp.htm
 * http://flac.sourceforge.net/format.html
 * http://www.research.att.com/projects/mpegaudio/mpeg2.html
-* http://www.audiocoding.com/wiki/index.php?page=AAC
+* http://www.audiocoding.com/wiki/index.php
 * http://libmpeg.org/mpeg4/doc/w2203tfs.pdf
 * http://www.geocities.com/xhelmboyx/quicktime/formats/qtm-layout.txt
 * http://developer.apple.com/techpubs/quicktime/qtdevdocs/RM/frameset.htm
 * http://www.nullsoft.com/nsv/
-* http://www.wotsit.org/download.asp?f=iso9660
+* http://www.wotsit.org/download.asp
 * http://sandbox.mc.edu/~bennet/cs110/tc/tctod.html
 * http://www.cdroller.com/htm/readdata.html
 * http://www.speex.org/manual/node10.html
@@ -617,7 +617,7 @@ Reference material:
 * http://www.geocities.co.jp/SiliconValley-Oakland/3664/alittle.html#GenreExtended
 * http://www.mactech.com/articles/mactech/Vol.06/06.01/SANENormalized/
 * http://www.unicode.org/unicode/faq/utf_bom.html
-* http://tta.corecodec.org/?menu=format
+* http://tta.corecodec.org/
 * http://www.scvi.net/nsvformat.htm
 * http://pda.etsi.org/pda/queryform.asp
 * http://cpansearch.perl.org/src/RGIBSON/Audio-DSS-0.02/lib/Audio/DSS.pm

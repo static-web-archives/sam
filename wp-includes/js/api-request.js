@@ -47,14 +47,14 @@
 
 			// API root may already include query parameter prefix
 			// if site is configured to use plain permalinks.
-			if ( 'string' === typeof apiRoot && -1 !== apiRoot.indexOf( '?' ) ) {
-				path = path.replace( '?', '&' );
+			if ( 'string' === typeof apiRoot && -1 !== apiRoot.indexOf( '' ) ) {
+				path = path.replace( '', '&' );
 			}
 
 			url = apiRoot + path;
 		}
 
-		// If ?_wpnonce=... is present, no need to add a nonce header.
+		// If 
 		addNonceHeader = ! ( options.data && options.data._wpnonce );
 		addAcceptHeader = true;
 

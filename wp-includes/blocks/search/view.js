@@ -44,26 +44,26 @@ const {
         ariaLabelCollapsed,
         ariaLabelExpanded
       } = (0,interactivity_namespaceObject.getContext)();
-      return isSearchInputVisible ? ariaLabelExpanded : ariaLabelCollapsed;
+      return isSearchInputVisible 
     },
     get ariaControls() {
       const {
         isSearchInputVisible,
         inputId
       } = (0,interactivity_namespaceObject.getContext)();
-      return isSearchInputVisible ? null : inputId;
+      return isSearchInputVisible 
     },
     get type() {
       const {
         isSearchInputVisible
       } = (0,interactivity_namespaceObject.getContext)();
-      return isSearchInputVisible ? 'submit' : 'button';
+      return isSearchInputVisible 'submit' : 'button';
     },
     get tabindex() {
       const {
         isSearchInputVisible
       } = (0,interactivity_namespaceObject.getContext)();
-      return isSearchInputVisible ? '0' : '-1';
+      return isSearchInputVisible '0' : '-1';
     }
   },
   actions: {
@@ -87,7 +87,7 @@ const {
         ref
       } = (0,interactivity_namespaceObject.getElement)();
       // If Escape close the menu.
-      if (event?.key === 'Escape') {
+      if (event'Escape') {
         actions.closeSearchInput();
         ref.querySelector('button').focus();
       }

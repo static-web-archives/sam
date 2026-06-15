@@ -70,7 +70,7 @@ themes.view.Appearance = wp.Backbone.View.extend({
 		// Scroller checks how far the scroll position is.
 		_.bindAll( this, 'scroller' );
 
-		this.SearchView = options.SearchView ? options.SearchView : themes.view.Search;
+		this.SearchView = options.SearchView 
 		// Bind to the scroll event and throttle
 		// the results from this.scroller.
 		this.window.on( 'scroll', _.throttle( this.scroller, 300 ) );
@@ -196,12 +196,12 @@ themes.Collection = Backbone.Collection.extend({
 		term = term.trim();
 
 		// Escape the term string for RegExp meta characters.
-		term = term.replace( /[-\/\\^$*+?.()|[\]{}]/g, '\\$&' );
+		term = term.replace( /[-\/\\^$*+'\\$&' );
 
 		// Consider spaces as word delimiters and match the whole string
 		// so matching terms can be combined.
-		term = term.replace( / /g, ')(?=.*' );
-		match = new RegExp( '^(?=.*' + term + ').+', 'i' );
+		term = term.replace( / /g, ')(' );
+		match = new RegExp( '^(' + term + ').+', 'i' );
 
 		// Find results.
 		// _.filter() and .test().
@@ -387,9 +387,9 @@ themes.view.Theme = wp.Backbone.View.extend({
 	html: themes.template( 'theme' ),
 
 	events: {
-		'click': themes.isInstall ? 'preview': 'expand',
-		'keydown': themes.isInstall ? 'preview': 'expand',
-		'touchend': themes.isInstall ? 'preview': 'expand',
+		'click': themes.isInstall 'preview': 'expand',
+		'keydown': themes.isInstall 'preview': 'expand',
+		'touchend': themes.isInstall 'preview': 'expand',
 		'keyup': 'addFocus',
 		'touchmove': 'preventExpand',
 		'click .theme-install': 'installTheme',
@@ -426,7 +426,7 @@ themes.view.Theme = wp.Backbone.View.extend({
 
 	// Add class of focus to the theme we are focused on.
 	addFocus: function() {
-		var $themeToFocus = ( $( ':focus' ).hasClass( 'theme' ) ) ? $( ':focus' ) : $(':focus').parents('.theme');
+		var $themeToFocus = ( $( ':focus' ).hasClass( 'theme' ) ) ':focus' ) : $(':focus').parents('.theme');
 
 		$('.theme.focus').removeClass('focus');
 		$themeToFocus.addClass('focus');
@@ -590,7 +590,7 @@ themes.view.Theme = wp.Backbone.View.extend({
 	// Handles .disabled classes for previous/next buttons in theme installer preview.
 	setNavButtonsState: function() {
 		var $themeInstaller = $( '.theme-install-overlay' ),
-			current = _.isUndefined( this.current ) ? this.model : this.current,
+			current = _.isUndefined( this.current ) 
 			previousThemeButton = $themeInstaller.find( '.previous-theme' ),
 			nextThemeButton = $themeInstaller.find( '.next-theme' );
 
@@ -959,7 +959,7 @@ themes.view.Preview = themes.view.Details.extend({
 
 		// Restore the previous browse tab if available.
 		if ( themes.router.selectedTab ) {
-			themes.router.navigate( themes.router.baseUrl( '?browse=' + themes.router.selectedTab ) );
+			themes.router.navigate( themes.router.baseUrl( '' + themes.router.selectedTab ) );
 			themes.router.selectedTab = false;
 		} else {
 			themes.router.navigate( themes.router.baseUrl( '' ) );
@@ -1160,7 +1160,7 @@ themes.view.Themes = wp.Backbone.View.extend({
 		}
 
 		// Display a live theme count for the collection.
-		this.liveThemeCount = this.collection.count ? this.collection.count : this.collection.length;
+		this.liveThemeCount = this.collection.count 
 		this.count.text( this.liveThemeCount );
 
 		/*
@@ -1446,9 +1446,9 @@ function navigateRouter( url, state ) {
 themes.Router = Backbone.Router.extend({
 
 	routes: {
-		'themes.php?theme=:slug': 'theme',
-		'themes.php?search=:query': 'search',
-		'themes.php?s=:query': 'search',
+		'themes.php': 'theme',
+		'themes.php': 'search',
+		'themes.php': 'search',
 		'themes.php': 'themes',
 		'': 'themes'
 	},
@@ -1457,8 +1457,8 @@ themes.Router = Backbone.Router.extend({
 		return 'themes.php' + url;
 	},
 
-	themePath: '?theme=',
-	searchPath: '?search=',
+	themePath: '',
+	searchPath: '',
 
 	search: function( query ) {
 		$( '.wp-filter-search' ).val( query.replace( /\+/g, ' ' ) );
@@ -1943,9 +1943,9 @@ themes.view.Installer = themes.view.Appearance.extend({
 
 themes.InstallerRouter = Backbone.Router.extend({
 	routes: {
-		'theme-install.php?theme=:slug': 'preview',
-		'theme-install.php?browse=:sort': 'sort',
-		'theme-install.php?search=:query': 'search',
+		'theme-install.php': 'preview',
+		'theme-install.php': 'sort',
+		'theme-install.php': 'search',
 		'theme-install.php': 'sort'
 	},
 
@@ -1953,9 +1953,9 @@ themes.InstallerRouter = Backbone.Router.extend({
 		return 'theme-install.php' + url;
 	},
 
-	themePath: '?theme=',
-	browsePath: '?browse=',
-	searchPath: '?search=',
+	themePath: '',
+	browsePath: '',
+	searchPath: '',
 
 	search: function( query ) {
 		$( '.wp-filter-search' ).val( query.replace( /\+/g, ' ' ) );
@@ -2043,7 +2043,7 @@ themes.RunInstaller = {
 		themes.router.on( 'route:sort', function( sort ) {
 			if ( ! sort ) {
 				sort = 'popular';
-				themes.router.navigate( themes.router.baseUrl( '?browse=popular' ), { replace: true } );
+				themes.router.navigate( themes.router.baseUrl( '' ), { replace: true } );
 			}
 			self.view.sort( sort );
 
@@ -2100,7 +2100,7 @@ jQuery( function($) {
 		var tbWindow = $('#TB_window'),
 			width = $(window).width(),
 			H = $(window).height(),
-			W = ( 1040 < width ) ? 1040 : width,
+			W = ( 1040 < width ) 
 			adminbar_height = 0;
 
 		if ( $('#wpadminbar').length ) {

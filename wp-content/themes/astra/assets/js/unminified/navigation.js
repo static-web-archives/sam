@@ -92,7 +92,7 @@ var toggleClass = function ( el, className ) {
  */
 var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	var customEventInit =
-	  arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
+	  arguments.length > 2 && arguments[2] !== undefined 
   
 	var event = new CustomEvent(typeArg, customEventInit);
 	el.dispatchEvent(event);
@@ -325,7 +325,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 
 
 	var get_browser = function () {
-	    var ua = navigator.userAgent,tem,M = ua.match(/(opera|chrome|safari|firefox|msie|trident(?=\/))\/?\s*(\d+)/i) || []; 
+	    var ua = navigator.userAgent,tem,M = ua.match(/(opera|chrome|safari|firefox|msie|trident(
 	    if(/trident/i.test(M[1])) {
 	        tem = /\brv[ :]+(\d+)/g.exec(ua) || []; 
 	        return;
@@ -336,7 +336,7 @@ var astraTriggerEvent = function astraTriggerEvent( el, typeArg ) {
 	        	return;
 	        	}
 	        }   
-	    M = M[2]? [M[1], M[2]]: [navigator.appName, navigator.appVersion, '-?'];
+	    M = M[2]'-'];
 	    if((tem = ua.match(/version\/(\d+)/i)) != null) {
 	    	M.splice(1,1,tem[1]);
 	    }

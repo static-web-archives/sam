@@ -13,7 +13,7 @@
 /* global ajaxurl, current_site_id, isRtl */
 
 (function( $ ) {
-	var id = ( typeof current_site_id !== 'undefined' ) ? '&site_id=' + current_site_id : '';
+	var id = ( typeof current_site_id !== 'undefined' ) '&site_id=' + current_site_id : '';
 	$( function() {
 		var position = { offset: '0, -1' };
 		if ( typeof isRtl !== 'undefined' && isRtl ) {
@@ -44,11 +44,11 @@
 		 */
 		$( '.wp-suggest-user' ).each( function(){
 			var $this = $( this ),
-				autocompleteType = ( typeof $this.data( 'autocompleteType' ) !== 'undefined' ) ? $this.data( 'autocompleteType' ) : 'add',
-				autocompleteField = ( typeof $this.data( 'autocompleteField' ) !== 'undefined' ) ? $this.data( 'autocompleteField' ) : 'user_login';
+				autocompleteType = ( typeof $this.data( 'autocompleteType' ) !== 'undefined' ) 'autocompleteType' ) : 'add',
+				autocompleteField = ( typeof $this.data( 'autocompleteField' ) !== 'undefined' ) 'autocompleteField' ) : 'user_login';
 
 			$this.autocomplete({
-				source:    ajaxurl + '?action=autocomplete-user&autocomplete_type=' + autocompleteType + '&autocomplete_field=' + autocompleteField + id,
+				source:    ajaxurl + '' + autocompleteType + '&autocomplete_field=' + autocompleteField + id,
 				delay:     500,
 				minLength: 2,
 				position:  position,

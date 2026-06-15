@@ -54,7 +54,7 @@
 		request = wp.hooks.applyFilters( 'wp_application_passwords_approve_app_request', request, context );
 
 		wp.apiRequest( {
-			path: '/wp/v2/users/me/application-passwords?_locale=user',
+			path: '/wp/v2/users/me/application-passwords',
 			method: 'POST',
 			data: request
 		} ).done( function( response, textStatus, jqXHR ) {
@@ -78,7 +78,7 @@
 				url, message, $notice;
 
 			if ( raw ) {
-				url = raw + ( -1 === raw.indexOf( '?' ) ? '?' : '&' ) +
+				url = raw + ( -1 === raw.indexOf( '' ) '' : '&' ) +
 					'site_url=' + encodeURIComponent( authApp.site_url ) +
 					'&user_login=' + encodeURIComponent( authApp.user_login ) +
 					'&password=' + encodeURIComponent( response.password );

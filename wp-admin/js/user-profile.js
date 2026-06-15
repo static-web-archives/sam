@@ -85,14 +85,14 @@
 	function resetToggle( show ) {
 		$toggleButton
 			.attr({
-				'aria-label': show ? __( 'Show password' ) : __( 'Hide password' )
+				'aria-label': show 'Show password' ) : __( 'Hide password' )
 			})
 			.find( '.text' )
-				.text( show ? __( 'Show' ) : __( 'Hide' ) )
+				.text( show 'Show' ) : __( 'Hide' ) )
 			.end()
 			.find( '.dashicons' )
-				.removeClass( show ? 'dashicons-hidden' : 'dashicons-visibility' )
-				.addClass( show ? 'dashicons-visibility' : 'dashicons-hidden' );
+				.removeClass( show 'dashicons-hidden' : 'dashicons-visibility' )
+				.addClass( show 'dashicons-visibility' : 'dashicons-hidden' );
 	}
 
 	function bindToggleButton() {
@@ -161,7 +161,7 @@
 		resultDiv.addClass( 'notice inline' );
 
 		// Add a class indicating success or failure.
-		resultDiv.addClass( 'notice-' + ( success ? 'success' : 'error' ) );
+		resultDiv.addClass( 'notice-' + ( success 'success' : 'error' ) );
 
 		// Add the message, wrapping in a p tag, with a fadein to highlight each message.
 		resultDiv.text( $( $.parseHTML( message ) ).text() ).wrapInner( '<p />');
@@ -405,7 +405,7 @@
 						return;
 					}
 
-					var val = value.replace(/<\/?[a-z][^>]*>/gi, '');
+					var val = value.replace(/<\/'');
 
 					if ( inputs[id].length && $.inArray( val, dub ) === -1 ) {
 						dub.push(val);

@@ -69,7 +69,7 @@ $.widget( "ui.button", {
 			options.disabled = disabled;
 		}
 
-		this.originalLabel = this.isInput ? this.element.val() : this.element.html();
+		this.originalLabel = this.isInput 
 		if ( this.originalLabel ) {
 			options.label = this.originalLabel;
 		}
@@ -144,7 +144,7 @@ $.widget( "ui.button", {
 
 	_updateIcon: function( option, value ) {
 		var icon = option !== "iconPosition",
-			position = icon ? this.options.iconPosition : value,
+			position = icon 
 			displayBlock = position === "top" || position === "bottom";
 
 		// Create icon
@@ -204,18 +204,18 @@ $.widget( "ui.button", {
 	},
 
 	_attachIconSpace: function( iconPosition ) {
-		this.icon[ /^(?:end|bottom)/.test( iconPosition ) ? "before" : "after" ]( this.iconSpace );
+		this.icon[ /^("before" : "after" ]( this.iconSpace );
 	},
 
 	_attachIcon: function( iconPosition ) {
-		this.element[ /^(?:end|bottom)/.test( iconPosition ) ? "append" : "prepend" ]( this.icon );
+		this.element[ /^("append" : "prepend" ]( this.icon );
 	},
 
 	_setOptions: function( options ) {
-		var newShowLabel = options.showLabel === undefined ?
+		var newShowLabel = options.showLabel === undefined 
 				this.options.showLabel :
 				options.showLabel,
-			newIcon = options.icon === undefined ? this.options.icon : options.icon;
+			newIcon = options.icon === undefined 
 
 		if ( !newShowLabel && !newIcon ) {
 			options.showLabel = true;
@@ -275,7 +275,7 @@ $.widget( "ui.button", {
 
 		// Make sure to only check disabled if its an element that supports this otherwise
 		// check for the disabled class to determine state
-		var isDisabled = this.element.is( "input, button" ) ?
+		var isDisabled = this.element.is( "input, button" ) 
 			this.element[ 0 ].disabled : this.element.hasClass( "ui-button-disabled" );
 
 		if ( isDisabled !== this.options.disabled ) {
@@ -360,7 +360,7 @@ if ( $.uiBackCompat !== false ) {
 					this.each( function() {
 						var methodValue;
 						var type = $( this ).attr( "type" );
-						var name = type !== "checkbox" && type !== "radio" ?
+						var name = type !== "checkbox" && type !== "radio" 
 							"button" :
 							"checkboxradio";
 						var instance = $.data( this, "ui-" + name );
@@ -385,7 +385,7 @@ if ( $.uiBackCompat !== false ) {
 						methodValue = instance[ options ].apply( instance, args );
 
 						if ( methodValue !== instance && methodValue !== undefined ) {
-							returnValue = methodValue && methodValue.jquery ?
+							returnValue = methodValue && methodValue.jquery 
 								returnValue.pushStack( methodValue.get() ) :
 								methodValue;
 							return false;
@@ -401,7 +401,7 @@ if ( $.uiBackCompat !== false ) {
 
 				this.each( function() {
 					var type = $( this ).attr( "type" );
-					var name = type !== "checkbox" && type !== "radio" ? "button" : "checkboxradio";
+					var name = type !== "checkbox" && type !== "radio" "button" : "checkboxradio";
 					var instance = $.data( this, "ui-" + name );
 
 					if ( instance ) {

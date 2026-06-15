@@ -439,7 +439,7 @@
 					 * and change input width for view all value
 					 */
 					if ( self._color._alpha < 1 ) {
-						controls.strip.attr( 'style', controls.strip.attr( 'style' ).replace( /rgba\(([0-9]+,)(\s+)?([0-9]+,)(\s+)?([0-9]+)(,(\s+)?[0-9\.]+)\)/g, 'rgb($1$3$5)' ) );
+						controls.strip.attr( 'style', controls.strip.attr( 'style' ).replace( /rgba\(([0-9]+,)(\s+)'rgb($1$3$5)' ) );
 						el.width( parseInt( 88 ) );
 					} else {
 						el.width( defaultWidth );

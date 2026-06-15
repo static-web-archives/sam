@@ -717,18 +717,18 @@ msgstr "Feature grid, 3 columns"
 
 #: patterns/text-faq.php:52
 msgctxt "Question on the details block"
-msgid "Can I apply to be a part of the team or work as a contractor?"
-msgstr "Can I apply to be a part of the team or work as a contractor?"
+msgid "Can I apply to be a part of the team or work as a contractor"
+msgstr "Can I apply to be a part of the team or work as a contractor"
 
 #: patterns/text-faq.php:43
 msgctxt "Question on the details block"
-msgid "I'd like to get to meet fellow architects, how can I do that?"
-msgstr "I'd like to get to meet fellow architects, how can I do that?"
+msgid "I'd like to get to meet fellow architects, how can I do that"
+msgstr "I'd like to get to meet fellow architects, how can I do that"
 
 #: patterns/text-faq.php:34
 msgctxt "Question on the details block"
-msgid "Who is behind Études?"
-msgstr "Who is behind Études?"
+msgid "Who is behind Études"
+msgstr "Who is behind Études"
 
 #: patterns/text-faq.php:27 patterns/text-faq.php:36 patterns/text-faq.php:45
 #: patterns/text-faq.php:54
@@ -738,8 +738,8 @@ msgstr "Études offers comprehensive consulting, management, design, and researc
 
 #: patterns/text-faq.php:25
 msgctxt "Question on the details block"
-msgid "What is your process working in smaller projects?"
-msgstr "What is your process working in smaller projects?"
+msgid "What is your process working in smaller projects"
+msgstr "What is your process working in smaller projects"
 
 #: patterns/text-faq.php:14
 msgctxt "Heading of the FAQs"

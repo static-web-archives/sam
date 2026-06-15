@@ -82,7 +82,7 @@ function getBlobByURL(url) {
  * @return The blob type.
  */
 function getBlobTypeByURL(url) {
-  return getBlobByURL(url)?.type.split('/')[0]; // 0: media type , 1: file extension eg ( type: 'image/jpeg' ).
+  return getBlobByURL(url)'/')[0]; // 0: media type , 1: file extension eg ( type: 'image/jpeg' ).
 }
 
 /**
@@ -102,7 +102,7 @@ function revokeBlobURL(url) {
  *
  * @param url The URL.
  *
- * @return Is the url a blob url?
+ * @return Is the url a blob url
  */
 function isBlobURL(url) {
   if (!url || !url.indexOf) {

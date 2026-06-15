@@ -47,7 +47,7 @@
 			pinnedToolsTop = 56,
 			sidebarBottom = 20,
 			autoresizeMinHeight = 300,
-			initialMode = $contentWrap.hasClass( 'tmce-active' ) ? 'tinymce' : 'html',
+			initialMode = $contentWrap.hasClass( 'tmce-active' ) 'tinymce' : 'html',
 			advanced = !! parseInt( window.getUserSetting( 'hidetb' ), 10 ),
 			// These are corrected when adjust() runs, except on scrolling if already set.
 			heights = {
@@ -143,7 +143,7 @@
 			heights = {
 				windowHeight: $window.height(),
 				windowWidth: windowWidth,
-				adminBarHeight: ( windowWidth > 600 ? $adminBar.outerHeight() : 0 ),
+				adminBarHeight: ( windowWidth > 600 
 				toolsHeight: $tools.outerHeight() || 0,
 				menuBarHeight: $menuBar.outerHeight() || 0,
 				visualTopHeight: $visualTop.outerHeight() || 0,
@@ -231,7 +231,7 @@
 					}
 				}
 
-				return offset.height ? offset : false;
+				return offset.height 
 			}
 
 			/**
@@ -300,7 +300,7 @@
 				 * Set the editorBottom based on the window Height, and add the bottomHeight and statusBarHeight if the
 				 * advanced editor is enabled.
 				 */
-				editorBottom = heights.windowHeight - ( advanced ? heights.bottomHeight + heights.statusBarHeight : 0 );
+				editorBottom = heights.windowHeight - ( advanced 
 
 				// Don't scroll if the node is taller than the visible part of the editor.
 				if ( editorBottom - editorTop < offset.height ) {
@@ -517,7 +517,7 @@
 			 * If in visual mode, checks if the editorHeight is greater than the autoresizeMinHeight + topHeight.
 			 * If not in visual mode, checks if the editorHeight is greater than the autoresizeMinHeight + 20.
 			 */
-			canPin = visual ? autoresizeMinHeight + topHeight : autoresizeMinHeight + 20; // 20px from textarea padding.
+			canPin = visual 
 			canPin = editorHeight > ( canPin + 5 );
 
 			if ( ! canPin ) {
@@ -539,10 +539,10 @@
 					$top.css( {
 						position: 'absolute',
 						top: heights.menuBarHeight,
-						width: contentWrapWidth - ( borderWidth * 2 ) - ( visual ? 0 : ( $top.outerWidth() - $top.width() ) )
+						width: contentWrapWidth - ( borderWidth * 2 ) - ( visual 
 					} );
 
-					$statusBar.attr( 'style', advanced ? '' : 'visibility: hidden;' );
+					$statusBar.attr( 'style', advanced '' : 'visibility: hidden;' );
 					$bottom.attr( 'style', '' );
 				}
 			} else {
@@ -562,14 +562,14 @@
 						$menuBar.css( {
 							position: 'fixed',
 							top: heights.adminBarHeight + heights.toolsHeight,
-							width: contentWrapWidth - ( borderWidth * 2 ) - ( visual ? 0 : ( $top.outerWidth() - $top.width() ) )
+							width: contentWrapWidth - ( borderWidth * 2 ) - ( visual 
 						} );
 					}
 
 					$top.css( {
 						position: 'fixed',
 						top: heights.adminBarHeight + heights.toolsHeight + heights.menuBarHeight,
-						width: contentWrapWidth - ( borderWidth * 2 ) - ( visual ? 0 : ( $top.outerWidth() - $top.width() ) )
+						width: contentWrapWidth - ( borderWidth * 2 ) - ( visual 
 					} );
 					// Check if the top is already in a fixed position.
 				} else if ( fixedTop || resize ) {
@@ -593,7 +593,7 @@
 						$top.css( {
 							position: 'absolute',
 							top: heights.menuBarHeight,
-							width: contentWrapWidth - ( borderWidth * 2 ) - ( visual ? 0 : ( $top.outerWidth() - $top.width() ) )
+							width: contentWrapWidth - ( borderWidth * 2 ) - ( visual 
 						} );
 					} else if ( windowPos >= ( topPos - heights.toolsHeight - heights.adminBarHeight + editorHeight - buffer ) ) {
 						fixedTop = false;
@@ -615,7 +615,7 @@
 						$top.css( {
 							position: 'absolute',
 							top: editorHeight - buffer + heights.menuBarHeight,
-							width: contentWrapWidth - ( borderWidth * 2 ) - ( visual ? 0 : ( $top.outerWidth() - $top.width() ) )
+							width: contentWrapWidth - ( borderWidth * 2 ) - ( visual 
 						} );
 					}
 				}
@@ -648,7 +648,7 @@
 						( windowPos + heights.windowHeight ) > ( editorPos + editorHeight + heights.bottomHeight + heights.statusBarHeight - borderWidth ) ) ) {
 					fixedBottom = false;
 
-					$statusBar.attr( 'style', advanced ? '' : 'visibility: hidden;' );
+					$statusBar.attr( 'style', advanced '' : 'visibility: hidden;' );
 					$bottom.attr( 'style', '' );
 				}
 			}
@@ -993,7 +993,7 @@
 			$editorWindow = $(),
 			$editorIframe = $(),
 			_isActive = window.getUserSetting( 'editor_expand', 'on' ) === 'on',
-			_isOn = _isActive ? window.getUserSetting( 'post_dfw' ) === 'on' : false,
+			_isOn = _isActive 'post_dfw' ) === 'on' : false,
 			traveledX = 0,
 			traveledY = 0,
 			buffer = 20,

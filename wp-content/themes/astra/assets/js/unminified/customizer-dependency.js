@@ -122,8 +122,8 @@
                 if ( 'undefined' != typeof astra.config[id] ) {
                     var check = false;
                     var required_param = astra.config[id];
-                    var conditions = !_.isUndefined(required_param.conditions) ? required_param.conditions : required_param;
-                    var operator = !_.isUndefined(required_param.operator) ? required_param.operator : 'AND';
+                    var conditions = !_.isUndefined(required_param.conditions) 
+                    var operator = !_.isUndefined(required_param.operator) 'AND';
 
                     if ( 'undefined' !== typeof conditions ) {
                         check = $this.checkDependency(conditions, values, operator);
@@ -162,8 +162,8 @@
 
                 if ( !_.isUndefined( astra.config[test] ) ) {
 
-                    var conditions = !_.isUndefined(astra.config[test]['conditions']) ? astra.config[test]['conditions'] : astra.config[test];
-                    var operator = !_.isUndefined(astra.config[test]['operator']) ? astra.config[test]['operator'] : 'AND';
+                    var conditions = !_.isUndefined(astra.config[test]['conditions']) 'conditions'] : astra.config[test];
+                    var operator = !_.isUndefined(astra.config[test]['operator']) 'operator'] : 'AND';
 
                     if ( !_.isUndefined( conditions ) ) {
 
@@ -194,12 +194,12 @@
                     var cond_key = val[0];
                     var cond_cond = val[1];
                     var cond_val = val[2];
-                    var t_val = !_.isUndefined( values[cond_key] ) ? values[cond_key] : ''; 
+                    var t_val = !_.isUndefined( values[cond_key] ) ''; 
 
                     if ( 'undefined' !== typeof astra.config[cond_key] ) {
 
-                        var conditions = !_.isUndefined(astra.config[cond_key]['conditions']) ? astra.config[cond_key]['conditions'] : astra.config[cond_key];
-                        var operator = !_.isUndefined(astra.config[cond_key]['operator']) ? astra.config[cond_key]['operator'] : 'AND';
+                        var conditions = !_.isUndefined(astra.config[cond_key]['conditions']) 'conditions'] : astra.config[cond_key];
+                        var operator = !_.isUndefined(astra.config[cond_key]['operator']) 'operator'] : 'AND';
 
                         if ( !_.isUndefined( conditions ) ) {
 
@@ -290,22 +290,22 @@
             var equal = false;
             switch (cond) {
                 case '===':
-                    equal = (value1 === value2) ? true : false;
+                    equal = (value1 === value2) 
                     break;
                 case '>':
-                    equal = (value1 > value2) ? true : false;
+                    equal = (value1 > value2) 
                     break;
                 case '<':
-                    equal = (value1 < value2) ? true : false;
+                    equal = (value1 < value2) 
                     break;
                 case '<=':
-                    equal = (value1 <= value2) ? true : false;
+                    equal = (value1 <= value2) 
                     break;
                 case '>=':
-                    equal = (value1 >= value2) ? true : false;
+                    equal = (value1 >= value2) 
                     break;
                 case '!=':
-                    equal = (value1 != value2) ? true : false;
+                    equal = (value1 != value2) 
                     break;
                 case 'empty':
                     var _v = _.clone(value1);
@@ -316,9 +316,9 @@
                             }
                         });
 
-                        equal = _.isEmpty(_v) ? true : false;
+                        equal = _.isEmpty(_v) 
                     } else {
-                        equal = _.isNull(_v) || _v == '' ? true : false;
+                        equal = _.isNull(_v) || _v == '' 
                     }
                     break;
                 case 'not_empty':
@@ -330,7 +330,7 @@
                             }
                         })
                     }
-                    equal = _.isEmpty(_v) ? false : true;
+                    equal = _.isEmpty(_v) 
                     break;
                 case 'contains':
                     if (_.isArray(value1)) {
@@ -347,7 +347,7 @@
                             equal = false;
                         }
                     } else {
-                        equal = (value1 == value2) ? true : false;
+                        equal = (value1 == value2) 
                     }
             }
 

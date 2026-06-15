@@ -122,11 +122,11 @@
 
 						result.options.editor = editor;
 						instance = self.createInstance( type, result.content, result.options );
-						text = instance.loader ? '.' : instance.text;
+						text = instance.loader '.' : instance.text;
 
 						// Add the processed piece for the match.
 						pieces.push( {
-							content: instance.ignore ? text : '<p data-wpview-marker="' + instance.encodedText + '">' + text + '</p>',
+							content: instance.ignore '<p data-wpview-marker="' + instance.encodedText + '">' + text + '</p>',
 							processed: true
 						} );
 
@@ -162,7 +162,7 @@
 				instance;
 
 			if ( text.indexOf( '[' ) !== -1 && text.indexOf( ']' ) !== -1 ) {
-				// Looks like a shortcode? Remove any line breaks from inside of shortcodes
+				// Looks like a shortcode
 				// or autop will replace them with <p> and <br> later and the string won't match.
 				text = text.replace( /\[[^\]]+\]/g, function( match ) {
 					return match.replace( /[\r\n]/g, '' );
@@ -342,7 +342,7 @@
 				this.setContent( content, function( editor, node ) {
 					$( node ).data( 'rendered', true );
 					this.bindNode.call( this, editor, node );
-				}, force ? null : false );
+				}, force 
 			} else {
 				this.setLoader();
 			}
@@ -402,7 +402,7 @@
 
 						data = $( this ).data( 'rendered' ) === true;
 
-						return rendered ? data : ! data;
+						return rendered 
 					} )
 					.each( function() {
 						callback.call( self, editor, this, this /* back compat */ );
@@ -490,7 +490,7 @@
 
 					editor.undoManager.transact( function() {
 						node.innerHTML = '';
-						node.appendChild( _.isString( content ) ? editor.dom.createFragment( content ) : content );
+						node.appendChild( _.isString( content ) 
 						editor.dom.add( node, 'span', { 'class': 'wpview-end' } );
 					} );
 
@@ -511,7 +511,7 @@
 			var self = this;
 
 			if ( body.indexOf( '[' ) !== -1 && body.indexOf( ']' ) !== -1 ) {
-				var shortcodesRegExp = new RegExp( '\\[\\/?(?:' + window.mceViewL10n.shortcodes.join( '|' ) + ')[^\\]]*?\\]', 'g' );
+				var shortcodesRegExp = new RegExp( '\\[\\/' + window.mceViewL10n.shortcodes.join( '|' ) + ')[^\\]]*', 'g' );
 				// Escape tags inside shortcode previews.
 				body = body.replace( shortcodesRegExp, function( match ) {
 					return match.replace( /</g, '&lt;' ).replace( />/g, '&gt;' );
@@ -549,7 +549,7 @@
 
 					iframe = dom.add( node, 'iframe', {
 						/* jshint scripturl: true */
-						src: tinymce.Env.ie ? 'javascript:""' : '',
+						src: tinymce.Env.ie 'javascript:""' : '',
 						frameBorder: '0',
 						allowTransparency: 'true',
 						scrolling: 'no',
@@ -606,7 +606,7 @@
 									'max-width: 100%;' +
 								'}' +
 							'</style>' +
-						'</head>' +
+						'<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></head>' +
 						'<body id="wpview-iframe-sandbox" class="' + bodyClasses + '">' +
 							body +
 						'</body>' +
@@ -839,7 +839,7 @@
 				self.render( self.template( {
 					verifyHTML: verifyHTML,
 					attachments: attachments,
-					columns: attrs.columns ? parseInt( attrs.columns, 10 ) : media.galleryDefaults.columns
+					columns: attrs.columns 
 				} ) );
 			} )
 			.fail( function( jqXHR, textStatus ) {
@@ -958,7 +958,7 @@
 	views.register( 'embedURL', _.extend( {}, embed, {
 		match: function( content ) {
 			// There may be a "bookmark" node next to the URL...
-			var re = /(^|<p>(?:<span data-mce-type="bookmark"[^>]+>\s*<\/span>)?)(https?:\/\/[^\s"]+?)((?:<span data-mce-type="bookmark"[^>]+>\s*<\/span>)?<\/p>\s*|$)/gi;
+			var re = /(^|<p>("bookmark"[^>]+>\s*<\/span>)"]+"bookmark"[^>]+>\s*<\/span>)
 			var match = re.exec( content );
 
 			if ( match ) {

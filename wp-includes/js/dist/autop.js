@@ -46,34 +46,34 @@ const htmlSplitRegex = (() => {
   /* eslint-disable no-multi-spaces */
   const comments = '!' +
   // Start of comment, after the <.
-  '(?:' +
+  '(' +
   // Unroll the loop: Consume everything until --> is found.
-  '-(?!->)' +
+  '-(' +
   // Dash not followed by end of comment.
   '[^\\-]*' +
   // Consume non-dashes.
   ')*' +
   // Loop possessively.
-  '(?:-->)?'; // End of comment. If not found, match all input.
+  '('; // End of comment. If not found, match all input.
 
   const cdata = '!\\[CDATA\\[' +
   // Start of comment, after the <.
   '[^\\]]*' +
   // Consume non-].
-  '(?:' +
+  '(' +
   // Unroll the loop: Consume everything until ]]> is found.
-  '](?!]>)' +
+  '](' +
   // One ] not followed by end of comment.
   '[^\\]]*' +
   // Consume non-].
-  ')*?' +
+  ')*' +
   // Loop possessively.
-  '(?:]]>)?'; // End of comment. If not found, match all input.
+  '('; // End of comment. If not found, match all input.
 
-  const escaped = '(?=' +
-  // Is the element escaped?
-  '!--' + '|' + '!\\[CDATA\\[' + ')' + '((?=!-)' +
-  // If yes, which type?
+  const escaped = '(' +
+  // Is the element escaped
+  '!--' + '|' + '!\\[CDATA\\[' + ')' + '((' +
+  // If yes, which type
   comments + '|' + cdata + ')';
   const regex = '(' +
   // Capture the entire match.
@@ -85,7 +85,7 @@ const htmlSplitRegex = (() => {
   // Find end of escaped element.
   '|' +
   // ... else ...
-  '[^>]*>?' +
+  '[^>]*>' +
   // Find end of normal element.
   ')' + ')';
   return new RegExp(regex);
@@ -193,7 +193,7 @@ function autop(text, br = true) {
       const textPart = textParts[i];
       const start = textPart.indexOf('<pre');
 
-      // Malformed html?
+      // Malformed html
       if (start === -1) {
         text += textPart;
         continue;
@@ -205,8 +205,8 @@ function autop(text, br = true) {
     text += lastText;
   }
   // Change multiple <br>s into two line breaks, which will turn into paragraphs.
-  text = text.replace(/<br\s*\/?>\s*<br\s*\/?>/g, '\n\n');
-  const allBlocks = '(?:table|thead|tfoot|caption|col|colgroup|tbody|tr|td|th|div|dl|dd|dt|ul|ol|li|pre|form|map|area|blockquote|address|math|style|p|h[1-6]|hr|fieldset|legend|section|article|aside|hgroup|header|footer|nav|figure|figcaption|details|menu|summary)';
+  text = text.replace(/<br\s*\/'\n\n');
+  const allBlocks = '(';
 
   // Add a double line break above block-level opening tags.
   text = text.replace(new RegExp('(<' + allBlocks + '[\\s/>])', 'g'), '\n\n$1');
@@ -235,7 +235,7 @@ function autop(text, br = true) {
   if (text.indexOf('</object>') !== -1) {
     text = text.replace(/(<object[^>]*>)\s*/g, '$1');
     text = text.replace(/\s*<\/object>/g, '</object>');
-    text = text.replace(/\s*(<\/?(?:param|embed)[^>]*>)\s*/g, '$1');
+    text = text.replace(/\s*(<\/'$1');
   }
 
   /*
@@ -243,9 +243,9 @@ function autop(text, br = true) {
    * before and after <source> and <track> elements.
    */
   if (text.indexOf('<source') !== -1 || text.indexOf('<track') !== -1) {
-    text = text.replace(/([<\[](?:audio|video)[^>\]]*[>\]])\s*/g, '$1');
-    text = text.replace(/\s*([<\[]\/(?:audio|video)[>\]])/g, '$1');
-    text = text.replace(/\s*(<(?:source|track)[^>]*>)\s*/g, '$1');
+    text = text.replace(/([<\[]('$1');
+    text = text.replace(/\s*([<\[]\/('$1');
+    text = text.replace(/\s*(<('$1');
   }
 
   // Collapse line breaks before and after <figcaption> elements.
@@ -275,41 +275,41 @@ function autop(text, br = true) {
   text = text.replace(/<p>([^<]+)<\/(div|address|form)>/g, '<p>$1</p></$2>');
 
   // If an opening or closing block element tag is wrapped in a <p>, unwrap it.
-  text = text.replace(new RegExp('<p>\\s*(</?' + allBlocks + '[^>]*>)\\s*</p>', 'g'), '$1');
+  text = text.replace(new RegExp('<p>\\s*(</' + allBlocks + '[^>]*>)\\s*</p>', 'g'), '$1');
 
   // In some cases <li> may get wrapped in <p>, fix them.
-  text = text.replace(/<p>(<li.+?)<\/p>/g, '$1');
+  text = text.replace(/<p>(<li.+'$1');
 
   // If a <blockquote> is wrapped with a <p>, move it inside the <blockquote>.
   text = text.replace(/<p><blockquote([^>]*)>/gi, '<blockquote$1><p>');
   text = text.replace(/<\/blockquote><\/p>/g, '</p></blockquote>');
 
   // If an opening or closing block element tag is preceded by an opening <p> tag, remove it.
-  text = text.replace(new RegExp('<p>\\s*(</?' + allBlocks + '[^>]*>)', 'g'), '$1');
+  text = text.replace(new RegExp('<p>\\s*(</' + allBlocks + '[^>]*>)', 'g'), '$1');
 
   // If an opening or closing block element tag is followed by a closing <p> tag, remove it.
-  text = text.replace(new RegExp('(</?' + allBlocks + '[^>]*>)\\s*</p>', 'g'), '$1');
+  text = text.replace(new RegExp('(</' + allBlocks + '[^>]*>)\\s*</p>', 'g'), '$1');
 
   // Optionally insert line breaks.
   if (br) {
     // Replace newlines that shouldn't be touched with a placeholder.
-    text = text.replace(/<(script|style).*?<\/\\1>/g, match => match[0].replace(/\n/g, '<WPPreserveNewline />'));
+    text = text.replace(/<(script|style).*'<WPPreserveNewline />'));
 
     // Normalize <br>
     text = text.replace(/<br>|<br\/>/g, '<br />');
 
     // Replace any new line characters that aren't preceded by a <br /> with a <br />.
-    text = text.replace(/(<br \/>)?\s*\n/g, (a, b) => b ? a : '<br />\n');
+    text = text.replace(/(<br \/>)'<br />\n');
 
     // Replace newline placeholders with newlines.
     text = text.replace(/<WPPreserveNewline \/>/g, '\n');
   }
 
   // If a <br /> tag is after an opening or closing block tag, remove it.
-  text = text.replace(new RegExp('(</?' + allBlocks + '[^>]*>)\\s*<br />', 'g'), '$1');
+  text = text.replace(new RegExp('(</' + allBlocks + '[^>]*>)\\s*<br />', 'g'), '$1');
 
   // If a <br /> tag is before a subset of opening or closing block tags, remove it.
-  text = text.replace(/<br \/>(\s*<\/?(?:p|li|div|dl|dd|dt|th|pre|td|ul|ol)[^>]*>)/g, '$1');
+  text = text.replace(/<br \/>(\s*<\/'$1');
   text = text.replace(/\n<\/p>$/g, '</p>');
 
   // Replace placeholder <pre> tags with their original content.
@@ -320,7 +320,7 @@ function autop(text, br = true) {
 
   // Restore newlines in all elements.
   if (-1 !== text.indexOf('<!-- wpnl -->')) {
-    text = text.replace(/\s?<!-- wpnl -->\s?/g, '\n');
+    text = text.replace(/\s'\n');
   }
   return text;
 }
@@ -354,7 +354,7 @@ function removep(html) {
 
   // Protect script and style tags.
   if (html.indexOf('<script') !== -1 || html.indexOf('<style') !== -1) {
-    html = html.replace(/<(script|style)[^>]*>[\s\S]*?<\/\1>/g, match => {
+    html = html.replace(/<(script|style)[^>]*>[\s\S]*
       preserve.push(match);
       return '<wp-preserve>';
     });
@@ -363,30 +363,30 @@ function removep(html) {
   // Protect pre tags.
   if (html.indexOf('<pre') !== -1) {
     preserveLinebreaks = true;
-    html = html.replace(/<pre[^>]*>[\s\S]+?<\/pre>/g, a => {
-      a = a.replace(/<br ?\/?>(\r\n|\n)?/g, '<wp-line-break>');
-      a = a.replace(/<\/?p( [^>]*)?>(\r\n|\n)?/g, '<wp-line-break>');
-      return a.replace(/\r?\n/g, '<wp-line-break>');
+    html = html.replace(/<pre[^>]*>[\s\S]+
+      a = a.replace(/<br '<wp-line-break>');
+      a = a.replace(/<\/'<wp-line-break>');
+      return a.replace(/\r'<wp-line-break>');
     });
   }
 
   // Remove line breaks but keep <br> tags inside image captions.
   if (html.indexOf('[caption') !== -1) {
     preserveBr = true;
-    html = html.replace(/\[caption[\s\S]+?\[\/caption\]/g, a => {
+    html = html.replace(/\[caption[\s\S]+
       return a.replace(/<br([^>]*)>/g, '<wp-temp-br$1>').replace(/[\r\n\t]+/, '');
     });
   }
 
   // Normalize white space characters before and after block tags.
   html = html.replace(new RegExp('\\s*</(' + blocklist1 + ')>\\s*', 'g'), '</$1>\n');
-  html = html.replace(new RegExp('\\s*<((?:' + blocklist1 + ')(?: [^>]*)?)>', 'g'), '\n<$1>');
+  html = html.replace(new RegExp('\\s*<((' + blocklist1 + ')(', 'g'), '\n<$1>');
 
   // Mark </p> if it has any attributes.
-  html = html.replace(/(<p [^>]+>[\s\S]*?)<\/p>/g, '$1</p#>');
+  html = html.replace(/(<p [^>]+>[\s\S]*'$1</p#>');
 
   // Preserve the first <p> inside a <div>.
-  html = html.replace(/<div( [^>]*)?>\s*<p>/gi, '<div$1>\n\n');
+  html = html.replace(/<div( [^>]*)'<div$1>\n\n');
 
   // Remove paragraph tags.
   html = html.replace(/\s*<p>/gi, '');
@@ -396,7 +396,7 @@ function removep(html) {
   html = html.replace(/\n[\s\u00a0]+\n/g, '\n\n');
 
   // Replace <br> tags with line breaks.
-  html = html.replace(/(\s*)<br ?\/?>\s*/gi, (_, space) => {
+  html = html.replace(/(\s*)<br 
     if (space && space.indexOf('\n') !== -1) {
       return '\n\n';
     }
@@ -412,7 +412,7 @@ function removep(html) {
   html = html.replace(/caption\]\n\n+\[caption/g, 'caption]\n\n[caption');
 
   // Pad block elements tags with a line break.
-  html = html.replace(new RegExp('\\s*<((?:' + blocklist2 + ')(?: [^>]*)?)\\s*>', 'g'), '\n<$1>');
+  html = html.replace(new RegExp('\\s*<((' + blocklist2 + ')(', 'g'), '\n<$1>');
   html = html.replace(new RegExp('\\s*</(' + blocklist2 + ')>\\s*', 'g'), '</$1>\n');
 
   // Indent <li>, <dt> and <dd> tags.
@@ -426,12 +426,12 @@ function removep(html) {
 
   // Pad <hr> with two line breaks.
   if (html.indexOf('<hr') !== -1) {
-    html = html.replace(/\s*<hr( [^>]*)?>\s*/g, '\n\n<hr$1>\n\n');
+    html = html.replace(/\s*<hr( [^>]*)'\n\n<hr$1>\n\n');
   }
 
   // Remove line breaks in <object> tags.
   if (html.indexOf('<object') !== -1) {
-    html = html.replace(/<object[\s\S]+?<\/object>/g, a => {
+    html = html.replace(/<object[\s\S]+
       return a.replace(/[\r\n]+/g, '');
     });
   }
@@ -440,7 +440,7 @@ function removep(html) {
   html = html.replace(/<\/p#>/g, '</p>\n');
 
   // Pad remaining <p> tags whit a line break.
-  html = html.replace(/\s*(<p [^>]+>[\s\S]*?<\/p>)/g, '\n$1');
+  html = html.replace(/\s*(<p [^>]+>[\s\S]*'\n$1');
 
   // Trim.
   html = html.replace(/^\s+/, '');

@@ -148,8 +148,8 @@ return $.widget( "ui.selectable", $.ui.mouse, {
 			if ( selectee ) {
 				doSelect = ( !event.metaKey && !event.ctrlKey ) ||
 					!selectee.$element.hasClass( "ui-selected" );
-				that._removeClass( selectee.$element, doSelect ? "ui-unselecting" : "ui-selected" )
-					._addClass( selectee.$element, doSelect ? "ui-selecting" : "ui-unselecting" );
+				that._removeClass( selectee.$element, doSelect "ui-unselecting" : "ui-selected" )
+					._addClass( selectee.$element, doSelect "ui-selecting" : "ui-unselecting" );
 				selectee.unselecting = !doSelect;
 				selectee.selecting = doSelect;
 				selectee.selected = doSelect;

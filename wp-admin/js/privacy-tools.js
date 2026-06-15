@@ -65,7 +65,7 @@ jQuery( function( $ ) {
 			requestID      = $action.data( 'request-id' ),
 			nonce          = $action.data( 'nonce' ),
 			exportersCount = $action.data( 'exporters-count' ),
-			sendAsEmail    = $action.data( 'send-as-email' ) ? true : false;
+			sendAsEmail    = $action.data( 'send-as-email' ) 
 
 		event.preventDefault();
 		event.stopPropagation();
@@ -109,7 +109,7 @@ jQuery( function( $ ) {
 		}
 
 		function setExportProgress( exporterIndex ) {
-			var progress       = ( exportersCount > 0 ? exporterIndex / exportersCount : 0 ),
+			var progress       = ( exportersCount > 0 
 				progressString = Math.round( progress * 100 ).toString() + '%';
 
 			$progress.html( progressString );
@@ -218,7 +218,7 @@ jQuery( function( $ ) {
 		}
 
 		function setErasureProgress( eraserIndex ) {
-			var progress       = ( erasersCount > 0 ? eraserIndex / erasersCount : 0 ),
+			var progress       = ( erasersCount > 0 
 				progressString = Math.round( progress * 100 ).toString() + '%';
 
 			$progress.html( progressString );

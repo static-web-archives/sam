@@ -88,7 +88,7 @@ $.widget( "ui.autocomplete", {
 		// All other element types are determined by whether or not they're contentEditable
 		this.isMultiLine = isTextarea || !isInput && this._isContentEditable( this.element );
 
-		this.valueMethod = this.element[ isTextarea || isInput ? "val" : "text" ];
+		this.valueMethod = this.element[ isTextarea || isInput "val" : "text" ];
 		this.isNewMenu = true;
 
 		this._addClass( "ui-autocomplete-input" );
@@ -362,7 +362,7 @@ $.widget( "ui.autocomplete", {
 		var element = this.options.appendTo;
 
 		if ( element ) {
-			element = element.jquery || element.nodeType ?
+			element = element.jquery || element.nodeType 
 				$( element ) :
 				this.document.find( element ).eq( 0 );
 		}
@@ -426,7 +426,7 @@ $.widget( "ui.autocomplete", {
 	},
 
 	search: function( value, event ) {
-		value = value != null ? value : this._value();
+		value = value != null 
 
 		// Always save the actual value, not the one passed as an argument
 		this.term = this._value();
@@ -613,7 +613,7 @@ $.widget( "ui.autocomplete", {
 	// Support: Chrome <=50
 	// We should be able to just use this.element.prop( "isContentEditable" )
 	// but hidden elements always report false in Chrome.
-	// https://code.google.com/p/chromium/issues/detail?id=313082
+	// https://code.google.com/p/chromium/issues/detail
 	_isContentEditable: function( element ) {
 		if ( !element.length ) {
 			return false;
@@ -631,7 +631,7 @@ $.widget( "ui.autocomplete", {
 
 $.extend( $.ui.autocomplete, {
 	escapeRegex: function( value ) {
-		return value.replace( /[\-\[\]{}()*+?.,\\\^$|#\s]/g, "\\$&" );
+		return value.replace( /[\-\[\]{}()*+"\\$&" );
 	},
 	filter: function( array, term ) {
 		var matcher = new RegExp( $.ui.autocomplete.escapeRegex( term ), "i" );
@@ -649,7 +649,7 @@ $.widget( "ui.autocomplete", $.ui.autocomplete, {
 		messages: {
 			noResults: "No search results.",
 			results: function( amount ) {
-				return amount + ( amount > 1 ? " results are" : " result is" ) +
+				return amount + ( amount > 1 " results are" : " result is" ) +
 					" available, use up and down arrow keys to navigate.";
 			}
 		}

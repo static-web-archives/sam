@@ -234,12 +234,12 @@ msgid "There are no valid users selected for deletion."
 msgstr "Aucun compte valide n’est sélectionné pour la suppression."
 
 #: wp-admin/users.php:406
-msgid "What should be done with content owned by these users?"
-msgstr "Que doit-il arriver aux contenus appartenant à ces comptes ?"
+msgid "What should be done with content owned by these users"
+msgstr "Que doit-il arriver aux contenus appartenant à ces comptes "
 
 #: wp-admin/users.php:404
-msgid "What should be done with content owned by this user?"
-msgstr "Que faire du contenu ayant ce compte pour propriétaire ?"
+msgid "What should be done with content owned by this user"
+msgstr "Que faire du contenu ayant ce compte pour propriétaire "
 
 #. translators: 1: User ID, 2: User login.
 #: wp-admin/users.php:383 wp-admin/users.php:550
@@ -598,8 +598,8 @@ msgid "Log Out Everywhere"
 msgstr "Déconnexion globale"
 
 #: wp-admin/user-edit.php:756
-msgid "Did you lose your phone or leave your account logged in at a public computer? You can log out everywhere else, and stay logged in here."
-msgstr "Avez-vous perdu votre téléphone ou laissé votre compte ouvert sur un ordinateur public ? Vous pouvez garder votre compte connecté ici tout en vous déconnectant partout ailleurs."
+msgid "Did you lose your phone or leave your account logged in at a public computer"
+msgstr "Avez-vous perdu votre téléphone ou laissé votre compte ouvert sur un ordinateur public "
 
 #: wp-admin/user-edit.php:746
 msgid "You are only logged in at this location."
@@ -1444,11 +1444,11 @@ msgstr "Rechercher des thèmes installés"
 
 #: wp-admin/themes.php:230
 msgid ""
-"Are you sure you want to delete this theme?\n"
+"Are you sure you want to delete this theme"
 "\n"
 "Click 'Cancel' to go back, 'OK' to confirm the delete."
 msgstr ""
-"Confirmez-vous la suppression de ce thème ?\n"
+"Confirmez-vous la suppression de ce thème "
 "\n"
 "« Annuler » pour arrêter, « OK » pour supprimer."
 
@@ -1742,8 +1742,8 @@ msgid "There is no need to change your CSS here &mdash; you can edit and live pr
 msgstr "Vous n’avez pas besoin de modifier votre CSS ici. Vous pouvez le faire et voir vos changements directement dans <a href=\"%s\">l’éditeur de CSS embarqué</a>."
 
 #: wp-admin/theme-editor.php:214
-msgid "Did you know?"
-msgstr "Le saviez-vous ?"
+msgid "Did you know"
+msgstr "Le saviez-vous "
 
 #: wp-admin/theme-editor.php:55
 msgid "<a href=\"https://developer.wordpress.org/themes/basics/template-tags/\">Documentation on Template Tags</a>"
@@ -2390,12 +2390,12 @@ msgid "Yes, delete these files and data"
 msgstr "Oui, supprimer ces fichiers et données"
 
 #: wp-admin/plugins.php:395
-msgid "Are you sure you want to delete these files?"
-msgstr "Confirmez-vous la suppression de ces fichiers ?"
+msgid "Are you sure you want to delete these files"
+msgstr "Confirmez-vous la suppression de ces fichiers "
 
 #: wp-admin/plugins.php:393
-msgid "Are you sure you want to delete these files and data?"
-msgstr "Confirmez-vous la suppression de ces fichiers et données ?"
+msgid "Are you sure you want to delete these files and data"
+msgstr "Confirmez-vous la suppression de ces fichiers et données "
 
 #. translators: 1: Plugin name, 2: Plugin author.
 #: wp-admin/plugins.php:383
@@ -2854,8 +2854,8 @@ msgstr "Créer une nouvelle page de politique de confidentialité"
 #. translators: 1: Privacy Policy guide URL, 2: Additional link attributes, 3:
 #. Accessibility text.
 #: wp-admin/options-privacy.php:239
-msgid "Need help putting together your new Privacy Policy page? <a href=\"%1$s\" %2$s>Check out the privacy policy guide%3$s</a> for recommendations on what content to include, along with policies suggested by your plugins and theme."
-msgstr "Vous avez besoin d’aide pour créer votre nouvelle page de politique de confidentialité ? <a href=\"%1$s\" %2$s>Consultez notre guide%3$s</a> pour obtenir des recommandations sur les contenus à inclure. Consultez aussi les suggestions faites par les personnes qui éditent vos extensions et votre thème."
+msgid "Need help putting together your new Privacy Policy page"%1$s\" %2$s>Check out the privacy policy guide%3$s</a> for recommendations on what content to include, along with policies suggested by your plugins and theme."
+msgstr "Vous avez besoin d’aide pour créer votre nouvelle page de politique de confidentialité "%1$s\" %2$s>Consultez notre guide%3$s</a> pour obtenir des recommandations sur les contenus à inclure. Consultez aussi les suggestions faites par les personnes qui éditent vos extensions et votre thème."
 
 #. translators: 1: URL to edit Privacy Policy page, 2: URL to preview Privacy
 #. Policy page.
@@ -3548,8 +3548,8 @@ msgid "Disallowed Comment Keys"
 msgstr "Clés de commentaires non autorisées"
 
 #: wp-admin/options-discussion.php:214
-msgid "When a comment contains any of these words in its content, author name, URL, email, IP address, or browser&#8217;s user agent string, it will be held in the <a href=\"edit-comments.php?comment_status=moderated\">moderation queue</a>. One word or IP address per line. It will match inside words, so &#8220;press&#8221; will match &#8220;WordPress&#8221;."
-msgstr "Lorsqu’un commentaire contient l’un de ces mots dans son contenu, nom d’auteur ou d’autrice, URL, e-mail, adresse IP ou encore la chaîne d’agent utilisateur du navigateur, il sera retenu dans la <a href=\"edit-comments.php?comment_status=moderated\">file de modération</a>. Un seul mot ou une seule adresse IP par ligne. Cette fonction reconnaît l’intérieur des mots, donc « press » suffira pour reconnaître « WordPress »."
+msgid "When a comment contains any of these words in its content, author name, URL, email, IP address, or browser&#8217;s user agent string, it will be held in the <a href=\"edit-comments.php">moderation queue</a>. One word or IP address per line. It will match inside words, so &#8220;press&#8221; will match &#8220;WordPress&#8221;."
+msgstr "Lorsqu’un commentaire contient l’un de ces mots dans son contenu, nom d’auteur ou d’autrice, URL, e-mail, adresse IP ou encore la chaîne d’agent utilisateur du navigateur, il sera retenu dans la <a href=\"edit-comments.php">file de modération</a>. Un seul mot ou une seule adresse IP par ligne. Cette fonction reconnaît l’intérieur des mots, donc « press » suffira pour reconnaître « WordPress »."
 
 #. translators: %s: Number of links.
 #: wp-admin/options-discussion.php:208
@@ -4737,8 +4737,8 @@ msgid "Yes, take me to my profile page"
 msgstr "Oui, je veux aller sur mon profil maintenant"
 
 #: wp-admin/includes/user.php:542
-msgid "You are using the auto-generated password for your account. Would you like to change it?"
-msgstr "Vous utilisez le mot de passe auto-généré pour votre compte. Voulez-vous le changer ?"
+msgid "You are using the auto-generated password for your account. Would you like to change it"
+msgstr "Vous utilisez le mot de passe auto-généré pour votre compte. Voulez-vous le changer "
 
 #: wp-admin/includes/user.php:541
 msgid "Notice:"
@@ -5902,8 +5902,8 @@ msgstr "%s modifie actuellement cette publication."
 
 #. translators: %s: User's display name.
 #: wp-admin/includes/post.php:1878
-msgid "%s is currently editing this post. Do you want to take over?"
-msgstr "%s modifie actuellement cette publication. Voulez-vous prendre la main ?"
+msgid "%s is currently editing this post. Do you want to take over"
+msgstr "%s modifie actuellement cette publication. Voulez-vous prendre la main "
 
 #: wp-admin/includes/post.php:1682
 msgid "Click the image to edit or update"
@@ -6449,8 +6449,8 @@ msgstr "Sélectionnez un compte"
 
 #. translators: %s: User login.
 #: wp-admin/includes/ms.php:921
-msgid "What should be done with content owned by %s?"
-msgstr "Que faire du contenu ayant %s pour propriétaire ?"
+msgid "What should be done with content owned by %s"
+msgstr "Que faire du contenu ayant %s pour propriétaire "
 
 #. translators: %s: User login.
 #: wp-admin/includes/ms.php:902
@@ -6830,8 +6830,8 @@ msgid "Visit Link"
 msgstr "Visiter le lien"
 
 #: wp-admin/includes/meta-boxes.php:1083
-msgid "Need help? Use the Help tab above the screen title."
-msgstr "Besoin d’aide ? Utilisez l’onglet « Aide » au dessus du titre de l’écran."
+msgid "Need help"
+msgstr "Besoin d’aide "
 
 #: wp-admin/includes/meta-boxes.php:1010
 msgid "(no parent)"
@@ -7037,7 +7037,7 @@ msgstr "Vous utilisez l’outil de téléversement du navigateur. Le nouvel outi
 
 #. translators: 1: URL to browser uploader, 2: Additional link attributes.
 #: wp-admin/includes/media.php:3049
-msgid "You are using the multi-file uploader. Problems? Try the <a href=\"%1$s\" %2$s>browser uploader</a> instead."
+msgid "You are using the multi-file uploader. Problems"%1$s\" %2$s>browser uploader</a> instead."
 msgstr "Vous utilisez l’outil de téléversement multi-fichiers. Si vous rencontrez des problèmes, essayez la <a href=\"%1$s\" %2$s>méthode du navigateur</a> à la place."
 
 #: wp-admin/includes/media.php:3009
@@ -8058,8 +8058,8 @@ msgid "Edit styles"
 msgstr "Modifier les styles"
 
 #: wp-admin/includes/dashboard.php:2117
-msgid "Tweak your site, or give it a whole new look! Get creative &#8212; how about a new color palette or font?"
-msgstr "Ajustez votre site, ou donnez-lui une apparence totalement nouvelle ! Laissez libre cours à votre imagination… que diriez vous d’une nouvelle palette de couleurs ou de nouvelles polices d’écriture ?"
+msgid "Tweak your site, or give it a whole new look! Get creative &#8212; how about a new color palette or font"
+msgstr "Ajustez votre site, ou donnez-lui une apparence totalement nouvelle ! Laissez libre cours à votre imagination… que diriez vous d’une nouvelle palette de couleurs ou de nouvelles polices d’écriture "
 
 #: wp-admin/includes/dashboard.php:2116
 msgid "Switch up your site&#8217;s look & feel with Styles"
@@ -8160,8 +8160,8 @@ msgid "PHP is one of the programming languages used to build WordPress. Newer ve
 msgstr "PHP est l’un des langages de programmation utilisés pour construire WordPress. Les nouvelles versions de PHP reçoivent des mises à jour de sécurité régulièrement et améliorent les performances de votre site."
 
 #: wp-admin/includes/dashboard.php:1898
-msgid "What is PHP and how does it affect my site?"
-msgstr "Qu’est-ce que PHP et comment cela affecte t-il mon site ?"
+msgid "What is PHP and how does it affect my site"
+msgstr "Qu’est-ce que PHP et comment cela affecte t-il mon site "
 
 #. translators: %s: The server PHP version.
 #: wp-admin/includes/dashboard.php:1891
@@ -8253,8 +8253,8 @@ msgstr "https://wpfr.net/"
 
 #. translators: %s: Meetup organization documentation URL.
 #: wp-admin/includes/dashboard.php:1507
-msgid "There are no events scheduled near you at the moment. Would you like to <a href=\"%s\">organize a WordPress event</a>?"
-msgstr "Il n’y a aucun évènement planifié à proximité de vous pour le moment. Voulez-vous en <a href=\"%s\">organiser un</a> ?"
+msgid "There are no events scheduled near you at the moment. Would you like to <a href=\"%s\">organize a WordPress event</a>"
+msgstr "Il n’y a aucun évènement planifié à proximité de vous pour le moment. Voulez-vous en <a href=\"%s\">organiser un</a> "
 
 #: wp-admin/includes/dashboard.php:1499 wp-admin/includes/dashboard.php:1508
 msgid "https://make.wordpress.org/community/handbook/meetup-organizer/welcome/"
@@ -8263,8 +8263,8 @@ msgstr "https://make.wordpress.org/community/handbook/meetup-organizer/welcome/"
 #. translators: 1: The city the user searched for, 2: Meetup organization
 #. documentation URL.
 #: wp-admin/includes/dashboard.php:1497
-msgid "There are no events scheduled near %1$s at the moment. Would you like to <a href=\"%2$s\">organize a WordPress event</a>?"
-msgstr "Il n’y a aucun évènement planifié à proximité de %1$s pour le moment. Voulez-vous <a href=\"%2$s\">en organiser un</a> ?"
+msgid "There are no events scheduled near %1$s at the moment. Would you like to <a href=\"%2$s\">organize a WordPress event</a>"
+msgstr "Il n’y a aucun évènement planifié à proximité de %1$s pour le moment. Voulez-vous <a href=\"%2$s\">en organiser un</a> "
 
 #: wp-admin/includes/dashboard.php:1483
 msgid "https://make.wordpress.org/community/organize-event-landing-page/"
@@ -8272,8 +8272,8 @@ msgstr "https://make.wordpress.org/community/organize-event-landing-page/"
 
 #. translators: %s: Localized meetup organization documentation URL.
 #: wp-admin/includes/dashboard.php:1482
-msgid "Want more events? <a href=\"%s\">Help organize the next one</a>!"
-msgstr "Vous voulez plus d’évènements ? <a href=\"%s\">Aidez à organiser le prochain</a> !"
+msgid "Want more events"%s\">Help organize the next one</a>!"
+msgstr "Vous voulez plus d’évènements "%s\">Aidez à organiser le prochain</a> !"
 
 #. translators: %s is the name of the city we couldn't locate. Replace the
 #. examples with cities in your locale, but test that they match the expected
@@ -8411,8 +8411,8 @@ msgid "View all drafts"
 msgstr "Voir tous les brouillons"
 
 #: wp-admin/includes/dashboard.php:599
-msgid "What&#8217;s on your mind?"
-msgstr "Qu’avez-vous en tête ?"
+msgid "What&#8217;s on your mind"
+msgstr "Qu’avez-vous en tête "
 
 #. translators: Hidden accessibility text.
 #: wp-admin/includes/dashboard.php:510 wp-admin/includes/dashboard.php:514
@@ -10497,7 +10497,7 @@ msgstr "Dans cette section, indiquez l’URL de votre site, votre nom ou celui d
 #. translators: Default privacy policy heading.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:467
 msgid "Who we are"
-msgstr "Qui sommes-nous ?"
+msgstr "Qui sommes-nous "
 
 #: wp-admin/includes/class-wp-privacy-policy-content.php:457
 msgid "Suggested text:"
@@ -10532,8 +10532,8 @@ msgid "View Privacy Policy Guide."
 msgstr "Voir le guide de politique de confidentialité."
 
 #: wp-admin/includes/class-wp-privacy-policy-content.php:336
-msgid "Need help putting together your new Privacy Policy page? Check out the guide for recommendations on what content to include, along with policies suggested by your plugins and theme."
-msgstr "Vous avez besoin d’aide pour assembler votre nouvelle page de politique de confidentialité ? Consultez le guide des recommandations sur les contenus à proposer, ainsi que sur les politiques de confidentialité de votre thème et de vos extensions."
+msgid "Need help putting together your new Privacy Policy page"
+msgstr "Vous avez besoin d’aide pour assembler votre nouvelle page de politique de confidentialité "
 
 #. translators: %s: Privacy Policy Guide URL.
 #: wp-admin/includes/class-wp-privacy-policy-content.php:143
@@ -11982,16 +11982,16 @@ msgid "Custom rules have been added to your %s file."
 msgstr "Des règles personnalisées ont été ajoutées à votre fichier %s."
 
 #: wp-admin/includes/class-wp-debug-data.php:478
-msgid "Are pretty permalinks supported?"
-msgstr "Les permaliens sont-ils pris en charge ?"
+msgid "Are pretty permalinks supported"
+msgstr "Les permaliens sont-ils pris en charge "
 
 #: wp-admin/includes/class-wp-debug-data.php:469
-msgid "Is the Imagick library available?"
-msgstr "La bibliothèque Imagick est-elle disponible ?"
+msgid "Is the Imagick library available"
+msgstr "La bibliothèque Imagick est-elle disponible "
 
 #: wp-admin/includes/class-wp-debug-data.php:460
-msgid "Is SUHOSIN installed?"
-msgstr "SUHOSIN est-il installé ?"
+msgid "Is SUHOSIN installed"
+msgstr "SUHOSIN est-il installé "
 
 #: wp-admin/includes/class-wp-debug-data.php:451
 #: wp-admin/includes/class-wp-debug-data.php:568
@@ -12146,20 +12146,20 @@ msgid "Default comment status"
 msgstr "État par défaut des commentaires"
 
 #: wp-admin/includes/class-wp-debug-data.php:219
-msgid "Is this site discouraging search engines?"
-msgstr "Ce site décourage-t-il les moteurs de recherche ?"
+msgid "Is this site discouraging search engines"
+msgstr "Ce site décourage-t-il les moteurs de recherche "
 
 #: wp-admin/includes/class-wp-debug-data.php:214
-msgid "Can anyone register on this site?"
-msgstr "Tout le monde peut-il s’inscrire sur ce site ?"
+msgid "Can anyone register on this site"
+msgstr "Tout le monde peut-il s’inscrire sur ce site "
 
 #: wp-admin/includes/class-wp-debug-data.php:209
-msgid "Is this a multisite?"
-msgstr "S’agit-il d’un multisite ?"
+msgid "Is this a multisite"
+msgstr "S’agit-il d’un multisite "
 
 #: wp-admin/includes/class-wp-debug-data.php:204
-msgid "Is this site using HTTPS?"
-msgstr "Est-ce que ce site utilise HTTPS ?"
+msgid "Is this site using HTTPS"
+msgstr "Est-ce que ce site utilise HTTPS "
 
 #: wp-admin/includes/class-wp-debug-data.php:200
 msgid "No permalink structure set"
@@ -12512,23 +12512,23 @@ msgstr "[%s] Mise à jour en arrière-plan échouée"
 
 #: wp-admin/includes/class-wp-automatic-updater.php:1642
 msgid ""
-"BETA TESTING?\n"
+"BETA TESTING"
 "=============\n"
 "\n"
 "This debugging email is sent when you are using a development version of WordPress.\n"
 "\n"
-"If you think these failures might be due to a bug in WordPress, could you report it?\n"
+"If you think these failures might be due to a bug in WordPress, could you report it"
 " * Open a thread in the support forums: https://wordpress.org/support/forum/alphabeta\n"
 " * Or, if you're comfortable writing a bug report: https://core.trac.wordpress.org/\n"
 "\n"
 "Thanks! -- The WordPress Team"
 msgstr ""
-"BÊTA TESTEUR ?\n"
+"BÊTA TESTEUR "
 "==============\n"
 "\n"
 "Cet e-mail de débogage est envoyé lorsque vous utilisez une version de développement de WordPress.\n"
 "\n"
-"Si vous pensez que ces erreurs puissent être dues à un problème du côté de WordPress, pourriez-vous nous les signaler ?\n"
+"Si vous pensez que ces erreurs puissent être dues à un problème du côté de WordPress, pourriez-vous nous les signaler "
 "* Ouvrez une discussion sur le forum de support en anglais : https://wordpress.org/support/forum/alphabeta\n"
 "* Ou, si rédiger un rapport de bogue ne vous fait pas peur : https://core.trac.wordpress.org/\n"
 "\n"
@@ -14948,8 +14948,8 @@ msgid "When adding a new category on this screen, you&#8217;ll fill in the follo
 msgstr "Quand vous ajoutez une nouvelle catégorie via cet écran, vous devez remplir les champs suivants :"
 
 #: wp-admin/edit-tags.php:265
-msgid "What&#8217;s the difference between categories and tags? Normally, tags are ad-hoc keywords that identify important information in your post (names, subjects, etc) that may or may not recur in other posts, while categories are pre-determined sections. If you think of your site like a book, the categories are like the Table of Contents and the tags are like the terms in the index."
-msgstr "Quelle est la différence entre les catégories et les étiquettes ? Normalement, les étiquettes identifient les informations importantes dans votre article (noms, sujets, etc.) qui seraient susceptibles de revenir dans d’autres articles, ou pas. De leur côté, les catégories ont des sections prédéterminées. Si vous voyez votre site comme un livre, alors les catégories sont la table des matières, et les étiquettes forment l’index."
+msgid "What&#8217;s the difference between categories and tags"
+msgstr "Quelle est la différence entre les catégories et les étiquettes "
 
 #: wp-admin/edit-tags.php:263
 msgid "You can delete Link Categories in the Bulk Action pull-down, but that action does not delete the links within the category. Instead, it moves them to the default Link Category."
@@ -14977,8 +14977,8 @@ msgstr "Désolé, vous n’avez pas l’autorisation de modifier cet élément."
 
 #: wp-admin/edit-tags.php:160 wp-admin/edit-tags.php:180 wp-admin/post.php:127
 #: wp-admin/term.php:31
-msgid "You attempted to edit an item that does not exist. Perhaps it was deleted?"
-msgstr "Vous tentez de modifier un contenu qui n’existe pas. Peut-être a-t-il été supprimé ?"
+msgid "You attempted to edit an item that does not exist. Perhaps it was deleted"
+msgstr "Vous tentez de modifier un contenu qui n’existe pas. Peut-être a-t-il été supprimé "
 
 #: wp-admin/edit-tags.php:137 wp-admin/options.php:85
 msgid "Sorry, you are not allowed to delete these items."
@@ -15679,8 +15679,8 @@ msgid "Project Leaders"
 msgstr "Chefs de projet"
 
 #: wp-admin/credits.php:63
-msgid "Want to see your name in lights on this page?"
-msgstr "Voudriez-vous voir votre nom cité sur cette page ?"
+msgid "Want to see your name in lights on this page"
+msgstr "Voudriez-vous voir votre nom cité sur cette page "
 
 #: wp-admin/credits.php:57 wp-admin/credits.php:65
 msgid "Get involved in WordPress."
@@ -15820,8 +15820,8 @@ msgid "Join the diverse WordPress contributor community and connect with other p
 msgstr "Rejoignez la communauté WordPress et connectez-vous avec d’autres personnes qui ont à cœur de maintenir le web libre et ouvert."
 
 #: wp-admin/contribute.php:46
-msgid "Do you use WordPress for work, for personal projects, or even just for fun? You can help shape the long-term success of the open source project that powers millions of websites around the world."
-msgstr "Vous utilisez WordPress dans le cadre de votre travail, de vos projets personnels ou simplement pour le plaisir ? Vous pouvez contribuer au succès à long terme du projet open source qui alimente des millions de sites web dans le monde."
+msgid "Do you use WordPress for work, for personal projects, or even just for fun"
+msgstr "Vous utilisez WordPress dans le cadre de votre travail, de vos projets personnels ou simplement pour le plaisir "
 
 #: wp-admin/contribute.php:29
 msgid "Be the future of WordPress"
@@ -16028,13 +16028,13 @@ msgstr[0] "Cela donnera accès au <a href=\"%1$s\">site sur lequel vous avez des
 msgstr[1] "Cela donnera accès aux <a href=\"%1$s\">%2$s sites sur lesquels vous avez des droits sur cette installation</a>."
 
 #: wp-admin/authorize-application.php:164
-msgid "Would you like to give this application access to your account? You should only do this if you trust the application in question."
-msgstr "Voulez-vous fournir à cette application un accès à votre compte ? Vous ne devriez le faire que si vous avez confiance en l’application en question."
+msgid "Would you like to give this application access to your account"
+msgstr "Voulez-vous fournir à cette application un accès à votre compte "
 
 #. translators: %s: Application name.
 #: wp-admin/authorize-application.php:158
-msgid "Would you like to give the application identifying itself as %s access to your account? You should only do this if you trust the application in question."
-msgstr "Voulez-vous fournir un accès à votre compte à l’application s’identifiant comme %s ? Vous ne devriez le faire que si vous avez confiance en l’application en question."
+msgid "Would you like to give the application identifying itself as %s access to your account"
+msgstr "Voulez-vous fournir un accès à votre compte à l’application s’identifiant comme %s "
 
 #: wp-admin/authorize-application.php:152
 msgid "An application would like to connect to your account."

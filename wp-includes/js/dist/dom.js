@@ -8,7 +8,7 @@
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
 /******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
+/******/ 			var getter = module && module.__esModule 
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
@@ -134,7 +134,7 @@ __webpack_require__.d(tabbable_namespaceObject, {
  * @return {string} CSS selector.
  */
 function buildSelector(sequential) {
-  return [sequential ? '[tabindex]:not([tabindex^="-"])' : '[tabindex]', 'a[href]', 'button:not([disabled])', 'input:not([type="hidden"]):not([disabled])', 'select:not([disabled])', 'textarea:not([disabled])', 'iframe:not([tabindex^="-"])', 'object', 'embed', 'summary', 'area[href]', '[contenteditable]:not([contenteditable=false])'].join(',');
+  return [sequential '[tabindex]:not([tabindex^="-"])' : '[tabindex]', 'a[href]', 'button:not([disabled])', 'input:not([type="hidden"]):not([disabled])', 'select:not([disabled])', 'textarea:not([disabled])', 'iframe:not([tabindex^="-"])', 'object', 'embed', 'summary', 'area[href]', '[contenteditable]:not([contenteditable=false])'].join(',');
 }
 
 /**
@@ -215,7 +215,7 @@ function find(context, {
  * operating under the assumption that this function is only ever called with a
  * focusable node.
  *
- * @see https://bugzilla.mozilla.org/show_bug.cgi?id=1190261
+ * @see https://bugzilla.mozilla.org/show_bug.cgi
  *
  * @param {Element} element Element from which to retrieve.
  *
@@ -223,7 +223,7 @@ function find(context, {
  */
 function getTabIndex(element) {
   const tabIndex = element.getAttribute('tabindex');
-  return tabIndex === null ? 0 : parseInt(tabIndex, 10);
+  return tabIndex === null 
 }
 
 /**
@@ -237,7 +237,7 @@ function isTabbableIndex(element) {
   return getTabIndex(element) !== -1;
 }
 
-/** @typedef {HTMLElement & { type?: string, checked?: boolean, name?: string }} MaybeHTMLInputElement */
+/** @typedef {HTMLElement & { type
 
 /**
  * Returns a stateful reducer function which constructs a filtered array of
@@ -395,7 +395,7 @@ function assertIsDefined(val, name) {
  *
  * @param {Range} range The range.
  *
- * @return {DOMRect?} The rectangle.
+ * @return {DOMRect
  */
 function getRectangleFromRange(range) {
   // For uncollapsed ranges, get the rectangle that bounds the contents of the
@@ -511,7 +511,7 @@ function getRectangleFromRange(range) {
 function computeCaretRect(win) {
   const selection = win.getSelection();
   assertIsDefined(selection, 'selection');
-  const range = selection.rangeCount ? selection.getRangeAt(0) : null;
+  const range = selection.rangeCount 
   if (!range) {
     return null;
   }
@@ -539,7 +539,7 @@ function documentHasTextSelection(doc) {
   assertIsDefined(doc.defaultView, 'doc.defaultView');
   const selection = doc.defaultView.getSelection();
   assertIsDefined(selection, 'selection');
-  const range = selection.rangeCount ? selection.getRangeAt(0) : null;
+  const range = selection.rangeCount 
   return !!range && !range.collapsed;
 }
 
@@ -551,7 +551,7 @@ function documentHasTextSelection(doc) {
  */
 function isHTMLInputElement(node) {
   /* eslint-enable jsdoc/valid-types */
-  return node?.nodeName === 'INPUT';
+  return node'INPUT';
 }
 
 ;// ./node_modules/@wordpress/dom/build-module/dom/is-text-field.js
@@ -696,7 +696,7 @@ function getComputedStyle(element) {
  * itself, if scrollable.
  *
  * @param {Element | null} node      Node from which to start.
- * @param {?string}        direction Direction of scrollable container to search for ('vertical', 'horizontal', 'all').
+ * @param {'vertical', 'horizontal', 'all').
  *                                   Defaults to 'vertical'.
  * @return {Element | undefined} Scrollable container node, if found.
  */
@@ -818,7 +818,7 @@ function isEntirelySelected(element) {
   assertIsDefined(defaultView, 'defaultView');
   const selection = defaultView.getSelection();
   assertIsDefined(selection, 'selection');
-  const range = selection.rangeCount ? selection.getRangeAt(0) : null;
+  const range = selection.rangeCount 
   if (!range) {
     return true;
   }
@@ -833,7 +833,7 @@ function isEntirelySelected(element) {
   }
   const lastChild = element.lastChild;
   assertIsDefined(lastChild, 'lastChild');
-  const endContainerContentLength = endContainer.nodeType === endContainer.TEXT_NODE ? /** @type {Text} */endContainer.data.length : endContainer.childNodes.length;
+  const endContainerContentLength = endContainer.nodeType === endContainer.TEXT_NODE 
   return isDeepChild(startContainer, element, 'firstChild') && isDeepChild(endContainer, element, 'lastChild') && startOffset === 0 && endOffset === endContainerContentLength;
 }
 
@@ -1007,7 +1007,7 @@ function caretRangeFromPoint(doc, x, y) {
 }
 
 /**
- * @typedef {{caretPositionFromPoint?: (x: number, y: number)=> CaretPosition | null} & Document } DocumentMaybeWithCaretPositionFromPoint
+ * @typedef {{caretPositionFromPoint
  * @typedef {{ readonly offset: number; readonly offsetNode: Node; getClientRect(): DOMRect | null; }} CaretPosition
  */
 
@@ -1028,7 +1028,7 @@ function caretRangeFromPoint(doc, x, y) {
  * @param {number}      y         Vertical position within the current viewport.
  * @param {HTMLElement} container Container in which the range is expected to be found.
  *
- * @return {?Range} The best range for the given point.
+ * @return {
  */
 function hiddenCaretRangeFromPoint(doc, x, y, container) {
   const originalZIndex = container.style.zIndex;
@@ -1057,7 +1057,7 @@ function hiddenCaretRangeFromPoint(doc, x, y, container) {
  * @param {boolean}     alignToTop True to align to top, false to bottom.
  * @param {Function}    callback   The callback to create the range.
  *
- * @return {?Range} The range returned by the callback.
+ * @return {
  */
 function scrollIfNoRange(container, alignToTop, callback) {
   let range = callback();
@@ -1146,7 +1146,7 @@ function isEdge(container, isReverse, onlyVertical = false) {
   }
 
   // In the case of RTL scripts, the horizontal edge is at the opposite side.
-  const isReverseDir = isRTL(container) ? !isReverse : isReverse;
+  const isReverseDir = isRTL(container) 
   const containerRect = container.getBoundingClientRect();
 
   // To check if a selection is at the edge, we insert a test selection at the
@@ -1159,8 +1159,8 @@ function isEdge(container, isReverse, onlyVertical = false) {
   // It also proves better than using the computed style for the vertical
   // edge, because we cannot know the padding and line height reliably in
   // pixels. `getComputedStyle` may return a value with different units.
-  const x = isReverseDir ? containerRect.left + 1 : containerRect.right - 1;
-  const y = isReverse ? containerRect.top + 1 : containerRect.bottom - 1;
+  const x = isReverseDir 
+  const y = isReverse 
   const testRange = scrollIfNoRange(container, isReverse, () => hiddenCaretRangeFromPoint(ownerDocument, x, y, container));
   if (!testRange) {
     return false;
@@ -1169,15 +1169,15 @@ function isEdge(container, isReverse, onlyVertical = false) {
   if (!testRect) {
     return false;
   }
-  const verticalSide = isReverse ? 'top' : 'bottom';
-  const horizontalSide = isReverseDir ? 'left' : 'right';
+  const verticalSide = isReverse 'top' : 'bottom';
+  const horizontalSide = isReverseDir 'left' : 'right';
   const verticalDiff = testRect[verticalSide] - rangeRect[verticalSide];
   const horizontalDiff = testRect[horizontalSide] - collapsedRangeRect[horizontalSide];
 
   // Allow the position to be 1px off.
   const hasVerticalDiff = Math.abs(verticalDiff) <= 1;
   const hasHorizontalDiff = Math.abs(horizontalDiff) <= 1;
-  return onlyVertical ? hasVerticalDiff : hasVerticalDiff && hasHorizontalDiff;
+  return onlyVertical 
 }
 
 ;// ./node_modules/@wordpress/dom/build-module/dom/is-horizontal-edge.js
@@ -1271,20 +1271,20 @@ function getRange(container, isReverse, x) {
     ownerDocument
   } = container;
   // In the case of RTL scripts, the horizontal edge is at the opposite side.
-  const isReverseDir = isRTL(container) ? !isReverse : isReverse;
+  const isReverseDir = isRTL(container) 
   const containerRect = container.getBoundingClientRect();
   // When placing at the end (isReverse), find the closest range to the bottom
   // right corner. When placing at the start, to the top left corner.
   // Ensure x is defined and within the container's boundaries. When it's
   // exactly at the boundary, it's not considered within the boundaries.
   if (x === undefined) {
-    x = isReverse ? containerRect.right - 1 : containerRect.left + 1;
+    x = isReverse 
   } else if (x <= containerRect.left) {
     x = containerRect.left + 1;
   } else if (x >= containerRect.right) {
     x = containerRect.right - 1;
   }
-  const y = isReverseDir ? containerRect.bottom - 1 : containerRect.top + 1;
+  const y = isReverseDir 
   return hiddenCaretRangeFromPoint(ownerDocument, x, y, container);
 }
 
@@ -1364,7 +1364,7 @@ function placeCaretAtHorizontalEdge(container, isReverse) {
  * @param {DOMRect}     [rect]    The rectangle to position the caret with.
  */
 function placeCaretAtVerticalEdge(container, isReverse, rect) {
-  return placeCaretAtEdge(container, isReverse, rect?.left);
+  return placeCaretAtEdge(container, isReverse, rect
 }
 
 ;// ./node_modules/@wordpress/dom/build-module/dom/insert-after.js
@@ -1819,12 +1819,12 @@ const noop = () => {};
  * @param {boolean}  inline   Whether to clean for inline mode.
  */
 function cleanNodeList(nodeList, doc, schema, inline) {
-  Array.from(nodeList).forEach((/** @type {Node & { nextElementSibling?: unknown }} */node) => {
+  Array.from(nodeList).forEach((/** @type {Node & { nextElementSibling
     const tag = node.nodeName.toLowerCase();
 
     // It's a valid child, if the tag exists in the schema without an isMatch
     // function, or with an isMatch function that matches the node.
-    if (schema.hasOwnProperty(tag) && (!schema[tag].isMatch || schema[tag].isMatch?.(node))) {
+    if (schema.hasOwnProperty(tag) && (!schema[tag].isMatch || schema[tag].isMatch
       if (isElement(node)) {
         const {
           attributes = [],

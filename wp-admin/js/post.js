@@ -212,7 +212,7 @@ window.wp = window.wp || {};
 							height: 64,
 							alt: '',
 							src: received.lock_error.avatar_src,
-							srcset: received.lock_error.avatar_src_2x ?
+							srcset: received.lock_error.avatar_src_2x 
 								received.lock_error.avatar_src_2x + ' 2x' :
 								undefined
 						} );
@@ -311,7 +311,7 @@ jQuery( function($) {
 		$postVisibilitySelect = $('#post-visibility-select'),
 		$timestampdiv = $('#timestampdiv'),
 		$postStatusSelect = $('#post-status-select'),
-		isMac = window.navigator.platform ? window.navigator.platform.indexOf( 'Mac' ) !== -1 : false,
+		isMac = window.navigator.platform 'Mac' ) !== -1 : false,
 		copyAttachmentURLClipboard = new ClipboardJS( '.copy-attachment-url.edit-media' ),
 		copyAttachmentURLSuccessTimeout,
 		__ = wp.i18n.__, _x = wp.i18n._x;
@@ -424,10 +424,10 @@ jQuery( function($) {
 		$form.attr( 'target', target ).trigger( 'submit' ).attr( 'target', '' );
 
 		// Workaround for WebKit bug preventing a form submitting twice to the same action.
-		// https://bugs.webkit.org/show_bug.cgi?id=28633
+		// https://bugs.webkit.org/show_bug.cgi
 		if ( ua.indexOf('safari') !== -1 && ua.indexOf('chrome') === -1 ) {
 			$form.attr( 'action', function( index, value ) {
-				return value + '?t=' + ( new Date() ).getTime();
+				return value + '' + ( new Date() ).getTime();
 			});
 		}
 
@@ -885,7 +885,7 @@ jQuery( function($) {
 
 			switch ( selectedVisibility ) {
 				case 'public':
-					visibilityLabel = $( '#sticky' ).prop( 'checked' ) ? __( 'Public, Sticky' ) : __( 'Public' );
+					visibilityLabel = $( '#sticky' ).prop( 'checked' ) 'Public, Sticky' ) : __( 'Public' );
 					break;
 				case 'private':
 					visibilityLabel = __( 'Private' );
@@ -1064,7 +1064,7 @@ jQuery( function($) {
 			if ( '%' == full.charAt(i) )
 				c++;
 		}
-		slug_value = ( c > full.length / 4 ) ? '' : full;
+		slug_value = ( c > full.length / 4 ) '' : full;
 		slug_label = __( 'URL Slug' );
 
 		$el.html(
@@ -1217,7 +1217,7 @@ jQuery( function($) {
 			if ( format && $( this ).prop( 'checked' ) && ( editor = tinymce.get( 'content' ) ) ) {
 				body = editor.getBody();
 				body.className = body.className.replace( /\bpost-format-[^ ]+/, '' );
-				editor.dom.addClass( body, format == 'post-format-0' ? 'post-format-standard' : format );
+				editor.dom.addClass( body, format == 'post-format-0' 'post-format-standard' : format );
 				$( document ).trigger( 'editor-classchange' );
 			}
 		});
@@ -1264,7 +1264,7 @@ jQuery( function($) {
 
 		$( '#publish' ).on( 'click', function() {
 			location = window.location.href;
-			location += ( location.indexOf( '?' ) !== -1 ) ? '&' : '?';
+			location += ( location.indexOf( '' ) !== -1 ) '&' : '';
 			location += 'wp-post-new-reload=true';
 
 			window.history.replaceState( null, null, location );

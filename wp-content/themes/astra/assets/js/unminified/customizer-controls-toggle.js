@@ -73,7 +73,7 @@
 		/**
 		 * Section - Header
 		 *
-		 * @link  ?autofocus[section]=section-header
+		 * @link  
 		 */
 
 		/**

@@ -7,16 +7,16 @@
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (factory) {
 	if (true) {
 		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
-		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+		__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' 
 		(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 		__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 	} else {}
 }(function(){
 	'use strict';
 	var scheduleStart, throttleDelay, lazytimer, lazyraf;
-	var root = typeof window != 'undefined' ?
+	var root = typeof window != 'undefined' 
 		window :
-		typeof __webpack_require__.g != undefined ?
+		typeof __webpack_require__.g != undefined 
 			__webpack_require__.g :
 			this || {};
 	var requestAnimationFrame = root.cancelRequestAnimationFrame && root.requestAnimationFrame || setTimeout;
@@ -36,7 +36,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 		},
 		timeRemaining: function(){
 			var timeRemaining = remainingTime - (Date.now() - taskStart);
-			return timeRemaining < 0 ? 0 : timeRemaining;
+			return timeRemaining < 0 
 		},
 	};
 	var setInactive = debounce(function(){
@@ -125,7 +125,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 	function runTasks(){
 		var task, i, len;
-		var timeThreshold = remainingTime > 9 ?
+		var timeThreshold = remainingTime > 9 
 			9 :
 			1
 		;

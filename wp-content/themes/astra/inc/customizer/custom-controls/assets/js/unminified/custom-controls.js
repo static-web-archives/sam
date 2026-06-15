@@ -1374,7 +1374,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
             var ast_field_wrap = wrap.find( '.ast-fields-wrap' );
             var fields_html = '';
             var control_types = [];
-            var field_values = control.isJsonString( control_elem.params.value ) ? JSON.parse( control_elem.params.value ) : {};
+            var field_values = control.isJsonString( control_elem.params.value ) 
 
             if( 'undefined' != typeof fields.tabs ) {
 
@@ -1669,7 +1669,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 
             _.each(fields_data, function (attr, index) {
 
-                new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) ? wp.customize.control( 'astra-settings['+attr.name+']' ).params.value : '' ); 
+                new_value = ( wp.customize.control( 'astra-settings['+attr.name+']' ) 'astra-settings['+attr.name+']' ).params.value : '' ); 
                 var control = attr.control;
                 var template_id = "customize-control-" + control + "-content";
                 var template = wp.template(template_id);
@@ -1700,7 +1700,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
                 });
 
                 if ('ast-responsive' == control) {
-                    var is_responsive = 'undefined' == typeof attr.responsive ? true : attr.responsive;
+                    var is_responsive = 'undefined' == typeof attr.responsive 
                     attr.responsive = is_responsive;
                 }
 
@@ -1737,7 +1737,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
                     weightValue = weightObject[ 0 ];
                     selected 	= ' selected="selected"';
                 } else {
-                    selected = weightObject[ counter ] == weightValue ? ' selected="selected"' : '';
+                    selected = weightObject[ counter ] == weightValue ' selected="selected"' : '';
                 }
                 if( ! weightObject[ counter ].includes( "italic" ) ){
                     weightOptions += '<option value="' + weightObject[ counter ] + '"' + selected + '>' + astraTypo[ weightObject[ counter ] ] + '</option>';
@@ -2711,13 +2711,13 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 			inherit             = fontSelect.data( 'inherit' ),
 			weightSelect        = api.control( weightKey ).container.find( 'select' ),
 			currentWeightTitle  = weightSelect.data( 'inherit' ),
-			weightValue         = init ? weightSelect.val() : '400',
+			weightValue         = init '400',
 			inheritWeightObject = [ 'inherit' ],
 			weightObject        = [ '400', '600' ],
 			weightOptions       = '',
 			weightMap           = astraTypo;
 			if ( fontValue == 'inherit' ) {
-				weightValue     = init ? weightSelect.val() : 'inherit';
+				weightValue     = init 'inherit';
 			}
 
 			var fontValue = AstTypography._cleanGoogleFonts(fontValue);
@@ -2731,7 +2731,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 					weightValue = weightObject[ 0 ];
 					selected 	= ' selected="selected"';
 				} else {
-					selected = weightObject[ i ] == weightValue ? ' selected="selected"' : '';
+					selected = weightObject[ i ] == weightValue ' selected="selected"' : '';
 				}
 				if( ! weightObject[ i ].includes( "italic" ) ){
 					weightOptions += '<option value="' + weightObject[ i ] + '"' + selected + '>' + weightMap[ weightObject[ i ] ] + '</option>';
@@ -2790,7 +2790,7 @@ wp.customize.controlConstructor['ast-responsive-background'] = wp.customize.Cont
 							weightValue = weightObject[ i ];
 							selected 	= ' selected="selected"';
 						} else{
-							selected = ( weightObject[ i ] == weightValue ) ? ' selected="selected"' : '';
+							selected = ( weightObject[ i ] == weightValue ) ' selected="selected"' : '';
 						}
 					}
 					weightOptions += '<option value="' + weightObject[ i ] + '"' + selected + '>' + weightMap[ weightObject[ i ] ] + '</option>';

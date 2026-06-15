@@ -8,7 +8,7 @@
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
 /******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
+/******/ 			var getter = module && module.__esModule 
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
@@ -159,7 +159,7 @@ function withPersistenceLayer(reducer) {
     }
     const nextState = reducer(state, action);
     if (action.type === 'SET_PREFERENCE_VALUE') {
-      persistenceLayer?.set(nextState);
+      persistenceLayer
     }
     return nextState;
   };
@@ -310,11 +310,11 @@ const withDeprecatedKeys = originalGet => (state, scope, name) => {
  * @param {string} scope The scope of the feature (e.g. core/edit-post).
  * @param {string} name  The name of the feature.
  *
- * @return {*} Is the feature enabled?
+ * @return {*} Is the feature enabled
  */
 const get = withDeprecatedKeys((state, scope, name) => {
-  const value = state.preferences[scope]?.[name];
-  return value !== undefined ? value : state.defaults[scope]?.[name];
+  const value = state.preferences[scope]
+  return value !== undefined 
 });
 
 ;// ./node_modules/@wordpress/preferences/build-module/store/constants.js
@@ -530,7 +530,7 @@ const external_wp_element_namespaceObject = window["wp"]["element"];
  */
 
 
-/** @typedef {{icon: JSX.Element, size?: number} & import('@wordpress/primitives').SVGProps} IconProps */
+/** @typedef {{icon: JSX.Element, size'@wordpress/primitives').SVGProps} IconProps */
 
 /**
  * Return an SVG icon.
@@ -663,7 +663,7 @@ function PreferencesModalTabs({
     modalContent = /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("div", {
       className: "preferences__tabs",
       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)(Tabs, {
-        defaultTabId: activeMenu !== PREFERENCES_MENU ? activeMenu : undefined,
+        defaultTabId: activeMenu !== PREFERENCES_MENU 
         onSelect: setActiveMenu,
         orientation: "vertical",
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(Tabs.TabList, {
@@ -705,7 +705,7 @@ function PreferencesModalTabs({
                       })
                     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.FlexItem, {
                       children: /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(icon, {
-                        icon: (0,external_wp_i18n_namespaceObject.isRTL)() ? chevron_left : chevron_right
+                        icon: (0,external_wp_i18n_namespaceObject.isRTL)() 
                       })
                     })]
                   })
@@ -726,7 +726,7 @@ function PreferencesModalTabs({
               size: "small",
               gap: "6",
               children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Navigator.BackButton, {
-                icon: (0,external_wp_i18n_namespaceObject.isRTL)() ? chevron_right : chevron_left,
+                icon: (0,external_wp_i18n_namespaceObject.isRTL)() 
                 label: (0,external_wp_i18n_namespaceObject.__)('Back')
               }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.__experimentalText, {
                 size: "16",

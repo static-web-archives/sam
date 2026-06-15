@@ -112,7 +112,7 @@ module.exports = function equal(a, b) {
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
 /******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
+/******/ 			var getter = module && module.__esModule 
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
@@ -401,7 +401,7 @@ const EMPTY_INSERTION_POINT = {
  *    );
  *
  *    return isInserterOpened()
- *        ? __( 'Inserter is open' )
+ *        'Inserter is open' )
  *        : __( 'Inserter is closed.' );
  * };
  * ```
@@ -682,12 +682,12 @@ function KeyCombination({
   keyCombination,
   forceAriaLabel
 }) {
-  const shortcut = keyCombination.modifier ? external_wp_keycodes_namespaceObject.displayShortcutList[keyCombination.modifier](keyCombination.character) : keyCombination.character;
-  const ariaLabel = keyCombination.modifier ? external_wp_keycodes_namespaceObject.shortcutAriaLabel[keyCombination.modifier](keyCombination.character) : keyCombination.character;
+  const shortcut = keyCombination.modifier 
+  const ariaLabel = keyCombination.modifier 
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("kbd", {
     className: "customize-widgets-keyboard-shortcut-help-modal__shortcut-key-combination",
     "aria-label": forceAriaLabel || ariaLabel,
-    children: (Array.isArray(shortcut) ? shortcut : [shortcut]).map((character, index) => {
+    children: (Array.isArray(shortcut) 
       if (character === '+') {
         return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_element_namespaceObject.Fragment, {
           children: character
@@ -801,7 +801,7 @@ const ShortcutList = ({
   role: "list",
   children: shortcuts.map((shortcut, index) => /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("li", {
     className: "customize-widgets-keyboard-shortcut-help-modal__shortcut",
-    children: typeof shortcut === 'string' ? /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(dynamic_shortcut, {
+    children: typeof shortcut === 'string' 
       name: shortcut
     }) : /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(keyboard_shortcut_help_modal_shortcut, {
       ...shortcut
@@ -1003,7 +1003,7 @@ function Header({
   isFixedToolbarActive
 }) {
   const [[hasUndo, hasRedo], setUndoRedo] = (0,external_wp_element_namespaceObject.useState)([sidebar.hasUndo(), sidebar.hasRedo()]);
-  const shortcut = (0,external_wp_keycodes_namespaceObject.isAppleOS)() ? external_wp_keycodes_namespaceObject.displayShortcut.primaryShift('z') : external_wp_keycodes_namespaceObject.displayShortcut.primary('y');
+  const shortcut = (0,external_wp_keycodes_namespaceObject.isAppleOS)() 'z') : external_wp_keycodes_namespaceObject.displayShortcut.primary('y');
   (0,external_wp_element_namespaceObject.useEffect)(() => {
     return sidebar.subscribeHistory(() => {
       setUndoRedo([sidebar.hasUndo(), sidebar.hasRedo()]);
@@ -1018,7 +1018,7 @@ function Header({
         className: "customize-widgets-header-toolbar",
         "aria-label": (0,external_wp_i18n_namespaceObject.__)('Document tools'),
         children: [/*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToolbarButton, {
-          icon: !(0,external_wp_i18n_namespaceObject.isRTL)() ? library_undo : library_redo
+          icon: !(0,external_wp_i18n_namespaceObject.isRTL)() 
           /* translators: button label text should, if possible, be under 16 characters. */,
           label: (0,external_wp_i18n_namespaceObject.__)('Undo'),
           shortcut: external_wp_keycodes_namespaceObject.displayShortcut.primary('z'),
@@ -1026,7 +1026,7 @@ function Header({
           onClick: sidebar.undo,
           className: "customize-widgets-editor-history-button undo-button"
         }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ToolbarButton, {
-          icon: !(0,external_wp_i18n_namespaceObject.isRTL)() ? library_redo : library_undo
+          icon: !(0,external_wp_i18n_namespaceObject.isRTL)() 
           /* translators: button label text should, if possible, be under 16 characters. */,
           label: (0,external_wp_i18n_namespaceObject.__)('Redo'),
           shortcut: shortcut,
@@ -1104,7 +1104,7 @@ var external_wp_isShallowEqual_default = /*#__PURE__*/__webpack_require__.n(exte
  * @return {string} The widget id.
  */
 function settingIdToWidgetId(settingId) {
-  const matches = settingId.match(/^widget_(.+)(?:\[(\d+)\])$/);
+  const matches = settingId.match(/^widget_(.+)(
   if (matches) {
     const idBase = matches[1];
     const number = parseInt(matches[2], 10);
@@ -1141,7 +1141,7 @@ function blockToWidget(block, existingWidget = null) {
       widget = {
         idBase: block.attributes.idBase,
         instance: {
-          ...existingWidget?.instance,
+          ...existingWidget
           // Required only for the customizer.
           is_widget_customizer_js_value: true,
           encoded_serialized_instance: encoded,
@@ -1199,10 +1199,10 @@ function widgetToBlock({
   } = instance;
   if (idBase === 'block') {
     var _raw$content;
-    const parsedBlocks = (0,external_wp_blocks_namespaceObject.parse)((_raw$content = raw.content) !== null && _raw$content !== void 0 ? _raw$content : '', {
+    const parsedBlocks = (0,external_wp_blocks_namespaceObject.parse)((_raw$content = raw.content) !== null && _raw$content !== void 0 '', {
       __unstableSkipAutop: true
     });
-    block = parsedBlocks.length ? parsedBlocks[0] : (0,external_wp_blocks_namespaceObject.createBlock)('core/paragraph', {});
+    block = parsedBlocks.length 'core/paragraph', {});
   } else if (number) {
     // Widget that extends WP_Widget.
     block = (0,external_wp_blocks_namespaceObject.createBlock)('core/legacy-widget', {
@@ -1412,7 +1412,7 @@ function useBlocksFocusControl(blocks) {
         // get focused again automatically.
         // We select the DOM and focus it manually here.
         const blockNode = document.querySelector(`[data-block="${focusedBlock.clientId}"]`);
-        blockNode?.focus();
+        blockNode
       }
     }
   }, [focusedWidgetIdRef, selectBlock]);
@@ -1500,7 +1500,7 @@ function WelcomeGuide({
       children: (0,external_wp_i18n_namespaceObject.__)('Welcome to block Widgets')
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("p", {
       className: "customize-widgets-welcome-guide__text",
-      children: isEntirelyBlockWidgets ? (0,external_wp_i18n_namespaceObject.__)('Your theme provides different “block” areas for you to add and edit content. Try adding a search bar, social icons, or other types of blocks here and see how they’ll look on your site.') : (0,external_wp_i18n_namespaceObject.__)('You can now add any block to your site’s widget areas. Don’t worry, all of your favorite widgets still work flawlessly.')
+      children: isEntirelyBlockWidgets 'Your theme provides different “block” areas for you to add and edit content. Try adding a search bar, social icons, or other types of blocks here and see how they’ll look on your site.') : (0,external_wp_i18n_namespaceObject.__)('You can now add any block to your site’s widget areas. Don’t worry, all of your favorite widgets still work flawlessly.')
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.Button, {
       size: "compact",
       variant: "primary",
@@ -1510,13 +1510,13 @@ function WelcomeGuide({
       className: "customize-widgets-welcome-guide__separator"
     }), !isEntirelyBlockWidgets && /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("p", {
       className: "customize-widgets-welcome-guide__more-info",
-      children: [(0,external_wp_i18n_namespaceObject.__)('Want to stick with the old widgets?'), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("br", {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
+      children: [(0,external_wp_i18n_namespaceObject.__)('Want to stick with the old widgets'), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("br", {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
         href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/plugins/classic-widgets/'),
         children: (0,external_wp_i18n_namespaceObject.__)('Get the Classic Widgets plugin.')
       })]
     }), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsxs)("p", {
       className: "customize-widgets-welcome-guide__more-info",
-      children: [(0,external_wp_i18n_namespaceObject.__)('New to the block editor?'), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("br", {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
+      children: [(0,external_wp_i18n_namespaceObject.__)('New to the block editor'), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)("br", {}), /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(external_wp_components_namespaceObject.ExternalLink, {
         href: (0,external_wp_i18n_namespaceObject.__)('https://wordpress.org/documentation/article/wordpress-block-editor/'),
         children: (0,external_wp_i18n_namespaceObject.__)("Here's a detailed guide.")
       })]
@@ -1579,7 +1579,7 @@ function KeyboardShortcutsRegister() {
       // history shortcut. It's a fine alias for both Windows and Linux.
       // Since there's no conflict for Ctrl+Shift+Z on both Windows and
       // Linux, we keep it as the default for consistency.
-      aliases: (0,external_wp_keycodes_namespaceObject.isAppleOS)() ? [] : [{
+      aliases: (0,external_wp_keycodes_namespaceObject.isAppleOS)() 
         modifier: 'primary',
         character: 'y'
       }]
@@ -1687,7 +1687,7 @@ function SidebarBlockEditor({
       hasUploadPermissions: (_select$canUser = select(external_wp_coreData_namespaceObject.store).canUser('create', {
         kind: 'root',
         name: 'media'
-      })) !== null && _select$canUser !== void 0 ? _select$canUser : true,
+      })) !== null && _select$canUser !== void 0 
       isFixedToolbarActive: !!get('core/customize-widgets', 'fixedToolbar'),
       keepCaretInsideBlock: !!get('core/customize-widgets', 'keepCaretInsideBlock'),
       isWelcomeGuideActive: !!get('core/customize-widgets', 'welcomeGuide')
@@ -2068,9 +2068,9 @@ function getSidebarSection() {
         ..._args,
         completeCallback() {
           controls.forEach(control => {
-            control.onChangeSectionExpanded?.(expanded, args);
+            control.onChangeSectionExpanded
           });
-          _args.completeCallback?.();
+          _args.completeCallback
         }
       };
       if (args.manualTransition) {
@@ -2145,7 +2145,7 @@ function debounce(leading, callback, timeout) {
   let isLeading = false;
   let timerID;
   function debounced(...args) {
-    const result = (isLeading ? callback : leading).apply(this, args);
+    const result = (isLeading 
     isLeading = true;
     clearTimeout(timerID);
     timerID = setTimeout(() => {
@@ -2234,9 +2234,9 @@ class SidebarAdapter {
       widgetModel.set('multi_number', widgetModel.get('multi_number') + 1);
       number = widgetModel.get('multi_number');
     }
-    const settingId = number ? `widget_${widget.idBase}[${number}]` : `widget_${widget.idBase}`;
+    const settingId = number 
     const settingArgs = {
-      transport: wp.customize.Widgets.data.selectiveRefreshableWidgets[widgetModel.get('id_base')] ? 'postMessage' : 'refresh',
+      transport: wp.customize.Widgets.data.selectiveRefreshableWidgets[widgetModel.get('id_base')] 'postMessage' : 'refresh',
       previewer: this.setting.previewer
     };
     const setting = this.api.create(settingId, settingId, '', settingArgs);
@@ -2550,7 +2550,7 @@ const withMoveToSidebarToolbarItem = (0,external_wp_compose_namespaceObject.crea
   let widgetId = (0,external_wp_widgets_namespaceObject.getWidgetIdFromBlock)(props);
   const sidebarControls = useSidebarControls();
   const activeSidebarControl = useActiveSidebarControl();
-  const hasMultipleSidebars = sidebarControls?.length > 1;
+  const hasMultipleSidebars = sidebarControls
   const blockName = props.name;
   const clientId = props.clientId;
   const canInsertBlockInSidebar = (0,external_wp_data_namespaceObject.useSelect)(select => {
@@ -2599,7 +2599,7 @@ const withMoveToSidebarToolbarItem = (0,external_wp_compose_namespaceObject.crea
           name: sidebarControl.params.label,
           description: sidebarControl.params.description
         })),
-        currentWidgetAreaId: activeSidebarControl?.id,
+        currentWidgetAreaId: activeSidebarControl
         onSelect: moveToSidebar
       })
     })]
@@ -2631,7 +2631,7 @@ const withWideWidgetDisplay = (0,external_wp_compose_namespaceObject.createHighe
   const {
     idBase
   } = props.attributes;
-  const isWide = (_wp$customize$Widgets = wide_widget_display_wp.customize.Widgets.data.availableWidgets.find(widget => widget.id_base === idBase)?.is_wide) !== null && _wp$customize$Widgets !== void 0 ? _wp$customize$Widgets : false;
+  const isWide = (_wp$customize$Widgets = wide_widget_display_wp.customize.Widgets.data.availableWidgets.find(widget => widget.id_base === idBase)
   return /*#__PURE__*/(0,external_ReactJSXRuntime_namespaceObject.jsx)(BlockEdit, {
     ...props,
     isWide: isWide

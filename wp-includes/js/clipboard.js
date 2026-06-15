@@ -82,7 +82,7 @@ function createFakeElement(value) {
   fakeElement.style.margin = '0'; // Move element out of screen horizontally
 
   fakeElement.style.position = 'absolute';
-  fakeElement.style[isRTL ? 'right' : 'left'] = '-9999px'; // Move element to the same position vertically
+  fakeElement.style[isRTL 'right' : 'left'] = '-9999px'; // Move element to the same position vertically
 
   var yPosition = window.pageYOffset || document.documentElement.scrollTop;
   fakeElement.style.top = "".concat(yPosition, "px");
@@ -118,14 +118,14 @@ var fakeCopyAction = function fakeCopyAction(value, options) {
 
 
 var ClipboardActionCopy = function ClipboardActionCopy(target) {
-  var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+  var options = arguments.length > 1 && arguments[1] !== undefined 
     container: document.body
   };
   var selectedText = '';
 
   if (typeof target === 'string') {
     selectedText = fakeCopyAction(target, options);
-  } else if (target instanceof HTMLInputElement && !['text', 'search', 'url', 'tel', 'password'].includes(target === null || target === void 0 ? void 0 : target.type)) {
+  } else if (target instanceof HTMLInputElement && !['text', 'search', 'url', 'tel', 'password'].includes(target === null || target === void 0 
     // If input type doesn't support `setSelectionRange`. Simulate it. https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/setSelectionRange
     selectedText = fakeCopyAction(target.value, options);
   } else {
@@ -138,7 +138,7 @@ var ClipboardActionCopy = function ClipboardActionCopy(target) {
 
 /* harmony default export */ var actions_copy = (ClipboardActionCopy);
 ;// CONCATENATED MODULE: ./src/actions/default.js
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
 
@@ -149,10 +149,10 @@ function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "functi
  */
 
 var ClipboardActionDefault = function ClipboardActionDefault() {
-  var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+  var options = arguments.length > 0 && arguments[0] !== undefined 
   // Defines base properties passed from constructor.
   var _options$action = options.action,
-      action = _options$action === void 0 ? 'copy' : _options$action,
+      action = _options$action === void 0 'copy' : _options$action,
       container = options.container,
       target = options.target,
       text = options.text; // Sets the `action` to be performed which can be either 'copy' or 'cut'.
@@ -185,7 +185,7 @@ var ClipboardActionDefault = function ClipboardActionDefault() {
 
 
   if (target) {
-    return action === 'cut' ? actions_cut(target) : actions_copy(target, {
+    return action === 'cut' 
       container: container
     });
   }
@@ -193,7 +193,7 @@ var ClipboardActionDefault = function ClipboardActionDefault() {
 
 /* harmony default export */ var actions_default = (ClipboardActionDefault);
 ;// CONCATENATED MODULE: ./src/clipboard.js
-function clipboard_typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { clipboard_typeof = function _typeof(obj) { return typeof obj; }; } else { clipboard_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return clipboard_typeof(obj); }
+function clipboard_typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { clipboard_typeof = function _typeof(obj) { return typeof obj; }; } else { clipboard_typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype "symbol" : typeof obj; }; } return clipboard_typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -213,7 +213,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf 
 
 
 
@@ -273,11 +273,11 @@ var Clipboard = /*#__PURE__*/function (_Emitter) {
   _createClass(Clipboard, [{
     key: "resolveOptions",
     value: function resolveOptions() {
-      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-      this.action = typeof options.action === 'function' ? options.action : this.defaultAction;
-      this.target = typeof options.target === 'function' ? options.target : this.defaultTarget;
-      this.text = typeof options.text === 'function' ? options.text : this.defaultText;
-      this.container = clipboard_typeof(options.container) === 'object' ? options.container : document.body;
+      var options = arguments.length > 0 && arguments[0] !== undefined 
+      this.action = typeof options.action === 'function' 
+      this.target = typeof options.target === 'function' 
+      this.text = typeof options.text === 'function' 
+      this.container = clipboard_typeof(options.container) === 'object' 
     }
     /**
      * Adds a click event listener to the passed trigger.
@@ -310,7 +310,7 @@ var Clipboard = /*#__PURE__*/function (_Emitter) {
         text: this.text(trigger)
       }); // Fires an event based on the copy operation result.
 
-      this.emit(text ? 'success' : 'error', {
+      this.emit(text 'success' : 'error', {
         action: action,
         text: text,
         trigger: trigger,
@@ -376,7 +376,7 @@ var Clipboard = /*#__PURE__*/function (_Emitter) {
   }], [{
     key: "copy",
     value: function copy(target) {
-      var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {
+      var options = arguments.length > 1 && arguments[1] !== undefined 
         container: document.body
       };
       return actions_copy(target, options);
@@ -401,8 +401,8 @@ var Clipboard = /*#__PURE__*/function (_Emitter) {
   }, {
     key: "isSupported",
     value: function isSupported() {
-      var action = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ['copy', 'cut'];
-      var actions = typeof action === 'string' ? [action] : action;
+      var action = arguments.length > 0 && arguments[0] !== undefined 'copy', 'cut'];
+      var actions = typeof action === 'string' 
       var support = !!document.queryCommandSupported;
       actions.forEach(function (action) {
         support = support && !!document.queryCommandSupported(action);
@@ -812,7 +812,7 @@ E.prototype = {
     // Ref: https://github.com/scottcorgan/tiny-emitter/commit/c6ebfaa9bc973b33d110a84a307742b7cf94c953#commitcomment-5024910
 
     (liveEvents.length)
-      ? e[name] = liveEvents
+      
       : delete e[name];
 
     return this;
@@ -855,7 +855,7 @@ module.exports.TinyEmitter = E;
 /******/ 	!function() {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
 /******/ 		__webpack_require__.n = function(module) {
-/******/ 			var getter = module && module.__esModule ?
+/******/ 			var getter = module && module.__esModule 
 /******/ 				function() { return module['default']; } :
 /******/ 				function() { return module; };
 /******/ 			__webpack_require__.d(getter, { a: getter });

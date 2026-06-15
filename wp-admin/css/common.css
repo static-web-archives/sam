@@ -798,7 +798,7 @@ img.emoji {
 	display: none;
 }
 
-/* @todo can we combine these into a class or use an existing dashicon one? */
+/* @todo can we combine these into a class or use an existing dashicon one
 .welcome-panel .welcome-panel-close:before,
 .tagchecklist .ntdelbutton .remove-tag-icon:before,
 #bulk-titles .ntdelbutton:before,
@@ -2652,11 +2652,11 @@ div.star-holder {
 	position: relative;
 	height: 17px;
 	width: 100px;
-	background: url(../images/stars.png?ver=20121108) repeat-x bottom left;
+	background: url(../images/stars.png
 }
 
 div.star-holder .star-rating {
-	background: url(../images/stars.png?ver=20121108) repeat-x top left;
+	background: url(../images/stars.png
 	height: 17px;
 	float: left;
 }
@@ -3571,7 +3571,7 @@ img {
 	margin: 25px;
 }
 
-/* @todo: can we use a common class for these? */
+/* @todo: can we use a common class for these
 .nav-menus-php .item-edit:before,
 .wp-customizer .control-section .accordion-section-title:after,
 .wp-customizer .accordion-section-title:after,
@@ -3889,7 +3889,7 @@ img {
 	/* Back-compat for pre-3.8 */
 	div.star-holder,
 	div.star-holder .star-rating {
-		background: url(../images/stars-2x.png?ver=20121108) repeat-x bottom left;
+		background: url(../images/stars-2x.png
 		background-size: 21px 37px;
 	}
 

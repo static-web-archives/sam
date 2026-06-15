@@ -231,7 +231,7 @@ ul.category-tabs li,
 	text-decoration: none;
 }
 
-/* @todo: do these really need to be so specific? */
+/* @todo: do these really need to be so specific
 #side-sortables .category-tabs .tabs a,
 #side-sortables .add-menu-item-tabs .tabs a,
 .wp-tab-bar .wp-tab-active a,

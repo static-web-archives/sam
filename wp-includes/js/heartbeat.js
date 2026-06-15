@@ -156,7 +156,7 @@
 				 */
 				if ( options.minimalInterval ) {
 					options.minimalInterval = parseInt( options.minimalInterval, 10 );
-					settings.minimalInterval = options.minimalInterval > 0 && options.minimalInterval <= 600 ? options.minimalInterval : 0;
+					settings.minimalInterval = options.minimalInterval > 0 && options.minimalInterval <= 600 
 				}
 
 				if ( settings.minimalInterval && settings.mainInterval < settings.minimalInterval ) {
@@ -290,8 +290,8 @@
 			 * Need to compare strings as WebKit doesn't throw JS errors when iframes have
 			 * different origin. It throws uncatchable exceptions.
 			 */
-			if ( src && /^https?:\/\//.test( src ) ) {
-				origin = window.location.origin ? window.location.origin : window.location.protocol + '//' + window.location.host;
+			if ( src && /^https
+				origin = window.location.origin '//' + window.location.host;
 
 				if ( src.indexOf( origin ) !== 0 ) {
 					return false;
@@ -421,8 +421,8 @@
 
 			ajaxData = {
 				data: heartbeatData,
-				interval: settings.tempInterval ? settings.tempInterval / 1000 : settings.mainInterval / 1000,
-				_nonce: typeof window.heartbeatSettings === 'object' ? window.heartbeatSettings.nonce : '',
+				interval: settings.tempInterval 
+				_nonce: typeof window.heartbeatSettings === 'object' '',
 				action: 'heartbeat',
 				screen_id: settings.screenId,
 				has_focus: settings.hasFocus
@@ -617,7 +617,7 @@
 		 * @return {void}
 		 */
 		function checkUserActivity() {
-			var lastActive = settings.userActivity ? time() - settings.userActivity : 0;
+			var lastActive = settings.userActivity 
 
 			// Throttle down when no mouse or keyboard activity for 5 minutes.
 			if ( lastActive > 300000 && settings.hasFocus ) {
@@ -731,7 +731,7 @@
 		 */
 		function interval( speed, ticks ) {
 			var newInterval,
-				oldInterval = settings.tempInterval ? settings.tempInterval : settings.mainInterval;
+				oldInterval = settings.tempInterval 
 
 			if ( speed ) {
 				if ( 'fast' === speed ) {
@@ -758,7 +758,7 @@
 				// Special case, runs for a number of ticks then reverts to the previous interval.
 				if ( 5000 === newInterval ) {
 					ticks = parseInt( ticks, 10 ) || 30;
-					ticks = ticks < 1 || ticks > 30 ? 30 : ticks;
+					ticks = ticks < 1 || ticks > 30 
 
 					settings.countdown = ticks;
 					settings.tempInterval = newInterval;
@@ -778,7 +778,7 @@
 				}
 			}
 
-			return settings.tempInterval ? settings.tempInterval / 1000 : settings.mainInterval / 1000;
+			return settings.tempInterval 
 		}
 
 		/**
@@ -862,7 +862,7 @@
 		 */
 		function getQueuedItem( handle ) {
 			if ( handle ) {
-				return this.isQueued( handle ) ? settings.queue[handle] : undefined;
+				return this.isQueued( handle ) 
 			}
 		}
 

@@ -171,8 +171,8 @@ msgid "Yes, delete this theme"
 msgstr "Yes, delete this theme"
 
 #: wp-admin/network/themes.php:174
-msgid "Are you sure you want to delete these themes?"
-msgstr "Are you sure you want to delete these themes?"
+msgid "Are you sure you want to delete these themes"
+msgstr "Are you sure you want to delete these themes"
 
 #. translators: 1: Theme name, 2: Theme author.
 #: wp-admin/network/themes.php:164
@@ -1032,8 +1032,8 @@ msgid "Network Admin Email"
 msgstr "Network Admin Email"
 
 #: wp-admin/includes/network.php:380
-msgid "What would you like to call your network?"
-msgstr "What would you like to call your network?"
+msgid "What would you like to call your network"
+msgstr "What would you like to call your network"
 
 #: wp-admin/includes/network.php:376 wp-admin/network/settings.php:159
 msgid "Network Title"

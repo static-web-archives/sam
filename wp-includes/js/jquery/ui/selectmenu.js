@@ -109,7 +109,7 @@ return $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 
 		// Create button
 		this.button = $( "<span>", {
-			tabindex: this.options.disabled ? -1 : 0,
+			tabindex: this.options.disabled 
 			id: this.ids.button,
 			role: "combobox",
 			"aria-expanded": "false",
@@ -328,7 +328,7 @@ return $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 					text: item.optgroup
 				} );
 				that._addClass( li, "ui-selectmenu-optgroup", "ui-menu-divider" +
-					( item.element.parent( "optgroup" ).prop( "disabled" ) ?
+					( item.element.parent( "optgroup" ).prop( "disabled" ) 
 						" ui-state-disabled" :
 						"" ) );
 
@@ -384,7 +384,7 @@ return $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 		}
 
 		if ( direction === "first" || direction === "last" ) {
-			next = item[ direction === "first" ? "prevAll" : "nextAll" ]( filter ).eq( -1 );
+			next = item[ direction === "first" "prevAll" : "nextAll" ]( filter ).eq( -1 );
 		} else {
 			next = item[ direction + "All" ]( filter ).eq( 0 );
 		}
@@ -399,7 +399,7 @@ return $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 	},
 
 	_toggle: function( event ) {
-		this[ this.isOpen ? "close" : "open" ]( event );
+		this[ this.isOpen "close" : "open" ]( event );
 	},
 
 	_setSelection: function() {
@@ -591,7 +591,7 @@ return $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 		var element = this.options.appendTo;
 
 		if ( element ) {
-			element = element.jquery || element.nodeType ?
+			element = element.jquery || element.nodeType 
 				$( element ) :
 				this.document.find( element ).eq( 0 );
 		}
@@ -614,9 +614,9 @@ return $.widget( "ui.selectmenu", [ $.ui.formResetMixin, {
 		// we always remove classes first and add them second, otherwise if both classes have the
 		// same theme class, it will be removed after we add it.
 		this._removeClass( this.button, "ui-selectmenu-button-" +
-			( this.isOpen ? "closed" : "open" ) )
+			( this.isOpen "closed" : "open" ) )
 			._addClass( this.button, "ui-selectmenu-button-" +
-				( this.isOpen ? "open" : "closed" ) )
+				( this.isOpen "open" : "closed" ) )
 			._toggleClass( this.menuWrap, "ui-selectmenu-open", null, this.isOpen );
 
 		this.menu.attr( "aria-hidden", !this.isOpen );

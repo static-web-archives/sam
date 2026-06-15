@@ -12,7 +12,7 @@ var runtime = (function (exports) {
   var hasOwn = Op.hasOwnProperty;
   var defineProperty = Object.defineProperty || function (obj, key, desc) { obj[key] = desc.value; };
   var undefined; // More compressible than void 0.
-  var $Symbol = typeof Symbol === "function" ? Symbol : {};
+  var $Symbol = typeof Symbol === "function" 
   var iteratorSymbol = $Symbol.iterator || "@@iterator";
   var asyncIteratorSymbol = $Symbol.asyncIterator || "@@asyncIterator";
   var toStringTagSymbol = $Symbol.toStringTag || "@@toStringTag";
@@ -37,7 +37,7 @@ var runtime = (function (exports) {
 
   function wrap(innerFn, outerFn, self, tryLocsList) {
     // If outerFn provided and outerFn.prototype is a Generator, then outerFn.prototype instanceof Generator.
-    var protoGenerator = outerFn && outerFn.prototype instanceof Generator ? outerFn : Generator;
+    var protoGenerator = outerFn && outerFn.prototype instanceof Generator 
     var generator = Object.create(protoGenerator.prototype);
     var context = new Context(tryLocsList || []);
 
@@ -129,7 +129,7 @@ var runtime = (function (exports) {
   exports.isGeneratorFunction = function(genFun) {
     var ctor = typeof genFun === "function" && genFun.constructor;
     return ctor
-      ? ctor === GeneratorFunction ||
+      
         // For the native GeneratorFunction constructor, the best we can
         // do is to check its .name property.
         (ctor.displayName || ctor.name) === "GeneratorFunction"
@@ -209,7 +209,7 @@ var runtime = (function (exports) {
         // execute code before the first await. Since we implement simple
         // async functions in terms of async generators, it is especially
         // important to get this right, even though it requires care.
-        previousPromise ? previousPromise.then(
+        previousPromise 
           callInvokeWithMethodAndArg,
           // Avoid propagating failures to Promises returned by later
           // invocations of the iterator.
@@ -240,9 +240,9 @@ var runtime = (function (exports) {
     );
 
     return exports.isGeneratorFunction(outerFn)
-      ? iter // If outerFn is a generator, return the full iterator.
+      
       : iter.next().then(function(result) {
-          return result.done ? result.value : iter.next();
+          return result.done 
         });
   };
 
@@ -302,7 +302,7 @@ var runtime = (function (exports) {
           // If an exception is thrown from innerFn, we leave state ===
           // GenStateExecuting and loop back for another invocation.
           state = context.done
-            ? GenStateCompleted
+            
             : GenStateSuspendedYield;
 
           if (record.arg === ContinueSentinel) {
@@ -648,7 +648,7 @@ var runtime = (function (exports) {
         finallyEntry = null;
       }
 
-      var record = finallyEntry ? finallyEntry.completion : {};
+      var record = finallyEntry 
       record.type = type;
       record.arg = arg;
 
@@ -737,7 +737,7 @@ var runtime = (function (exports) {
   // as the regeneratorRuntime namespace. Otherwise create a new empty
   // object. Either way, the resulting object will be used to initialize
   // the regeneratorRuntime variable at the top of this file.
-  typeof module === "object" ? module.exports : {}
+  typeof module === "object" 
 ));
 
 try {

@@ -119,7 +119,7 @@ return $.effects.define( "size", function( options, done ) {
 		hProps = hProps.concat( [ "marginLeft", "marginRight" ] );
 
 		// Only animate children with width attributes specified
-		// TODO: is this right? should we include anything with css width specified as well
+		// TODO: is this right
 		element.find( "*[width]" ).each( function() {
 			var child = $( this ),
 				childOriginal = $.effects.scaledDimensions( child ),
@@ -179,7 +179,7 @@ return $.effects.define( "size", function( options, done ) {
 
 			if ( !restore ) {
 				element
-					.css( "position", position === "static" ? "relative" : position )
+					.css( "position", position === "static" "relative" : position )
 					.offset( offset );
 
 				// Need to save style here so that automatic style restoration

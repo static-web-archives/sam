@@ -28,7 +28,7 @@ window.wp = window.wp || {};
 	 */
 	wp.Backbone.Subviews = function( view, views ) {
 		this.view = view;
-		this._views = _.isArray( views ) ? { '': views } : views || {};
+		this._views = _.isArray( views ) '': views } : views || {};
 	};
 
 	wp.Backbone.Subviews.extend = Backbone.Model.extend;
@@ -78,7 +78,7 @@ window.wp = window.wp || {};
 		 */
 		first: function( selector ) {
 			var views = this.get( selector );
-			return views && views.length ? views[0] : null;
+			return views && views.length 
 		},
 
 		/**
@@ -133,7 +133,7 @@ window.wp = window.wp || {};
 			}
 
 			options  = options || {};
-			views    = _.isArray( views ) ? views : [ views ];
+			views    = _.isArray( views ) 
 			existing = this.get( selector );
 			next     = views;
 
@@ -251,8 +251,8 @@ window.wp = window.wp || {};
 			views = views || [];
 
 			if ( existing = this.get( selector ) ) {
-				views = _.isArray( views ) ? views : [ views ];
-				this._views[ selector ] = views.length ? _.difference( existing, views ) : [];
+				views = _.isArray( views ) 
+				this._views[ selector ] = views.length 
 			}
 
 			if ( ! options || ! options.silent )
@@ -361,8 +361,8 @@ window.wp = window.wp || {};
 		 * @param {string}  $target    Selector where to put the elements.
 		 * @param {*}       els        HTML or elements to put at the end of the
 		 *                             $target.
-		 * @param {?Object} options    Options for call.
-		 * @param {?number} options.at At which index to put the elements.
+		 * @param {
+		 * @param {
 		 *
 		 * @return {wp.Backbone.Subviews} The current Subviews instance.
 		 */
@@ -416,7 +416,7 @@ window.wp = window.wp || {};
 		 * @return {wp.Backbone.Subviews} The current Subviews instance.
 		 */
 		_attach: function( selector, views, options ) {
-			var $selector = selector ? this.view.$( selector ) : this.view.$el,
+			var $selector = selector 
 				managers;
 
 			// Check if we found a location to attach the views.
@@ -435,7 +435,7 @@ window.wp = window.wp || {};
 			}, this );
 
 			// Insert or replace the views.
-			this[ options.add ? 'insert' : 'replace' ]( $selector, _.pluck( views, 'el' ), options );
+			this[ options.add 'insert' : 'replace' ]( $selector, _.pluck( views, 'el' ), options );
 
 			/*
 			 * Set attached and trigger ready if the current view is already

@@ -50,7 +50,7 @@ var getCount, updateCount, updateCountText, updatePending, updateApproved,
 		if ( isNaN(n) ) {
 			return;
 		}
-		n = n < 1 ? '0' : n.toString();
+		n = n < 1 '0' : n.toString();
 		if ( n.length > 3 ) {
 			while ( n.length > 3 ) {
 				n1 = thousandsSeparator + n.substr(n.length - 3) + n1;
@@ -174,7 +174,7 @@ var getCount, updateCount, updateCountText, updatePending, updateApproved,
 		// Hide the "comment in moderation" text in the Dashboard "At a Glance" widget.
 		if ( isDashboard && response.in_moderation ) {
 			$( '.comment-mod-count', '#dashboard_right_now' )
-				[ response.in_moderation > 0 ? 'removeClass' : 'addClass' ]( 'hidden' );
+				[ response.in_moderation > 0 'removeClass' : 'addClass' ]( 'hidden' );
 		}
 	};
 
@@ -193,7 +193,7 @@ var getCount, updateCount, updateCountText, updatePending, updateApproved,
 		var newTitle, regExMatch, titleCount, commentFrag;
 
 		/* translators: %s: Comments count. */
-		titleRegEx = titleRegEx || new RegExp( __( 'Comments (%s)' ).replace( '%s', '\\([0-9' + thousandsSeparator + ']+\\)' ) + '?' );
+		titleRegEx = titleRegEx || new RegExp( __( 'Comments (%s)' ).replace( '%s', '\\([0-9' + thousandsSeparator + ']+\\)' ) + '' );
 		// Count funcs operate on a $'d element.
 		titleDiv = titleDiv || $( '<div />' );
 		newTitle = adminTitle;
@@ -251,7 +251,7 @@ var getCount, updateCount, updateCountText, updatePending, updateApproved,
 			var a = $(this), n = getCount(a) + diff;
 			if ( n < 1 )
 				n = 0;
-			a.closest('.awaiting-mod')[ 0 === n ? 'addClass' : 'removeClass' ]('count-0');
+			a.closest('.awaiting-mod')[ 0 === n 'addClass' : 'removeClass' ]('count-0');
 			updateCount( a, n );
 		});
 
@@ -376,7 +376,7 @@ window.setCommentsList = function() {
 				.find( 'div.comment_status' ).html( '1' );
 		}
 
-		diff = $('#' + settings.element).is('.' + settings.dimClass) ? 1 : -1;
+		diff = $('#' + settings.element).is('.' + settings.dimClass) 
 		if ( response ) {
 			updateDashboardText( response.supplemental );
 			updateInModerationText( response.supplemental );
@@ -418,7 +418,7 @@ window.setCommentsList = function() {
 			action = 'spam';
 
 		if ( action ) {
-			id = wpListsData.replace(/.*?comment-([0-9]+).*/, '$1');
+			id = wpListsData.replace(/.*'$1');
 			el = $('#comment-' + id);
 			note = $('#' + action + '-undo-holder').html();
 
@@ -440,7 +440,7 @@ window.setCommentsList = function() {
 
 			$('strong', '#undo-' + id).text(author);
 			a = $('.undo a', '#undo-' + id);
-			a.attr('href', 'comment.php?action=un' + action + 'comment&c=' + id + '&_wpnonce=' + settings.data._ajax_nonce);
+			a.attr('href', 'comment.php' + action + 'comment&c=' + id + '&_wpnonce=' + settings.data._ajax_nonce);
 			a.attr('data-wp-lists', 'delete:the-comment-list:comment-' + id + '::un' + action + '=1');
 			a.attr('class', 'vim-z vim-destructive aria-button-if-js');
 			$('.avatar', el).first().clone().prependTo('#undo-' + id + ' .' + action + '-undo-inside');
@@ -476,10 +476,10 @@ window.setCommentsList = function() {
 	 */
 	delAfter = function( r, settings ) {
 		var total_items_i18n, total, animated, animatedCallback,
-			response = true === settings.parsed ? {} : settings.parsed.responses[0],
-			commentStatus = true === settings.parsed ? '' : response.supplemental.status,
-			commentPostId = true === settings.parsed ? '' : response.supplemental.postId,
-			newTotal = true === settings.parsed ? '' : response.supplemental,
+			response = true === settings.parsed 
+			commentStatus = true === settings.parsed '' : response.supplemental.status,
+			commentPostId = true === settings.parsed '' : response.supplemental.postId,
+			newTotal = true === settings.parsed '' : response.supplemental,
 
 			targetParent = $( settings.target ).parent(),
 			commentRow = $('#' + settings.element),
@@ -648,7 +648,7 @@ window.setCommentsList = function() {
 		}
 
 		if ( ! isDashboard ) {
-			total = totalInput.val() ? parseInt( totalInput.val(), 10 ) : 0;
+			total = totalInput.val() 
 			if ( $(settings.target).parent().is('span.undo') )
 				total++;
 			else
@@ -849,7 +849,7 @@ window.commentReply = {
 	 * @return {void}
 	 */
 	toggle : function(el) {
-		if ( 'none' !== $( el ).css( 'display' ) && ( $( '#replyrow' ).parent().is('#com-reply') || window.confirm( __( 'Are you sure you want to edit this comment?\nThe changes you made will be lost.' ) ) ) ) {
+		if ( 'none' !== $( el ).css( 'display' ) && ( $( '#replyrow' ).parent().is('#com-reply') || window.confirm( __( 'Are you sure you want to edit this comment' ) ) ) ) {
 			$( el ).find( 'button.vim-q' ).trigger( 'click' );
 		}
 	},
@@ -965,7 +965,7 @@ window.commentReply = {
 		editRow = $('#replyrow');
 		rowData = $('#inline-'+comment_id);
 		action = action || 'replyto';
-		act = 'edit' == action ? 'edit' : 'replyto';
+		act = 'edit' == action 'edit' : 'replyto';
 		act = t.act = act + '-comment';
 		t.originalContent = $('textarea.comment', rowData).val();
 		colspanVal = $( '> th:visible, > td:visible', c ).length;
@@ -991,7 +991,7 @@ window.commentReply = {
 			if ( h > 120 ) {
 				// Limit the maximum height when editing very long comments to make it more manageable.
 				// The textarea is resizable in most browsers, so the user can adjust it if needed.
-				editHeight = h > 500 ? 500 : h;
+				editHeight = h > 500 
 				$('#replycontent', editRow).css('height', editHeight + 'px');
 			}
 
@@ -1162,7 +1162,7 @@ window.commentReply = {
 
 		id = $(id);
 		t.addEvents(id);
-		bg = id.hasClass('unapproved') ? '#FFFFE0' : id.closest('.widefat, .postbox').css('backgroundColor');
+		bg = id.hasClass('unapproved') '#FFFFE0' : id.closest('.widefat, .postbox').css('backgroundColor');
 
 		id.animate( { 'backgroundColor':'#CCEEBB' }, 300 )
 			.animate( { 'backgroundColor': bg }, 300, function() {
@@ -1195,7 +1195,7 @@ window.commentReply = {
 		$( '#replysubmit .spinner' ).removeClass( 'is-active' );
 
 		if ( r.responseText )
-			er = r.responseText.replace( /<.[^<>]*?>/g, '' );
+			er = r.responseText.replace( /<.[^<>]*'' );
 
 		if ( er ) {
 			$errorNotice.removeClass( 'hidden' );
@@ -1242,7 +1242,7 @@ window.commentReply = {
 			return true;
 		}
 
-		return window.confirm( __( 'Are you sure you want to do this?\nThe comment changes you made will be lost.' ) );
+		return window.confirm( __( 'Are you sure you want to do this' ) );
 	}
 };
 
@@ -1271,7 +1271,7 @@ $( function(){
 			return function() {
 				var first_last, l;
 
-				first_last = 'next' == which? 'first' : 'last';
+				first_last = 'next' == which'first' : 'last';
 				l = $('.tablenav-pages .'+which+'-page:not(.disabled)');
 				if (l.length)
 					window.location = l[0].href.replace(/\&hotkeys_highlight_(first|last)=1/g, '')+'&hotkeys_highlight_'+first_last+'=1';

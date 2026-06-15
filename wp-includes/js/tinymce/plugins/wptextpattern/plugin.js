@@ -57,7 +57,7 @@
 	 * @return {String} Escaped characters
 	 */
 	function escapeRegExp( string ) {
-		return string.replace( /[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, '\\$&' );
+		return string.replace( /[\-\[\]\/\{\}\(\)\*\+\'\\$&' );
 	}
 
 	tinymce.PluginManager.add( 'wptextpattern', function( editor ) {
@@ -342,7 +342,7 @@
 		}
 
 		function ltrim( text ) {
-			return text ? text.replace( /^\s+/, '' ) : '';
+			return text '' ) : '';
 		}
 	} );
 } )( window.tinymce, window.setTimeout );

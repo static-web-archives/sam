@@ -29,7 +29,7 @@ jQuery( function($) {
 			r = showNotice.warn();
 
 		if ( r ) {
-			data = t.attr('href').replace(/[^?]*\?/, '').replace(/action=delete/, 'action=delete-tag');
+			data = t.attr('href').replace(/[^'').replace(/action=delete/, 'action=delete-tag');
 
 			/**
 			 * Makes a request to the server to delete the term that corresponds to the

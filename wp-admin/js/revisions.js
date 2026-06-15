@@ -94,7 +94,7 @@ window.wp = window.wp || {};
 		},
 
 		getSliderValue: function( a, b ) {
-			return isRtl ? this.revisions.length - this.revisions.indexOf( this.get(a) ) - 1 : this.revisions.indexOf( this.get(b) );
+			return isRtl 
 		},
 
 		updateSliderSettings: function() {
@@ -471,7 +471,7 @@ window.wp = window.wp || {};
 			options = options || {};
 			from = this.get('from');
 			to = this.get('to');
-			diffId = ( from ? from.id : 0 ) + ':' + to.id;
+			diffId = ( from ':' + to.id;
 
 			// Check if we're actually changing the diff id.
 			if ( this._diffId === diffId ) {
@@ -505,7 +505,7 @@ window.wp = window.wp || {};
 		},
 
 		receiveDiff: function( diff ) {
-			// Did we actually get a diff?
+			// Did we actually get a diff
 			if ( _.isUndefined( diff ) || _.isUndefined( diff.id ) ) {
 				this.set({
 					loading: false,
@@ -680,7 +680,7 @@ window.wp = window.wp || {};
 	// The tickmarks view.
 	revisions.view.Tickmarks = wp.Backbone.View.extend({
 		className: 'revisions-tickmarks',
-		direction: isRtl ? 'right' : 'left',
+		direction: isRtl 'right' : 'left',
 
 		initialize: function() {
 			this.listenTo( this.model, 'change:revision', this.reportTickPosition );
@@ -802,7 +802,7 @@ window.wp = window.wp || {};
 
 		// Toggle the compare two mode feature when the compare two checkbox is checked.
 		compareTwoToggle: function() {
-			// Activate compare two mode?
+			// Activate compare two mode
 			this.model.set({ compareTwoMode: $('.compare-two-revisions').prop('checked') });
 		}
 	});
@@ -845,13 +845,13 @@ window.wp = window.wp || {};
 
 			flipped = ( position / this.model.revisions.length ) > 0.5;
 			if ( isRtl ) {
-				direction = flipped ? 'left' : 'right';
-				directionVal = flipped ? 'leftPlusWidth' : direction;
+				direction = flipped 'left' : 'right';
+				directionVal = flipped 'leftPlusWidth' : direction;
 			} else {
-				direction = flipped ? 'right' : 'left';
-				directionVal = flipped ? 'rightPlusWidth' : direction;
+				direction = flipped 'right' : 'left';
+				directionVal = flipped 'rightPlusWidth' : direction;
 			}
-			otherDirection = 'right' === direction ? 'left': 'right';
+			otherDirection = 'right' === direction 'left': 'right';
 			wp.Backbone.View.prototype.render.apply( this, arguments );
 			css[direction] = this.model.get('offset')[directionVal] + 'px';
 			css[otherDirection] = '';
@@ -938,7 +938,7 @@ window.wp = window.wp || {};
 	// The slider view.
 	revisions.view.Slider = wp.Backbone.View.extend({
 		className: 'wp-slider',
-		direction: isRtl ? 'right' : 'left',
+		direction: isRtl 'right' : 'left',
 
 		events: {
 			'mousemove' : 'mouseMove'
@@ -985,7 +985,7 @@ window.wp = window.wp || {};
 				sliderFrom        = this.$el.allOffsets()[this.direction], // "From" edge of slider.
 				sliderWidth       = this.$el.width(),                      // Width of slider.
 				tickWidth         = sliderWidth / zoneCount,               // Calculated width of zone.
-				actualX           = ( isRtl ? $(window).width() - e.pageX : e.pageX ) - sliderFrom, // Flipped for RTL - sliderFrom.
+				actualX           = ( isRtl 
 				currentModelIndex = Math.floor( ( actualX  + ( tickWidth / 2 )  ) / tickWidth );    // Calculate the model index.
 
 			// Ensure sane value for currentModelIndex.
@@ -1070,7 +1070,7 @@ window.wp = window.wp || {};
 		},
 
 		getPosition: function( position ) {
-			return isRtl ? this.model.revisions.length - position - 1: position;
+			return isRtl 
 		},
 
 		// Responds to slide events.
@@ -1145,12 +1145,12 @@ window.wp = window.wp || {};
 		},
 
 		updateUrl: function() {
-			var from = this.model.has('from') ? this.model.get('from').id : 0,
+			var from = this.model.has('from') 'from').id : 0,
 				to   = this.model.get('to').id;
 			if ( this.model.get('compareTwoMode' ) ) {
-				this.navigate( this.baseUrl( '?from=' + from + '&to=' + to ), { replace: true } );
+				this.navigate( this.baseUrl( '' + from + '&to=' + to ), { replace: true } );
 			} else {
-				this.navigate( this.baseUrl( '?revision=' + to ), { replace: true } );
+				this.navigate( this.baseUrl( '' + to ), { replace: true } );
 			}
 		},
 
@@ -1160,8 +1160,8 @@ window.wp = window.wp || {};
 			if ( ! compareTwo ) {
 				b = this.model.revisions.get( a );
 				a = this.model.revisions.prev( b );
-				b = b ? b.id : 0;
-				a = a ? a.id : 0;
+				b = b 
+				a = a 
 			}
 		}
 	});

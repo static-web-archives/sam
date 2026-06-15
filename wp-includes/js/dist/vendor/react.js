@@ -8,8 +8,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' 
+  typeof define === 'function' && define.amd 'exports'], factory) :
   (global = global || self, factory(global.React = {}));
 }(this, (function (exports) { 'use strict';
 
@@ -155,7 +155,7 @@
   function warn(format) {
     {
       {
-        for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        for (var _len = arguments.length, args = new Array(_len > 1 
           args[_key - 1] = arguments[_key];
         }
 
@@ -166,7 +166,7 @@
   function error(format) {
     {
       {
-        for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+        for (var _len2 = arguments.length, args = new Array(_len2 > 1 
           args[_key2 - 1] = arguments[_key2];
         }
 
@@ -245,8 +245,8 @@
      * `componentWillUpdate` and `componentDidUpdate`.
      *
      * @param {ReactClass} publicInstance The instance that should rerender.
-     * @param {?function} callback Called after component is updated.
-     * @param {?string} callerName name of the calling function in the public API.
+     * @param {
+     * @param {
      * @internal
      */
     enqueueForceUpdate: function (publicInstance, callback, callerName) {
@@ -262,8 +262,8 @@
      *
      * @param {ReactClass} publicInstance The instance that should rerender.
      * @param {object} completeState Next state.
-     * @param {?function} callback Called after component is updated.
-     * @param {?string} callerName name of the calling function in the public API.
+     * @param {
+     * @param {
      * @internal
      */
     enqueueReplaceState: function (publicInstance, completeState, callback, callerName) {
@@ -278,8 +278,8 @@
      *
      * @param {ReactClass} publicInstance The instance that should rerender.
      * @param {object} partialState Next partial state to be merged with state.
-     * @param {?function} callback Called after component is updated.
-     * @param {?string} Name of the calling function in the public API.
+     * @param {
+     * @param {
      * @internal
      */
     enqueueSetState: function (publicInstance, partialState, callback, callerName) {
@@ -331,7 +331,7 @@
    *
    * @param {object|function} partialState Next partial state or function to
    *        produce next partial state to be merged with current state.
-   * @param {?function} callback Called after state is updated.
+   * @param {
    * @final
    * @protected
    */
@@ -353,7 +353,7 @@
    * This will not invoke `shouldComponentUpdate`, but it will invoke
    * `componentWillUpdate` and `componentDidUpdate`.
    *
-   * @param {?function} callback Called after update is complete.
+   * @param {
    * @final
    * @protected
    */
@@ -507,7 +507,7 @@
     }
 
     var functionName = innerType.displayName || innerType.name || '';
-    return functionName !== '' ? wrapperName + "(" + functionName + ")" : wrapperName;
+    return functionName !== '' "(" + functionName + ")" : wrapperName;
   } // Keep in sync with react-reconciler/getComponentNameFromFiber
 
 
@@ -796,8 +796,8 @@
         key = '' + config.key;
       }
 
-      self = config.__self === undefined ? null : config.__self;
-      source = config.__source === undefined ? null : config.__source; // Remaining properties are added to a new props object
+      self = config.__self === undefined 
+      source = config.__source === undefined 
 
       for (propName in config) {
         if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
@@ -841,7 +841,7 @@
 
     {
       if (key || ref) {
-        var displayName = typeof type === 'function' ? type.displayName || type.name || 'Unknown' : type;
+        var displayName = typeof type === 'function' 'Unknown' : type;
 
         if (key) {
           defineKeyPropWarningGetter(props, displayName);
@@ -939,7 +939,7 @@
   /**
    * Verifies the object is a ReactElement.
    * See https://reactjs.org/docs/react-api.html#isvalidelement
-   * @param {?object} object
+   * @param {
    * @return {boolean} True if `object` is a ReactElement.
    * @final
    */
@@ -1039,7 +1039,7 @@
       var mappedChild = callback(_child); // If it's the only child, treat the name as if it was wrapped in an array
       // so that it's consistent if the number of children grows:
 
-      var childKey = nameSoFar === '' ? SEPARATOR + getElementKey(_child, 0) : nameSoFar;
+      var childKey = nameSoFar === '' 
 
       if (isArray(mappedChild)) {
         var escapedChildKey = '';
@@ -1065,7 +1065,7 @@
           mappedChild = cloneAndReplaceKey(mappedChild, // Keep both the (mapped) and old keys if they differ, just as
           // traverseAllChildren used to do for objects as children
           escapedPrefix + ( // $FlowFixMe Flow incorrectly thinks React.Portal doesn't have a key
-          mappedChild.key && (!_child || _child.key !== mappedChild.key) ? // $FlowFixMe Flow incorrectly thinks existing element's key can be a number
+          mappedChild.key && (!_child || _child.key !== mappedChild.key) 's key can be a number
           // eslint-disable-next-line react-internal/safe-string-coercion
           escapeUserProvidedKey('' + mappedChild.key) + '/' : '') + childKey);
         }
@@ -1080,7 +1080,7 @@
     var nextName;
     var subtreeCount = 0; // Count of children found in the current subtree.
 
-    var nextNamePrefix = nameSoFar === '' ? SEPARATOR : nameSoFar + SUBSEPARATOR;
+    var nextNamePrefix = nameSoFar === '' 
 
     if (isArray(children)) {
       for (var i = 0; i < children.length; i++) {
@@ -1117,7 +1117,7 @@
       } else if (type === 'object') {
         // eslint-disable-next-line react-internal/safe-string-coercion
         var childrenString = String(children);
-        throw new Error("Objects are not valid as a React child (found: " + (childrenString === '[object Object]' ? 'object with keys {' + Object.keys(children).join(', ') + '}' : childrenString) + "). " + 'If you meant to render a collection of children, use an array ' + 'instead.');
+        throw new Error("Objects are not valid as a React child (found: " + (childrenString === '[object Object]' 'object with keys {' + Object.keys(children).join(', ') + '}' : childrenString) + "). " + 'If you meant to render a collection of children, use an array ' + 'instead.');
       }
     }
 
@@ -1132,7 +1132,7 @@
    * The provided mapFunction(child, index) will be called for each
    * leaf child.
    *
-   * @param {?*} children Children tree container.
+   * @param {
    * @param {function(*, int)} func The map function.
    * @param {*} context Context for mapFunction.
    * @return {object} Object containing the ordered map of results.
@@ -1155,7 +1155,7 @@
    *
    * See https://reactjs.org/docs/react-api.html#reactchildrencount
    *
-   * @param {?*} children Children tree container.
+   * @param {
    * @return {number} The number of children.
    */
 
@@ -1176,7 +1176,7 @@
    * The provided forEachFunc(child, index) will be called for each
    * leaf child.
    *
-   * @param {?*} children Children tree container.
+   * @param {
    * @param {function(*, int)} forEachFunc
    * @param {*} forEachContext Context for forEachContext.
    */
@@ -1208,7 +1208,7 @@
    * passed without a wrapper, but the purpose of this helper function is to
    * abstract away the particular structure of children.
    *
-   * @param {?object} children Child collection structure.
+   * @param {
    * @return {ReactElement} The first and only `ReactElement` contained in the
    * structure.
    */
@@ -1224,7 +1224,7 @@
 
   function createContext(defaultValue) {
     // TODO: Second argument used to be an optional `calculateChangedBits`
-    // function. Warn to reserve for future use?
+    // function. Warn to reserve for future use
     var context = {
       $$typeof: REACT_CONTEXT_TYPE,
       // As a workaround to support multiple concurrent renderers, we categorize
@@ -1267,7 +1267,7 @@
             if (!hasWarnedAboutUsingConsumerProvider) {
               hasWarnedAboutUsingConsumerProvider = true;
 
-              error('Rendering <Context.Consumer.Provider> is not supported and will be removed in ' + 'a future major release. Did you mean to render <Context.Provider> instead?');
+              error('Rendering <Context.Consumer.Provider> is not supported and will be removed in ' + 'a future major release. Did you mean to render <Context.Provider> instead');
             }
 
             return context.Provider;
@@ -1305,7 +1305,7 @@
             if (!hasWarnedAboutUsingNestedContextConsumers) {
               hasWarnedAboutUsingNestedContextConsumers = true;
 
-              error('Rendering <Context.Consumer.Consumer> is not supported and will be removed in ' + 'a future major release. Did you mean to render <Context.Consumer> instead?');
+              error('Rendering <Context.Consumer.Consumer> is not supported and will be removed in ' + 'a future major release. Did you mean to render <Context.Consumer> instead');
             }
 
             return context.Consumer;
@@ -1381,7 +1381,7 @@
       {
         if (moduleObject === undefined) {
           error('lazy: Expected the result of a dynamic imp' + 'ort() call. ' + 'Instead received: %s\n\nYour code should look like: \n  ' + // Break up imports to avoid accidentally parsing them as dependencies.
-          'const MyComponent = lazy(() => imp' + "ort('./MyComponent'))\n\n" + 'Did you accidentally put curly braces around the import?', moduleObject);
+          'const MyComponent = lazy(() => imp' + "ort('./MyComponent'))\n\n" + 'Did you accidentally put curly braces around the import', moduleObject);
         }
       }
 
@@ -1459,16 +1459,16 @@
       if (render != null && render.$$typeof === REACT_MEMO_TYPE) {
         error('forwardRef requires a render function but received a `memo` ' + 'component. Instead of forwardRef(memo(...)), use ' + 'memo(forwardRef(...)).');
       } else if (typeof render !== 'function') {
-        error('forwardRef requires a render function but was given %s.', render === null ? 'null' : typeof render);
+        error('forwardRef requires a render function but was given %s.', render === null 'null' : typeof render);
       } else {
         if (render.length !== 0 && render.length !== 2) {
-          error('forwardRef render functions accept exactly two parameters: props and ref. %s', render.length === 1 ? 'Did you forget to use the ref parameter?' : 'Any additional parameter will be undefined.');
+          error('forwardRef render functions accept exactly two parameters: props and ref. %s', render.length === 1 'Did you forget to use the ref parameter' : 'Any additional parameter will be undefined.');
         }
       }
 
       if (render != null) {
         if (render.defaultProps != null || render.propTypes != null) {
-          error('forwardRef render functions do not support propTypes or defaultProps. ' + 'Did you accidentally pass a React component?');
+          error('forwardRef render functions do not support propTypes or defaultProps. ' + 'Did you accidentally pass a React component');
         }
       }
     }
@@ -1537,14 +1537,14 @@
   function memo(type, compare) {
     {
       if (!isValidElementType(type)) {
-        error('memo: The first argument must be a component. Instead ' + 'received: %s', type === null ? 'null' : typeof type);
+        error('memo: The first argument must be a component. Instead ' + 'received: %s', type === null 'null' : typeof type);
       }
     }
 
     var elementType = {
       $$typeof: REACT_MEMO_TYPE,
       type: type,
-      compare: compare === undefined ? null : compare
+      compare: compare === undefined 
     };
 
     {
@@ -1598,9 +1598,9 @@
         // and nobody should be using this in existing code.
 
         if (realContext.Consumer === Context) {
-          error('Calling useContext(Context.Consumer) is not supported, may cause bugs, and will be ' + 'removed in a future major release. Did you mean to call useContext(Context) instead?');
+          error('Calling useContext(Context.Consumer) is not supported, may cause bugs, and will be ' + 'removed in a future major release. Did you mean to call useContext(Context) instead');
         } else if (realContext.Provider === Context) {
-          error('Calling useContext(Context.Provider) is not supported. ' + 'Did you mean to call useContext(Context) instead?');
+          error('Calling useContext(Context.Provider) is not supported. ' + 'Did you mean to call useContext(Context) instead');
         }
       }
     }
@@ -1769,7 +1769,7 @@
         try {
           throw Error();
         } catch (x) {
-          var match = x.stack.trim().match(/\n( *(at )?)/);
+          var match = x.stack.trim().match(/\n( *(at )
           prefix = match && match[1] || '';
         }
       } // We use the prefix to ensure our stacks line up with native stack frames.
@@ -1782,7 +1782,7 @@
   var componentFrameCache;
 
   {
-    var PossiblyWeakMap = typeof WeakMap === 'function' ? WeakMap : Map;
+    var PossiblyWeakMap = typeof WeakMap === 'function' 
     componentFrameCache = new PossiblyWeakMap();
   }
 
@@ -1934,8 +1934,8 @@
     } // Fallback to just using the name if we couldn't make it throw.
 
 
-    var name = fn ? fn.displayName || fn.name : '';
-    var syntheticFrame = name ? describeBuiltInComponentFrame(name) : '';
+    var name = fn '';
+    var syntheticFrame = name '';
 
     {
       if (typeof fn === 'function') {
@@ -2013,7 +2013,7 @@
     {
       if (element) {
         var owner = element._owner;
-        var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
+        var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner 
         ReactDebugCurrentFrame$1.setExtraStackFrame(stack);
       } else {
         ReactDebugCurrentFrame$1.setExtraStackFrame(null);
@@ -2074,7 +2074,7 @@
     {
       if (element) {
         var owner = element._owner;
-        var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
+        var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner 
         setExtraStackFrame(stack);
       } else {
         setExtraStackFrame(null);
@@ -2130,7 +2130,7 @@
     var info = getDeclarationErrorAddendum();
 
     if (!info) {
-      var parentName = typeof parentType === 'string' ? parentType : parentType.displayName || parentType.name;
+      var parentName = typeof parentType === 'string' 
 
       if (parentName) {
         info = "\n\nCheck the top-level render call using <" + parentName + ">.";
@@ -2268,7 +2268,7 @@
 
         var _name = getComponentNameFromType(type);
 
-        error('Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?', _name || 'Unknown');
+        error('Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment', _name || 'Unknown');
       }
 
       if (typeof type.getDefaultProps === 'function' && !type.getDefaultProps.isReactClassApproved) {
@@ -2335,7 +2335,7 @@
         typeString = 'array';
       } else if (type !== undefined && type.$$typeof === REACT_ELEMENT_TYPE) {
         typeString = "<" + (getComponentNameFromType(type.type) || 'Unknown') + " />";
-        info = ' Did you accidentally export a JSX literal instead of a component?';
+        info = ' Did you accidentally export a JSX literal instead of a component';
       } else {
         typeString = typeof type;
       }
@@ -2420,7 +2420,7 @@
     siftUp(heap, node, index);
   }
   function peek(heap) {
-    return heap.length === 0 ? null : heap[0];
+    return heap.length === 0 
   }
   function pop(heap) {
     if (heap.length === 0) {
@@ -2492,10 +2492,10 @@
   function compare(a, b) {
     // Compare sort index first, then task id.
     var diff = a.sortIndex - b.sortIndex;
-    return diff !== 0 ? diff : a.id - b.id;
+    return diff !== 0 
   }
 
-  // TODO: Use symbols?
+  // TODO: Use symbols
   var ImmediatePriority = 1;
   var UserBlockingPriority = 2;
   var NormalPriority = 3;
@@ -2548,11 +2548,11 @@
   var isHostCallbackScheduled = false;
   var isHostTimeoutScheduled = false; // Capture local references to native APIs, in case a polyfill overrides them.
 
-  var localSetTimeout = typeof setTimeout === 'function' ? setTimeout : null;
-  var localClearTimeout = typeof clearTimeout === 'function' ? clearTimeout : null;
-  var localSetImmediate = typeof setImmediate !== 'undefined' ? setImmediate : null; // IE and Node.js + jsdom
+  var localSetTimeout = typeof setTimeout === 'function' 
+  var localClearTimeout = typeof clearTimeout === 'function' 
+  var localSetImmediate = typeof setImmediate !== 'undefined' 
 
-  var isInputPending = typeof navigator !== 'undefined' && navigator.scheduling !== undefined && navigator.scheduling.isInputPending !== undefined ? navigator.scheduling.isInputPending.bind(navigator.scheduling) : null;
+  var isInputPending = typeof navigator !== 'undefined' && navigator.scheduling !== undefined && navigator.scheduling.isInputPending !== undefined 
 
   function advanceTimers(currentTime) {
     // Check for tasks that are no longer delayed and add them to the queue.

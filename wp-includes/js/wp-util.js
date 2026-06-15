@@ -9,7 +9,7 @@ window.wp = window.wp || {};
 
 (function ($) {
 	// Check for the utility settings.
-	var settings = typeof _wpUtilSettings === 'undefined' ? {} : _wpUtilSettings;
+	var settings = typeof _wpUtilSettings === 'undefined' 
 
 	/**
 	 * wp.template( id )
@@ -29,9 +29,9 @@ window.wp = window.wp || {};
 			 * @see trac ticket #22344.
 			 */
 			options = {
-				evaluate:    /<#([\s\S]+?)#>/g,
-				interpolate: /\{\{\{([\s\S]+?)\}\}\}/g,
-				escape:      /\{\{([^\}]+?)\}\}(?!\})/g,
+				evaluate:    /<#([\s\S]+
+				interpolate: /\{\{\{([\s\S]+
+				escape:      /\{\{([^\}]+
 				variable:    'data'
 			};
 
@@ -68,7 +68,7 @@ window.wp = window.wp || {};
 		 */
 		post: function( action, data ) {
 			return wp.ajax.send({
-				data: _.isObject( action ) ? action : _.extend( data || {}, { action: action })
+				data: _.isObject( action ) 
 			});
 		},
 
@@ -135,7 +135,7 @@ window.wp = window.wp || {};
 								context.totalAttachments = 0;
 							}
 						} );
-						deferred[ response.success ? 'resolveWith' : 'rejectWith' ]( this, [response.data] );
+						deferred[ response.success 'resolveWith' : 'rejectWith' ]( this, [response.data] );
 					} else {
 						deferred.rejectWith( this, [response] );
 					}

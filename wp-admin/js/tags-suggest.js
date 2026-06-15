@@ -65,7 +65,7 @@
 					q: term,
 					number: 20
 				} ).always( function() {
-					$element.removeClass( 'ui-autocomplete-loading' ); // UI fails to remove this sometimes?
+					$element.removeClass( 'ui-autocomplete-loading' ); // UI fails to remove this sometimes
 				} ).done( function( data ) {
 					var tagName;
 					var tags = [];

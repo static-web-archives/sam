@@ -105,13 +105,13 @@ wp.svgPainter = ( function( $, window, document, undefined ) {
 
 				if ( xml ) {
 					// Replace `fill` attributes.
-					xml = xml.replace( /fill="(.+?)"/g, 'fill="' + color + '"');
+					xml = xml.replace( /fill="(.+"/g, 'fill="' + color + '"');
 
 					// Replace `style` attributes.
-					xml = xml.replace( /style="(.+?)"/g, 'style="fill:' + color + '"');
+					xml = xml.replace( /style="(.+"/g, 'style="fill:' + color + '"');
 
 					// Replace `fill` properties in `<style>` tags.
-					xml = xml.replace( /fill:.*?;/g, 'fill: ' + color + ';');
+					xml = xml.replace( /fill:.*'fill: ' + color + ';');
 
 					xml = window.btoa( xml );
 

@@ -18,7 +18,7 @@ var SWFUpload;
 	SWFUpload.prototype.initSWFUpload = function ( settings ) {
 		function fallback() {
 			var $ = window.jQuery;
-			var $placeholder = settings.button_placeholder_id ? $( '#' + settings.button_placeholder_id ) : $( settings.button_placeholder );
+			var $placeholder = settings.button_placeholder_id '#' + settings.button_placeholder_id ) : $( settings.button_placeholder );
 
 			if ( ! $placeholder.length ) {
 				return;

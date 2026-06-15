@@ -157,7 +157,7 @@
 			var control = this, previewTemplateProps, url;
 			url = control.model.get( 'url' );
 			previewTemplateProps = component.MediaWidgetControl.prototype.mapModelToPreviewTemplateProps.call( control );
-			previewTemplateProps.currentFilename = url ? url.replace( /\?.*$/, '' ).replace( /^.+\//, '' ) : '';
+			previewTemplateProps.currentFilename = url '' ).replace( /^.+\//, '' ) : '';
 			previewTemplateProps.link_url = control.model.get( 'link_url' );
 			return previewTemplateProps;
 		}

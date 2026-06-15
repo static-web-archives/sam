@@ -96,7 +96,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            commentHandler.visit(node, metadata);
 	        }
 	    };
-	    var parserDelegate = (typeof delegate === 'function') ? proxyDelegate : null;
+	    var parserDelegate = (typeof delegate === 'function') 
 	    var collectComment = false;
 	    if (options) {
 	        collectComment = (typeof options.comment === 'boolean' && options.comment);
@@ -119,7 +119,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    else {
 	        parser = new parser_1.Parser(code, options, parserDelegate);
 	    }
-	    var program = isModule ? parser.parseModule() : parser.parseScript();
+	    var program = isModule 
 	    var ast = program;
 	    if (collectComment && commentHandler) {
 	        ast.comments = commentHandler.comments;
@@ -245,7 +245,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	        }
 	        if (target) {
-	            var count = target.leadingComments ? target.leadingComments.length : 0;
+	            var count = target.leadingComments 
 	            for (var i = count - 1; i >= 0; --i) {
 	                var comment = target.leadingComments[i];
 	                if (comment.range[1] <= metadata.start.offset) {
@@ -286,7 +286,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        });
 	    };
 	    CommentHandler.prototype.visitComment = function (node, metadata) {
-	        var type = (node.type[0] === 'L') ? 'Line' : 'Block';
+	        var type = (node.type[0] === 'L') 'Line' : 'Block';
 	        var comment = {
 	            type: type,
 	            value: node.value
@@ -420,7 +420,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    return function (d, b) {
 	        extendStatics(d, b);
 	        function __() { this.constructor = d; }
-	        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+	        d.prototype = b === null 
 	    };
 	})();
 	Object.defineProperty(exports, "__esModule", { value: true });
@@ -463,7 +463,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _super.call(this, code, options, delegate) || this;
 	    }
 	    JSXParser.prototype.parsePrimaryExpression = function () {
-	        return this.match('<') ? this.parseJSXRoot() : _super.prototype.parsePrimaryExpression.call(this);
+	        return this.match('<') 
 	    };
 	    JSXParser.prototype.startJSX = function () {
 	        // Unwind the scanner before the lookahead token.
@@ -593,7 +593,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        if (cp === 46) {
 	            var n1 = this.scanner.source.charCodeAt(this.scanner.index + 1);
 	            var n2 = this.scanner.source.charCodeAt(this.scanner.index + 2);
-	            var value = (n1 === 46 && n2 === 46) ? '...' : '.';
+	            var value = (n1 === 46 && n2 === 46) '...' : '.';
 	            var start = this.scanner.index;
 	            this.scanner.index += value.length;
 	            return {
@@ -780,8 +780,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return this.finalize(node, new JSXNode.JSXExpressionContainer(expression));
 	    };
 	    JSXParser.prototype.parseJSXAttributeValue = function () {
-	        return this.matchJSX('{') ? this.parseJSXExpressionAttribute() :
-	            this.matchJSX('<') ? this.parseJSXElement() : this.parseJSXStringLiteralAttribute();
+	        return this.matchJSX('{') 
+	            this.matchJSX('<') 
 	    };
 	    JSXParser.prototype.parseJSXNameValueAttribute = function () {
 	        var node = this.createJSXNode();
@@ -805,7 +805,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    JSXParser.prototype.parseJSXAttributes = function () {
 	        var attributes = [];
 	        while (!this.matchJSX('/') && !this.matchJSX('>')) {
-	            var attribute = this.matchJSX('{') ? this.parseJSXSpreadAttribute() :
+	            var attribute = this.matchJSX('{') 
 	                this.parseJSXNameValueAttribute();
 	            attributes.push(attribute);
 	        }
@@ -967,7 +967,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.Character = {
 	    /* tslint:disable:no-bitwise */
 	    fromCodePoint: function (cp) {
-	        return (cp < 0x10000) ? String.fromCharCode(cp) :
+	        return (cp < 0x10000) 
 	            String.fromCharCode(0xD800 + ((cp - 0x10000) >> 10)) +
 	                String.fromCharCode(0xDC00 + ((cp - 0x10000) & 1023));
 	    },
@@ -1243,7 +1243,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var BinaryExpression = (function () {
 	    function BinaryExpression(operator, left, right) {
 	        var logical = (operator === '||' || operator === '&&');
-	        this.type = logical ? syntax_1.Syntax.LogicalExpression : syntax_1.Syntax.BinaryExpression;
+	        this.type = logical 
 	        this.operator = operator;
 	        this.left = left;
 	        this.right = right;
@@ -1956,11 +1956,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var value;
 	        if (token) {
 	            if (!message) {
-	                msg = (token.type === 2 /* EOF */) ? messages_1.Messages.UnexpectedEOS :
-	                    (token.type === 3 /* Identifier */) ? messages_1.Messages.UnexpectedIdentifier :
-	                        (token.type === 6 /* NumericLiteral */) ? messages_1.Messages.UnexpectedNumber :
-	                            (token.type === 8 /* StringLiteral */) ? messages_1.Messages.UnexpectedString :
-	                                (token.type === 10 /* Template */) ? messages_1.Messages.UnexpectedTemplate :
+	                msg = (token.type === 2 /* EOF */) 
+	                    (token.type === 3 /* Identifier */) 
+	                        (token.type === 6 /* NumericLiteral */) 
+	                            (token.type === 8 /* StringLiteral */) 
+	                                (token.type === 10 /* Template */) 
 	                                    messages_1.Messages.UnexpectedToken;
 	                if (token.type === 4 /* Keyword */) {
 	                    if (this.scanner.isFutureReservedWord(token.value)) {
@@ -2008,7 +2008,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    var e = comments[i];
 	                    var node = void 0;
 	                    node = {
-	                        type: e.multiLine ? 'BlockComment' : 'LineComment',
+	                        type: e.multiLine 'BlockComment' : 'LineComment',
 	                        value: this.scanner.source.slice(e.slice[0], e.slice[1])
 	                    };
 	                    if (this.config.range) {
@@ -2304,7 +2304,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                if ((this.context.isModule || this.context.await) && this.lookahead.value === 'await') {
 	                    this.tolerateUnexpectedToken(this.lookahead);
 	                }
-	                expr = this.matchAsyncFunction() ? this.parseFunctionExpression() : this.finalize(node, new Node.Identifier(this.nextToken().value));
+	                expr = this.matchAsyncFunction() 
 	                break;
 	            case 6 /* NumericLiteral */:
 	            case 8 /* StringLiteral */:
@@ -2517,7 +2517,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            computed = this.match('[');
 	            isAsync = !this.hasLineTerminator && (id === 'async') &&
 	                !this.match(':') && !this.match('(') && !this.match('*');
-	            key = isAsync ? this.parseObjectPropertyKey() : this.finalize(node, new Node.Identifier(id));
+	            key = isAsync 
 	        }
 	        else if (this.match('*')) {
 	            this.nextToken();
@@ -2563,7 +2563,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                value = this.inheritCoverGrammar(this.parseAssignmentExpression);
 	            }
 	            else if (this.match('(')) {
-	                value = isAsync ? this.parsePropertyMethodAsyncFunction() : this.parsePropertyMethodFunction();
+	                value = isAsync 
 	                method = true;
 	            }
 	            else if (token.type === 3 /* Identifier */) {
@@ -2776,7 +2776,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                            else {
 	                                this.reinterpretExpressionAsPattern(expr);
 	                            }
-	                            var parameters = (expr.type === syntax_1.Syntax.SequenceExpression ? expr.expressions : [expr]);
+	                            var parameters = (expr.type === syntax_1.Syntax.SequenceExpression 
 	                            expr = {
 	                                type: ArrowParameterPlaceHolder,
 	                                params: parameters,
@@ -2796,7 +2796,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var args = [];
 	        if (!this.match(')')) {
 	            while (true) {
-	                var expr = this.match('...') ? this.parseSpreadElement() :
+	                var expr = this.match('...') 
 	                    this.isolateCoverGrammar(this.parseAssignmentExpression);
 	                args.push(expr);
 	                if (this.match(')')) {
@@ -2842,7 +2842,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	        else {
 	            var callee = this.isolateCoverGrammar(this.parseLeftHandSideExpression);
-	            var args = this.match('(') ? this.parseArguments() : [];
+	            var args = this.match('(') 
 	            expr = new Node.NewExpression(callee, args);
 	            this.context.isAssignmentTarget = false;
 	            this.context.isBindingElement = false;
@@ -2859,7 +2859,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var args = [];
 	        if (!this.match(')')) {
 	            while (true) {
-	                var expr = this.match('...') ? this.parseSpreadElement() :
+	                var expr = this.match('...') 
 	                    this.isolateCoverGrammar(this.parseAsyncArgument);
 	                args.push(expr);
 	                if (this.match(')')) {
@@ -2889,7 +2889,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	        }
 	        else {
-	            expr = this.inheritCoverGrammar(this.matchKeyword('new') ? this.parseNewExpression : this.parsePrimaryExpression);
+	            expr = this.inheritCoverGrammar(this.matchKeyword('new') 
 	        }
 	        while (true) {
 	            if (this.match('.')) {
@@ -2903,7 +2903,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                var asyncArrow = maybeAsync && (startToken.lineNumber === this.lookahead.lineNumber);
 	                this.context.isBindingElement = false;
 	                this.context.isAssignmentTarget = false;
-	                var args = asyncArrow ? this.parseAsyncArguments() : this.parseArguments();
+	                var args = asyncArrow 
 	                expr = this.finalize(this.startNode(startToken), new Node.CallExpression(expr, args));
 	                if (asyncArrow && this.match('=>')) {
 	                    for (var i = 0; i < args.length; ++i) {
@@ -2946,8 +2946,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Parser.prototype.parseLeftHandSideExpression = function () {
 	        assert_1.assert(this.context.allowIn, 'callee of new expression always allow in keyword.');
 	        var node = this.startNode(this.lookahead);
-	        var expr = (this.matchKeyword('super') && this.context.inFunctionBody) ? this.parseSuper() :
-	            this.inheritCoverGrammar(this.matchKeyword('new') ? this.parseNewExpression : this.parsePrimaryExpression);
+	        var expr = (this.matchKeyword('super') && this.context.inFunctionBody) 
+	            this.inheritCoverGrammar(this.matchKeyword('new') 
 	        while (true) {
 	            if (this.match('[')) {
 	                this.context.isBindingElement = false;
@@ -3070,7 +3070,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            precedence = this.operatorPrecedence[op] || 0;
 	        }
 	        else if (token.type === 4 /* Keyword */) {
-	            precedence = (op === 'instanceof' || (this.context.allowIn && op === 'in')) ? 7 : 0;
+	            precedence = (op === 'instanceof' || (this.context.allowIn && op === 'in')) 
 	        }
 	        else {
 	            precedence = 0;
@@ -3129,7 +3129,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    Parser.prototype.parseConditionalExpression = function () {
 	        var startToken = this.lookahead;
 	        var expr = this.inheritCoverGrammar(this.parseBinaryExpression);
-	        if (this.match('?')) {
+	        if (this.match('')) {
 	            this.nextToken();
 	            var previousAllowIn = this.context.allowIn;
 	            this.context.allowIn = true;
@@ -3218,7 +3218,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	        }
 	        if (options.message === messages_1.Messages.StrictParamDupe) {
-	            var token = this.context.strict ? options.stricted : options.firstRestricted;
+	            var token = this.context.strict 
 	            this.throwUnexpectedToken(token, options.message);
 	        }
 	        return {
@@ -3286,7 +3286,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    if (this.context.strict && list.stricted) {
 	                        this.tolerateUnexpectedToken(list.stricted, list.message);
 	                    }
-	                    expr = isAsync ? this.finalize(node, new Node.AsyncArrowFunctionExpression(list.params, body, expression)) :
+	                    expr = isAsync 
 	                        this.finalize(node, new Node.ArrowFunctionExpression(list.params, body, expression));
 	                    this.context.strict = previousStrict;
 	                    this.context.allowStrictDirective = previousAllowStrictDirective;
@@ -3372,7 +3372,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    statement = this.parseClassDeclaration();
 	                    break;
 	                case 'let':
-	                    statement = this.isLexicalDeclaration() ? this.parseLexicalDeclaration({ inFor: false }) : this.parseStatement();
+	                    statement = this.isLexicalDeclaration() 
 	                    break;
 	                default:
 	                    statement = this.parseStatement();
@@ -3852,9 +3852,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	            body = this.isolateCoverGrammar(this.parseStatement);
 	            this.context.inIteration = previousInIteration;
 	        }
-	        return (typeof left === 'undefined') ?
+	        return (typeof left === 'undefined') 
 	            this.finalize(node, new Node.ForStatement(init, test, update, body)) :
-	            forIn ? this.finalize(node, new Node.ForInStatement(left, right, body)) :
+	            forIn 
 	                this.finalize(node, new Node.ForOfStatement(left, right, body));
 	    };
 	    // https://tc39.github.io/ecma262/#sec-continue-statement
@@ -3904,7 +3904,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.expectKeyword('return');
 	        var hasArgument = !this.match(';') && !this.match('}') &&
 	            !this.hasLineTerminator && this.lookahead.type !== 2 /* EOF */;
-	        var argument = hasArgument ? this.parseExpression() : null;
+	        var argument = hasArgument 
 	        this.consumeSemicolon();
 	        return this.finalize(node, new Node.ReturnStatement(argument));
 	    };
@@ -4065,8 +4065,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var node = this.createNode();
 	        this.expectKeyword('try');
 	        var block = this.parseBlock();
-	        var handler = this.matchKeyword('catch') ? this.parseCatchClause() : null;
-	        var finalizer = this.matchKeyword('finally') ? this.parseFinallyClause() : null;
+	        var handler = this.matchKeyword('catch') 
+	        var finalizer = this.matchKeyword('finally') 
 	        if (!handler && !finalizer) {
 	            this.throwError(messages_1.Messages.NoCatchOrFinally);
 	        }
@@ -4107,7 +4107,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                }
 	                break;
 	            case 3 /* Identifier */:
-	                statement = this.matchAsyncFunction() ? this.parseFunctionDeclaration() : this.parseLabelledStatement();
+	                statement = this.matchAsyncFunction() 
 	                break;
 	            case 4 /* Keyword */:
 	                switch (this.lookahead.value) {
@@ -4237,7 +4237,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    };
 	    Parser.prototype.parseFormalParameter = function (options) {
 	        var params = [];
-	        var param = this.match('...') ? this.parseRestElement(params) : this.parsePatternWithDefault(params);
+	        var param = this.match('...') 
 	        for (var i = 0; i < params.length; i++) {
 	            this.validateParam(options, params[i], params[i].value);
 	        }
@@ -4292,7 +4292,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.nextToken();
 	        }
 	        this.expectKeyword('function');
-	        var isGenerator = isAsync ? false : this.match('*');
+	        var isGenerator = isAsync '*');
 	        if (isGenerator) {
 	            this.nextToken();
 	        }
@@ -4343,7 +4343,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.context.allowStrictDirective = previousAllowStrictDirective;
 	        this.context.await = previousAllowAwait;
 	        this.context.allowYield = previousAllowYield;
-	        return isAsync ? this.finalize(node, new Node.AsyncFunctionDeclaration(id, params, body)) :
+	        return isAsync 
 	            this.finalize(node, new Node.FunctionDeclaration(id, params, body, isGenerator));
 	    };
 	    Parser.prototype.parseFunctionExpression = function () {
@@ -4353,7 +4353,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.nextToken();
 	        }
 	        this.expectKeyword('function');
-	        var isGenerator = isAsync ? false : this.match('*');
+	        var isGenerator = isAsync '*');
 	        if (isGenerator) {
 	            this.nextToken();
 	        }
@@ -4366,7 +4366,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.context.allowYield = !isGenerator;
 	        if (!this.match('(')) {
 	            var token = this.lookahead;
-	            id = (!this.context.strict && !isGenerator && this.matchKeyword('yield')) ? this.parseIdentifierName() : this.parseVariableIdentifier();
+	            id = (!this.context.strict && !isGenerator && this.matchKeyword('yield')) 
 	            if (this.context.strict) {
 	                if (this.scanner.isRestrictedWord(token.value)) {
 	                    this.tolerateUnexpectedToken(token, messages_1.Messages.StrictFunctionName);
@@ -4404,7 +4404,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.context.allowStrictDirective = previousAllowStrictDirective;
 	        this.context.await = previousAllowAwait;
 	        this.context.allowYield = previousAllowYield;
-	        return isAsync ? this.finalize(node, new Node.AsyncFunctionExpression(id, params, body)) :
+	        return isAsync 
 	            this.finalize(node, new Node.FunctionExpression(id, params, body, isGenerator));
 	    };
 	    // https://tc39.github.io/ecma262/#sec-directive-prologues-and-the-use-strict-directive
@@ -4412,9 +4412,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var token = this.lookahead;
 	        var node = this.createNode();
 	        var expr = this.parseExpression();
-	        var directive = (expr.type === syntax_1.Syntax.Literal) ? this.getTokenRaw(token).slice(1, -1) : null;
+	        var directive = (expr.type === syntax_1.Syntax.Literal) 
 	        this.consumeSemicolon();
-	        return this.finalize(node, directive ? new Node.Directive(expr, directive) : new Node.ExpressionStatement(expr));
+	        return this.finalize(node, directive 
 	    };
 	    Parser.prototype.parseDirectivePrologues = function () {
 	        var firstRestricted = null;
@@ -4618,7 +4618,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        }
 	        if (!kind && key && this.match('(')) {
 	            kind = 'init';
-	            value = isAsync ? this.parsePropertyMethodAsyncFunction() : this.parsePropertyMethodFunction();
+	            value = isAsync 
 	            method = true;
 	        }
 	        if (!kind) {
@@ -4671,7 +4671,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var previousStrict = this.context.strict;
 	        this.context.strict = true;
 	        this.expectKeyword('class');
-	        var id = (identifierIsOptional && (this.lookahead.type !== 3 /* Identifier */)) ? null : this.parseVariableIdentifier();
+	        var id = (identifierIsOptional && (this.lookahead.type !== 3 /* Identifier */)) 
 	        var superClass = null;
 	        if (this.matchKeyword('extends')) {
 	            this.nextToken();
@@ -4686,7 +4686,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var previousStrict = this.context.strict;
 	        this.context.strict = true;
 	        this.expectKeyword('class');
-	        var id = (this.lookahead.type === 3 /* Identifier */) ? this.parseVariableIdentifier() : null;
+	        var id = (this.lookahead.type === 3 /* Identifier */) 
 	        var superClass = null;
 	        if (this.matchKeyword('extends')) {
 	            this.nextToken();
@@ -4825,7 +4825,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                this.throwUnexpectedToken(this.nextToken());
 	            }
 	            if (!this.matchContextualKeyword('from')) {
-	                var message = this.lookahead.value ? messages_1.Messages.UnexpectedToken : messages_1.Messages.MissingFromClause;
+	                var message = this.lookahead.value 
 	                this.throwError(message, this.lookahead.value);
 	            }
 	            this.nextToken();
@@ -4870,7 +4870,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                // export default async function f () {}
 	                // export default async function () {}
 	                // export default async x => x
-	                var declaration = this.matchAsyncFunction() ? this.parseFunctionDeclaration(true) : this.parseAssignmentExpression();
+	                var declaration = this.matchAsyncFunction() 
 	                exportDeclaration = this.finalize(node, new Node.ExportDefaultDeclaration(declaration));
 	            }
 	            else {
@@ -4880,8 +4880,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                // export default {};
 	                // export default [];
 	                // export default (1 + 2);
-	                var declaration = this.match('{') ? this.parseObjectInitializer() :
-	                    this.match('[') ? this.parseArrayInitializer() : this.parseAssignmentExpression();
+	                var declaration = this.match('{') 
+	                    this.match('[') 
 	                this.consumeSemicolon();
 	                exportDeclaration = this.finalize(node, new Node.ExportDefaultDeclaration(declaration));
 	            }
@@ -4890,7 +4890,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            // export * from 'foo';
 	            this.nextToken();
 	            if (!this.matchContextualKeyword('from')) {
-	                var message = this.lookahead.value ? messages_1.Messages.UnexpectedToken : messages_1.Messages.MissingFromClause;
+	                var message = this.lookahead.value 
 	                this.throwError(message, this.lookahead.value);
 	            }
 	            this.nextToken();
@@ -4942,7 +4942,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            }
 	            else if (isExportFromIdentifier) {
 	                // export {default}; // missing fromClause
-	                var message = this.lookahead.value ? messages_1.Messages.UnexpectedToken : messages_1.Messages.MissingFromClause;
+	                var message = this.lookahead.value 
 	                this.throwError(message, this.lookahead.value);
 	            }
 	            else {
@@ -5131,7 +5131,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        this.trackComment = false;
 	        this.length = code.length;
 	        this.index = 0;
-	        this.lineNumber = (code.length > 0) ? 1 : 0;
+	        this.lineNumber = (code.length > 0) 
 	        this.lineStart = 0;
 	        this.curlyStack = [];
 	    }
@@ -5423,7 +5423,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return cp;
 	    };
 	    Scanner.prototype.scanHexEscape = function (prefix) {
-	        var len = (prefix === 'u') ? 4 : 2;
+	        var len = (prefix === 'u') 
 	        var code = 0;
 	        for (var i = 0; i < len; ++i) {
 	            if (!this.eof() && character_1.Character.isHexDigit(this.source.charCodeAt(this.index))) {
@@ -5553,7 +5553,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var type;
 	        var start = this.index;
 	        // Backslash (U+005C) starts an escaped character.
-	        var id = (this.source.charCodeAt(start) === 0x5C) ? this.getComplexIdentifier() : this.getIdentifier();
+	        var id = (this.source.charCodeAt(start) === 0x5C) 
 	        // There is no keyword or literal with only one character.
 	        // Thus, it must be an identifier.
 	        if (id.length === 1) {
@@ -5617,7 +5617,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            case '[':
 	            case ']':
 	            case ':':
-	            case '?':
+	            case '':
 	            case '~':
 	                ++this.index;
 	                break;
@@ -6564,7 +6564,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	            '&=', '|=', '^=', ',',
 	            // binary/unary operators
 	            '+', '-', '*', '**', '/', '%', '++', '--', '<<', '>>', '>>>', '&',
-	            '|', '^', '!', '~', '&&', '||', '?', ':', '===', '==', '>=',
+	            '|', '^', '!', '~', '&&', '||', '', ':', '===', '==', '>=',
 	            '<=', '<', '>', '!=', '!=='].indexOf(t) >= 0;
 	    };
 	    // Determine if forward slash (/) is an operator or part of a regular expression
@@ -6588,12 +6588,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	                if (this.values[this.curly - 3] === 'function') {
 	                    // Anonymous function, e.g. function(){} /42
 	                    var check = this.values[this.curly - 4];
-	                    regex = check ? !this.beforeFunctionExpression(check) : false;
+	                    regex = check 
 	                }
 	                else if (this.values[this.curly - 4] === 'function') {
 	                    // Named function, e.g. function f(){} /42/
 	                    var check = this.values[this.curly - 5];
-	                    regex = check ? !this.beforeFunctionExpression(check) : true;
+	                    regex = check 
 	                }
 	                break;
 	            default:
@@ -6620,11 +6620,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Tokenizer = (function () {
 	    function Tokenizer(code, config) {
 	        this.errorHandler = new error_handler_1.ErrorHandler();
-	        this.errorHandler.tolerant = config ? (typeof config.tolerant === 'boolean' && config.tolerant) : false;
+	        this.errorHandler.tolerant = config 'boolean' && config.tolerant) : false;
 	        this.scanner = new scanner_1.Scanner(code, this.errorHandler);
-	        this.scanner.trackComment = config ? (typeof config.comment === 'boolean' && config.comment) : false;
-	        this.trackRange = config ? (typeof config.range === 'boolean' && config.range) : false;
-	        this.trackLoc = config ? (typeof config.loc === 'boolean' && config.loc) : false;
+	        this.scanner.trackComment = config 'boolean' && config.comment) : false;
+	        this.trackRange = config 'boolean' && config.range) : false;
+	        this.trackLoc = config 'boolean' && config.loc) : false;
 	        this.buffer = [];
 	        this.reader = new Reader();
 	    }
@@ -6639,7 +6639,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    var e = comments[i];
 	                    var value = this.scanner.source.slice(e.slice[0], e.slice[1]);
 	                    var comment = {
-	                        type: e.multiLine ? 'BlockComment' : 'LineComment',
+	                        type: e.multiLine 'BlockComment' : 'LineComment',
 	                        value: value
 	                    };
 	                    if (this.trackRange) {
@@ -6663,7 +6663,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                    };
 	                }
 	                var startRegex = (this.scanner.source[this.scanner.index] === '/') && this.reader.isRegexStart();
-	                var token = startRegex ? this.scanner.scanRegExp() : this.scanner.lex();
+	                var token = startRegex 
 	                this.reader.push(token);
 	                var entry = {
 	                    type: token_1.TokenName[token.type],

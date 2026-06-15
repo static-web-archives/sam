@@ -381,7 +381,7 @@ window.wp = window.wp || {};
 				}, _.pick( file, 'loaded', 'size', 'percent' ) );
 
 				// Handle early mime type scanning for images.
-				image = /(?:jpe?g|png|gif)$/i.exec( file.name );
+				image = /(
 
 				// For images set the model's type and subtype attributes.
 				if ( image ) {
@@ -389,7 +389,7 @@ window.wp = window.wp || {};
 
 					// `jpeg`, `png` and `gif` are valid subtypes.
 					// `jpg` is not, so map it to `jpeg`.
-					attributes.subtype = ( 'jpg' === image[0] ) ? 'jpeg' : image[0];
+					attributes.subtype = ( 'jpg' === image[0] ) 'jpeg' : image[0];
 				}
 
 				// Create a model for the attachment, and add it to the Upload queue collection

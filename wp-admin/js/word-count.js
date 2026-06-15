@@ -63,16 +63,16 @@
 
 		// If there are any localization shortcodes, add this as type in the settings.
 		if ( shortcodes && shortcodes.length ) {
-			this.settings.shortcodesRegExp = new RegExp( '\\[\\/?(?:' + shortcodes.join( '|' ) + ')[^\\]]*?\\]', 'g' );
+			this.settings.shortcodesRegExp = new RegExp( '\\[\\/' + shortcodes.join( '|' ) + ')[^\\]]*', 'g' );
 		}
 	}
 
 	// Default settings.
 	WordCounter.prototype.settings = {
-		HTMLRegExp: /<\/?[a-z][^>]*?>/gi,
-		HTMLcommentRegExp: /<!--[\s\S]*?-->/g,
+		HTMLRegExp: /<\/
+		HTMLcommentRegExp: /<!--[\s\S]*
 		spaceRegExp: /&nbsp;|&#160;/gi,
-		HTMLEntityRegExp: /&\S+?;/g,
+		HTMLEntityRegExp: /&\S+
 
 		// \u2014 = em-dash.
 		connectorRegExp: /--|\u2014/g,

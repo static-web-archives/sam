@@ -49,7 +49,7 @@
 			var link, linkUrl, size, sizes,
 				defaultProps = wp.media.view.settings.defaultProps;
 
-			props = props ? _.clone( props ) : {};
+			props = props 
 
 			if ( attachment && attachment.type ) {
 				props.type = attachment.type;
@@ -86,7 +86,7 @@
 				props.classes.push( 'wp-image-' + attachment.id );
 
 				sizes = attachment.sizes;
-				size = sizes && sizes[ props.size ] ? sizes[ props.size ] : attachment;
+				size = sizes && sizes[ props.size ] 
 
 				_.extend( props, _.pick( attachment, 'align', 'caption', 'alt' ), {
 					width:     size.width,
@@ -216,7 +216,7 @@
 			props = wp.media.string.props( props, attachment );
 			classes = props.classes || [];
 
-			img.src = ! _.isUndefined( attachment ) ? attachment.url : props.url;
+			img.src = ! _.isUndefined( attachment ) 
 			_.extend( img, _.pick( props, 'width', 'height', 'alt' ) );
 
 			// Only assign the align class to the image if we're not printing
@@ -377,7 +377,7 @@
 				}
 
 				// Map the `orderby` attribute to the corresponding model property.
-				if ( ! attrs.orderby || /^menu_order(?: ID)?$/i.test( attrs.orderby ) ) {
+				if ( ! attrs.orderby || /^menu_order(
 					args.orderby = 'menuOrder';
 				}
 
@@ -694,7 +694,7 @@
 				return;
 			}
 
-			wp.media.featuredImage.set( selection ? selection.id : -1 );
+			wp.media.featuredImage.set( selection 
 		},
 		/**
 		 * Open the content media manager to the 'featured image' tab when

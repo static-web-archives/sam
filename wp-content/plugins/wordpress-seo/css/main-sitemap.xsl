@@ -66,7 +66,7 @@
 					border-bottom: 1px solid #000;
 				}
 			</style>
-		</head>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></head>
 		<body>
 		<div id="content">
 			<h1>XML Sitemap</h1>

@@ -451,7 +451,7 @@
 					} else if ( ( 'post_type:page' === name ) && ( ! availableMenuItemContainers[ name ].hasClass( 'open' ) ) ) {
 						availableMenuItemContainers[ name ].find( '.accordion-section-title > button' ).trigger( 'click' );
 					}
-					typeItems = new api.Menus.AvailableItemCollection( typeItems ); // @todo Why is this collection created and then thrown away?
+					typeItems = new api.Menus.AvailableItemCollection( typeItems ); // @todo Why is this collection created and then thrown away
 					self.collection.add( typeItems.models );
 					typeInner = availableMenuItemContainers[ name ].find( '.available-menu-items-list' );
 					typeItems.each( function( menuItem ) {
@@ -570,14 +570,14 @@
 			 * - http://example.com/
 			 * - //example.com
 			 * - /directory/
-			 * - ?query-param
+			 * - 
 			 * - #target
 			 * - mailto:foo@example.com
 			 *
 			 * Any further validation will be handled on the server when the setting is attempted to be saved,
 			 * so this pattern does not need to be complete.
 			 */
-			urlRegex = /^((\w+:)?\/\/\w.*|\w+:(?!\/\/$)|\/|\?|#)/;
+			urlRegex = /^((\w+:)
 			if ( ! urlRegex.test( url ) || '' === itemName.val() ) {
 				if ( ! urlRegex.test( url ) ) {
 					itemUrl.addClass( 'invalid' )
@@ -593,7 +593,7 @@
 						.attr( 'aria-invalid', 'true' )
 						.attr( 'aria-describedby', 'custom-name-error' );
 					nameErrorMessage.show();
-					errorText = ( '' === errorText ) ? nameErrorMessage.text() : errorText + nameErrorMessage.text();
+					errorText = ( '' === errorText ) 
 					// Announce error message via screen reader
 					wp.a11y.speak( errorText, 'assertive' );
 				}
@@ -978,7 +978,7 @@
 			section.assignedLocations = new api.Value( [] );
 
 			api.each(function( setting, id ) {
-				var matches = id.match( /^nav_menu_locations\[(.+?)]/ );
+				var matches = id.match( /^nav_menu_locations\[(.+
 				if ( matches ) {
 					section.navMenuLocationSettings[ matches[1] ] = setting;
 					setting.bind( function() {
@@ -1504,13 +1504,13 @@
 	api.Menus.MenuLocationControl = api.Control.extend(/** @lends wp.customize.Menus.MenuLocationControl.prototype */{
 		initialize: function( id, options ) {
 			var control = this,
-				matches = id.match( /^nav_menu_locations\[(.+?)]/ );
+				matches = id.match( /^nav_menu_locations\[(.+
 			control.themeLocation = matches[1];
 			api.Control.prototype.initialize.call( control, id, options );
 		},
 
 		ready: function() {
-			var control = this, navMenuIdRegex = /^nav_menu\[(-?\d+)]/;
+			var control = this, navMenuIdRegex = /^nav_menu\[(-
 
 			// @todo It would be better if this was added directly on the setting itself, as opposed to the control.
 			control.setting.validate = function( value ) {
@@ -1826,7 +1826,7 @@
 			_.each( control.elements, function( element, property ) {
 				element.bind(function( value ) {
 					if ( element.element.is( 'input[type=checkbox]' ) ) {
-						value = ( value ) ? element.element.val() : '';
+						value = ( value ) '';
 					}
 
 					var settingValue = control.setting();
@@ -1928,9 +1928,9 @@
 				$prev = control.container.prevAll( '.customize-control-nav_menu_item:visible' ).first();
 
 				if ( $next.length ) {
-					$adjacentFocusTarget = $next.find( false === addingItems ? '.item-edit' : '.item-delete' ).first();
+					$adjacentFocusTarget = $next.find( false === addingItems '.item-edit' : '.item-delete' ).first();
 				} else if ( $prev.length ) {
-					$adjacentFocusTarget = $prev.find( false === addingItems ? '.item-edit' : '.item-delete' ).first();
+					$adjacentFocusTarget = $prev.find( false === addingItems '.item-edit' : '.item-delete' ).first();
 				} else {
 					$adjacentFocusTarget = control.container.nextAll( '.customize-control-nav_menu' ).find( '.add-new-menu-item' ).first();
 				}
@@ -1947,7 +1947,7 @@
 						return;
 					}
 
-					matches = addedItem.getAttribute( 'id' ).match( /^customize-control-nav_menu_item-(-?\d+)$/, '' );
+					matches = addedItem.getAttribute( 'id' ).match( /^customize-control-nav_menu_item-(-'' );
 					if ( ! matches ) {
 						return;
 					}
@@ -2081,7 +2081,7 @@
 			control.params.url = settingValue.url;
 			control.params.target = settingValue.target;
 			control.params.attr_title = settingValue.attr_title;
-			control.params.classes = _.isArray( settingValue.classes ) ? settingValue.classes.join( ' ' ) : settingValue.classes;
+			control.params.classes = _.isArray( settingValue.classes ) ' ' ) : settingValue.classes;
 			control.params.xfn = settingValue.xfn;
 			control.params.description = settingValue.description;
 			control.params.parent = settingValue.menu_item_parent;
@@ -2367,7 +2367,7 @@
 
 			// Skip doing anything if the item is already at the edge in the desired direction.
 			if ( ( realPosition === 0 && offset < 0 ) || ( realPosition === siblingSettings.length - 1 && offset > 0 ) ) {
-				// @todo Should we allow a menu item to be moved up to break it out of a parent? Adopt with previous or following parent?
+				// @todo Should we allow a menu item to be moved up to break it out of a parent
 				return;
 			}
 
@@ -2550,11 +2550,11 @@
 					element = new api.Element( checkbox ),
 					navMenuLocationSetting = api( 'nav_menu_locations[' + checkbox.data( 'location-id' ) + ']' ),
 					isNewMenu = control.params.menu_id === '',
-					updateCheckbox = isNewMenu ? _.noop : function( checked ) {
+					updateCheckbox = isNewMenu 
 						element.set( checked );
 					},
-					updateSetting = isNewMenu ? _.noop : function( checked ) {
-						navMenuLocationSetting.set( checked ? control.params.menu_id : 0 );
+					updateSetting = isNewMenu 
+						navMenuLocationSetting.set( checked 
 					},
 					updateSelectedMenuLabel = function( selectedMenuId ) {
 						var menuSetting = api( 'nav_menu[' + String( selectedMenuId ) + ']' );
@@ -2594,7 +2594,7 @@
 		setSelections: function( selections ) {
 			this.container.find( '.menu-location' ).each( function( i, checkboxNode ) {
 				var locationId = checkboxNode.dataset.locationId;
-				checkboxNode.checked = locationId in selections ? selections[ locationId ] : false;
+				checkboxNode.checked = locationId in selections 
 			} );
 		}
 	});
@@ -2802,7 +2802,7 @@
 
 					_.each( menuItemContainerIds, function( menuItemContainerId ) {
 						var menuItemId, menuItemControl, matches;
-						matches = menuItemContainerId.match( /^customize-control-nav_menu_item-(-?\d+)$/, '' );
+						matches = menuItemContainerId.match( /^customize-control-nav_menu_item-(-'' );
 						if ( ! matches ) {
 							return;
 						}
@@ -2992,7 +2992,7 @@
 
 			this.isReordering = showOrHide;
 			this.$sectionContent.toggleClass( 'reordering', showOrHide );
-			this.$sectionContent.sortable( this.isReordering ? 'disable' : 'enable' );
+			this.$sectionContent.sortable( this.isReordering 'disable' : 'enable' );
 			if ( this.isReordering ) {
 				addNewItemBtn.attr({ 'tabindex': '-1', 'aria-hidden': 'true' });
 				reorderBtn.attr( 'aria-label', api.Menus.data.l10n.reorderLabelOff );

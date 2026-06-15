@@ -27,7 +27,7 @@ window.wp = window.wp || {};
 	 * By default, any element in the body with the load-customize class will open
 	 * an iframe overlay with the URL specified.
 	 *
-	 *     e.g. <a class="load-customize" href="<?php echo wp_customize_url(); ?>">Open Customizer</a>
+	 *     e.g. <a class="load-customize" href="<">Open Customizer</a>
 	 *
 	 * @memberOf wp.customize
 	 *
@@ -89,7 +89,7 @@ window.wp = window.wp || {};
 			var hash = window.location.toString().split('#')[1];
 
 			if ( hash && 0 === hash.indexOf( 'wp_customize=on' ) ) {
-				Loader.open( Loader.settings.url + '?' + hash );
+				Loader.open( Loader.settings.url + '' + hash );
 			}
 
 			if ( ! hash && ! $.support.history ) {
@@ -190,7 +190,7 @@ window.wp = window.wp || {};
 		},
 
 		pushState: function ( src ) {
-			var hash = src.split( '?' )[1];
+			var hash = src.split( '' )[1];
 
 			// Ensure we don't call pushState if the user hit the forward button.
 			if ( $.support.history && window.location.href !== src ) {

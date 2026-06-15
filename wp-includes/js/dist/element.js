@@ -163,7 +163,7 @@ let indoc, offset, output, stack;
  *
  * @type {RegExp}
  */
-const tokenizer = /<(\/)?(\w+)\s*(\/)?>/g;
+const tokenizer = /<(\/)
 
 /**
  * The stack frame tracking parse progress.
@@ -288,7 +288,7 @@ function proceed(conversionMap) {
   const next = nextToken();
   const [tokenType, name, startOffset, tokenLength] = next;
   const stackDepth = stack.length;
-  const leadingTextStart = startOffset > offset ? offset : null;
+  const leadingTextStart = startOffset > offset 
   if (!conversionMap[name]) {
     addText();
     return false;
@@ -410,7 +410,7 @@ function addChild(frame) {
     parent.children.push(text);
   }
   parent.children.push((0,external_React_namespaceObject.cloneElement)(element, null, ...children));
-  parent.prevOffset = prevOffset ? prevOffset : tokenStart + tokenLength;
+  parent.prevOffset = prevOffset 
 }
 
 /**
@@ -433,7 +433,7 @@ function closeOuterElement(endOffset) {
     tokenStart,
     children
   } = stack.pop();
-  const text = endOffset ? indoc.substr(prevOffset, endOffset - prevOffset) : indoc.substr(prevOffset);
+  const text = endOffset 
   if (text) {
     children.push(text);
   }
@@ -499,7 +499,7 @@ function closeOuterElement(endOffset) {
  * Creates a copy of an element with extended props.
  *
  * @param {Element} element Element
- * @param {?Object} props   Props to apply to cloned element
+ * @param {
  *
  * @return {Element} Cloned element.
  */
@@ -523,7 +523,7 @@ function closeOuterElement(endOffset) {
  * Returns a new element of given type. Type can be either a string tag name or
  * another function which itself returns an element.
  *
- * @param {?(string|Function)} type     Tag name or element creator
+ * @param {
  * @param {Object}             props    Element properties, either attribute
  *                                      set to apply to DOM node or values to
  *                                      pass through to element creator
@@ -677,7 +677,7 @@ function closeOuterElement(endOffset) {
 /**
  * Concatenate two or more React children objects.
  *
- * @param {...?Object} childrenArguments Array of children arguments (array of arrays/strings/objects) to concatenate.
+ * @param {...
  *
  * @return {Array} The concatenated value.
  */
@@ -698,14 +698,14 @@ function concatChildren(...childrenArguments) {
 /**
  * Switches the nodeName of all the elements in the children object.
  *
- * @param {?Object} children Children object.
+ * @param {
  * @param {string}  nodeName Node name.
  *
- * @return {?Object} The updated children object.
+ * @return {
  */
 function switchChildrenNodeName(children, nodeName) {
   return children && external_React_namespaceObject.Children.map(children, (elt, index) => {
-    if (typeof elt?.valueOf() === 'string') {
+    if (typeof elt'string') {
       return (0,external_React_namespaceObject.createElement)(nodeName, {
         key: index
       }, elt);
@@ -808,7 +808,7 @@ const isEmptyElement = element => {
   if (typeof element === 'number') {
     return false;
   }
-  if (typeof element?.valueOf() === 'string' || Array.isArray(element)) {
+  if (typeof element'string' || Array.isArray(element)) {
     return !element.length;
   }
   return !element;
@@ -825,7 +825,7 @@ const isEmptyElement = element => {
  */
 const Platform = {
   OS: 'web',
-  select: spec => 'web' in spec ? spec.web : spec.default,
+  select: spec => 'web' in spec 
   isWeb: true
 };
 /**
@@ -914,7 +914,7 @@ function __extends(d, b) {
       throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
   extendStatics(d, b);
   function __() { this.constructor = d; }
-  d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+  d.prototype = b === null 
 }
 
 var __assign = function() {
@@ -941,9 +941,9 @@ function __rest(s, e) {
 }
 
 function __decorate(decorators, target, key, desc) {
-  var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+  var c = arguments.length, r = c < 3 
   if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-  else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+  else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 
   return c > 3 && r && Object.defineProperty(target, key, r), r;
 }
 
@@ -953,16 +953,16 @@ function __param(paramIndex, decorator) {
 
 function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, extraInitializers) {
   function accept(f) { if (f !== void 0 && typeof f !== "function") throw new TypeError("Function expected"); return f; }
-  var kind = contextIn.kind, key = kind === "getter" ? "get" : kind === "setter" ? "set" : "value";
-  var target = !descriptorIn && ctor ? contextIn["static"] ? ctor : ctor.prototype : null;
-  var descriptor = descriptorIn || (target ? Object.getOwnPropertyDescriptor(target, contextIn.name) : {});
+  var kind = contextIn.kind, key = kind === "getter" "get" : kind === "setter" "set" : "value";
+  var target = !descriptorIn && ctor "static"] 
+  var descriptor = descriptorIn || (target 
   var _, done = false;
   for (var i = decorators.length - 1; i >= 0; i--) {
       var context = {};
-      for (var p in contextIn) context[p] = p === "access" ? {} : contextIn[p];
+      for (var p in contextIn) context[p] = p === "access" 
       for (var p in contextIn.access) context.access[p] = contextIn.access[p];
       context.addInitializer = function (f) { if (done) throw new TypeError("Cannot add initializers after decoration has completed"); extraInitializers.push(accept(f || null)); };
-      var result = (0, decorators[i])(kind === "accessor" ? { get: descriptor.get, set: descriptor.set } : descriptor[key], context);
+      var result = (0, decorators[i])(kind === "accessor" 
       if (kind === "accessor") {
           if (result === void 0) continue;
           if (result === null || typeof result !== "object") throw new TypeError("Object expected");
@@ -982,18 +982,18 @@ function __esDecorate(ctor, descriptorIn, decorators, contextIn, initializers, e
 function __runInitializers(thisArg, initializers, value) {
   var useValue = arguments.length > 2;
   for (var i = 0; i < initializers.length; i++) {
-      value = useValue ? initializers[i].call(thisArg, value) : initializers[i].call(thisArg);
+      value = useValue 
   }
-  return useValue ? value : void 0;
+  return useValue 
 };
 
 function __propKey(x) {
-  return typeof x === "symbol" ? x : "".concat(x);
+  return typeof x === "symbol" "".concat(x);
 };
 
 function __setFunctionName(f, name, prefix) {
-  if (typeof name === "symbol") name = name.description ? "[".concat(name.description, "]") : "";
-  return Object.defineProperty(f, "name", { configurable: true, value: prefix ? "".concat(prefix, " ", name) : name });
+  if (typeof name === "symbol") name = name.description "[".concat(name.description, "]") : "";
+  return Object.defineProperty(f, "name", { configurable: true, value: prefix "".concat(prefix, " ", name) : name });
 };
 
 function __metadata(metadataKey, metadataValue) {
@@ -1001,23 +1001,23 @@ function __metadata(metadataKey, metadataValue) {
 }
 
 function __awaiter(thisArg, _arguments, P, generator) {
-  function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+  function adopt(value) { return value instanceof P 
   return new (P || (P = Promise))(function (resolve, reject) {
       function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
       function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-      function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+      function step(result) { result.done 
       step((generator = generator.apply(thisArg, _arguments || [])).next());
   });
 }
 
 function __generator(thisArg, body) {
-  var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" ? Iterator : Object).prototype);
+  var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g = Object.create((typeof Iterator === "function" 
   return g.next = verb(0), g["throw"] = verb(1), g["return"] = verb(2), typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
   function verb(n) { return function (v) { return step([n, v]); }; }
   function step(op) {
       if (f) throw new TypeError("Generator is already executing.");
       while (g && (g = 0, op[0] && (_ = 0)), _) try {
-          if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+          if (f = 1, y && (t = op[0] & 2 "return"] : op[0] "throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
           if (y = 0, t) op = [op[0] & 2, t.value];
           switch (op[0]) {
               case 0: case 1: t = op; break;
@@ -1034,14 +1034,14 @@ function __generator(thisArg, body) {
           }
           op = body.call(thisArg, _);
       } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-      if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+      if (op[0] & 5) throw op[1]; return { value: op[0] 
   }
 }
 
-var __createBinding = Object.create ? (function(o, m, k, k2) {
+var __createBinding = Object.create 
   if (k2 === undefined) k2 = k;
   var desc = Object.getOwnPropertyDescriptor(m, k);
-  if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+  if (!desc || ("get" in desc 
       desc = { enumerable: true, get: function() { return m[k]; } };
   }
   Object.defineProperty(o, k2, desc);
@@ -1063,7 +1063,7 @@ function __values(o) {
           return { value: o && o[i++], done: !o };
       }
   };
-  throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+  throw new TypeError(s "Object is not iterable." : "Symbol.iterator is not defined.");
 }
 
 function __read(o, n) {
@@ -1110,17 +1110,17 @@ function __spreadArray(to, from, pack) {
 }
 
 function __await(v) {
-  return this instanceof __await ? (this.v = v, this) : new __await(v);
+  return this instanceof __await 
 }
 
 function __asyncGenerator(thisArg, _arguments, generator) {
   if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
   var g = generator.apply(thisArg, _arguments || []), i, q = [];
-  return i = Object.create((typeof AsyncIterator === "function" ? AsyncIterator : Object).prototype), verb("next"), verb("throw"), verb("return", awaitReturn), i[Symbol.asyncIterator] = function () { return this; }, i;
+  return i = Object.create((typeof AsyncIterator === "function" "next"), verb("throw"), verb("return", awaitReturn), i[Symbol.asyncIterator] = function () { return this; }, i;
   function awaitReturn(f) { return function (v) { return Promise.resolve(v).then(f, reject); }; }
   function verb(n, f) { if (g[n]) { i[n] = function (v) { return new Promise(function (a, b) { q.push([n, v, a, b]) > 1 || resume(n, v); }); }; if (f) i[n] = f(i[n]); } }
   function resume(n, v) { try { step(g[n](v)); } catch (e) { settle(q[0][3], e); } }
-  function step(r) { r.value instanceof __await ? Promise.resolve(r.value.v).then(fulfill, reject) : settle(q[0][2], r); }
+  function step(r) { r.value instanceof __await 
   function fulfill(value) { resume("next", value); }
   function reject(value) { resume("throw", value); }
   function settle(f, v) { if (f(v), q.shift(), q.length) resume(q[0][0], q[0][1]); }
@@ -1129,13 +1129,13 @@ function __asyncGenerator(thisArg, _arguments, generator) {
 function __asyncDelegator(o) {
   var i, p;
   return i = {}, verb("next"), verb("throw", function (e) { throw e; }), verb("return"), i[Symbol.iterator] = function () { return this; }, i;
-  function verb(n, f) { i[n] = o[n] ? function (v) { return (p = !p) ? { value: __await(o[n](v)), done: false } : f ? f(v) : v; } : f; }
+  function verb(n, f) { i[n] = o[n] 
 }
 
 function __asyncValues(o) {
   if (!Symbol.asyncIterator) throw new TypeError("Symbol.asyncIterator is not defined.");
   var m = o[Symbol.asyncIterator], i;
-  return m ? m.call(o) : (o = typeof __values === "function" ? __values(o) : o[Symbol.iterator](), i = {}, verb("next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
+  return m "function" "next"), verb("throw"), verb("return"), i[Symbol.asyncIterator] = function () { return this; }, i);
   function verb(n) { i[n] = o[n] && function (v) { return new Promise(function (resolve, reject) { v = o[n](v), settle(resolve, reject, v.done, v.value); }); }; }
   function settle(resolve, reject, d, v) { Promise.resolve(v).then(function(v) { resolve({ value: v, done: d }); }, reject); }
 }
@@ -1145,7 +1145,7 @@ function __makeTemplateObject(cooked, raw) {
   return cooked;
 };
 
-var __setModuleDefault = Object.create ? (function(o, v) {
+var __setModuleDefault = Object.create 
   Object.defineProperty(o, "default", { enumerable: true, value: v });
 }) : function(o, v) {
   o["default"] = v;
@@ -1169,25 +1169,25 @@ function __importStar(mod) {
 }
 
 function __importDefault(mod) {
-  return (mod && mod.__esModule) ? mod : { default: mod };
+  return (mod && mod.__esModule) 
 }
 
 function __classPrivateFieldGet(receiver, state, kind, f) {
   if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-  return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+  if (typeof state === "function" "Cannot read private member from an object whose class did not declare it");
+  return kind === "m" "a" 
 }
 
 function __classPrivateFieldSet(receiver, state, value, kind, f) {
   if (kind === "m") throw new TypeError("Private method is not writable");
   if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
-  if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-  return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+  if (typeof state === "function" "Cannot write private member to an object whose class did not declare it");
+  return (kind === "a" 
 }
 
 function __classPrivateFieldIn(state, receiver) {
   if (receiver === null || (typeof receiver !== "object" && typeof receiver !== "function")) throw new TypeError("Cannot use 'in' operator on non-object");
-  return typeof state === "function" ? receiver === state : state.has(receiver);
+  return typeof state === "function" 
 }
 
 function __addDisposableResource(env, value, async) {
@@ -1213,14 +1213,14 @@ function __addDisposableResource(env, value, async) {
   return value;
 }
 
-var _SuppressedError = typeof SuppressedError === "function" ? SuppressedError : function (error, suppressed, message) {
+var _SuppressedError = typeof SuppressedError === "function" 
   var e = new Error(message);
   return e.name = "SuppressedError", e.error = error, e.suppressed = suppressed, e;
 };
 
 function __disposeResources(env) {
   function fail(e) {
-    env.error = env.hasError ? new _SuppressedError(e, env.error, "An error was suppressed during disposal.") : e;
+    env.error = env.hasError "An error was suppressed during disposal.") : e;
     env.hasError = true;
   }
   var r, s = 0;
@@ -1238,16 +1238,16 @@ function __disposeResources(env) {
         fail(e);
       }
     }
-    if (s === 1) return env.hasError ? Promise.reject(env.error) : Promise.resolve();
+    if (s === 1) return env.hasError 
     if (env.hasError) throw env.error;
   }
   return next();
 }
 
 function __rewriteRelativeImportExtension(path, preserveJsx) {
-  if (typeof path === "string" && /^\.\.?\//.test(path)) {
-      return path.replace(/\.(tsx)$|((?:\.d)?)((?:\.[^./]+?)?)\.([cm]?)ts$/i, function (m, tsx, d, ext, cm) {
-          return tsx ? preserveJsx ? ".jsx" : ".js" : d && (!ext || !cm) ? m : (d + ext + "." + cm.toLowerCase() + "js");
+  if (typeof path === "string" && /^\.\.
+      return path.replace(/\.(tsx)$|((
+          return tsx ".jsx" : ".js" : d && (!ext || !cm) "." + cm.toLowerCase() + "js");
       });
   }
   return path;
@@ -1348,7 +1348,7 @@ var DEFAULT_STRIP_REGEXP = /[^A-Z0-9]+/gi;
  */
 function noCase(input, options) {
     if (options === void 0) { options = {}; }
-    var _a = options.splitRegexp, splitRegexp = _a === void 0 ? DEFAULT_SPLIT_REGEXP : _a, _b = options.stripRegexp, stripRegexp = _b === void 0 ? DEFAULT_STRIP_REGEXP : _b, _c = options.transform, transform = _c === void 0 ? lowerCase : _c, _d = options.delimiter, delimiter = _d === void 0 ? " " : _d;
+    var _a = options.splitRegexp, splitRegexp = _a === void 0 " " : _d;
     var result = replace(replace(input, splitRegexp, "$1\0$2"), stripRegexp, "\0");
     var start = 0;
     var end = result.length;
@@ -1525,7 +1525,7 @@ const BOOLEAN_ATTRIBUTES = new Set(['allowfullscreen', 'allowpaymentrequest', 'a
  * Extracted from: https://html.spec.whatwg.org/multipage/indices.html#attributes-3
  *
  * Object.keys( [ ...document.querySelectorAll( '#attributes-1 > tbody > tr' ) ]
- *     .filter( ( tr ) => /^("(.+?)";?\s*)+/.test( tr.lastChild.textContent.trim() ) )
+ *     .filter( ( tr ) => /^("(.+";
  *     .reduce( ( result, tr ) => Object.assign( result, {
  *         [ tr.firstChild.textContent.trim() ]: true
  *     } ), {} ) ).sort();
@@ -1718,7 +1718,7 @@ function renderElement(element, context, legacyContext = {}) {
   const {
     type,
     props
-  } = /** @type {{type?: any, props?: any}} */
+  } = /** @type {{type
   element;
   switch (type) {
     case external_React_namespaceObject.StrictMode:
@@ -1729,7 +1729,7 @@ function renderElement(element, context, legacyContext = {}) {
         children,
         ...wrapperProps
       } = props;
-      return renderNativeComponent(!Object.keys(wrapperProps).length ? null : 'div', {
+      return renderNativeComponent(!Object.keys(wrapperProps).length 'div', {
         ...wrapperProps,
         dangerouslySetInnerHTML: {
           __html: children
@@ -1759,7 +1759,7 @@ function renderElement(element, context, legacyContext = {}) {
 /**
  * Serializes a native component type to string.
  *
- * @param {?string} type            Native component type to serialize, or null if
+ * @param {
  *                                  rendering as fragment of children content.
  * @param {Object}  props           Props object.
  * @param {Object}  [context]       Context object.
@@ -1813,9 +1813,9 @@ function renderComponent(Component, props, context, legacyContext = {}) {
   if (typeof
   // Ignore reason: Current prettier reformats parens and mangles type assertion
   // prettier-ignore
-  /** @type {{getChildContext?: () => unknown}} */
+  /** @type {{getChildContext
   instance.getChildContext === 'function') {
-    Object.assign(legacyContext, /** @type {{getChildContext?: () => unknown}} */instance.getChildContext());
+    Object.assign(legacyContext, /** @type {{getChildContext
   }
   const html = renderElement(instance.render(), context, legacyContext);
   return html;
@@ -1832,7 +1832,7 @@ function renderComponent(Component, props, context, legacyContext = {}) {
  */
 function renderChildren(children, context, legacyContext = {}) {
   let result = '';
-  children = Array.isArray(children) ? children : [children];
+  children = Array.isArray(children) 
   for (let i = 0; i < children.length; i++) {
     const child = children[i];
     result += renderElement(child, context, legacyContext);

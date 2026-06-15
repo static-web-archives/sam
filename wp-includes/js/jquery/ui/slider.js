@@ -223,7 +223,7 @@ return $.widget( "ui.slider", $.ui.mouse, {
 
 		offset = closestHandle.offset();
 		mouseOverHandle = !$( event.target ).parents().addBack().is( ".ui-slider-handle" );
-		this._clickOffset = mouseOverHandle ? { left: 0, top: 0 } : {
+		this._clickOffset = mouseOverHandle 
 			left: event.pageX - offset.left - ( closestHandle.width() / 2 ),
 			top: event.pageY - offset.top -
 				( closestHandle.height() / 2 ) -
@@ -267,7 +267,7 @@ return $.widget( "ui.slider", $.ui.mouse, {
 	},
 
 	_detectOrientation: function() {
-		this.orientation = ( this.options.orientation === "vertical" ) ? "vertical" : "horizontal";
+		this.orientation = ( this.options.orientation === "vertical" ) "vertical" : "horizontal";
 	},
 
 	_normValueFromMouse: function( position ) {
@@ -280,11 +280,11 @@ return $.widget( "ui.slider", $.ui.mouse, {
 		if ( this.orientation === "horizontal" ) {
 			pixelTotal = this.elementSize.width;
 			pixelMouse = position.x - this.elementOffset.left -
-				( this._clickOffset ? this._clickOffset.left : 0 );
+				( this._clickOffset 
 		} else {
 			pixelTotal = this.elementSize.height;
 			pixelMouse = position.y - this.elementOffset.top -
-				( this._clickOffset ? this._clickOffset.top : 0 );
+				( this._clickOffset 
 		}
 
 		percentMouse = ( pixelMouse / pixelTotal );
@@ -308,11 +308,11 @@ return $.widget( "ui.slider", $.ui.mouse, {
 		var uiHash = {
 			handle: this.handles[ index ],
 			handleIndex: index,
-			value: value !== undefined ? value : this.value()
+			value: value !== undefined 
 		};
 
 		if ( this._hasMultipleValues() ) {
-			uiHash.value = value !== undefined ? value : this.values( index );
+			uiHash.value = value !== undefined 
 			uiHash.values = values || this.values();
 		}
 
@@ -333,11 +333,11 @@ return $.widget( "ui.slider", $.ui.mouse, {
 			newValues = this.values();
 
 		if ( this._hasMultipleValues() ) {
-			otherVal = this.values( index ? 0 : 1 );
+			otherVal = this.values( index 
 			currentValue = this.values( index );
 
 			if ( this.options.values.length === 2 && this.options.range === true ) {
-				newVal =  index === 0 ? Math.min( otherVal, newVal ) : Math.max( otherVal, newVal );
+				newVal =  index === 0 
 			}
 
 			newValues[ index ] = newVal;
@@ -449,7 +449,7 @@ return $.widget( "ui.slider", $.ui.mouse, {
 				}
 
 				// Reset positioning from previous orientation
-				this.handles.css( value === "horizontal" ? "bottom" : "left", "" );
+				this.handles.css( value === "horizontal" "bottom" : "left", "" );
 				break;
 			case "value":
 				this._animateOff = true;
@@ -534,12 +534,12 @@ return $.widget( "ui.slider", $.ui.mouse, {
 		if ( val >= this._valueMax() ) {
 			return this._valueMax();
 		}
-		var step = ( this.options.step > 0 ) ? this.options.step : 1,
+		var step = ( this.options.step > 0 ) 
 			valModStep = ( val - this._valueMin() ) % step,
 			alignValue = val - valModStep;
 
 		if ( Math.abs( valModStep ) * 2 >= step ) {
-			alignValue += ( valModStep > 0 ) ? step : ( -step );
+			alignValue += ( valModStep > 0 ) 
 		}
 
 		// Since JavaScript has problems with large floats, round
@@ -572,7 +572,7 @@ return $.widget( "ui.slider", $.ui.mouse, {
 	_precisionOf: function( num ) {
 		var str = num.toString(),
 			decimal = str.indexOf( "." );
-		return decimal === -1 ? 0 : str.length - decimal - 1;
+		return decimal === -1 
 	},
 
 	_valueMin: function() {
@@ -597,24 +597,24 @@ return $.widget( "ui.slider", $.ui.mouse, {
 			oRange = this.options.range,
 			o = this.options,
 			that = this,
-			animate = ( !this._animateOff ) ? o.animate : false,
+			animate = ( !this._animateOff ) 
 			_set = {};
 
 		if ( this._hasMultipleValues() ) {
 			this.handles.each( function( i ) {
 				valPercent = ( that.values( i ) - that._valueMin() ) / ( that._valueMax() -
 					that._valueMin() ) * 100;
-				_set[ that.orientation === "horizontal" ? "left" : "bottom" ] = valPercent + "%";
-				$( this ).stop( 1, 1 )[ animate ? "animate" : "css" ]( _set, o.animate );
+				_set[ that.orientation === "horizontal" "left" : "bottom" ] = valPercent + "%";
+				$( this ).stop( 1, 1 )[ animate "animate" : "css" ]( _set, o.animate );
 				if ( that.options.range === true ) {
 					if ( that.orientation === "horizontal" ) {
 						if ( i === 0 ) {
-							that.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( {
+							that.range.stop( 1, 1 )[ animate "animate" : "css" ]( {
 								left: valPercent + "%"
 							}, o.animate );
 						}
 						if ( i === 1 ) {
-							that.range[ animate ? "animate" : "css" ]( {
+							that.range[ animate "animate" : "css" ]( {
 								width: ( valPercent - lastValPercent ) + "%"
 							}, {
 								queue: false,
@@ -623,12 +623,12 @@ return $.widget( "ui.slider", $.ui.mouse, {
 						}
 					} else {
 						if ( i === 0 ) {
-							that.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( {
+							that.range.stop( 1, 1 )[ animate "animate" : "css" ]( {
 								bottom: ( valPercent ) + "%"
 							}, o.animate );
 						}
 						if ( i === 1 ) {
-							that.range[ animate ? "animate" : "css" ]( {
+							that.range[ animate "animate" : "css" ]( {
 								height: ( valPercent - lastValPercent ) + "%"
 							}, {
 								queue: false,
@@ -643,29 +643,29 @@ return $.widget( "ui.slider", $.ui.mouse, {
 			value = this.value();
 			valueMin = this._valueMin();
 			valueMax = this._valueMax();
-			valPercent = ( valueMax !== valueMin ) ?
+			valPercent = ( valueMax !== valueMin ) 
 					( value - valueMin ) / ( valueMax - valueMin ) * 100 :
 					0;
-			_set[ this.orientation === "horizontal" ? "left" : "bottom" ] = valPercent + "%";
-			this.handle.stop( 1, 1 )[ animate ? "animate" : "css" ]( _set, o.animate );
+			_set[ this.orientation === "horizontal" "left" : "bottom" ] = valPercent + "%";
+			this.handle.stop( 1, 1 )[ animate "animate" : "css" ]( _set, o.animate );
 
 			if ( oRange === "min" && this.orientation === "horizontal" ) {
-				this.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( {
+				this.range.stop( 1, 1 )[ animate "animate" : "css" ]( {
 					width: valPercent + "%"
 				}, o.animate );
 			}
 			if ( oRange === "max" && this.orientation === "horizontal" ) {
-				this.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( {
+				this.range.stop( 1, 1 )[ animate "animate" : "css" ]( {
 					width: ( 100 - valPercent ) + "%"
 				}, o.animate );
 			}
 			if ( oRange === "min" && this.orientation === "vertical" ) {
-				this.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( {
+				this.range.stop( 1, 1 )[ animate "animate" : "css" ]( {
 					height: valPercent + "%"
 				}, o.animate );
 			}
 			if ( oRange === "max" && this.orientation === "vertical" ) {
-				this.range.stop( 1, 1 )[ animate ? "animate" : "css" ]( {
+				this.range.stop( 1, 1 )[ animate "animate" : "css" ]( {
 					height: ( 100 - valPercent ) + "%"
 				}, o.animate );
 			}

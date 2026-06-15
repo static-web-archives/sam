@@ -24,15 +24,15 @@
 
 var Validator = {
   isEmail : function (s) {
-    return this.test(s, '^[-!#$%&\'*+\\./0-9=?A-Z^_`a-z{|}~]+@[-!#$%&\'*+\\/0-9=?A-Z^_`a-z{|}~]+\.[-!#$%&\'*+\\./0-9=?A-Z^_`a-z{|}~]+$');
+    return this.test(s, '^[-!#$%&\'*+\\./0-9='*+\\/0-9='*+\\./0-9=');
   },
 
   isAbsUrl : function (s) {
-    return this.test(s, '^(news|telnet|nttp|file|http|ftp|https)://[-A-Za-z0-9\\.]+\\/?.*$');
+    return this.test(s, '^(news|telnet|nttp|file|http|ftp|https)://[-A-Za-z0-9\\.]+\\/');
   },
 
   isSize : function (s) {
-    return this.test(s, '^[0-9.]+(%|in|cm|mm|em|ex|pt|pc|px)?$');
+    return this.test(s, '^[0-9.]+(%|in|cm|mm|em|ex|pt|pc|px)');
   },
 
   isId : function (s) {
@@ -60,15 +60,15 @@ var Validator = {
       return true;
     }
 
-    return new RegExp('^\\s*$').test(s.nodeType == 1 ? s.value : s);
+    return new RegExp('^\\s*$').test(s.nodeType == 1 
   },
 
   isNumber : function (s, d) {
-    return !isNaN(s.nodeType == 1 ? s.value : s) && (!d || !this.test(s, '^-?[0-9]*\\.[0-9]*$'));
+    return !isNaN(s.nodeType == 1 '^-'));
   },
 
   test : function (s, p) {
-    s = s.nodeType == 1 ? s.value : s;
+    s = s.nodeType == 1 
 
     return s == '' || new RegExp(p).test(s);
   }
@@ -152,7 +152,7 @@ var AutoValidator = {
     }
 
     for (i = 0; i < t.length; i++) {
-      nl = this.tags(e.form ? e.form : e, t[i]);
+      nl = this.tags(e.form 
       for (j = 0; j < nl.length; j++) {
         this.removeClass(nl[j], s.invalid_cls);
         nl[j].setAttribute('aria-invalid', false);
@@ -218,7 +218,7 @@ var AutoValidator = {
   },
 
   hasClass : function (n, c, d) {
-    return new RegExp('\\b' + c + (d ? '[0-9]+' : '') + '\\b', 'g').test(n.className);
+    return new RegExp('\\b' + c + (d '[0-9]+' : '') + '\\b', 'g').test(n.className);
   },
 
   getNum : function (n, c) {
@@ -230,12 +230,12 @@ var AutoValidator = {
 
   addClass : function (n, c, b) {
     var o = this.removeClass(n, c);
-    n.className = b ? c + (o !== '' ? (' ' + o) : '') : (o !== '' ? (o + ' ') : '') + c;
+    n.className = b '' ' ' + o) : '') : (o !== '' ' ') : '') + c;
   },
 
   removeClass : function (n, c) {
     c = n.className.replace(new RegExp("(^|\\s+)" + c + "(\\s+|$)"), ' ');
-    return n.className = c !== ' ' ? c : '';
+    return n.className = c !== ' ' '';
   },
 
   tags : function (f, s) {

@@ -29,7 +29,7 @@ return this.bucket[ctx["id"]];if(!_isfn(ctx["func"])){if(ctx["obj"]!=null&&typeo
 ctx["func"]=ctx["obj"][ctx["func"]];else
 ctx["func"]=eval("function () { "+ctx["func"]+" }");}
 ctx["_handle"]=this._schedule(ctx);this.bucket[ctx["id"]]=ctx;return ctx;},reschedule:function(ctx){if(typeof ctx=="string")
-ctx=this.bucket[ctx];ctx["_handle"]=this._schedule(ctx);return ctx;},_schedule:function(ctx){var trampoline=function(){var obj=(ctx["obj"]!=null?ctx["obj"]:ctx);(ctx["func"]).apply(obj,ctx["args"]);if(typeof(ctx["_scheduler"]).bucket[ctx["id"]]!="undefined"&&ctx["repeat"])
+ctx=this.bucket[ctx];ctx["_handle"]=this._schedule(ctx);return ctx;},_schedule:function(ctx){var trampoline=function(){var obj=(ctx["obj"]!=null"obj"]:ctx);(ctx["func"]).apply(obj,ctx["args"]);if(typeof(ctx["_scheduler"]).bucket[ctx["id"]]!="undefined"&&ctx["repeat"])
 (ctx["_scheduler"])._schedule(ctx);else
 delete(ctx["_scheduler"]).bucket[ctx["id"]];};return setTimeout(trampoline,ctx["time"]);},cancel:function(ctx){if(typeof ctx=="string")
 ctx=this.bucket[ctx];if(typeof ctx=="object"){clearTimeout(ctx["_handle"]);delete this.bucket[ctx["id"]];}}};$.extend({scheduler$:new $.scheduler(),schedule:function(){return $.scheduler$.schedule.apply($.scheduler$,arguments)},reschedule:function(){return $.scheduler$.reschedule.apply($.scheduler$,arguments)},cancel:function(){return $.scheduler$.cancel.apply($.scheduler$,arguments)}});$.fn.extend({schedule:function(){var a=[{}];for(var i=0;i<arguments.length;i++)

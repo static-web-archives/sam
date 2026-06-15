@@ -20,7 +20,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
         not_json: /[^j]/,
         text: /^[^\x25]+/,
         modulo: /^\x25{2}/,
-        placeholder: /^\x25(?:([1-9]\d*)\$|\(([^)]+)\))?(\+)?(0|'[^$])?(-)?(\d+)?(?:\.(\d+))?([b-gijostTuvxX])/,
+        placeholder: /^\x25('[^$])
         key: /^([a-z_][a-z_\d]*)/i,
         key_access: /^\.([a-z_][a-z_\d]*)/i,
         index_access: /^\[(\d+)\]/,
@@ -84,38 +84,38 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
                         arg = parseInt(arg, 10)
                         break
                     case 'j':
-                        arg = JSON.stringify(arg, null, ph.width ? parseInt(ph.width) : 0)
+                        arg = JSON.stringify(arg, null, ph.width 
                         break
                     case 'e':
-                        arg = ph.precision ? parseFloat(arg).toExponential(ph.precision) : parseFloat(arg).toExponential()
+                        arg = ph.precision 
                         break
                     case 'f':
-                        arg = ph.precision ? parseFloat(arg).toFixed(ph.precision) : parseFloat(arg)
+                        arg = ph.precision 
                         break
                     case 'g':
-                        arg = ph.precision ? String(Number(arg.toPrecision(ph.precision))) : parseFloat(arg)
+                        arg = ph.precision 
                         break
                     case 'o':
                         arg = (parseInt(arg, 10) >>> 0).toString(8)
                         break
                     case 's':
                         arg = String(arg)
-                        arg = (ph.precision ? arg.substring(0, ph.precision) : arg)
+                        arg = (ph.precision 
                         break
                     case 't':
                         arg = String(!!arg)
-                        arg = (ph.precision ? arg.substring(0, ph.precision) : arg)
+                        arg = (ph.precision 
                         break
                     case 'T':
                         arg = Object.prototype.toString.call(arg).slice(8, -1).toLowerCase()
-                        arg = (ph.precision ? arg.substring(0, ph.precision) : arg)
+                        arg = (ph.precision 
                         break
                     case 'u':
                         arg = parseInt(arg, 10) >>> 0
                         break
                     case 'v':
                         arg = arg.valueOf()
-                        arg = (ph.precision ? arg.substring(0, ph.precision) : arg)
+                        arg = (ph.precision 
                         break
                     case 'x':
                         arg = (parseInt(arg, 10) >>> 0).toString(16)
@@ -129,16 +129,16 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
                 }
                 else {
                     if (re.number.test(ph.type) && (!is_positive || ph.sign)) {
-                        sign = is_positive ? '+' : '-'
+                        sign = is_positive '+' : '-'
                         arg = arg.toString().replace(re.sign, '')
                     }
                     else {
                         sign = ''
                     }
-                    pad_character = ph.pad_char ? ph.pad_char === '0' ? '0' : ph.pad_char.charAt(1) : ' '
+                    pad_character = ph.pad_char '0' '0' : ph.pad_char.charAt(1) : ' '
                     pad_length = ph.width - (sign + arg).length
-                    pad = ph.width ? (pad_length > 0 ? pad_character.repeat(pad_length) : '') : ''
-                    output += ph.align ? sign + arg + pad : (pad_character === '0' ? sign + pad + arg : pad + sign + arg)
+                    pad = ph.width '') : ''
+                    output += ph.align '0' 
                 }
             }
         }
@@ -271,7 +271,7 @@ var __WEBPACK_AMD_DEFINE_RESULT__;/* global window, exports, define */
 /******/ 	(() => {
 /******/ 		// getDefaultExport function for compatibility with non-harmony modules
 /******/ 		__webpack_require__.n = (module) => {
-/******/ 			var getter = module && module.__esModule ?
+/******/ 			var getter = module && module.__esModule 
 /******/ 				() => (module['default']) :
 /******/ 				() => (module);
 /******/ 			__webpack_require__.d(getter, { a: getter });
@@ -346,8 +346,8 @@ __webpack_require__.d(__webpack_exports__, {
  *
  * @typedef MemizeCacheNode
  *
- * @property {?MemizeCacheNode|undefined} [prev] Previous node.
- * @property {?MemizeCacheNode|undefined} [next] Next node.
+ * @property {
+ * @property {
  * @property {Array<*>}                   args   Function arguments for cache
  *                                               entry.
  * @property {*}                          val    Function result.
@@ -375,10 +375,10 @@ __webpack_require__.d(__webpack_exports__, {
 function memize(fn, options) {
 	var size = 0;
 
-	/** @type {?MemizeCacheNode|undefined} */
+	/** @type {
 	var head;
 
-	/** @type {?MemizeCacheNode|undefined} */
+	/** @type {
 	var tail;
 
 	options = options || {};
@@ -559,8 +559,8 @@ PRECEDENCE = {
 	'!=': 4,
 	'&&': 3,
 	'||': 2,
-	'?': 1,
-	'?:': 1,
+	'': 1,
+	'': 1,
 };
 
 /**
@@ -568,7 +568,7 @@ PRECEDENCE = {
  *
  * @type {string[]}
  */
-OPENERS = [ '(', '?' ];
+OPENERS = [ '(', '' ];
 
 /**
  * Characters which signal pair termination, the value an array with the
@@ -579,7 +579,7 @@ OPENERS = [ '(', '?' ];
  */
 TERMINATORS = {
 	')': [ '(' ],
-	':': [ '?', '?:' ],
+	':': [ '', '' ],
 };
 
 /**
@@ -587,7 +587,7 @@ TERMINATORS = {
  *
  * @type {RegExp}
  */
-PATTERN = /<=|>=|==|!=|&&|\|\||\?:|\(|!|\*|\/|%|\+|-|<|>|\?|\)|:/;
+PATTERN = /<=|>=|==|!=|&&|\|\||\
 
 /**
  * Given a C expression, returns the equivalent postfix (Reverse Polish)
@@ -710,7 +710,7 @@ var OPERATORS = {
 	'||': function( a, b ) {
 		return a || b;
 	},
-	'?:': function( a, b, c ) {
+	'': function( a, b, c ) {
 		if ( a ) {
 			throw b;
 		}
@@ -794,7 +794,7 @@ function evaluate( postfix, variables ) {
  *
  * @param {string} expression C expression.
  *
- * @return {(variables?:{[variable:string]:*})=>*} Compiled evaluator.
+ * @return {(variables
  */
 function compile( expression ) {
 	var terms = postfix( expression );
@@ -944,7 +944,7 @@ function Tannin( data, options ) {
 
 	for ( key in DEFAULT_OPTIONS ) {
 		this.options[ key ] = options !== undefined && key in options
-			? options[ key ]
+			
 			: DEFAULT_OPTIONS[ key ];
 	}
 }
@@ -1036,7 +1036,7 @@ Tannin.prototype.dcnpgettext = function( domain, context, singular, plural, n ) 
 
 	// If entry not found, fall back to singular vs. plural with zero index
 	// representing the singular value.
-	return index === 0 ? singular : plural;
+	return index === 0 
 };
 
 ;// ./node_modules/@wordpress/i18n/build-module/create-i18n.js
@@ -1059,7 +1059,7 @@ const DEFAULT_LOCALE_DATA = {
   '': {
     /** @param {number} n */
     plural_forms(n) {
-      return n === 1 ? 0 : 1;
+      return n === 1 
     }
   }
 };
@@ -1068,10 +1068,10 @@ const DEFAULT_LOCALE_DATA = {
  * Regular expression that matches i18n hooks like `i18n.gettext`, `i18n.ngettext`,
  * `i18n.gettext_domain` or `i18n.ngettext_with_context` or `i18n.has_translation`.
  */
-const I18N_HOOK_REGEXP = /^i18n\.(n?gettext|has_translation)(_|$)/;
+const I18N_HOOK_REGEXP = /^i18n\.(n
 
 /**
- * @typedef {(domain?: string) => LocaleData} GetLocaleData
+ * @typedef {(domain
  *
  * Returns locale data by domain in a
  * Jed-formatted JSON object shape.
@@ -1079,7 +1079,7 @@ const I18N_HOOK_REGEXP = /^i18n\.(n?gettext|has_translation)(_|$)/;
  * @see http://messageformat.github.io/Jed/
  */
 /**
- * @typedef {(data?: LocaleData, domain?: string) => void} SetLocaleData
+ * @typedef {(data
  *
  * Merges locale data into the Tannin instance by domain. Note that this
  * function will overwrite the domain configuration. Accepts data in a
@@ -1088,7 +1088,7 @@ const I18N_HOOK_REGEXP = /^i18n\.(n?gettext|has_translation)(_|$)/;
  * @see http://messageformat.github.io/Jed/
  */
 /**
- * @typedef {(data?: LocaleData, domain?: string) => void} AddLocaleData
+ * @typedef {(data
  *
  * Merges locale data into the Tannin instance by domain. Note that this
  * function will also merge the domain configuration. Accepts data in a
@@ -1097,7 +1097,7 @@ const I18N_HOOK_REGEXP = /^i18n\.(n?gettext|has_translation)(_|$)/;
  * @see http://messageformat.github.io/Jed/
  */
 /**
- * @typedef {(data?: LocaleData, domain?: string) => void} ResetLocaleData
+ * @typedef {(data
  *
  * Resets all current Tannin instance locale data and sets the specified
  * locale data for the domain. Accepts data in a Jed-formatted JSON object shape.
@@ -1112,25 +1112,25 @@ const I18N_HOOK_REGEXP = /^i18n\.(n?gettext|has_translation)(_|$)/;
  * Subscribes to changes of locale data
  */
 /**
- * @typedef {(domain?: string) => string} GetFilterDomain
+ * @typedef {(domain
  * Retrieve the domain to use when calling domain-specific filters.
  */
 /**
- * @typedef {(text: string, domain?: string) => string} __
+ * @typedef {(text: string, domain
  *
  * Retrieve the translation of text.
  *
  * @see https://developer.wordpress.org/reference/functions/__/
  */
 /**
- * @typedef {(text: string, context: string, domain?: string) => string} _x
+ * @typedef {(text: string, context: string, domain
  *
  * Retrieve translated string with gettext context.
  *
  * @see https://developer.wordpress.org/reference/functions/_x/
  */
 /**
- * @typedef {(single: string, plural: string, number: number, domain?: string) => string} _n
+ * @typedef {(single: string, plural: string, number: number, domain
  *
  * Translates and retrieves the singular or plural form based on the supplied
  * number.
@@ -1138,7 +1138,7 @@ const I18N_HOOK_REGEXP = /^i18n\.(n?gettext|has_translation)(_|$)/;
  * @see https://developer.wordpress.org/reference/functions/_n/
  */
 /**
- * @typedef {(single: string, plural: string, number: number, context: string, domain?: string) => string} _nx
+ * @typedef {(single: string, plural: string, number: number, context: string, domain
  *
  * Translates and retrieves the singular or plural form based on the supplied
  * number, with gettext context.
@@ -1156,7 +1156,7 @@ const I18N_HOOK_REGEXP = /^i18n\.(n?gettext|has_translation)(_|$)/;
  * including English (`en`, `en-US`, `en-GB`, etc.), Spanish (`es`), and French (`fr`).
  */
 /**
- * @typedef {(single: string, context?: string, domain?: string) => boolean} HasTranslation
+ * @typedef {(single: string, context
  *
  * Check if there is a translation for a given string in singular form.
  */
@@ -1235,7 +1235,7 @@ const createI18n = (initialData, initialDomain, hooks) => {
     // a plural forms expression).
     tannin.data[domain][''] = {
       ...DEFAULT_LOCALE_DATA[''],
-      ...tannin.data[domain]?.['']
+      ...tannin.data[domain]'']
     };
 
     // Clean up cached plural forms functions cache as it might be updated.
@@ -1257,8 +1257,8 @@ const createI18n = (initialData, initialDomain, hooks) => {
       // a plural forms expression).
       '': {
         ...DEFAULT_LOCALE_DATA[''],
-        ...tannin.data[domain]?.[''],
-        ...data?.['']
+        ...tannin.data[domain]''],
+        ...data'']
       }
     };
 
@@ -1392,8 +1392,8 @@ const createI18n = (initialData, initialDomain, hooks) => {
 
   /** @type {HasTranslation} */
   const hasTranslation = (single, context, domain) => {
-    const key = context ? context + '\u0004' + single : single;
-    let result = !!tannin.data?.[domain !== null && domain !== void 0 ? domain : 'default']?.[key];
+    const key = context '\u0004' + single : single;
+    let result = !!tannin.data'default']
     if (hooks) {
       /**
        * Filters the presence of a translation in the locale data.

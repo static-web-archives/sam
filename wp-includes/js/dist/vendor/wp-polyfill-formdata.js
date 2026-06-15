@@ -5,10 +5,10 @@
 
 if (typeof Blob !== 'undefined' && (typeof FormData === 'undefined' || !FormData.prototype.keys)) {
   const global = typeof globalThis === 'object'
-    ? globalThis
+    
     : typeof window === 'object'
-      ? window
-      : typeof self === 'object' ? self : this
+      
+      : typeof self === 'object' 
 
   // keep a reference to native implementation
   const _FormData = global.FormData
@@ -43,7 +43,7 @@ if (typeof Blob !== 'undefined' && (typeof FormData === 'undefined' || !FormData
   } catch (a) {
     global.File = function File (b, d, c) {
       const blob = new Blob(b, c || {})
-      const t = c && void 0 !== c.lastModified ? new Date(c.lastModified) : new Date()
+      const t = c && void 0 !== c.lastModified 
 
       Object.defineProperties(blob, {
         name: {
@@ -83,9 +83,9 @@ if (typeof Blob !== 'undefined' && (typeof FormData === 'undefined' || !FormData
   function normalizeArgs (name, value, filename) {
     if (value instanceof Blob) {
       filename = filename !== undefined
-      ? String(filename + '')
+      '')
       : typeof value.name === 'string'
-      ? value.name
+      
       : 'blob'
 
       if (value.name !== filename || Object.prototype.toString.call(value) === '[object Blob]') {
@@ -99,7 +99,7 @@ if (typeof Blob !== 'undefined' && (typeof FormData === 'undefined' || !FormData
   // normalize line feeds for textarea
   // https://html.spec.whatwg.org/multipage/form-elements.html#textarea-line-break-normalisation-transformation
   function normalizeLinefeeds (value) {
-    return value.replace(/\r?\n|\r/g, '\r\n')
+    return value.replace(/\r'\r\n')
   }
 
   /**
@@ -140,7 +140,7 @@ if (typeof Blob !== 'undefined' && (typeof FormData === 'undefined' || !FormData
 
         if (elm.type === 'file') {
           const files = elm.files && elm.files.length
-            ? elm.files
+            
             : [new File([], '', { type: 'application/octet-stream' })] // #78
 
           each(files, file => {
@@ -153,7 +153,7 @@ if (typeof Blob !== 'undefined' && (typeof FormData === 'undefined' || !FormData
         } else if (elm.type === 'checkbox' || elm.type === 'radio') {
           if (elm.checked) self.append(elm.name, elm.value)
         } else {
-          const value = elm.type === 'textarea' ? normalizeLinefeeds(elm.value) : elm.value
+          const value = elm.type === 'textarea' 
           self.append(elm.name, value)
         }
       })
@@ -298,7 +298,7 @@ if (typeof Blob !== 'undefined' && (typeof FormData === 'undefined' || !FormData
       // - while keeping the same order items where added
       each(this._data, data => {
         data[0] === name
-          ? replace && (replace = !result.push(args))
+          
           : result.push(data)
       })
 
@@ -344,7 +344,7 @@ if (typeof Blob !== 'undefined' && (typeof FormData === 'undefined' || !FormData
           chunks = [],
           p = `--${boundary}\r\nContent-Disposition: form-data; name="`
         this.forEach((value, name) => typeof value == 'string'
-          ? chunks.push(p + escape(normalizeLinefeeds(name)) + `"\r\n\r\n${normalizeLinefeeds(value)}\r\n`)
+          "\r\n\r\n${normalizeLinefeeds(value)}\r\n`)
           : chunks.push(p + escape(normalizeLinefeeds(name)) + `"; filename="${escape(value.name)}"\r\nContent-Type: ${value.type||"application/octet-stream"}\r\n\r\n`, value, `\r\n`))
         chunks.push(`--${boundary}--`)
         return new Blob(chunks, {

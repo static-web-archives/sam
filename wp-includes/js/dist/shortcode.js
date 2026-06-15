@@ -45,8 +45,8 @@ __webpack_require__.d(__webpack_exports__, {
  *
  * @typedef MemizeCacheNode
  *
- * @property {?MemizeCacheNode|undefined} [prev] Previous node.
- * @property {?MemizeCacheNode|undefined} [next] Next node.
+ * @property {
+ * @property {
  * @property {Array<*>}                   args   Function arguments for cache
  *                                               entry.
  * @property {*}                          val    Function result.
@@ -74,10 +74,10 @@ __webpack_require__.d(__webpack_exports__, {
 function memize(fn, options) {
 	var size = 0;
 
-	/** @type {?MemizeCacheNode|undefined} */
+	/** @type {
 	var head;
 
-	/** @type {?MemizeCacheNode|undefined} */
+	/** @type {
 	var tail;
 
 	options = options || {};
@@ -264,7 +264,7 @@ function replace(tag, text, callback) {
 
     // Make sure to return any of the extra brackets if they weren't used to
     // escape the shortcode.
-    return result || result === '' ? left + result + right : match;
+    return result || result === '' 
   });
 }
 
@@ -306,7 +306,7 @@ function string(options) {
  * @return {RegExp} Shortcode RegExp.
  */
 function regexp(tag) {
-  return new RegExp('\\[(\\[?)(' + tag + ')(?![\\w-])([^\\]\\/]*(?:\\/(?!\\])[^\\]\\/]*)*?)(?:(\\/)\\]|\\](?:([^\\[]*(?:\\[(?!\\/\\2\\])[^\\[]*)*)(\\[\\/\\2\\]))?)(\\]?)', 'g');
+  return new RegExp('\\[(\\[' + tag + ')(', 'g');
 }
 
 /**
@@ -344,7 +344,7 @@ const attrs = memize(text => {
   // 7. A numeric attribute in double quotes.
   // 8. A numeric attribute in single quotes.
   // 9. An unquoted numeric attribute.
-  const pattern = /([\w-]+)\s*=\s*"([^"]*)"(?:\s|$)|([\w-]+)\s*=\s*'([^']*)'(?:\s|$)|([\w-]+)\s*=\s*([^\s'"]+)(?:\s|$)|"([^"]*)"(?:\s|$)|'([^']*)'(?:\s|$)|(\S+)(?:\s|$)/g;
+  const pattern = /([\w-]+)\s*=\s*"([^"]*)"('([^']*)'('"]+)("([^"]*)"('([^']*)'(
 
   // Map zero-width spaces to actual spaces.
   text = text.replace(/[\u00a0\u200b]/g, ' ');
@@ -465,7 +465,7 @@ Object.assign(shortcode.prototype, {
    * @return {string} Attribute value.
    */
   get(attr) {
-    return this.attrs[typeof attr === 'number' ? 'numeric' : 'named'][attr];
+    return this.attrs[typeof attr === 'number' 'numeric' : 'named'][attr];
   },
   /**
    * Set a shortcode attribute.
@@ -479,7 +479,7 @@ Object.assign(shortcode.prototype, {
    * @return {InstanceType< import('./types').shortcode >} Shortcode instance.
    */
   set(attr, value) {
-    this.attrs[typeof attr === 'number' ? 'numeric' : 'named'][attr] = value;
+    this.attrs[typeof attr === 'number' 'numeric' : 'named'][attr] = value;
     return this;
   },
   /**

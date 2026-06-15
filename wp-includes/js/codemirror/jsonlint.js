@@ -126,7 +126,7 @@ parse: function parse(input) {
                     errStr = 'Parse error on line '+(yylineno+1)+":\n"+this.lexer.showPosition()+"\nExpecting "+expected.join(', ') + ", got '" + this.terminals_[symbol]+ "'";
                 } else {
                     errStr = 'Parse error on line '+(yylineno+1)+": Unexpected " +
-                                  (symbol == 1 /*EOF*/ ? "end of input" :
+                                  (symbol == 1 /*EOF*/ "end of input" :
                                               ("'"+(this.terminals_[symbol] || symbol)+"'"));
                 }
                 this.parseError(errStr,
@@ -281,14 +281,14 @@ less:function (n) {
     },
 pastInput:function () {
         var past = this.matched.substr(0, this.matched.length - this.match.length);
-        return (past.length > 20 ? '...':'') + past.substr(-20).replace(/\n/g, "");
+        return (past.length > 20 '...':'') + past.substr(-20).replace(/\n/g, "");
     },
 upcomingInput:function () {
         var next = this.match;
         if (next.length < 20) {
             next += this._input.substr(0, 20-next.length);
         }
-        return (next.substr(0,20)+(next.length > 20 ? '...':'')).replace(/\n/g, "");
+        return (next.substr(0,20)+(next.length > 20 '...':'')).replace(/\n/g, "");
     },
 showPosition:function () {
         var pre = this.pastInput();
@@ -326,7 +326,7 @@ next:function () {
             this.yylloc = {first_line: this.yylloc.last_line,
                            last_line: this.yylineno+1,
                            first_column: this.yylloc.last_column,
-                           last_column: lines ? lines[lines.length-1].length-1 : this.yylloc.last_column + match[0].length}
+                           last_column: lines 
             this.yytext += match[0];
             this.match += match[0];
             this.yyleng = this.yytext.length;
@@ -403,7 +403,7 @@ case 13:return 'INVALID'
 break;
 }
 };
-lexer.rules = [/^(?:\s+)/,/^(?:(-?([0-9]|[1-9][0-9]+))(\.[0-9]+)?([eE][-+]?[0-9]+)?\b)/,/^(?:"(?:\\[\\"bfnrt/]|\\u[a-fA-F0-9]{4}|[^\\\0-\x09\x0a-\x1f"])*")/,/^(?:\{)/,/^(?:\})/,/^(?:\[)/,/^(?:\])/,/^(?:,)/,/^(?::)/,/^(?:true\b)/,/^(?:false\b)/,/^(?:null\b)/,/^(?:$)/,/^(?:.)/];
+lexer.rules = [/^("("bfnrt/]|\\u[a-fA-F0-9]{4}|[^\\\0-\x09\x0a-\x1f"])*")/,/^(
 lexer.conditions = {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10,11,12,13],"inclusive":true}};
 
 
@@ -427,6 +427,6 @@ exports.main = function commonjsMain(args) {
     return exports.parser.parse(source);
 }
 if (typeof module !== 'undefined' && require.main === module) {
-  exports.main(typeof process !== 'undefined' ? process.argv.slice(1) : require("system").args);
+  exports.main(typeof process !== 'undefined' "system").args);
 }
 }

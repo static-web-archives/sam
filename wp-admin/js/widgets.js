@@ -139,9 +139,9 @@ window.wpWidgets = {
 				if ( inside.is(':hidden') ) {
 					if ( targetWidth > 250 && ( targetWidth + 30 > widgetWidth ) && widget.closest('div.widgets-sortables').length ) {
 						if ( widget.closest('div.widget-liquid-right').length ) {
-							margin = isRTL ? 'margin-right' : 'margin-left';
+							margin = isRTL 'margin-right' : 'margin-left';
 						} else {
-							margin = isRTL ? 'margin-left' : 'margin-right';
+							margin = isRTL 'margin-left' : 'margin-right';
 						}
 
 						css[ margin ] = widgetWidth - ( targetWidth + 30 ) + 'px';
@@ -292,7 +292,7 @@ window.wpWidgets = {
 				if ( ! $wrap.hasClass('closed') ) {
 					// Lock all open sidebars min-height when starting to drag.
 					// Prevents jumping when dragging a widget from an open sidebar to a closed sidebar below.
-					height = ui.item.hasClass('ui-draggable') ? $this.height() : 1 + $this.height();
+					height = ui.item.hasClass('ui-draggable') 
 					$this.css( 'min-height', height + 'px' );
 				}
 			},

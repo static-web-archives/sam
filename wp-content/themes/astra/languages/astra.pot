@@ -27,7 +27,7 @@ msgstr ""
 #: admin/bsf-analytics/class-bsf-analytics.php:183
 #. translators: %s product name
 msgid ""
-"Want to help make <strong>%1s</strong> even more awesome? Allow us to "
+"Want to help make <strong>%1s</strong> even more awesome"
 "collect non-sensitive diagnostic data and usage information. "
 msgstr ""
 
@@ -308,7 +308,7 @@ msgid "Separator"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:130
-msgid "Disable on Home Page?"
+msgid "Disable on Home Page"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:143
@@ -316,23 +316,23 @@ msgid "Latest posts page or when any page is selected as blog page"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:145
-msgid "Disable on Blog / Posts Page?"
+msgid "Disable on Blog / Posts Page"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:159
-msgid "Disable on Search?"
+msgid "Disable on Search"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:173
-msgid "Disable on Archive?"
+msgid "Disable on Archive"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:187
-msgid "Disable on Single Page?"
+msgid "Disable on Single Page"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:201
-msgid "Disable on Single Post?"
+msgid "Disable on Single Post"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:214
@@ -340,11 +340,11 @@ msgid "All Pages, All Posts, All Attachments"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:216
-msgid "Disable on Singular?"
+msgid "Disable on Singular"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:230
-msgid "Disable on 404 Page?"
+msgid "Disable on 404 Page"
 msgstr ""
 
 #: inc/addons/breadcrumbs/customizer/class-astra-breadcrumbs-configs.php:244
@@ -584,7 +584,7 @@ msgid "Enable on Complete Website"
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:70
-msgid "Disable on 404, Search & Archives?"
+msgid "Disable on 404, Search & Archives"
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:71
@@ -594,7 +594,7 @@ msgid ""
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:85
-msgid "Disable on Blog page?"
+msgid "Disable on Blog page"
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:86
@@ -604,7 +604,7 @@ msgid ""
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:100
-msgid "Disable on Latest Posts Page?"
+msgid "Disable on Latest Posts Page"
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:101
@@ -614,11 +614,11 @@ msgid ""
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:115
-msgid "Disable on Pages?"
+msgid "Disable on Pages"
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:129
-msgid "Disable on Posts?"
+msgid "Disable on Posts"
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:155
@@ -638,7 +638,7 @@ msgid "Desktop + Mobile"
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:181
-msgid "Different Logo for Transparent Header?"
+msgid "Different Logo for Transparent Header"
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:197
@@ -647,7 +647,7 @@ msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:213
 #: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:95
-msgid "Different Logo For Retina Devices?"
+msgid "Different Logo For Retina Devices"
 msgstr ""
 
 #: inc/addons/transparent-header/classes/sections/class-astra-customizer-transparent-header-configs.php:230
@@ -1234,7 +1234,7 @@ msgid "Disable Breadcrumb"
 msgstr ""
 
 #: inc/compatibility/woocommerce/customizer/sections/layout/class-astra-woo-shop-single-layout-configs.php:57
-msgid "Disable on WooCommerce Product Pages?"
+msgid "Disable on WooCommerce Product Pages"
 msgstr ""
 
 #: inc/compatibility/woocommerce/woocommerce-common-functions.php:84
@@ -1262,7 +1262,7 @@ msgstr ""
 #: inc/core/class-astra-admin-settings.php:213
 msgid ""
 "Could you please do us a BIG favor and give it a 5-star rating on "
-"WordPress? This would boost our motivation and help other users make a "
+"WordPress"
 "comfortable decision while choosing the Astra theme."
 msgstr ""
 
@@ -1290,8 +1290,8 @@ msgstr ""
 #: inc/core/class-astra-admin-settings.php:265
 msgid ""
 "Did you know Astra comes with dozens of ready-to-use <a "
-"href=\"https://wpastra.com/ready-websites/?utm_source=install-notice\""
-">starter templates</a>? Install the Starter Templates plugin to get started."
+"href=\"https://wpastra.com/ready-websites/""
+">starter templates</a>"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:301
@@ -1360,7 +1360,7 @@ msgid "Import Starter Template"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:668
-msgid "Starter Templates?"
+msgid "Starter Templates"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:671
@@ -1377,7 +1377,7 @@ msgid "Knowledge Base"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:732
-msgid "Not sure how something works? Take a peek at the knowledge base and learn."
+msgid "Not sure how something works"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:736
@@ -1407,7 +1407,7 @@ msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:824
 #. translators: %1$s: Astra Theme name.
-msgid "Got a question? Get in touch with %1$s developers. We're happy to help!"
+msgid "Got a question're happy to help!"
 msgstr ""
 
 #: inc/core/class-astra-admin-settings.php:831
@@ -1583,7 +1583,7 @@ msgid "Skip to content"
 msgstr ""
 
 #: inc/core/class-theme-strings.php:39
-msgid "It looks like the link pointing here was faulty. Maybe try searching?"
+msgid "It looks like the link pointing here was faulty. Maybe try searching"
 msgstr ""
 
 #: inc/core/class-theme-strings.php:42
@@ -2232,7 +2232,7 @@ msgid "Site Logo"
 msgstr ""
 
 #: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:123
-msgid "Different Logo For Mobile Devices?"
+msgid "Different Logo For Mobile Devices"
 msgstr ""
 
 #: inc/customizer/configurations/layout/class-astra-site-identity-configs.php:138
@@ -2672,7 +2672,7 @@ msgstr ""
 
 #: template-parts/content-none.php:23
 #. translators: 1: link to new post
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgid "Ready to publish your first post"%1$s\">Get started here</a>."
 msgstr ""
 
 #: template-parts/content.php:65
@@ -2696,7 +2696,7 @@ msgid ""
 "Some of the other features: # WooCommerce Ready # Responsive # RTL & "
 "Translation Ready # Extendible with premium addons # Regularly updated # "
 "Designed, Developed, Maintained & Supported by Brainstorm Force. Looking "
-"for a perfect base theme? Look no further. Astra is fast, fully "
+"for a perfect base theme"
 "customizable and WooCommerce ready theme that you can use for building any "
 "kind of website!"
 msgstr ""

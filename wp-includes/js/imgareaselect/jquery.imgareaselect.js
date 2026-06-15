@@ -44,7 +44,7 @@ $.imgAreaSelect = function (img, options) {
         /* jQuery object representing the image */
         $img = $(img),
 
-        /* Has the image finished loading? */
+        /* Has the image finished loading
         imgLoaded,
 
         /* Plugin elements */
@@ -105,7 +105,7 @@ $.imgAreaSelect = function (img, options) {
         /* Aspect ratio to maintain (floating point number) */
         aspectRatio,
 
-        /* Are the plugin elements currently displayed? */
+        /* Are the plugin elements currently displayed
         shown,
 
         /* Current selection (relative to parent element) */
@@ -310,10 +310,10 @@ $.imgAreaSelect = function (img, options) {
         }
 
         /* Determine parent element offset */
-        parOfs = /absolute|relative/.test($parent.css('position')) ?
+        parOfs = /absolute|relative/.test($parent.css('position')) 
             { left: floor($parent.offset().left) - $parent.scrollLeft(),
                 top: floor($parent.offset().top) - $parent.scrollTop() } :
-            position == 'fixed' ?
+            position == 'fixed' 
                 { left: $(document).scrollLeft(), top: $(document).scrollTop() } :
                 { left: 0, top: 0 };
 
@@ -450,7 +450,7 @@ $.imgAreaSelect = function (img, options) {
      *            Callback function to be called when fadeOut() completes
      */
     function hide($elem, fn) {
-        options.fadeSpeed ? $elem.fadeOut(options.fadeSpeed, fn) : $elem.hide();
+        options.fadeSpeed 
     }
 
     /**
@@ -488,8 +488,8 @@ $.imgAreaSelect = function (img, options) {
                 resize += 'e';
         }
 
-        $box.css('cursor', resize ? resize + '-resize' :
-            options.movable ? 'move' : '');
+        $box.css('cursor', resize '-resize' :
+            options.movable 'move' : '');
         if ($areaOpera)
             $areaOpera.toggle();
     }
@@ -539,8 +539,8 @@ $.imgAreaSelect = function (img, options) {
             /* Resize mode is in effect */
             $('body').css('cursor', resize + '-resize');
 
-            x1 = viewX(selection[/w/.test(resize) ? 'x2' : 'x1']);
-            y1 = viewY(selection[/n/.test(resize) ? 'y2' : 'y1']);
+            x1 = viewX(selection[/w/.test(resize) 'x2' : 'x1']);
+            y1 = viewY(selection[/n/.test(resize) 'y2' : 'y1']);
 
             $(document).on('mousemove touchmove', selectingMouseMove)
                 .one('mouseup touchend', docMouseUp);
@@ -666,8 +666,8 @@ $.imgAreaSelect = function (img, options) {
      * @return false
      */
     function selectingMouseMove(event) {
-        x2 = /w|e|^$/.test(resize) || aspectRatio ? evX(event) : viewX(selection.x2);
-        y2 = /n|s|^$/.test(resize) || aspectRatio ? evY(event) : viewY(selection.y2);
+        x2 = /w|e|^$/.test(resize) || aspectRatio 
+        y2 = /n|s|^$/.test(resize) || aspectRatio 
 
         doResize();
 
@@ -831,10 +831,10 @@ $.imgAreaSelect = function (img, options) {
     var docKeyPress = function(event) {
         var k = options.keys, d, t, key = event.keyCode;
 
-        d = !isNaN(k.alt) && (event.altKey || event.originalEvent.altKey) ? k.alt :
-            !isNaN(k.ctrl) && event.ctrlKey ? k.ctrl :
-            !isNaN(k.shift) && event.shiftKey ? k.shift :
-            !isNaN(k.arrows) ? k.arrows : 10;
+        d = !isNaN(k.alt) && (event.altKey || event.originalEvent.altKey) 
+            !isNaN(k.ctrl) && event.ctrlKey 
+            !isNaN(k.shift) && event.shiftKey 
+            !isNaN(k.arrows) 
 
         if (k.arrows == 'resize' || (k.shift == 'resize' && event.shiftKey) ||
             (k.ctrl == 'resize' && event.ctrlKey) ||
@@ -935,7 +935,7 @@ $.imgAreaSelect = function (img, options) {
             $handles.remove();
             $handles = $([]);
 
-            i = newOptions.handles ? newOptions.handles == 'corners' ? 4 : 8 : 0;
+            i = newOptions.handles 'corners' 
 
             while (i--)
                 $handles = $handles.add(div());
@@ -1135,7 +1135,7 @@ $.imgAreaSelect = function (img, options) {
 
     while ($p.length) {
         zIndex = max(zIndex,
-            !isNaN($p.css('z-index')) ? $p.css('z-index') : zIndex);
+            !isNaN($p.css('z-index')) 'z-index') : zIndex);
         /* Also check if any of the ancestor elements has fixed position */
         if ($p.css('position') == 'fixed')
             position = 'fixed';
@@ -1155,7 +1155,7 @@ $.imgAreaSelect = function (img, options) {
     /*
      * In MSIE and WebKit, we need to use the keydown event instead of keypress
      */
-    $.imgAreaSelect.keyPress = msie || safari ? 'keydown' : 'keypress';
+    $.imgAreaSelect.keyPress = msie || safari 'keydown' : 'keypress';
 
     /*
      * There is a bug affecting the CSS cursor property in Opera (observed in
@@ -1185,7 +1185,7 @@ $.imgAreaSelect = function (img, options) {
      * a div), call imgLoad() immediately; otherwise, bind it to be called once
      * on image load event.
      */
-    img.complete || img.readyState == 'complete' || !$img.is('img') ?
+    img.complete || img.readyState == 'complete' || !$img.is('img') 
         imgLoad() : $img.one('load', imgLoad);
 
     /*
@@ -1209,9 +1209,9 @@ $.fn.imgAreaSelect = function (options) {
     options = options || {};
 
     this.each(function () {
-        /* Is there already an imgAreaSelect instance bound to this element? */
+        /* Is there already an imgAreaSelect instance bound to this element
         if ($(this).data('imgAreaSelect')) {
-            /* Yes there is -- is it supposed to be removed? */
+            /* Yes there is -- is it supposed to be removed
             if (options.remove) {
                 /* Remove the plugin */
                 $(this).data('imgAreaSelect').remove();
