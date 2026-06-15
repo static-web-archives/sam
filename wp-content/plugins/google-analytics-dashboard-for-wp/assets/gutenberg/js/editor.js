@@ -7950,7 +7950,7 @@ const HeadlinePanelType = props => {
   const typePanelTitle = (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", {
     className: "exactmetrics-headline-analyzer-panel-types-title"
   }, panelTitle, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)("span", null, headlineTypes));
-  const typeLinkText = sprintf(__('Headlines that are lists and how-to get more engagement on average than other types of headlines. %1sRead more about %2sdifferent types of headlines here.%3s', "google-analytics-dashboard-for-wp"), '<br/><br/>', '<a href="https://optinmonster.com/why-these-21-headlines-went-viral-and-how-you-can-copy-their-success/" target="_blank" className="exactmetrics-headline-analyzer-link">', '</a>');
+  const typeLinkText = sprintf(__('Headlines that are lists and how-to get more engagement on average than other types of headlines. %1sRead more about %2sdifferent types of headlines here.%3s', "google-analytics-dashboard-for-wp"), '<br/><br/>', '<a href="https://optinmonster.com/why-these-21-headlines-went-viral-and-how-you-can-copy-their-success" target="_blank" className="exactmetrics-headline-analyzer-link">', '</a>');
   return (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,react__WEBPACK_IMPORTED_MODULE_0__.createElement)(PanelBody, {
     title: typePanelTitle,
     className: "exactmetrics-headline-analyzer-panel-types"

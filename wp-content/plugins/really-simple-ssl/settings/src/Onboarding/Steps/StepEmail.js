@@ -50,7 +50,7 @@ const StepEmail = () => {
                     />
                     <span>{__("Include 6 Tips & Tricks to get started with Really Simple Security.", "really-simple-ssl")}</span>&nbsp;
                     <a
-                        href="https://really-simple-ssl.com/legal/privacy-statement/"
+                        href="https://really-simple-ssl.com/legal/privacy-statement"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

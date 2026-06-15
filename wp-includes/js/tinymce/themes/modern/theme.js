@@ -1111,7 +1111,7 @@ var modern = (function (domGlobals) {
         };
       }
       if (hasStatusbar(editor)) {
-        var linkHtml = '<a href="https://www.tiny.cloud/" rel="noopener" target="_blank" role="presentation" tabindex="-1">Tiny</a>';
+        var linkHtml = '<a href="https://www.tiny.cloud" rel="noopener" target="_blank" role="presentation" tabindex="-1">Tiny</a>';
         var html = global$5.translate([
           'Powered by {0}',
           linkHtml

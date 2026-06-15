@@ -92,7 +92,7 @@ Give ExactMetrics a try.
 
 = Credits =
 
-This plugin is created by <a href="https://twitter.com/chriscct7" rel="friend" title="Chris Christoff">Chris Christoff</a> and <a href="https://syedbalkhi.com/" rel="friend" title="Syed Balkhi">Syed Balkhi</a> with sponsorship from <a href="http://www.wpbeginner.com/" rel="friend" title="WPBeginner">WPBeginner</a>.
+This plugin is created by <a href="https://twitter.com/chriscct7" rel="friend" title="Chris Christoff">Chris Christoff</a> and <a href="https://syedbalkhi.com" rel="friend" title="Syed Balkhi">Syed Balkhi</a> with sponsorship from <a href="http://www.wpbeginner.com" rel="friend" title="WPBeginner">WPBeginner</a>.
 
 == Frequently Asked Questions ==
 
@@ -125,7 +125,7 @@ You can translate Google Analytics Dashboard for WP by ExactMetrics on [translat
 
 == Installation ==
 
-1. Install Google Analytics Dashboard for WordPress by ExactMetrics either via the WordPress.org plugin repository or by uploading the files to your server. (See instructions on <a href="http://www.wpbeginner.com/beginners-guide/step-by-step-guide-to-install-a-wordpress-plugin-for-beginners/" rel="friend">how to install a WordPress plugin</a>)
+1. Install Google Analytics Dashboard for WordPress by ExactMetrics either via the WordPress.org plugin repository or by uploading the files to your server. (See instructions on <a href="http://www.wpbeginner.com/beginners-guide/step-by-step-guide-to-install-a-wordpress-plugin-for-beginners" rel="friend">how to install a WordPress plugin</a>)
 2. Activate Google Analytics for WordPress by ExactMetrics.
 3. Navigate to the Insights tab in your WordPress admin menu and configure the plugin.
 4. Want more features? <a href="https://www.exactmetrics.com/?utm_source=wprepo&utm_medium=link&utm_campaign=liteversion">Purchase ExactMetrics Pro</a>!

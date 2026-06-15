@@ -9662,7 +9662,7 @@ var ControlIconsView = /*#__PURE__*/function (_ControlMultipleBaseI) {
             window.location.href = elementor.config.tools_page_link + '&redirect_to=' + encodeURIComponent(document.location.href) + '#tab-fontawesome4_migration';
           };
 
-          var enableMigrationDialog = elementor.helpers.getSimpleDialog('elementor-enable-fa5-dialog', __('Elementor\'s New Icon Library', 'elementor'), __('Elementor v2.6 includes an upgrade from Font Awesome 4 to 5. In order to continue using icons, be sure to click "Update".', 'elementor') + ' <a href="https://go.elementor.com/fontawesome-migration/" target="_blank">' + __('Learn More', 'elementor') + '</a>', __('Update', 'elementor'), onConfirm);
+          var enableMigrationDialog = elementor.helpers.getSimpleDialog('elementor-enable-fa5-dialog', __('Elementor\'s New Icon Library', 'elementor'), __('Elementor v2.6 includes an upgrade from Font Awesome 4 to 5. In order to continue using icons, be sure to click "Update".', 'elementor') + ' <a href="https://go.elementor.com/fontawesome-migration" target="_blank">' + __('Learn More', 'elementor') + '</a>', __('Update', 'elementor'), onConfirm);
           enableMigrationDialog.show();
           return false;
         }, true);
@@ -23147,7 +23147,7 @@ module.exports = {
           window.location.href = elementor.config.tools_page_link + '&redirect_to=' + encodeURIComponent(document.location.href) + '#tab-fontawesome4_migration';
         };
 
-        elementor.helpers.getSimpleDialog('elementor-enable-fa5-dialog', __('Elementor\'s New Icon Library', 'elementor'), __('Elementor v2.6 includes an upgrade from Font Awesome 4 to 5. In order to continue using icons, be sure to click "Update".', 'elementor') + ' <a href="https://go.elementor.com/fontawesome-migration/" target="_blank">' + __('Learn More', 'elementor') + '</a>', __('Update', 'elementor'), onConfirm).show();
+        elementor.helpers.getSimpleDialog('elementor-enable-fa5-dialog', __('Elementor\'s New Icon Library', 'elementor'), __('Elementor v2.6 includes an upgrade from Font Awesome 4 to 5. In order to continue using icons, be sure to click "Update".', 'elementor') + ' <a href="https://go.elementor.com/fontawesome-migration" target="_blank">' + __('Learn More', 'elementor') + '</a>', __('Update', 'elementor'), onConfirm).show();
         return true;
       }
     }

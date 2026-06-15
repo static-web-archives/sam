@@ -68,7 +68,7 @@ export const internalLinkButton = () => {
 
 export const externalLinkButton = () => {
   return (
-    <ExternalLinkButton href='https://mixkit.co/' type='ghost' label='Very cool website' icon='link' openNewWindow />
+    <ExternalLinkButton href='https://mixkit.co' type='ghost' label='Very cool website' icon='link' openNewWindow />
   )
 }
 
@@ -97,7 +97,7 @@ export const externalLink = () => {
 export const internalLink = () => {
   return (
     <Router>
-      <InternalLink text='View Item' href='/' />
+      <InternalLink text='View Item' href='' />
     </Router>
   )
 }
