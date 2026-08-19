@@ -297,6 +297,27 @@
     .section-intro{font-size:.95rem;color:var(--muted);line-height:1.7;max-width:600px;}
     .section-header{margin-bottom:3.5rem;}
 
+    #approche {
+  background: #fff;
+}
+
+#approche blockquote {
+  max-width: 850px;
+  margin: 2rem 0 0;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid var(--accent);
+  background: rgba(187, 143, 75, 0.08);
+  color: var(--ink);
+  text-align: left;
+}
+
+#approche blockquote p {
+  margin: 0;
+  color: var(--ink);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
     /* ── PROFILES (Vos Profils) ── */
     #profiles{background:white;}
     .profiles-grid{
@@ -367,14 +388,14 @@
     }
     .service-card a:hover{gap:.6rem;}
 
-    /* ── WHY US ── */
-    #why{
+    /* ── METHODE ── */
+    #methode{
       background:var(--ink);color:white;
       display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;
     }
-    #why .section-title{color:white;}
-    #why .section-tag{color:var(--gold);}
-    #why .section-intro{color:rgba(255,255,255,.6);}
+    #methode .section-title{color:white;}
+    #methode .section-tag{color:var(--gold);}
+    #methode .section-intro{color:rgba(255,255,255,.6);}
     .why-visual{
       border-radius:20px;overflow:hidden;position:relative;
       height:480px;
@@ -589,7 +610,7 @@
       .hamburger{display:flex;}
       #hero{grid-template-columns:1fr;padding-top:calc(var(--nav-h)+2rem);}
       .hero-right{display:none;}
-      #why,#app,#join{grid-template-columns:1fr;}
+      #methode,#app,#join{grid-template-columns:1fr;}
       .why-visual,.app-phones{display:none;}
       .services-grid{grid-template-columns:1fr;}
       .services-grid-2{grid-template-columns:1fr;max-width:100%;}
@@ -1003,6 +1024,280 @@ body.modal-open {
     line-height: 1.55;
   }
 }
+.section-support {
+  max-width: 780px;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 0.7rem;
+  line-height: 1.8;
+}
+/* ── EXPERTISE MODAL CONTENT ── */
+
+.service-card {
+  cursor: pointer;
+}
+
+.service-card .service-modal-trigger {
+  position: relative;
+  z-index: 2;
+}
+
+.modal-services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.modal-service-item {
+  padding: 1.2rem 1.3rem;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.modal-service-item strong {
+  display: block;
+  margin-bottom: .45rem;
+  color: var(--ink);
+  font-size: .88rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.modal-service-item span {
+  display: block;
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.65;
+}
+
+.modal-conclusion {
+  margin-top: 2.5rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border);
+}
+
+.modal-conclusion p {
+  max-width: none;
+}
+
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.5rem;
+}
+
+.modal-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: .7rem 1.25rem;
+  border-radius: 8px;
+  font-size: .78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: .2s ease;
+}
+
+.modal-button-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.modal-button-primary:hover {
+  background: var(--ink);
+  color: #fff;
+}
+
+.modal-button-secondary {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+.modal-button-secondary:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+
+/* ── MOBILE ── */
+
+@media (max-width: 700px) {
+
+  .modal-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .modal-button {
+    width: 100%;
+  }
+
+}
+/* ── EXPERTISE MODAL ADDITIONS ── */
+
+.modal-services--two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.modal-services--two-col li {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.modal-conclusion {
+  max-width: 780px;
+  margin-top: 2.5rem !important;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-top: 2rem;
+}
+
+.modal-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: .7rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  transition: .2s ease;
+}
+
+.modal-button-primary {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: white;
+}
+
+.modal-button-primary:hover {
+  opacity: .88;
+  transform: translateY(-1px);
+}
+
+.modal-button-secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--ink);
+}
+
+.modal-button-secondary:hover {
+  background: white;
+  border-color: var(--ink);
+}
+
+
+/* ── MOBILE ── */
+
+@media (max-width: 700px) {
+
+  .modal-services--two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .modal-button {
+    width: 100%;
+  }
+
+}
+.modal-services--two-col {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.modal-services--two-col li {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.modal-conclusion {
+  max-width: 780px;
+  margin-top: 2.5rem !important;
+  color: var(--ink);
+  line-height: 1.4;
+}
+
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-top: 2rem;
+}
+
+.modal-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: .7rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  transition: .2s ease;
+}
+
+.modal-button-primary {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: white;
+}
+
+.modal-button-primary:hover {
+  opacity: .88;
+  transform: translateY(-1px);
+}
+
+.modal-button-secondary {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--ink);
+}
+
+.modal-button-secondary:hover {
+  background: white;
+  border-color: var(--ink);
+}
+
+@media (max-width: 700px) {
+  .modal-services--two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-actions {
+    flex-direction: column;
+  }
+
+  .modal-button {
+    width: 100%;
+  }
+}
 
   </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></head>
@@ -1015,8 +1310,8 @@ body.modal-open {
   </a>
   <ul class="nav-links">
     <li><a href="#profiles">Vos Profils</a></li>
-    <li><a href="#services">Nos Expertises</a></li>
-    <li><a href="#why">Notre Méthode</a></li>
+    <li><a href="#expertise">Nos Expertises</a></li>
+    <li><a href="#methode">Notre Méthode</a></li>
     <li><a href="#ressources">Ressources</a></li>
     <li><a href="#avis">Avis Clients</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -1030,8 +1325,8 @@ body.modal-open {
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
   <a href="#profiles" onclick="closeMobile()">Vos Profils</a>
-  <a href="#services" onclick="closeMobile()">Nos Expertises</a>
-  <a href="#why" onclick="closeMobile()">Notre Méthode</a>
+  <a href="#expertise" onclick="closeMobile()">Nos Expertises</a>
+  <a href="#methode" onclick="closeMobile()">Notre Méthode</a>
   <a href="#ressources" onclick="closeMobile()">Ressources</a>
   <a href="#avis" onclick="closeMobile()">Avis Clients</a>
   <a href="#contact" onclick="closeMobile()">Contact</a>
@@ -1187,7 +1482,6 @@ body.modal-open {
   </div>
 </section>
 
-
 <!-- =========================================================
      ASSOCIATIONS 1901 MODAL
 ========================================================= -->
@@ -1283,7 +1577,6 @@ body.modal-open {
     </div>
   </div>
 </div>
-
 
 <!-- =========================================================
      ASSOCIATIONS 1905 MODAL
@@ -1430,7 +1723,6 @@ body.modal-open {
   </div>
 </div>
 
-
 <!-- =========================================================
      ACTEURS DE L'ESS MODAL
 ========================================================= -->
@@ -1526,7 +1818,6 @@ body.modal-open {
     </div>
   </div>
 </div>
-
 
 <!-- =========================================================
      FONDS DE DOTATION MODAL
@@ -1630,61 +1921,1046 @@ body.modal-open {
     </div>
   </div>
 </div>
-<!-- SERVICES -->
-<section id="services">
+
+<!-- EXPERTISE -->
+<section id="expertise">
+
   <div class="section-header reveal">
     <span class="section-tag">Nos Expertises</span>
-    <h2 class="section-title">Cinq piliers pour <em>votre réussite</em></h2>
-    <p class="section-intro">Du bilan comptable à la formation de vos équipes, nous couvrons l'intégralité de vos besoins avec une vision long terme.</p>
+
+    <h2 class="section-title">
+      Six expertises. Un même engagement :
+      <em>être à vos côtés.</em>
+    </h2>
+
+    <p class="section-intro">
+      Expertise comptable, audit, conseil & optimisation, formation, immobilier et digital :
+      nous vous aidons à sécuriser ce qui doit l’être, à simplifier ce qui peut l’être
+      et à décider avec une vision claire.
+    </p>
+
+    <br>
+
+    <p class="section-support">
+      Parce que les dirigeants d’associations et d’organisations de l’ESS n’ont pas vocation
+      à devenir des spécialistes de la comptabilité, de la fiscalité ou de la réglementation,
+      nous sommes là pour rendre les sujets complexes compréhensibles et les décisions plus sûres.
+      Un cabinet proche, accessible et exigeant, pour vous accompagner aujourd’hui et adapter
+      votre organisation aux évolutions de demain.
+    </p>
   </div>
+
+
   <div class="services-grid reveal">
-    <div class="service-card">
+
+    <!-- EXPERTISE COMPTABLE -->
+    <div class="service-card" data-modal="modal-comptabilite">
+
       <div class="service-icon">
         <i class="ti ti-chart-pie"></i>
       </div>
+
       <h3>Expertise Comptable</h3>
-      <p>Ayant une spécialisation reconnue par l'Ordre des Experts-Comptables auprès des Associations, nous vous accompagnons dans tous vos besoins.</p>
-      <a href="#">Notre accompagnement →</a>
+
+      <p>
+        Vos comptes doivent être fiables. Mais surtout utiles pour comprendre,
+        anticiper et décider.
+      </p>
+
+      <a href="#" class="service-modal-trigger">
+        Notre accompagnement →
+      </a>
+
     </div>
-    <div class="service-card">
+
+
+    <!-- AUDIT -->
+    <div class="service-card" data-modal="modal-audit">
+
       <div class="service-icon">
         <i class="ti ti-circle-check"></i>
       </div>
-      <h3>Audit</h3>
-      <p>Que vous soyez dans l'obligation de nommer un Commissaire aux comptes, ou que vous souhaitiez un audit de vos procédures, nous certifions vos comptes.</p>
-      <a href="#">En savoir plus →</a>
+
+      <h3>Audit & commissariat aux comptes</h3>
+
+      <p>
+        Plus qu’une certification : un regard indépendant pour sécuriser vos pratiques
+        et renforcer la confiance.
+      </p>
+
+      <a href="#" class="service-modal-trigger">
+        En savoir plus →
+      </a>
+
     </div>
-    <div class="service-card">
+
+
+    <!-- CONSEIL -->
+    <div class="service-card" data-modal="modal-conseil">
+
       <div class="service-icon">
         <i class="ti ti-bulb"></i>
       </div>
-      <h3>Conseil & optimisation</h3>
-      <p>Un Conseil qui compte est la voie du succès. Discutons ensemble — le premier conseil est offert ! Nous optimisons et pérennisons votre gestion.</p>
-      <a href="#">Je prends RDV →</a>
+
+      <h3>Conseil & Optimisation</h3>
+
+      <p>
+        Vos décisions engagent l’avenir. Nous éclairons vos choix.
+        Et nous optimisons ce qui peut l’être.
+      </p>
+
+      <a href="#" class="service-modal-trigger">
+        Parlons de vos enjeux →
+      </a>
+
     </div>
+
   </div>
-  <div class="services-grid-2 reveal">
-    <div class="service-card">
+
+
+  <div class="services-grid reveal">
+
+    <!-- FORMATION -->
+    <div class="service-card" data-modal="modal-formation">
+
       <div class="service-icon">
         <i class="ti ti-school"></i>
       </div>
+
       <h3>Formation</h3>
-      <p>Des bases de la comptabilité à la digitalisation de vos process, une équipe pédagogue et qualifiée forme vos collaborateurs.</p>
-      <a href="#">Nos formations →</a>
+
+      <p>
+        Comprendre les règles, c’est déjà mieux les maîtriser.
+        Nous donnons les clés à vos équipes.
+      </p>
+
+      <a href="#" class="service-modal-trigger">
+        Découvrir nos formations →
+      </a>
+
     </div>
-    <div class="service-card">
+
+
+    <!-- IMMOBILIER -->
+    <div class="service-card" data-modal="modal-immobilier">
+
       <div class="service-icon">
         <i class="ti ti-building"></i>
       </div>
+
       <h3>Immobilier</h3>
-      <p>Une équipe qualifiée en droit social vous accompagne pour la réalisation des bulletins, déclarations, et vous conseille sur vos besoins RH.</p>
-      <a href="#">Nos solutions →</a>
+
+      <p>
+        Un projet immobilier engage votre organisation pour de nombreuses années.
+        Mesurez avant de décider.
+      </p>
+
+      <a href="#" class="service-modal-trigger">
+        Étudier mon projet →
+      </a>
+
     </div>
+
+
+    <!-- DIGITAL -->
+    <div class="service-card" data-modal="modal-digital">
+
+      <div class="service-icon">
+        <i class="ti ti-device-laptop"></i>
+      </div>
+
+      <h3>Digital</h3>
+
+      <p>
+        Des outils adaptés pour simplifier vos processus, fiabiliser vos données
+        et gagner du temps.
+      </p>
+
+      <a href="#" class="service-modal-trigger">
+        Découvrir notre approche →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- EXPERTISE COMPTABLE MODAL -->
+<div class="profile-modal" id="modal-comptabilite" aria-hidden="true">
+
+  <div class="profile-modal-overlay" data-modal-close></div>
+
+  <div
+    class="profile-modal-content"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-comptabilite-title"
+  >
+
+    <button
+      class="profile-modal-close"
+      type="button"
+      aria-label="Fermer"
+      data-modal-close
+    >
+      <i class="ti ti-x"></i>
+    </button>
+
+    <div class="profile-modal-inner">
+
+      <span class="section-tag">Notre Expertise</span>
+
+      <h2 id="modal-comptabilite-title" class="section-title">
+        Expertise Comptable
+      </h2>
+
+      <h3>Des comptes annuels à l’outil de pilotage</h3>
+
+      <p>
+        La comptabilité ne devrait jamais être seulement une obligation à respecter
+        une fois par an.
+      </p>
+
+      <p>
+        Bien organisée, elle devient une source d’information essentielle pour comprendre
+        votre activité, suivre vos ressources, anticiper votre trésorerie et éclairer
+        les décisions de vos dirigeants.
+      </p>
+
+      <p>
+        Nous intervenons principalement en <strong>révision des comptes annuels</strong>
+        et vous accompagnons pour fiabiliser votre information financière,
+        <strong>optimiser votre organisation</strong> comptable et respecter les normes
+        applicables à votre structure.
+      </p>
+
+      <p>
+        Notre connaissance approfondie des associations, des associations cultuelles
+        et des acteurs de l’ESS nous permet d’identifier rapidement les sujets qui méritent
+        une attention particulière et de vous proposer des solutions concrètes.
+      </p>
+
+
+      <h3>Ce que nous pouvons faire pour vous</h3>
+
+      <div class="modal-services-grid">
+
+        <div class="modal-service-item">
+          <strong>Réviser et sécuriser vos comptes annuels</strong>
+          <span>
+            Contrôle de la comptabilité, travaux de clôture, établissement ou révision
+            des états financiers et traitement des spécificités propres à votre activité.
+          </span>
+        </div>
+
+        <div class="modal-service-item">
+          <strong>Optimiser votre organisation comptable</strong>
+          <span>
+            Circuits de collecte des pièces, procédures, analytique, classement,
+            validation des dépenses : nous cherchons avec vous une organisation
+            plus simple et plus fiable.
+          </span>
+        </div>
+
+        <div class="modal-service-item">
+          <strong>Produire une information financière utile en cours d’année</strong>
+          <span>
+            Situations intermédiaires, budgets, suivi de trésorerie et tableaux de bord
+            adaptés aux besoins de votre direction ou de votre conseil d’administration.
+          </span>
+        </div>
+
+        <div class="modal-service-item">
+          <strong>Garantir l’application des normes comptables</strong>
+          <span>
+            Nous veillons à l’application des règles comptables en vigueur et à leur
+            évolution, notamment celles propres au secteur non lucratif.
+          </span>
+        </div>
+
+        <div class="modal-service-item">
+          <strong>Digitaliser vos processus</strong>
+          <span>
+            Choix et paramétrage des outils, dématérialisation, automatisation des flux,
+            gestion des notes de frais et amélioration des échanges entre votre organisation
+            et le cabinet.
+          </span>
+        </div>
+
+        <div class="modal-service-item">
+          <strong>Vous accompagner face aux évolutions réglementaires</strong>
+          <span>
+            Normes comptables, fiscalité, réglementation associative ou dispositions issues
+            de la loi confortant le respect des principes de la République : nous assurons
+            une veille permanente pour vous aider à adapter vos pratiques.
+          </span>
+        </div>
+
+      </div>
+
+
+      <div class="modal-conclusion">
+
+        <p>
+          <strong>
+            Notre objectif : que vous puissiez consacrer moins de temps à comprendre
+            vos chiffres et davantage à les utiliser pour prendre les bonnes décisions.
+          </strong>
+        </p>
+
+        <div class="modal-actions">
+
+          <a
+            href="https://calendly.com/datexia-sp/"
+            class="modal-button modal-button-primary"
+            target="_blank"
+            rel="noopener"
+          >
+            Je prends RDV
+          </a>
+
+          <a
+            href="mailto:noreply@datexia.fr?subject=Demande%20de%20devis"
+            class="modal-button modal-button-secondary"
+          >
+            Je demande un devis
+          </a>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- AUDIT & COMMISSARIAT AUX COMPTES MODAL -->
+<div class="profile-modal" id="modal-audit" aria-hidden="true">
+
+  <div class="profile-modal-overlay" data-modal-close></div>
+
+  <div
+    class="profile-modal-content"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-audit-title"
+  >
+
+    <button
+      class="profile-modal-close"
+      type="button"
+      aria-label="Fermer"
+      data-modal-close
+    >
+      <i class="ti ti-x"></i>
+    </button>
+
+    <div class="profile-modal-inner">
+
+      <span class="section-tag">Notre Expertise</span>
+
+      <h2 id="modal-audit-title" class="section-title">
+        Audit & commissariat aux comptes
+      </h2>
+
+      <h3>Un audit qui apporte de la valeur</h3>
+
+      <p>
+        Le commissaire aux comptes certifie les comptes. Mais une mission d’audit bien conduite peut apporter beaucoup plus.
+      </p>
+
+      <p>
+        Elle permet de porter un <em>regard indépendant</em> sur l’organisation, les procédures et les zones de risque, d’identifier les points qui doivent être sécurisés et de renforcer la confiance des dirigeants, adhérents, donateurs, financeurs et partenaires.
+      </p>
+
+      <p>
+        Notre approche privilégie le dialogue et la pédagogie. Nous expliquons les difficultés rencontrées, hiérarchisons les risques et formulons des recommandations directement utilisables.
+      </p>
+
+      <h3>Ce que nous pouvons faire pour vous</h3>
+
+      <ul class="modal-services modal-services--two-col">
+
+        <!-- COLUMN 1 -->
+
+        <li>
+          <strong>Commissariat aux comptes légal ou volontaire</strong>
+          <span>
+            Certification des comptes annuels dans le respect des normes professionnelles applicables.
+          </span>
+        </li>
+
+        <li>
+          <strong>Audit contractuel</strong>
+          <span>
+            Une opération, une organisation ou une problématique particulière peut nécessiter un regard indépendant sans attendre la clôture annuelle.
+          </span>
+        </li>
+
+        <li>
+          <strong>Identification et hiérarchisation des risques</strong>
+          <span>
+            Notre objectif n’est pas de multiplier les remarques, mais de concentrer l’attention des dirigeants sur ce qui est réellement important.
+          </span>
+        </li>
+
+        <!-- COLUMN 2 -->
+
+        <li>
+          <strong>Audit des procédures et du contrôle interne</strong>
+          <span>
+            Encaissements, dons, dépenses, trésorerie, moyens de paiement, pouvoirs, séparation des fonctions : nous analysons la sécurité de vos processus.
+          </span>
+        </li>
+
+        <li>
+          <strong>Sécurisation de l’information financière</strong>
+          <span>
+            Nous vérifions la cohérence, la traçabilité et la qualité de l’information produite par votre organisation.
+          </span>
+        </li>
+
+        <li>
+          <strong>Recommandations concrètes</strong>
+          <span>
+            Chaque constat doit pouvoir déboucher, lorsque cela est nécessaire, sur une amélioration réaliste de votre organisation.
+          </span>
+        </li>
+
+      </ul>
+
+      <h3 class="modal-conclusion">
+        L’indépendance du commissaire aux comptes n’empêche pas la proximité : elle lui donne au contraire toute sa valeur.
+      </h3>
+
+      <div class="modal-actions">
+
+        <a
+          href="https://calendly.com/datexia-sp/"
+          class="modal-button modal-button-primary"
+          target="_blank"
+          rel="noopener"
+        >
+          Je prends RDV
+        </a>
+
+        <a
+          href="mailto:noreply@datexia.fr?subject=Demande%20de%20devis"
+          class="modal-button modal-button-secondary"
+        >
+          Je demande un devis
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- CONSEIL & OPTIMISATION MODAL -->
+<div class="profile-modal" id="modal-conseil" aria-hidden="true">
+
+  <div class="profile-modal-overlay" data-modal-close></div>
+
+  <div
+    class="profile-modal-content"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-conseil-title"
+  >
+
+    <button
+      class="profile-modal-close"
+      type="button"
+      aria-label="Fermer"
+      data-modal-close
+    >
+      <i class="ti ti-x"></i>
+    </button>
+
+    <div class="profile-modal-inner">
+
+      <span class="section-tag">Notre Expertise</span>
+
+      <h2 id="modal-conseil-title" class="section-title">
+        Conseil & Optimisation
+      </h2>
+
+      <h3>Conseiller, c’est aussi vous aider à mieux fonctionner</h3>
+
+      <p>
+        Un bon conseil ne consiste pas seulement à répondre à une question technique. Il doit vous aider à prendre une meilleure décision, à anticiper ses conséquences et, lorsque c’est possible, à simplifier durablement votre organisation.
+      </p>
+
+      <p>
+        Finances, trésorerie, fiscalité, organisation, <em>gestion sociale</em> ou choix d’investissement : nous intervenons comme un interlocuteur de proximité, capable de comprendre rapidement votre situation et de mettre la technique au service de vos objectifs.
+      </p>
+
+      <p>
+        Notre approche associe analyse, expérience du secteur associatif et de l’ESS, pragmatisme et recherche d’efficacité. L’objectif est simple : vous aider à faire les bons choix et à disposer d’une organisation plus robuste, plus lisible et plus fluide.
+      </p>
+
+      <h3>Ce que nous pouvons faire pour vous</h3>
+
+      <ul class="modal-services modal-services--two-col">
+
+        <!-- COLUMN 1 -->
+
+        <li>
+          <strong>Piloter votre situation financière</strong>
+          <span>
+            Budgets, prévisionnels, tableaux de bord, suivi de trésorerie et analyse des écarts pour transformer vos chiffres en outil de décision.
+          </span>
+        </li>
+
+        <li>
+          <strong>Optimiser vos financements</strong>
+          <span>
+            Analyse des besoins, capacité financière, construction du plan de financement et préparation des échanges avec banques, financeurs et partenaires.
+          </span>
+        </li>
+
+        <li>
+          <strong>Optimiser votre organisation</strong>
+          <span>
+            Procédures, répartition des responsabilités, circuits de validation, contrôles et organisation de l’information pour gagner en fiabilité et en efficacité.
+          </span>
+        </li>
+
+        <li>
+          <strong>Accompagner les évolutions réglementaires</strong>
+          <span>
+            Identifier les nouvelles obligations qui vous concernent, mesurer leur impact et adapter votre organisation avant qu’elles ne deviennent une contrainte.
+          </span>
+        </li>
+
+        <!-- COLUMN 2 -->
+
+        <li>
+          <strong>Tester vos décisions avant de les prendre</strong>
+          <span>
+            Scénarios, simulations et analyses d’impact pour un recrutement, un investissement, un nouveau projet ou une évolution de votre modèle économique.
+          </span>
+        </li>
+
+        <li>
+          <strong>Sécuriser votre fiscalité</strong>
+          <span>
+            Analyse du caractère lucratif ou non lucratif, mécénat, reçus fiscaux, rescrits et traitement des opérations particulières.
+          </span>
+        </li>
+
+        <li>
+          <strong>Vous accompagner en gestion sociale</strong>
+          <span>
+            Simulations de coût d’embauche ou de rémunération, analyse de la masse salariale, situations CAVIMAC, avantages en nature, contrôles URSSAF et revue des processus produits par vos prestataires.
+          </span>
+        </li>
+
+        <li>
+          <strong>Faire face aux situations complexes</strong>
+          <span>
+            Lorsque plusieurs enjeux se croisent, nous vous aidons à hiérarchiser les sujets, à identifier les options et à coordonner, si nécessaire, les autres professionnels compétents.
+          </span>
+        </li>
+
+      </ul>
+
+      <h3 class="modal-conclusion">
+        Nous ne nous contentons pas de vous dire ce que les textes imposent. Nous cherchons avec vous la solution la plus sûre, la plus simple et la plus pertinente pour votre organisation.
+      </h3>
+
+      <div class="modal-actions">
+
+        <a
+          href="https://calendly.com/datexia-sp/"
+          class="modal-button modal-button-primary"
+          target="_blank"
+          rel="noopener"
+        >
+          Je prends RDV
+        </a>
+
+        <a
+          href="mailto:noreply@datexia.fr?subject=Demande%20de%20devis"
+          class="modal-button modal-button-secondary"
+        >
+          Je demande un devis
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FORMATION MODAL -->
+<div class="profile-modal" id="modal-formation" aria-hidden="true">
+
+  <div class="profile-modal-overlay" data-modal-close></div>
+
+  <div
+    class="profile-modal-content"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-formation-title"
+  >
+
+    <button
+      class="profile-modal-close"
+      type="button"
+      aria-label="Fermer"
+      data-modal-close
+    >
+      <i class="ti ti-x"></i>
+    </button>
+
+    <div class="profile-modal-inner">
+
+      <span class="section-tag">Notre Expertise</span>
+
+      <h2 id="modal-formation-title" class="section-title">
+        Formation
+      </h2>
+
+      <h3>Former pour rendre les dirigeants plus autonomes</h3>
+
+      <p>
+        Les dirigeants, administrateurs, trésoriers et bénévoles ne sont pas nécessairement des professionnels du chiffre ou du droit. Et ils n’ont pas à le devenir.
+      </p>
+
+      <p>
+        Ils doivent en revanche comprendre suffisamment les enjeux pour poser les bonnes questions, identifier les situations à risque et prendre leurs décisions avec discernement.
+      </p>
+
+      <p>
+        Nos formations privilégient la pratique, les exemples concrets et un langage accessible. Elles sont adaptées au fonctionnement réel des associations et des organisations de l’ESS.
+      </p>
+
+      <h3>Ce que nous pouvons faire pour vous</h3>
+
+      <ul class="modal-services modal-services--two-col">
+
+        <!-- COLUMN 1 -->
+
+        <li>
+          <strong>Comptabilité et lecture des comptes annuels</strong>
+          <span>
+            Comprendre les principaux états financiers et les points qui doivent retenir l’attention.
+          </span>
+        </li>
+
+        <li>
+          <strong>Budgets, tableaux de bord et prévisions de trésorerie</strong>
+          <span>
+            Construire des outils simples pour anticiper et suivre.
+          </span>
+        </li>
+
+        <li>
+          <strong>Loi confortant le respect des principes de la République</strong>
+          <span>
+            Comprendre ses conséquences pratiques pour les associations cultuelles.
+          </span>
+        </li>
+
+        <li>
+          <strong>Fiscalité des associations</strong>
+          <span>
+            Repérer les risques et comprendre les principaux mécanismes.
+          </span>
+        </li>
+
+        <li>
+          <strong>Responsabilités et bonnes pratiques des dirigeants associatifs</strong>
+          <span>
+            Aider les responsables à exercer leur mandat avec discernement.
+          </span>
+        </li>
+
+        <!-- COLUMN 2 -->
+
+        <li>
+          <strong>Rôle du trésorier et fondamentaux de la gestion financière</strong>
+          <span>
+            Donner aux responsables les repères nécessaires pour piloter et rendre compte.
+          </span>
+        </li>
+
+        <li>
+          <strong>Spécificités comptables et réglementaires des associations 1901 et 1905</strong>
+          <span>
+            Maîtriser les règles propres au secteur associatif et cultuel.
+          </span>
+        </li>
+
+        <li>
+          <strong>Dons, mécénat et reçus fiscaux</strong>
+          <span>
+            Sécuriser les pratiques et les procédures.
+          </span>
+        </li>
+
+        <li>
+          <strong>Outils numériques et organisation des processus comptables</strong>
+          <span>
+            Gagner en efficacité, en fiabilité et en traçabilité.
+          </span>
+        </li>
+
+        <li>
+          <strong>Problématiques sociales propres aux associations et aux structures cultuelles</strong>
+          <span>
+            Comprendre les principaux risques et points de vigilance.
+          </span>
+        </li>
+
+      </ul>
+
+      <h3 class="modal-conclusion">
+        Les formations peuvent être organisées pour une équipe, un conseil d’administration, un réseau ou un groupe d’organisations partageant les mêmes problématiques. Notre ambition n’est pas seulement de transmettre des règles : c’est de donner aux participants les moyens de les utiliser dans leur quotidien.
+      </h3>
+
+      <div class="modal-actions">
+
+        <a
+          href="https://calendly.com/datexia-sp/"
+          class="modal-button modal-button-primary"
+          target="_blank"
+          rel="noopener"
+        >
+          Je prends RDV
+        </a>
+
+        <a
+          href="mailto:noreply@datexia.fr?subject=Demande%20de%20devis"
+          class="modal-button modal-button-secondary"
+        >
+          Je demande un devis
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- IMMOBILIER MODAL -->
+<div class="profile-modal" id="modal-immobilier" aria-hidden="true">
+
+  <div class="profile-modal-overlay" data-modal-close></div>
+
+  <div
+    class="profile-modal-content"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-immobilier-title"
+  >
+
+    <button
+      class="profile-modal-close"
+      type="button"
+      aria-label="Fermer"
+      data-modal-close
+    >
+      <i class="ti ti-x"></i>
+    </button>
+
+    <div class="profile-modal-inner">
+
+      <span class="section-tag">Notre Expertise</span>
+
+      <h2 id="modal-immobilier-title" class="section-title">
+        Immobilier
+      </h2>
+
+      <h3>Donner une dimension financière à votre projet immobilier</h3>
+
+      <p>
+        Acheter ou louer ? Construire ou rénover ? Quel budget peut réellement supporter l’organisation ? Combien emprunter ? Quelle trésorerie conserver ? Que se passe-t-il si les travaux augmentent ou si les ressources prévues ne sont pas au rendez-vous ?
+      </p>
+
+      <p>
+        Un projet immobilier ne doit pas être étudié uniquement sous l’angle du bâtiment.
+      </p>
+
+      <p>
+        Il doit être analysé au regard de votre <em>modèle économique</em>, de votre trésorerie, de votre capacité de financement et de vos projets futurs.
+      </p>
+
+      <p>
+        Nous vous accompagnons dans cette réflexion afin que la décision immobilière reste compatible avec la pérennité financière de votre organisation.
+      </p>
+
+      <h3>Ce que nous pouvons faire pour vous</h3>
+
+      <ul class="modal-services modal-services--two-col">
+
+        <!-- COLUMN 1 -->
+
+        <li>
+          <strong>Évaluer la faisabilité financière d’un projet</strong>
+          <span>
+            Acquisition, construction, extension ou rénovation.
+          </span>
+        </li>
+
+        <li>
+          <strong>Construire le plan de financement</strong>
+          <span>
+            Fonds propres, emprunts, dons, campagnes de financement ou autres ressources.
+          </span>
+        </li>
+
+        <li>
+          <strong>Comparer plusieurs scénarios</strong>
+          <span>
+            Achat ou location, réalisation immédiate ou progressive, différents niveaux d’investissement.
+          </span>
+        </li>
+
+        <li>
+          <strong>Mettre en place le suivi budgétaire du projet</strong>
+          <span>
+            Analyser les écarts en cours de réalisation.
+          </span>
+        </li>
+
+        <li>
+          <strong>Coordonner les réflexions avec vos autres conseils</strong>
+          <span>
+            Lorsqu’une expertise juridique, bancaire, immobilière ou technique complémentaire est nécessaire.
+          </span>
+        </li>
+
+        <!-- COLUMN 2 -->
+
+        <li>
+          <strong>Établir un budget global</strong>
+          <span>
+            Intégrer acquisition, travaux, frais annexes et besoins futurs.
+          </span>
+        </li>
+
+        <li>
+          <strong>Mesurer la capacité d’endettement et l’impact sur la trésorerie</strong>
+          <span>
+            Vérifier que l’opération reste soutenable dans le temps.
+          </span>
+        </li>
+
+        <li>
+          <strong>Préparer les éléments financiers destinés aux banques et financeurs</strong>
+          <span>
+            Présenter un dossier clair, argumenté et cohérent.
+          </span>
+        </li>
+
+        <li>
+          <strong>Identifier les conséquences comptables, financières et fiscales</strong>
+          <span>
+            Anticiper les effets de l’opération sur l’organisation.
+          </span>
+        </li>
+
+      </ul>
+
+      <h3 class="modal-conclusion">
+        Pour les associations et notamment les structures cultuelles, nous intégrons également les particularités de leur gouvernance, de leurs ressources et de leur fonctionnement. Un beau projet ne doit pas devenir une contrainte financière. Notre rôle est de vous aider à préserver les deux : le projet et l’avenir de votre organisation.
+      </h3>
+
+      <div class="modal-actions">
+
+        <a
+          href="https://calendly.com/datexia-sp/"
+          class="modal-button modal-button-primary"
+          target="_blank"
+          rel="noopener"
+        >
+          Je prends RDV
+        </a>
+
+        <a
+          href="mailto:noreply@datexia.fr?subject=Demande%20de%20devis"
+          class="modal-button modal-button-secondary"
+        >
+          Je demande un devis
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- DIGITAL MODAL -->
+<div class="profile-modal" id="modal-digital" aria-hidden="true">
+
+  <div class="profile-modal-overlay" data-modal-close></div>
+
+  <div
+    class="profile-modal-content"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-digital-title"
+  >
+
+    <button
+      class="profile-modal-close"
+      type="button"
+      aria-label="Fermer"
+      data-modal-close
+    >
+      <i class="ti ti-x"></i>
+    </button>
+
+    <div class="profile-modal-inner">
+
+      <span class="section-tag">Notre Expertise</span>
+
+      <h2 id="modal-digital-title" class="section-title">
+        Digital
+      </h2>
+
+      <h3>Faire du digital un levier d’efficacité, pas une contrainte de plus</h3>
+
+      <p>
+        Les outils comptables et administratifs ont profondément évolué. Continuer à multiplier les tableurs, les doubles saisies, les pièces jointes et les validations par e-mail fait perdre du temps, fragilise l’information et rend les contrôles plus difficiles.
+      </p>
+
+      <p>
+        Nous vous aidons à moderniser vos processus avec des outils adaptés à la taille et au fonctionnement de votre association ou de votre structure de l’ESS. L’enjeu n’est pas de digitaliser pour digitaliser, mais de supprimer les tâches inutiles, fiabiliser les flux et rendre l’information disponible au bon moment.
+      </p>
+
+      <p>
+        Comptabilité, notes de frais, facturation, paiements, collecte des justificatifs, suivi des dons, tableaux de bord ou préparation à la <em>facturation électronique</em> : nous concevons avec vous une organisation plus fluide, connectée et durable.
+      </p>
+
+      <h3>Ce que nous pouvons faire pour vous</h3>
+
+      <ul class="modal-services modal-services--two-col">
+
+        <!-- COLUMN 1 -->
+
+        <li>
+          <strong>Cartographier et simplifier vos flux</strong>
+          <span>
+            Nous partons de vos usages réels pour identifier les doubles saisies, les ruptures de flux, les contrôles manquants et les étapes qui peuvent être supprimées ou automatisées.
+          </span>
+        </li>
+
+        <li>
+          <strong>Digitaliser la chaîne comptable</strong>
+          <span>
+            Collecte automatique des pièces, intégration bancaire, reconnaissance des documents, règles de classement et circuits de validation pour réduire les manipulations manuelles.
+          </span>
+        </li>
+
+        <li>
+          <strong>Préparer la facturation électronique</strong>
+          <span>
+            Lorsque votre organisation est concernée, nous vous aidons à comprendre les nouveaux flux, à adapter les outils et à organiser la circulation des données.
+          </span>
+        </li>
+
+        <li>
+          <strong>Fiabiliser vos données et votre reporting</strong>
+          <span>
+            Une information mieux structurée permet de produire plus facilement une comptabilité analytique, des indicateurs et des tableaux de bord utiles aux dirigeants.
+          </span>
+        </li>
+
+        <li>
+          <strong>Identifier les automatisations pertinentes</strong>
+          <span>
+            Nous recherchons les usages où l’automatisation — et, lorsque cela a du sens, l’intelligence artificielle — peut faire gagner du temps sans sacrifier la qualité du contrôle.
+          </span>
+        </li>
+
+        <!-- COLUMN 2 -->
+
+        <li>
+          <strong>Choisir les bons outils</strong>
+          <span>
+            Logiciel comptable, gestion documentaire, notes de frais, facturation, validation des dépenses, reporting : nous privilégions des solutions adaptées à vos besoins plutôt qu’une accumulation d’applications.
+          </span>
+        </li>
+
+        <li>
+          <strong>Automatiser les notes de frais et les validations</strong>
+          <span>
+            Saisie mobile, justificatifs dématérialisés, contrôles, approbations et export comptable pour rendre le processus plus rapide et plus traçable.
+          </span>
+        </li>
+
+        <li>
+          <strong>Connecter vos sources d’information</strong>
+          <span>
+            Banques, plateformes de dons, solutions de paiement, outils de facturation et comptabilité peuvent être rapprochés pour limiter les ressaisies et faciliter les contrôles.
+          </span>
+        </li>
+
+        <li>
+          <strong>Accompagner le changement</strong>
+          <span>
+            Paramétrage, procédures, formation des utilisateurs et accompagnement des dirigeants : un nouvel outil n’apporte de valeur que s’il est compris et réellement adopté.
+          </span>
+        </li>
+
+      </ul>
+
+      <h3 class="modal-conclusion">
+        Le meilleur outil n’est pas le plus sophistiqué. C’est celui qui simplifie réellement votre quotidien, sécurise vos données et vous permet de consacrer davantage de temps à votre mission.
+      </h3>
+
+      <div class="modal-actions">
+
+        <a
+          href="https://calendly.com/datexia-sp/"
+          class="modal-button modal-button-primary"
+          target="_blank"
+          rel="noopener"
+        >
+          Je prends RDV
+        </a>
+
+        <a
+          href="mailto:noreply@datexia.fr?subject=Demande%20de%20devis"
+          class="modal-button modal-button-secondary"
+        >
+          Je demande un devis
+        </a>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<section id="approche">
+  <div class="section-header reveal">
+    <span class="section-tag">Notre Approche</span>
+    <h2 class="section-title">La technique est notre métier. La rendre utile est notre engagement.</h2>
+    <p class="section-intro">
+      Quel que soit le sujet, notre manière de travailler reste la même :
+    </p>
+    <blockquote>
+      <p>
+        Comprendre votre organisation. Être disponible lorsque vous avez besoin de nous. Vous expliquer clairement les enjeux.
+      </p>
+      </blockquote>
+      <br>
+      <p>
+        Anticiper les risques. Et vous proposer des solutions adaptées à votre réalité. Nous assurons une veille permanente sur les évolutions comptables, fiscales, réglementaires et professionnelles afin que votre organisation ne se contente pas d’être conforme aujourd’hui, mais soit également préparée aux exigences de demain.
+      </p>
+      <h3 style="margin-top:2rem;">Vous restez concentré sur votre mission. Nous sommes à vos côtés pour sécuriser le reste.</h3>
   </div>
 </section>
 
-<!-- WHY / HOW WE WORK -->
-<section id="why">
+<!-- NOTRE MÉTHODE -->
+<section id="methode">
   <div class="reveal-left">
     <span class="section-tag">Notre Méthode</span>
     <h2 class="section-title">La bonne volonté c'est bien<br><em>L'Expertise c'est mieux</em></h2>
@@ -1802,7 +3078,7 @@ body.modal-open {
       </ul>
     </div>
     <div class="footer-col">
-      <h5>Nos Services</h5>
+      <h5>Nos Expertise</h5>
       <ul>
         <li><a href="#">Expertise Comptable</a></li>
         <li><a href="#">Audit</a></li>
@@ -1868,7 +3144,7 @@ reveals.forEach(el => observer.observe(el));
 // Modal
 document.addEventListener('DOMContentLoaded', function () {
 
-  const profileCards = document.querySelectorAll('.profile-card');
+  const profileCards = document.querySelectorAll('[data-modal]');
   const modals = document.querySelectorAll('.profile-modal');
 
   let scrollPosition = 0;
