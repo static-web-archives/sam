@@ -1298,6 +1298,70 @@ body.modal-open {
     width: 100%;
   }
 }
+.approche-actions {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.approche-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: .75rem 1.4rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  transition: .2s ease;
+}
+
+/* ORANGE BUTTON */
+.approche-button-primary {
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #fff;
+}
+
+.approche-button-primary:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+/* WHITE OUTLINE BUTTONS */
+.approche-button-white {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .7);
+  color: #fff;
+}
+
+.approche-button-white:hover {
+  background: #fff;
+  border-color: #fff;
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+  .approche-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: .75rem;
+  }
+
+  .approche-button {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
 
   </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></head>
@@ -2963,35 +3027,66 @@ body.modal-open {
 <section id="methode">
   <div class="reveal-left">
     <span class="section-tag">Notre Méthode</span>
-    <h2 class="section-title">La bonne volonté c'est bien<br><em>L'Expertise c'est mieux</em></h2>
-    <p class="section-intro" style="color:rgba(255,255,255,.55)">Confiez la gestion de votre association à un Expert. Nous nous positionnons à vos côtés en tant que véritable partenaire, pas seulement comme prestataire.</p>
+    <h2 class="section-title">Vous portez le projet.<br><em>Nous sécurisons le chemin.</em></h2>
+    <p class="section-intro" style="color:rgba(255,255,255,.55)">Diriger une association ou une organisation de l'ESS, c'est devoir avancer, décider et s'adapter dans un environnement de plus en plus technique.
+    </p>
+    <br>
+    <h4>Notre rôle est de rendre cette complexité plus simple à gérer.</h4> 
+    <p class="section-intro" style="color:rgba(255,255,255,.55)">Nous sommes à vos côtés pour sécuriser vos décisions, anticiper les difficultés et faire évoluer votre organisation avec vous.</p>
     <div class="why-features" style="margin-top:3rem;">
       <div class="why-item">
         <div class="why-item-num">01</div>
         <div class="why-item-text">
-          <h4>Sécuriser, Conseiller, Optimiser</h4>
-          <p>Au-delà de respecter les exigences légales, nous vous conseillons en vue d'optimiser et pérenniser la gestion de votre association.</p>
+          <h4>Comprendre avant de conseiller</h4>
+          <p>Chaque organisation a son histoire, son fonctionnement et ses enjeux. Nous prenons le temps de comprendre votre activité, votre gouvernance et vos priorités avant de vous proposer une solution. Parce qu'un conseil pertinent commence toujours par une bonne connaissance du terrain.</p>
         </div>
       </div>
       <div class="why-item">
         <div class="why-item-num">02</div>
         <div class="why-item-text">
-          <h4>Digital &amp; à vos côtés</h4>
-          <p>Parce que votre temps compte, nous vous proposons un fonctionnement digital afin d'éliminer les tâches chronophages à faible valeur ajoutée.</p>
+          <h4>Sécuriser aujourd'hui, anticiper demain</h4>
+          <p>La conformité est indispensable. L'anticipation fait la différence. Comptabilité, finances, fiscalité, réglementation, organisation ou gestion sociale : nous vous aidons à maîtriser les risques d'aujourd'hui tout en préparant les évolutions qui auront un impact demain.</p>
         </div>
       </div>
       <div class="why-item">
         <div class="why-item-num">03</div>
         <div class="why-item-text">
-          <h4>Vous accompagner plus loin</h4>
-          <p>L'esprit de Service est au cœur de nos valeurs. Parce que nous souhaitons voir votre structure se développer, nous restons à vos côtés.</p>
+          <h4>Faire progresser votre organisation</h4>
+          <p>Les bons outils et les bonnes méthodes doivent vous faire gagner du temps. Digitalisation, automatisation, tableaux de bord, procédures et formation : nous vous aidons à simplifier vos processus et à donner à vos dirigeants une information plus fiable, plus rapide et plus utile.</p>
         </div>
       </div>
     </div>
-    <div style="margin-top:2.5rem;">
-      <a href="mailto:noreply@datexia.fr" class="btn-outline" style="border-color:rgba(255,255,255,.3);color:white;">Demander un devis →</a>
+
+    <div class="approche-actions">
+
+      <a
+        href="#contact"
+        class="approche-button approche-button-primary"
+      >
+        Échangeons sur vos enjeux →
+      </a>
+
+      <a
+        href="https://calendly.com/datexia-sp/"
+        target="_blank"
+        rel="noopener"
+        class="approche-button approche-button-white"
+      >
+        Je prends RDV
+      </a>
+
+      <a
+        href="mailto:noreply@datexia.fr?subject=Demande%20de%20devis"
+        class="approche-button approche-button-white"
+      >
+        Je demande un devis
+      </a>
+
     </div>
-  </div>
+
+</div>
+
+
   <div class="reveal-right">
     <div class="why-visual">
       <div class="why-visual-inner">§</div>
@@ -3001,6 +3096,8 @@ body.modal-open {
       </div>
     </div>
   </div>
+</div>
+
 </section>
 
 <!-- RESSOURCES -->
