@@ -297,7 +297,7 @@
     .section-intro{font-size:.95rem;color:var(--muted);line-height:1.7;max-width:600px;}
     .section-header{margin-bottom:3.5rem;}
 
-    /* ── PROFILES (Votre Profil) ── */
+    /* ── PROFILES (Vos Profils) ── */
     #profiles{background:white;}
     .profiles-grid{
       display:grid;grid-template-columns:repeat(4,1fr);gap:1.5px;
@@ -638,6 +638,372 @@
       height: 1px;
       background: linear-gradient(90deg, transparent, rgba(42,76,138,0.15), transparent);
     }
+    .muted {
+      color: #6b7280;
+      margin-top: -1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .hero-card-text strong {
+      color: var(--accent);
+      font-weight: 900;
+      font-style: normal;
+      font-size: 0.9rem;
+    }
+    /* ── HERO STATS ── */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .stat-box {
+      min-height: 120px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: rgba(255,255,255,0.07);
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(8px);
+      transition: background .2s, border-color .2s;
+    }
+
+    .stat-box:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: rgba(255,255,255,0.2);
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      line-height: 1;
+      color: #f0a070;
+      white-space: nowrap;
+    }
+
+    .stat-box:last-child .stat-num {
+      font-size: 1.45rem;
+    }
+
+    .stat-label {
+      margin-top: .4rem;
+      font-size: .7rem;
+      line-height: 1.4;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+    /* ── CREDIBILITY MARKER ── */
+    .credibility-marker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: -0.5rem;
+      padding: 0.85rem 1rem 0;
+      color: rgba(255,255,255,0.52);
+      font-size: .68rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .credibility-marker i {
+      width: 3px;
+      height: 3px;
+      flex: 0 0 3px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: .8;
+    }
+
+    @media (max-width: 600px) {
+      .credibility-marker {
+        flex-direction: column;
+        gap: .45rem;
+        font-size: .62rem;
+      }
+
+      .credibility-marker i {
+        width: 20px;
+        height: 1px;
+        flex-basis: 1px;
+      }
+    }
+    .stat-num {
+      font-size: 2rem;
+    }
+
+    .stat-box:first-child .stat-num {
+      font-size: 1.6rem;
+    }
+
+    .stat-box:last-child .stat-num {
+      font-size: 1.45rem;
+    }
+/* ─────────────────────────────────────────
+   PROFILE MODALS
+   ───────────────────────────────────────── */
+
+.profile-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease, visibility .3s ease;
+}
+
+.profile-modal.open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Dark backdrop */
+.profile-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 12, 20, .75);
+  backdrop-filter: blur(8px);
+}
+
+/* Main modal */
+.profile-modal-content {
+  position: relative;
+  z-index: 1;
+  width: min(900px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  background: var(--cream);
+  border-radius: 20px;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, .3);
+  transform: translateY(20px);
+  transition: transform .3s ease;
+}
+
+.profile-modal.open .profile-modal-content {
+  transform: translateY(0);
+}
+
+/* Scrollbar */
+.profile-modal-content::-webkit-scrollbar {
+  width: 4px;
+}
+
+.profile-modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.profile-modal-content::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+}
+
+/* Inner spacing */
+.profile-modal-inner {
+  padding: 3.5rem;
+}
+
+/* Close button */
+.profile-modal-close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 2;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+
+  cursor: pointer;
+  font-size: 1.1rem;
+
+  transition:
+    background .2s ease,
+    border-color .2s ease,
+    color .2s ease,
+    transform .2s ease;
+}
+
+.profile-modal-close:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  transform: rotate(90deg);
+}
+
+/* Modal title */
+.profile-modal .section-title {
+  margin-bottom: 1.5rem;
+}
+
+/* Intro / body paragraphs */
+.profile-modal p {
+  max-width: 780px;
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.75;
+}
+
+/* Section headings */
+.profile-modal h3 {
+  margin: 2.5rem 0 1.2rem;
+
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+/* First h3 closer to preceding content */
+.profile-modal p + h3 {
+  margin-top: 2.25rem;
+}
+
+/* Service list */
+.modal-services {
+  display: grid;
+  gap: .8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Individual service */
+.modal-services li {
+  padding: 1.15rem 1.25rem;
+
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  transition:
+    border-color .2s ease,
+    box-shadow .2s ease,
+    transform .2s ease;
+}
+
+.modal-services li:hover {
+  border-color: rgba(200, 98, 42, .25);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .05);
+  transform: translateY(-1px);
+}
+
+/* Service title */
+.modal-services strong {
+  display: block;
+  margin-bottom: .35rem;
+
+  color: var(--ink);
+  font-size: .88rem;
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+/* Service description */
+.modal-services span {
+  display: block;
+
+  color: var(--muted);
+  font-size: .82rem;
+  line-height: 1.6;
+}
+
+/* Optional final statement */
+.profile-modal .modal-intro {
+  color: var(--ink);
+  font-size: .95rem;
+  font-weight: 500;
+  line-height: 1.7;
+  margin-top: 1.5rem;
+}
+
+/* Prevent background scrolling */
+body.modal-open {
+  overflow: hidden;
+}
+
+/* ─────────────────────────────────────────
+   MOBILE
+   ───────────────────────────────────────── */
+
+@media (max-width: 600px) {
+
+  .profile-modal {
+    padding: .75rem;
+  }
+
+  .profile-modal-content {
+    max-height: 94vh;
+    border-radius: 16px;
+  }
+
+  .profile-modal-inner {
+    padding: 3rem 1.25rem 1.5rem;
+  }
+
+  .profile-modal-close {
+    top: .75rem;
+    right: .75rem;
+    width: 36px;
+    height: 36px;
+  }
+
+  .profile-modal .section-title {
+    font-size: 2rem;
+    padding-right: 2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .profile-modal p {
+    font-size: .85rem;
+    line-height: 1.7;
+  }
+
+  .profile-modal h3 {
+    margin-top: 2rem;
+    font-size: 1.55rem;
+  }
+
+  .modal-services {
+    gap: .65rem;
+  }
+
+  .modal-services li {
+    padding: 1rem;
+  }
+
+  .modal-services strong {
+    font-size: .84rem;
+  }
+
+  .modal-services span {
+    font-size: .78rem;
+    line-height: 1.55;
+  }
+}
+
   </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"></head>
 <body>
@@ -648,11 +1014,12 @@
     <img src="https://raw.githubusercontent.com/static-web-archives/sam/main/images/logo.png" alt="Datexia logo">
   </a>
   <ul class="nav-links">
-    <li><a href="#profiles">Votre Profil</a></li>
-    <li><a href="#services">Nos Services</a></li>
-    <li><a href="#why">Notre Approche</a></li>
-    <li><a href="#team">L'Équipe</a></li>
-    <li><a href="#join">Le Cabinet</a></li>
+    <li><a href="#profiles">Vos Profils</a></li>
+    <li><a href="#services">Nos Expertises</a></li>
+    <li><a href="#why">Notre Méthode</a></li>
+    <li><a href="#ressources">Ressources</a></li>
+    <li><a href="#avis">Avis Clients</a></li>
+    <li><a href="#contact">Contact</a></li>
     <li><a href="https://customer.mycompanyfiles.fr/auth/login" class="nav-cta">Connexion</a></li>
   </ul>
   <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -662,11 +1029,12 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#profiles" onclick="closeMobile()">Votre Profil</a>
-  <a href="#services" onclick="closeMobile()">Nos Services</a>
-  <a href="#why" onclick="closeMobile()">Notre Approche</a>
-  <a href="#team" onclick="closeMobile()">L'Équipe</a>
-  <a href="#join" onclick="closeMobile()">Le Cabinet</a>
+  <a href="#profiles" onclick="closeMobile()">Vos Profils</a>
+  <a href="#services" onclick="closeMobile()">Nos Expertises</a>
+  <a href="#why" onclick="closeMobile()">Notre Méthode</a>
+  <a href="#ressources" onclick="closeMobile()">Ressources</a>
+  <a href="#avis" onclick="closeMobile()">Avis Clients</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
   <a href="https://customer.mycompanyfiles.fr/auth/login" style="color:var(--accent)">Connexion →</a>
 </div>
 
@@ -679,16 +1047,17 @@
       <em>L'Excellence</em><br>
       à votre Compte
     </h1>
-    <p class="hero-sub">Un Cabinet d'Expertise-Comptable et d'Audit à taille humaine, profondément engagé auprès du secteur associatif cultuel et de l'économie sociale et solidaire.</p>
+    <p class="hero-sub">Un cabinet d’expertise comptable, d’audit et de conseil à taille humaine, spécialisé auprès des associations et des acteurs de l’économie sociale et solidaire.</p>
+    <p class="muted">Avec une expertise particulièrement développée auprès des associations cultuelles.</p>
     <div class="hero-specialties">
       <a href="https://associations.gouv.fr/" class="specialty-chip" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">Associations Loi 1901</a>
       <a href="https://www.service-public.gouv.fr/particuliers/vosdroits/F21925" class="specialty-chip" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">Associations Cultuelles 1905</a>
-      <span class="specialty-chip">Économie Sociale &amp; Solidaire</span>
-      <span class="specialty-chip">Fondations &amp; Fonds de dotation</span>
+      <span class="specialty-chip">Acteurs de l’ESS</span>
+      <span class="specialty-chip">Fonds de dotation</span>
     </div>
     <div class="hero-actions">
-      <a href="#services" class="btn-primary">Découvrir nos services →</a>
-      <a href="https://calendly.com/datexia-sp/" class="btn-outline" target="_blank" noreferrer>RDV avec Samuel PETE</a>
+      <a href="#services" class="btn-primary">Découvrir nos expertises →</a>
+      <a href="https://calendly.com/datexia-sp/" class="btn-outline" target="_blank" noreferrer>Échanger avec Samuel PETE</a>
     </div>
   </div>
   <div class="hero-right reveal-right">
@@ -700,74 +1069,571 @@
         </div>
       </div>
       <div class="hero-card-body">
-        <div class="hero-card-title">Votre partenaire financier de confiance</div>
-        <div class="hero-card-text">Un accompagnement sur mesure pour chaque structure, avec une expertise reconnue par <a style="color:white!important;" href="https://www.experts-comptables.fr/page-d-accueil" target="_blank">l'Ordre des Experts-Comptables</a> et la <a style="color:white!important;" href="https://www.cncc.fr/" target="_blank">Compagnie Nationale des Commissaires aux Comptes</a>.</div>
+        <div class="hero-card-title">Votre partenaire pourdécider avec confiance</div>
+        <div class="hero-card-text">Une expertise financière, comptable et réglementaire adaptée aux enjeux spécifiques de votre organisation.
+          <br>
+          <strong>Proximité. Expertise. Anticipation.</strong>
+        </div>
       </div>
     </div>
     <div class="hero-stats">
       <div class="stat-box">
-        <span class="stat-num">+200</span>
-        <div class="stat-label">Clients</div>
+        <span class="stat-num">+15 ANS</span>
+        <div class="stat-label">d’expérience auprès du secteur associatif</div>
       </div>
       <div class="stat-box">
-        <span class="stat-num">+1000</span>
-        <div class="stat-label">Réponses/mois</div>
+        <span class="stat-num">+300</span>
+        <div class="stat-label">associations déjà accompagnées</div>
       </div>
       <div class="stat-box">
-        <span class="stat-num">+50</span>
-        <div class="stat-label">Départements</div>
+        <span class="stat-num">1 ENGAGEMENT</span>
+        <div class="stat-label">Être à vos côtés</div>
       </div>
     </div>
+
+    <!-- Crédibilité / preuve d'expérience -->
+    <div class="credibility-marker">
+      <span>secteur associatif depuis 2009</span>
+      <i></i>
+      <span>associations cultuelles depuis 2012</span>
+    </div>
+
   </div>
 </section>
-
+sean
 <!-- PROFILES -->
 <section id="profiles">
   <div class="section-header reveal">
-    <span class="section-tag">Votre Profil</span>
+    <span class="section-tag">Vos Profils</span>
     <h2 class="section-title">Nous vous accompagnons</h2>
-    <p class="section-intro">Quelle que soit votre forme juridique, nous avons l'expertise et la passion pour vous accompagner vers vos objectifs.</p>
+    <p class="section-intro">
+      Quelle que soit votre forme juridique, nous avons l'expertise et la passion pour vous accompagner vers vos objectifs.
+    </p>
   </div>
+
   <div class="profiles-grid reveal">
-    <div class="profile-card">
+
+    <!-- ASSOCIATIONS 1901 -->
+    <div class="profile-card" data-modal="modal-1901">
       <div class="profile-icon icon-assoc">
         <i class="ti ti-home-stats"></i>
       </div>
+
       <h3>Associations 1901</h3>
-      <p>Associations Loi 1901 et associations cultuelles 1905 — un expert spécialisé et une équipe qualifiée à vos côtés.</p>
-      <a href="#" class="profile-link">En savoir plus</a>
+
+      <p>
+        Des associations aux réalités multiples. Une expertise qui comprend vos enjeux. Un accompagnement à vos côtés.
+      </p>
+
+      <a href="javascript:void(0)" class="profile-link">
+        En savoir plus
+      </a>
     </div>
-        <div class="profile-card">
+
+
+    <!-- ASSOCIATIONS 1905 -->
+    <div class="profile-card" data-modal="modal-1905">
       <div class="profile-icon icon-assoc">
         <i class="ti ti-home-stats"></i>
       </div>
+
       <h3>Associations 1905</h3>
-      <p>Associations Loi 1901 et associations cultuelles 1905 — un expert spécialisé et une équipe qualifiée à vos côtés.</p>
-      <a href="#" class="profile-link">En savoir plus</a>
+
+      <p>
+        Associations Loi 1901 et associations cultuelles 1905 — un expert spécialisé et une équipe qualifiée à vos côtés.
+      </p>
+
+      <a href="javascript:void(0)" class="profile-link">
+        En savoir plus
+      </a>
     </div>
-    <div class="profile-card">
+
+
+    <!-- ACTEURS DE L'ESS -->
+    <div class="profile-card" data-modal="modal-ess">
       <div class="profile-icon icon-ess">
         <i class="ti ti-leaf"></i>
       </div>
+
       <h3>Acteurs de l'ESS</h3>
-      <p>Vous servez une cause, nous servons la vôtre. Notre expertise au service de votre activité et de votre utilité sociale.</p>
-      <a href="#" class="profile-link">En savoir plus</a>
+
+      <p>
+        Vous placez l’utilité avant le profit. Nous comprenons votre modèle. Et les exigences qui l’accompagnent.
+      </p>
+
+      <a href="javascript:void(0)" class="profile-link">
+        En savoir plus
+      </a>
     </div>
-    <div class="profile-card">
+
+
+    <!-- FONDS DE DOTATION -->
+    <div class="profile-card" data-modal="modal-fond">
       <div class="profile-icon icon-fond">
         <i class="ti ti-building-bank"></i>
       </div>
-      <h3>Fonds de Dotation</h3>
-      <p>Un accompagnement spécialisé pour les fondations d'entreprise et les fonds de dotation de toutes tailles.</p>
-      <a href="#" class="profile-link">En savoir plus</a>
+
+      <h3>Fonds de dotation</h3>
+
+      <p>
+        Un outil puissant au service de l’intérêt général. Des règles spécifiques à maîtriser. Une expertise dédiée pour les sécuriser.
+      </p>
+
+      <a href="javascript:void(0)" class="profile-link">
+        En savoir plus
+      </a>
     </div>
+
   </div>
 </section>
 
+
+<!-- =========================================================
+     ASSOCIATIONS 1901 MODAL
+========================================================= -->
+
+<div class="profile-modal" id="modal-1901" aria-hidden="true">
+
+  <div class="profile-modal-overlay" data-modal-close></div>
+
+  <div
+    class="profile-modal-content"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-1901-title"
+  >
+
+    <button
+      class="profile-modal-close"
+      type="button"
+      aria-label="Fermer"
+      data-modal-close
+    >
+      <i class="ti ti-x"></i>
+    </button>
+
+    <div class="profile-modal-inner">
+
+      <span class="section-tag">Votre Profil</span>
+
+      <h2 id="modal-1901-title" class="section-title">
+        Associations 1901
+      </h2>
+
+      <p>
+        Diriger une association, c’est avant tout porter un projet. Mais avec son développement viennent aussi des questions de financement, de gouvernance, de fiscalité, de gestion et de transparence financière.
+      </p>
+
+      <p>
+        Nous accompagnons les associations loi 1901 en tenant compte de ce qui fait leur spécificité : bénévolat et gouvernance associative, subventions et financements privés, dons et mécénat, ressources affectées à certains projets, activités éventuellement lucratives ou encore obligations croissantes en matière d’information financière.
+      </p>
+
+      <p>
+        Notre rôle ne se limite pas à produire ou contrôler des chiffres. Nous cherchons à comprendre votre modèle, sécuriser votre organisation et donner à vos dirigeants les informations dont ils ont réellement besoin pour décider.
+      </p>
+
+      <h3>Ce que nous pouvons faire pour vous</h3>
+
+      <ul class="modal-services">
+
+        <li>
+          <strong>Réviser et sécuriser vos comptes annuels</strong>
+          <span>
+            Fiabilisation des comptes, traitement des opérations spécifiques au secteur associatif et préparation d’une information financière compréhensible par vos dirigeants.
+          </span>
+        </li>
+
+        <li>
+          <strong>Construire vos budgets et tableaux de bord</strong>
+          <span>
+            Budget prévisionnel, suivi de trésorerie, indicateurs de gestion, suivi par activité, projet ou financement : nous transformons votre comptabilité en véritable outil de pilotage.
+          </span>
+        </li>
+
+        <li>
+          <strong>Suivre vos financements et ressources affectées</strong>
+          <span>
+            Mise en place d’un suivi adapté aux subventions, conventions de financement, dons, mécénat et projets bénéficiant de ressources dédiées.
+          </span>
+        </li>
+
+        <li>
+          <strong>Sécuriser votre fiscalité et vos reçus fiscaux</strong>
+          <span>
+            Analyse de la situation fiscale de l’association, sécurisation du caractère non lucratif de ses activités, accompagnement en matière de rescrit fiscal ou de rescrit mécénat et organisation du processus d’émission des reçus fiscaux.
+          </span>
+        </li>
+
+        <li>
+          <strong>Digitaliser votre gestion</strong>
+          <span>
+            Mise en place ou optimisation d’outils comptables, circuits de validation, notes de frais, collecte de données et automatisation des processus administratifs et financiers.
+          </span>
+        </li>
+
+        <li>
+          <strong>Certifier ou auditer vos comptes</strong>
+          <span>
+            Missions de commissariat aux comptes, lorsqu’elles sont obligatoires ou volontairement mises en place, mais également audits contractuels et travaux portant sur le contrôle interne.
+          </span>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- =========================================================
+     ASSOCIATIONS 1905 MODAL
+========================================================= -->
+
+<div class="profile-modal" id="modal-1905" aria-hidden="true">
+
+  <div class="profile-modal-overlay" data-modal-close></div>
+
+  <div
+    class="profile-modal-content"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-1905-title"
+  >
+
+    <button
+      class="profile-modal-close"
+      type="button"
+      aria-label="Fermer"
+      data-modal-close
+    >
+      <i class="ti ti-x"></i>
+    </button>
+
+    <div class="profile-modal-inner">
+
+      <span class="section-tag">Votre Profil</span>
+
+      <h2 id="modal-1905-title" class="section-title">
+        Associations 1905
+      </h2>
+
+      <p>
+        Une association cultuelle ne fonctionne pas exactement comme une association classique. Son objet, ses ressources, sa comptabilité, sa gouvernance et certaines de ses obligations administratives nécessitent une connaissance précise du cadre applicable aux associations relevant de la loi de 1905.
+      </p>
+
+      <p>
+        Depuis 2012, Samuel PETE développe une expertise particulièrement approfondie auprès des associations cultuelles et des organisations du secteur protestant évangélique. Cette expérience s’est construite au contact de plusieurs centaines d’associations cultuelles, aux réalités très diverses.
+      </p>
+
+      <p>
+        Cette connaissance du terrain nous permet de comprendre rapidement votre fonctionnement : dons et offrandes, ministres du culte, projets immobiliers, financement de l’activité cultuelle, gouvernance bénévole ou encore relations avec les donateurs. Vous bénéficiez ainsi d’un interlocuteur qui connaît votre environnement et ses particularités, avec l’exigence technique attendue d’un expert-comptable et d’un commissaire aux comptes.
+      </p>
+
+      <h3>Une expertise nourrie par le terrain et par la profession</h3>
+
+      <ul class="modal-services">
+
+        <li>
+          <strong>Former les dirigeants et les bénévoles</strong>
+          <span>
+            Le cabinet anime des formations spécifiquement conçues pour les responsables d’associations cultuelles, afin de rendre accessibles des règles souvent techniques et de sécuriser les pratiques au quotidien.
+          </span>
+        </li>
+
+        <li>
+          <strong>Collaborer avec les acteurs de référence</strong>
+          <span>
+            Nous avons notamment collaboré avec l’association ACTES 6 et travaillons régulièrement avec le CNEF, notamment à l’occasion des Journées juridiques organisées à Paris et en régions.
+          </span>
+        </li>
+
+        <li>
+          <strong>Contribuer aux ressources du secteur</strong>
+          <span>
+            Nous avons participé, aux côtés des juristes du CNEF, à la rédaction du Guide juridique et pratique destiné aux responsables d’Églises et d’associations cultuelles.
+          </span>
+        </li>
+
+        <li>
+          <strong>Participer aux travaux de la profession</strong>
+          <span>
+            Le dirigeant du cabinet est coprésident du groupe de travail « Associations cultuelles » au sein de la Commission des acteurs de l’ESS de la Compagnie nationale des commissaires aux comptes (CNCC).
+          </span>
+        </li>
+
+      </ul>
+      <br>
+      <p class="modal-highlight">
+        Cette implication nous permet de maintenir un haut niveau de connaissance et d’expertise, d’anticiper les évolutions du cadre réglementaire et des normes applicables, et de mettre cette veille au service des Églises et de leurs dirigeants.
+      </p>
+
+      <p class="modal-highlight">
+        Des accompagnements conçus pour les réalités du secteur cultuel.
+      </p>
+
+      <h3>Ce que nous pouvons faire pour vous</h3>
+
+      <ul class="modal-services">
+
+        <li>
+          <strong>Sécuriser vos comptes annuels et vos obligations spécifiques</strong>
+          <span>
+            Révision des comptes, organisation de l’information comptable et accompagnement dans le suivi des éléments propres aux associations cultuelles : patrimoine, inventaires, ressources spécifiques, budget ou financements provenant de l’étranger.
+          </span>
+        </li>
+
+        <li>
+          <strong>Piloter précisément vos dons et offrandes</strong>
+          <span>
+            Tableaux de bord permettant de suivre les dons par période, projet ou affectation, rapprochement avec la comptabilité et mise à disposition d’indicateurs utiles au trésorier et au conseil d’administration.
+          </span>
+        </li>
+
+        <li>
+          <strong>Fiabiliser la gestion de vos reçus fiscaux</strong>
+          <span>
+            Analyse et sécurisation de votre situation au regard du mécénat, organisation du processus de collecte des dons et mise en place de solutions digitales permettant de suivre les donateurs et de faciliter l’émission des reçus fiscaux.
+          </span>
+        </li>
+
+        <li>
+          <strong>Vous accompagner sur la situation sociale des ministres du culte</strong>
+          <span>
+            Analyse de leur situation, accompagnement sur les problématiques d’affiliation à la CAVIMAC et articulation avec les autres régimes sociaux lorsque la situation le nécessite.
+          </span>
+        </li>
+
+        <li>
+          <strong>Vous accompagner dans vos obligations réglementaires</strong>
+          <span>
+            Déclaration ou renouvellement de la qualité cultuelle, suivi des financements étrangers, conséquences des évolutions réglementaires : nous vous aidons à identifier les obligations qui concernent concrètement votre association et à les organiser dans la durée.
+          </span>
+        </li>
+
+        <li>
+          <strong>Digitaliser votre gestion</strong>
+          <span>
+            Mise en place ou optimisation d’outils comptables, circuits de validation, notes de frais, collecte de données et automatisation des processus administratifs et financiers.
+          </span>
+        </li>
+
+        <li>
+          <strong>Certifier, auditer et sécuriser votre organisation</strong>
+          <span>
+            Commissariat aux comptes, audit contractuel, analyse du contrôle interne et sécurisation des circuits de dons, de dépenses et de trésorerie.
+          </span>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- =========================================================
+     ACTEURS DE L'ESS MODAL
+========================================================= -->
+
+<div class="profile-modal" id="modal-ess" aria-hidden="true">
+
+  <div class="profile-modal-overlay" data-modal-close></div>
+
+  <div
+    class="profile-modal-content"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-ess-title"
+  >
+
+    <button
+      class="profile-modal-close"
+      type="button"
+      aria-label="Fermer"
+      data-modal-close
+    >
+      <i class="ti ti-x"></i>
+    </button>
+
+    <div class="profile-modal-inner">
+
+      <span class="section-tag">Votre Profil</span>
+
+      <h2 id="modal-ess-title" class="section-title">
+        Acteurs de l’ESS
+      </h2>
+
+      <p>
+        Association, SCOP, SCIC, coopérative ou autre entreprise de l’économie sociale et solidaire : votre organisation poursuit une finalité qui ne se résume pas à la recherche d’un résultat financier.
+      </p>
+
+      <p>
+        Mais utilité sociale et performance économique ne s’opposent pas. Pour développer votre projet dans la durée, vous devez disposer d’un modèle économique solide, d’une information financière fiable et d’indicateurs permettant à vos instances de gouvernance de prendre les bonnes décisions.
+      </p>
+
+      <p>
+        Nous accompagnons les acteurs de l’ESS en tenant compte de la diversité de leurs modèles, de leurs ressources et de leurs formes juridiques. Notre objectif est de mettre la technique comptable et financière au service de votre projet et de son développement.
+      </p>
+
+      <h3>Ce que nous pouvons faire pour vous</h3>
+
+      <ul class="modal-services">
+
+        <li>
+          <strong>Réviser et fiabiliser vos comptes</strong>
+          <span>
+            Une information comptable fiable, adaptée à votre forme juridique, à votre activité et à vos différentes sources de financement.
+          </span>
+        </li>
+
+        <li>
+          <strong>Construire vos indicateurs de pilotage</strong>
+          <span>
+            Tableaux de bord financiers, suivi de trésorerie, analyse des marges ou des activités, indicateurs par projet : nous construisons avec vous les outils réellement utiles à vos dirigeants.
+          </span>
+        </li>
+
+        <li>
+          <strong>Élaborer vos budgets et anticiper votre trésorerie</strong>
+          <span>
+            Prévisions d’activité, budgets, scénarios financiers et suivi des écarts pour anticiper plutôt que constater.
+          </span>
+        </li>
+
+        <li>
+          <strong>Accompagner vos problématiques de financement</strong>
+          <span>
+            Analyse de votre modèle économique, besoins de financement, suivi des financeurs et articulation entre ressources commerciales, concours publics, apports, subventions ou autres ressources propres à votre organisation.
+          </span>
+        </li>
+
+        <li>
+          <strong>Digitaliser vos processus financiers</strong>
+          <span>
+            Choix et déploiement d’outils, dématérialisation des processus, automatisation des flux et amélioration de la circulation de l’information entre les équipes et les dirigeants.
+          </span>
+        </li>
+
+        <li>
+          <strong>Apporter un regard indépendant sur votre organisation</strong>
+          <span>
+            Commissariat aux comptes, audit contractuel ou analyse du contrôle interne pour renforcer la fiabilité de l’information et la confiance des sociétaires, partenaires, financeurs et organes de gouvernance.
+          </span>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- =========================================================
+     FONDS DE DOTATION MODAL
+========================================================= -->
+
+<div class="profile-modal" id="modal-fond" aria-hidden="true">
+
+  <div class="profile-modal-overlay" data-modal-close></div>
+
+  <div
+    class="profile-modal-content"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="modal-fond-title"
+  >
+
+    <button
+      class="profile-modal-close"
+      type="button"
+      aria-label="Fermer"
+      data-modal-close
+    >
+      <i class="ti ti-x"></i>
+    </button>
+
+    <div class="profile-modal-inner">
+
+      <span class="section-tag">Votre Profil</span>
+
+      <h2 id="modal-fond-title" class="section-title">
+        Fonds de dotation
+      </h2>
+
+      <p>
+        Le fonds de dotation constitue un outil particulier pour collecter, gérer et mobiliser des ressources au service d’une mission d’intérêt général. Son fonctionnement ne peut cependant pas être assimilé à celui d’une association classique.
+      </p>
+
+      <p>
+        Dotation en capital, dons et mécénat, gestion des ressources, financement des organismes soutenus, gouvernance, comptes annuels et contrôle constituent autant de sujets qui nécessitent une organisation rigoureuse.
+      </p>
+
+      <p>
+        Nous accompagnons les dirigeants et administrateurs de fonds de dotation afin qu’ils disposent d’une information financière fiable, d’une organisation sécurisée et d’une vision claire de l’utilisation des ressources qui leur sont confiées.
+      </p>
+
+      <h3>Ce que nous pouvons faire pour vous</h3>
+
+      <ul class="modal-services">
+
+        <li>
+          <strong>Réviser et établir une information financière fiable</strong>
+          <span>
+            Révision des comptes annuels et traitement adapté des opérations propres au fonds de dotation et à son modèle de financement.
+          </span>
+        </li>
+
+        <li>
+          <strong>Suivre précisément votre dotation et vos ressources</strong>
+          <span>
+            Organisation du suivi de la dotation en capital, de son éventuelle consommation lorsque les statuts le permettent, des revenus générés, des dons reçus et des ressources consacrées aux actions soutenues.
+          </span>
+        </li>
+
+        <li>
+          <strong>Piloter l’utilisation des fonds</strong>
+          <span>
+            Budgets et tableaux de bord permettant au conseil d’administration de suivre les ressources disponibles, les engagements pris et les financements accordés aux projets ou organismes bénéficiaires.
+          </span>
+        </li>
+
+        <li>
+          <strong>Sécuriser les dons, le mécénat et les reçus fiscaux</strong>
+          <span>
+            Analyse des conditions d’éligibilité, accompagnement en matière de rescrit mécénat lorsque cela est pertinent et mise en place de circuits fiables pour la collecte, le suivi des donateurs et l’émission des reçus fiscaux.
+          </span>
+        </li>
+
+        <li>
+          <strong>Organiser vos obligations comptables et réglementaires</strong>
+          <span>
+            Comptes annuels, éléments nécessaires au rapport d’activité, suivi de la générosité du public lorsqu’elle existe et préparation des informations destinées aux organes de gouvernance ou aux autorités compétentes.
+          </span>
+        </li>
+
+        <li>
+          <strong>Digitaliser votre gestion</strong>
+          <span>
+            Mise en place ou optimisation d’outils comptables, circuits de validation, notes de frais, collecte de données et automatisation des processus administratifs et financiers.
+          </span>
+        </li>
+
+        <li>
+          <strong>Assurer la certification de vos comptes</strong>
+          <span>
+            Intervention en qualité de commissaire aux comptes lorsque la réglementation l’impose ou lorsque la gouvernance du fonds souhaite volontairement renforcer la transparence et la confiance de ses partenaires.
+          </span>
+        </li>
+
+      </ul>
+
+    </div>
+  </div>
+</div>
 <!-- SERVICES -->
 <section id="services">
   <div class="section-header reveal">
-    <span class="section-tag">Nos Services</span>
+    <span class="section-tag">Nos Expertises</span>
     <h2 class="section-title">Cinq piliers pour <em>votre réussite</em></h2>
     <p class="section-intro">Du bilan comptable à la formation de vos équipes, nous couvrons l'intégralité de vos besoins avec une vision long terme.</p>
   </div>
@@ -820,7 +1686,7 @@
 <!-- WHY / HOW WE WORK -->
 <section id="why">
   <div class="reveal-left">
-    <span class="section-tag">Notre Approche</span>
+    <span class="section-tag">Notre Méthode</span>
     <h2 class="section-title">La bonne volonté c'est bien<br><em>L'Expertise c'est mieux</em></h2>
     <p class="section-intro" style="color:rgba(255,255,255,.55)">Confiez la gestion de votre association à un Expert. Nous nous positionnons à vos côtés en tant que véritable partenaire, pas seulement comme prestataire.</p>
     <div class="why-features" style="margin-top:3rem;">
@@ -861,8 +1727,24 @@
   </div>
 </section>
 
-<!-- TEAM -->
-<section id="team">
+<!-- RESSOURCES -->
+<section id="ressources">
+  <div class="section-header reveal">
+    <h2 class="section-title">Ressources</h2>
+    <p class="section-intro"></p>
+  </div>
+</section >
+
+<!-- AVIS CLIENTS -->
+<section id="avis">
+  <div class="section-header reveal">
+    <h2 class="section-title">Avis Clients</h2>
+    <p class="section-intro"></p>
+  </div>
+</section >
+
+<!-- CONTACT -->
+<section id="contact">
   <div class="section-header reveal">
     <h2 class="section-title">Un <em>expert</em> engagé à vos côtés</h2>
     <p class="section-intro">Toute notre équipe travaille dans une même vision : votre réussite.</p>
@@ -911,7 +1793,7 @@
       </div>
     </div>
     <div class="footer-col">
-      <h5>Votre Profil</h5>
+      <h5>Vos Profils</h5>
       <ul>
         <li><a href="#">Associations 1901</a></li>
         <li><a href="#">Associations 1905</a></li>
@@ -982,6 +1864,139 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 reveals.forEach(el => observer.observe(el));
+
+// Modal
+document.addEventListener('DOMContentLoaded', function () {
+
+  const profileCards = document.querySelectorAll('.profile-card');
+  const modals = document.querySelectorAll('.profile-modal');
+
+  let scrollPosition = 0;
+
+
+  /* ─────────────────────────────────────
+     OPEN MODAL
+  ───────────────────────────────────── */
+
+  function openModal(modal) {
+
+    if (!modal) return;
+
+    scrollPosition = window.scrollY;
+
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+
+    /*
+      Prevent the background page from scrolling
+      WITHOUT jumping the page to the top.
+    */
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.left = '0';
+    document.body.style.right = '0';
+    document.body.style.width = '100%';
+
+    document.body.classList.add('modal-open');
+  }
+
+
+  /* ─────────────────────────────────────
+     CLOSE MODAL
+  ───────────────────────────────────── */
+
+  function closeModal(modal) {
+
+    if (!modal) return;
+
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+
+    document.body.classList.remove('modal-open');
+
+    /*
+      Restore exact previous scroll position.
+    */
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.left = '';
+    document.body.style.right = '';
+    document.body.style.width = '';
+
+    window.scrollTo(0, scrollPosition);
+  }
+
+
+  /* ─────────────────────────────────────
+     CLICK PROFILE CARD
+  ───────────────────────────────────── */
+
+  profileCards.forEach(function (card) {
+
+    card.addEventListener('click', function (event) {
+
+      /*
+        Prevent the click from being handled twice
+        when clicking "En savoir plus".
+      */
+      event.preventDefault();
+
+      const modalId = card.getAttribute('data-modal');
+      const modal = document.getElementById(modalId);
+
+      if (modal) {
+        openModal(modal);
+      }
+
+    });
+
+  });
+
+
+  /* ─────────────────────────────────────
+     CLOSE BUTTON / OVERLAY
+  ───────────────────────────────────── */
+
+  modals.forEach(function (modal) {
+
+    const closeElements = modal.querySelectorAll('[data-modal-close]');
+
+    closeElements.forEach(function (element) {
+
+      element.addEventListener('click', function (event) {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        closeModal(modal);
+
+      });
+
+    });
+
+  });
+
+
+  /* ─────────────────────────────────────
+     ESCAPE KEY
+  ───────────────────────────────────── */
+
+  document.addEventListener('keydown', function (event) {
+
+    if (event.key === 'Escape') {
+
+      const openModalElement =
+        document.querySelector('.profile-modal.open');
+
+      if (openModalElement) {
+        closeModal(openModalElement);
+      }
+
+    }
+
+  });
+
+});
 </script>
 </body>
 </html>
